@@ -32,9 +32,8 @@
 
   .headingOne {
     @apply font-semibold tracking-tight;
-    font-size: clamp(42px, 7vw, 96px);
+    font-size: clamp(42px, 7vw, 76px);
     line-height: 0.95;
-    color: var(--text-primary);
   }
 
   /* =========================================
@@ -45,7 +44,6 @@
     @apply font-semibold;
     font-size: clamp(32px, 5vw, 64px);
     line-height: 1;
-    color: var(--text-primary);
   }
 
   /* =========================================
@@ -56,7 +54,6 @@
     @apply font-semibold;
     font-size: clamp(28px, 4vw, 48px);
     line-height: 1.1;
-    color: var(--text-primary);
   }
 
   /* =========================================
@@ -67,7 +64,6 @@
     @apply font-medium;
     font-size: clamp(24px, 3vw, 36px);
     line-height: 1.15;
-    color: var(--text-primary);
   }
 
   /* =========================================

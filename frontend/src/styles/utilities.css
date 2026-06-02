@@ -14,7 +14,14 @@
   .text-theme-muted {
     color: var(--text-muted);
   }
+  .text-theme-muted {
+    color: var(--text-muted);
+  }
 
+  .text-theme-inverted {
+    color: var(--text-inverted);
+  }
+  
   /* =========================================
      BACKGROUND COLORS
   ========================================= */
@@ -30,7 +37,20 @@
   .bg-theme-tertiary {
     background-color: var(--bg-tertiary);
   }
+/* ==========================================
+     Home section */
+  /* ========================================= */
+  .glow-orange {
+  box-shadow:
+    0 0 30px rgba(255, 81, 1, 0.3),
+    0 0 80px rgba(255, 81, 1, 0.15);
+}
 
+.glow-orange-lg {
+  box-shadow:
+    0 0 50px rgba(255, 81, 1, 0.4),
+    0 0 120px rgba(255, 81, 1, 0.2);
+}
   /* =========================================
      BRAND
   ========================================= */
