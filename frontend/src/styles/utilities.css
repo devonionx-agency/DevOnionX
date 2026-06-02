@@ -1,0 +1,44 @@
+@layer components {
+  /* =========================================
+     TEXT COLORS
+  ========================================= */
+
+  .text-theme-primary {
+    color: var(--text-primary);
+  }
+
+  .text-theme-secondary {
+    color: var(--text-secondary);
+  }
+
+  .text-theme-muted {
+    color: var(--text-muted);
+  }
+
+  /* =========================================
+     BRAND
+  ========================================= */
+
+  .text-brand {
+    color: var(--color-brand);
+  }
+
+  .bg-brand {
+    background: var(--color-brand);
+  }
+
+  .border-brand {
+    border-color: var(--color-brand);
+  }
+
+  /* =========================================
+     GRADIENT TEXT
+  ========================================= */
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ff5101, #ff8a4c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

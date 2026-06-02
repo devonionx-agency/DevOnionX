@@ -1,0 +1,114 @@
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  body,
+  p,
+  span,
+  a,
+  li,
+  button,
+  input,
+  textarea {
+    font-family: var(--font-body);
+  }
+
+  code,
+  pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  /* =========================================
+     HERO HEADING
+  ========================================= */
+
+  .headingOne {
+    @apply font-semibold tracking-tight;
+    font-size: clamp(42px, 7vw, 96px);
+    line-height: 0.95;
+    color: var(--text-primary);
+  }
+
+  /* =========================================
+     PAGE TITLE
+  ========================================= */
+
+  .headingTwo {
+    @apply font-semibold;
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1;
+    color: var(--text-primary);
+  }
+
+  /* =========================================
+     SECTION TITLE
+  ========================================= */
+
+  .headingThree {
+    @apply font-semibold;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+
+  /* =========================================
+     SUB TITLE
+  ========================================= */
+
+  .headingFour {
+    @apply font-medium;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.15;
+    color: var(--text-primary);
+  }
+
+  /* =========================================
+     CARD TITLE
+  ========================================= */
+
+  .headingFive {
+    @apply font-medium;
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+
+  /* =========================================
+     SMALL TITLE
+  ========================================= */
+
+  .headingSix {
+    @apply font-medium;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-primary);
+  }
+
+  /* =========================================
+     PARAGRAPH
+  ========================================= */
+
+  .para-lg {
+    font-size: 18px;
+    line-height: 2;
+    color: var(--text-secondary);
+  }
+
+  .para-xl {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .para-muted {
+    color: var(--text-muted);
+  }
+}
