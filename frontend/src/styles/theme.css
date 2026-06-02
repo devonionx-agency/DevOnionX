@@ -19,9 +19,18 @@
 ========================================= */
 
 :root {
+  /* Background */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+
+  /* Text */
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
+
+  /* Border */
+  --border-color: #e2e8f0;
 }
 
 /* =========================================
@@ -29,7 +38,16 @@
 ========================================= */
 
 .dark {
+  /* Background */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #111111;
+
+  /* Text */
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
+
+  /* Border */
+  --border-color: rgba(255, 255, 255, 0.08);
 }

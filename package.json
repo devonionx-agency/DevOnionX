@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "concurrently": "^9.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^1.17.0"
   }
 }
