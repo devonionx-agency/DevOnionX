@@ -73,24 +73,20 @@ export default function Navbar() {
 
   return (
     <header
-      role="banner"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#02090F]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_1px_0_0_rgba(255,255,255,0.04)]"
-          : "bg-transparent"
-      }`}
-    >
-      <nav
-        aria-label="Main navigation"
-        className="max-w-7xl mx-auto px-5 md:px-8"
-      >
-        <NavbarDesktop navLinks={navLinks} />
-        <NavbarMobile
-          navLinks={navLinks}
-          isOpen={mobileOpen}
-          setIsOpen={setMobileOpen}
-        />
-      </nav>
-    </header>
+  role="banner"
+  className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/10"
+>
+  <nav
+    aria-label="Main navigation"
+    className="max-w-7xl mx-auto px-5 md:px-8"
+  >
+    <NavbarDesktop navLinks={navLinks} />
+    <NavbarMobile
+      navLinks={navLinks}
+      isOpen={mobileOpen}
+      setIsOpen={setMobileOpen}
+    />
+  </nav>
+</header>
   );
 }
