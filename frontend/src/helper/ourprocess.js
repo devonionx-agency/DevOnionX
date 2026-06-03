@@ -4,7 +4,7 @@ export const steps = [
     number: "01",
     title: "Discovery",
     description:
-      "We go deep into your business, goals, and constraints to understand what truly matters before a single line is written.",
+      "Understand the business, audience, goals, and technical requirements before making any decisions.",
     tags: ["Brief", "Audit", "Research"],
     icon: <FiSearch size={22} />,
   },
@@ -12,23 +12,23 @@ export const steps = [
     number: "02",
     title: "Strategy",
     description:
-      "Architecture decisions, tech stack, information design, and a sprint roadmap that keeps every stakeholder aligned.",
-    tags: ["Architecture", "IA", "Roadmap"],
+      "Define the architecture, tech stack, and roadmap to ensure the project is scalable from day one.",
+    tags: ["Architecture", "Tech Stack", "Roadmap"],
     icon: <FiLayout size={22} />,
   },
   {
     number: "03",
     title: "Design",
     description:
-      "UI systems, motion language, and high-fidelity screens built for conversion — not just aesthetics.",
-    tags: ["Design System", "Figma", "Motion"],
+      "Create intuitive user experiences and polished interfaces that balance usability and conversion.",
+    tags: ["Design System", "Figma"],
     icon: <FiPenTool size={22} />,
   },
   {
     number: "04",
     title: "Development",
     description:
-      "Production-grade Next.js engineering — clean architecture, optimised performance, CI/CD, and full test coverage.",
+      "Build fast, scalable, and maintainable applications with clean code and production-ready architecture.",
     tags: ["Next.js", "API", "CI/CD"],
     icon: <FiCode size={22} />,
   },
@@ -36,8 +36,8 @@ export const steps = [
     number: "05",
     title: "Launch",
     description:
-      "Deploy, monitor, iterate. We hand off with full documentation and stay on as your growth partner.",
-    tags: ["Deploy", "Analytics", "Support"],
+      "Deploy, monitor, and support the product after launch to ensure long-term reliability and growth.",
+    tags: ["Deploy", "Monitoring", "Support"],
     icon: <FiSend size={22} />,
   },
 ];
