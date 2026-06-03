@@ -152,24 +152,6 @@ export default function HomeSection() {
                 <ArrowRight size={18} />
               </button>
             </div>
-
-            <div className="mt-10 lg:mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 rounded-3xl border border-white/10 bg-white/[0.02] p-4 lg:p-6 backdrop-blur-sm">
-              {stats.map((item, index) => (
-                <div key={index} className="stats-card">
-                  <div className="mb-3 flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-full border border-[#FF5101]/20 bg-[#FF5101]/10 text-white/80">
-                    <item.icon size={18} />
-                  </div>
-
-                  <h3 className="text-xl lg:text-2xl font-bold">
-                    {item.value}
-                  </h3>
-
-                  <p className="mt-1 text-xs lg:text-sm text-zinc-500">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Desktop Visual Only */}
