@@ -1,10 +1,9 @@
-import HeroSection from '@/components/sections/HeroSection'
-import React from 'react'
+import HeroSection from "@/components/sections/HeroSection";
 
 export default function page() {
   return (
     <>
-    <HeroSection/>
+      <HeroSection />
     </>
-  )
+  );
 }
