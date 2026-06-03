@@ -24,7 +24,7 @@ export default function NavbarDesktop({ navLinks }) {
           <li key={href} className="relative group">
             <Link
               href={href}
-              className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors duration-200"
+              className="flex items-center gap-1 px-4 py-2 text-[18px] font-medium text-white/80 hover:text-[var(--text-inverted)] transition-colors duration-200"
             >
               {label}
 
