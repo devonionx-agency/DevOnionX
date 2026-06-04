@@ -3,6 +3,7 @@ import HomeServices from '@/components/sections/HomeServices'
 import OurProcess from '@/components/sections/OurProcess'
 import PortfolioPreview from '@/components/sections/PortfolioPreview'
 import TrustMetrics from '@/components/sections/TrustMetrics'
+import WhyChoose from '@/components/sections/WhyChoose'
 
 
 export default function page() {
@@ -13,6 +14,7 @@ export default function page() {
     <PortfolioPreview/>
     <HomeServices/>
     <OurProcess/>
+    <WhyChoose/>
     </>
   );
 }

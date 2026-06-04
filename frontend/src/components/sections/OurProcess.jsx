@@ -6,7 +6,7 @@ import Container from "../ui/Container";
 
 export default function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-[#02090F] px-6 py-[120px]">
+    <section className="relative overflow-hidden bg-[#02090F] px-6 py-10 xl:py-[80px]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -16,10 +16,10 @@ export default function ProcessSection() {
           backgroundSize: "64px 64px",
         }}
       />
-      <Container size="lg">
-        <div className="relative mx-auto">
+      <Container size="xl">
+        <div className="relative">
           {/* Header */}
-          <div className="mb-20 text-center">
+          <div className="pb-20 text-center">
             <SectionHeader
               label="Our Process"
               text="How We Build Digital Products"
@@ -27,7 +27,8 @@ export default function ProcessSection() {
             />
 
             <p className="mx-auto max-w-[460px] text-[18px] leading-[1.7] text-white/85">
-             A structured process for turning ideas into scalable digital products.
+              A structured process for turning ideas into scalable digital
+              products.
             </p>
           </div>
 
