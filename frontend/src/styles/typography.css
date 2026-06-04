@@ -90,6 +90,15 @@
      PARAGRAPH
   ========================================= */
 
+  .para-xs {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .para-base {
+    font-size: 16px;
+    line-height: 1.5;
+  }
   .para-lg {
     font-size: 18px;
     line-height: 2;
