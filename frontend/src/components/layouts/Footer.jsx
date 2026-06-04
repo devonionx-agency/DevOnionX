@@ -116,7 +116,7 @@ export default function Footer() {
           <section className="border-t border-white/10">
             <div className="grid gap-10 py-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
               {/* Brand */}
-              <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
+              <div className="rounded-[28px] border border-white/20 bg-white/3 p-8">
                 <Link
                   href="/"
                   className="inline-flex items-center"
