@@ -27,7 +27,7 @@ export default function ProcessSection() {
               colorWord="Digital Products"
             />
 
-            <p className="mx-auto max-w-[460px] text-[18px] leading-[1.7] text-white/85">
+            <p className="mx-auto max-w-[460px] para-lg text-white/80">
               A structured process for turning ideas into scalable digital
               products.
             </p>
