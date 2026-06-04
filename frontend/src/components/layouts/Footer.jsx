@@ -52,7 +52,7 @@ export default function Footer() {
                     <br />
                     Let&apos;s turn it into{" "}
                     <span className="bg-gradient-to-r from-[#FF5101] via-pink-500 to-violet-500 bg-clip-text text-transparent">
-                      something exceptional.
+                      something exceptional
                     </span>
                   </h2>
 
@@ -140,7 +140,7 @@ export default function Footer() {
               <div>
                 <FooterHeading>Our Agency</FooterHeading>
 
-                <nav className="flex flex-col gap-4">
+                <nav className="flex flex-col gap-5">
                   {companyLinks.map((item) => (
                     <FooterLink key={item.name} href={item.href}>
                       {item.name}
@@ -153,7 +153,7 @@ export default function Footer() {
               <div>
                 <FooterHeading>Services</FooterHeading>
 
-                <nav className="flex flex-col gap-4">
+                <nav className="flex flex-col gap-5">
                   {serviceLinks.map((item) => (
                     <FooterLink key={item.name} href={item.href}>
                       {item.name}

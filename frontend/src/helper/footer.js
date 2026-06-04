@@ -3,6 +3,7 @@ import { FaWhatsapp } from "react-icons/fa";
 export const companyLinks = [
   { name: "Our Story", href: "/about" },
   { name: "Our Work", href: "/work" },
+  { name: "Our Services", href: "/services" },
   { name: "Insights", href: "/insights" },
   { name: "Contact", href: "/contact" },
 ];
