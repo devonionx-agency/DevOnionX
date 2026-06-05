@@ -21,7 +21,7 @@
   .text-theme-inverted {
     color: var(--text-inverted);
   }
-  
+
   /* =========================================
      BACKGROUND COLORS
   ========================================= */
@@ -37,20 +37,20 @@
   .bg-theme-tertiary {
     background-color: var(--bg-tertiary);
   }
-/* ==========================================
+  /* ==========================================
      Home section */
   /* ========================================= */
   .glow-orange {
-  box-shadow:
-    0 0 30px rgba(255, 81, 1, 0.3),
-    0 0 80px rgba(255, 81, 1, 0.15);
-}
+    box-shadow:
+      0 0 30px rgba(255, 81, 1, 0.3),
+      0 0 80px rgba(255, 81, 1, 0.15);
+  }
 
-.glow-orange-lg {
-  box-shadow:
-    0 0 50px rgba(255, 81, 1, 0.4),
-    0 0 120px rgba(255, 81, 1, 0.2);
-}
+  .glow-orange-lg {
+    box-shadow:
+      0 0 50px rgba(255, 81, 1, 0.4),
+      0 0 120px rgba(255, 81, 1, 0.2);
+  }
   /* =========================================
      BRAND
   ========================================= */
@@ -80,11 +80,7 @@
   ========================================= */
 
   .text-gradient {
-    background: linear-gradient(
-      135deg,
-      var(--color-brand),
-      #ff8a4c
-    );
+    background: linear-gradient(135deg, var(--color-brand), #ff8a4c);
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -96,11 +92,7 @@
   ========================================= */
 
   .bg-gradient-brand {
-    background: linear-gradient(
-      135deg,
-      var(--color-brand),
-      #ff8a4c
-    );
+    background: linear-gradient(135deg, var(--color-brand), #ff8a4c);
   }
 
   /* =========================================
@@ -147,4 +139,31 @@
       border-color 0.3s ease,
       transform 0.3s ease;
   }
+}
+/* Testimonial Cards */
+.swiper-wrapper {
+  align-items: stretch !important;
+}
+
+.swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
+
+.swiper-slide > * {
+  width: 100%;
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.3) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff5101 !important;
 }

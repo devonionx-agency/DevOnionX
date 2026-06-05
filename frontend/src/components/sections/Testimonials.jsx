@@ -52,14 +52,10 @@ export default function Testimonials() {
   return (
     <section className="bg-[#02090F] py-10">
       {/* Background Glow */}
-      <div
-        className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-accent/10 blur-[140px]"
-      />
+      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-accent/10 blur-[140px]" />
 
       {/* Grid Texture */}
-      <div
-        className="absolute inset-0 opacity-[0.03] [background-image:radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px]"
-      />
+      <div className="absolute inset-0 opacity-[0.03] [background-image:radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px]" />
 
       <Container className="relative z-10">
         {/* Section Header */}
@@ -70,11 +66,8 @@ export default function Testimonials() {
         />
 
         {/* Sub Text */}
-        <p
-          className="mx-auto mt-2 mb-16 max-w-2xl text-center text-base leading-8 text-white/80
-          sm:text-lg"
-        >
-          Real feedback from people I've worked with on frontend projects,
+        <p className="mx-auto mt-2 mb-16 max-w-2xl text-center text-base leading-8 text-white/80 sm:text-lg">
+          Real feedback from people I&apos;ve worked with on frontend projects,
           modern interfaces, and premium web experiences.
         </p>
 
@@ -101,13 +94,9 @@ export default function Testimonials() {
         </div>
 
         {/* Navigation */}
-        <div
-          className="mt-16 flex items-center justify-center gap-5"
-        >
+        <div className="mt-16 flex items-center justify-center gap-5">
           {/* Prev */}
-          <button
-            className="testimonial-prev flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white text-whitetransition-all duration-300 hover:border-accent/40 hover:text-accent"
-          >
+          <button className="testimonial-prev flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white text-whitetransition-all duration-300 hover:border-accent/40 hover:text-accent">
             <HiOutlineArrowLeft className="text-xl" />
           </button>
 
@@ -115,9 +104,7 @@ export default function Testimonials() {
           <div className="testimonial-pagination !w-fit" />
 
           {/* Next */}
-          <button
-            className="testimonial-next flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white text-black transition-all duration-300 hover:border-accent/40 hover:text-accent"
-          >
+          <button className="testimonial-next flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white text-black transition-all duration-300 hover:border-accent/40 hover:text-accent">
             <HiOutlineArrowRight className="text-xl" />
           </button>
         </div>

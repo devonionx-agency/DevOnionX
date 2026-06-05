@@ -40,8 +40,7 @@ function StepCard({ step, index, total }) {
         </span>
 
         <div
-          className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/3
-          text-[#39ff6a] transition-colors duration-300 group-hover:text-[#FF5101]"
+          className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/3 text-[#39ff6a] transition-colors duration-300 group-hover:text-[#FF5101]"
         >
           {step.icon}
         </div>
