@@ -1,11 +1,13 @@
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/sections/HeroSection";
 import HomeServices from "@/components/sections/HomeServices";
 import Insights from "@/components/sections/Insights";
 import OurProcess from "@/components/sections/OurProcess";
 import PortfolioPreview from "@/components/sections/PortfolioPreview";
-import Testimonials from "@/components/sections/Testimonials";
 import TrustMetrics from "@/components/sections/TrustMetrics";
 import WhyChoose from "@/components/sections/WhyChoose";
+
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
 
 export default function page() {
   return (

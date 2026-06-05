@@ -30,19 +30,11 @@ export default function TestimonialCard({ item, index }) {
   );
 
   return (
-    <article
-      className="group relative flex h-full flex-col min-h-[320px] rounded-[32px] border border-white/10
-      bg-[#0a0a0a] p-7 transition-all duration-500 hover:-translate-y-2
-    "
-    >
+    <article className="group relative flex h-full flex-col min-h-[320px] rounded-[32px] border border-white/10 bg-[#0a0a0a] p-7 transition-all duration-500 hover:-translate-y-2">
       {/* Hover Glow */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-      >
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <div className="absolute inset-0 rounded-[32px] border border-orange-500/30" />
-        <div
-          className="absolute -bottom-24 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl"
-        />
+        <div className="absolute -bottom-24 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
       </div>
 
       <div className="relative z-10 flex h-full flex-col">
@@ -71,48 +63,15 @@ export default function TestimonialCard({ item, index }) {
         </div>
 
         {/* Review */}
-        <p
-          className="
-          flex-1
-          text-[15px]
-          leading-8
-          text-black/80
-          dark:text-white/80
-          line-clamp-8 
-        "
-        >
+        <p className="flex-1 text-[15px] leading-8 text-black/80 dark:text-white/80 line-clamp-8">
           {item.text}
         </p>
 
         {/* Bottom */}
-        <div
-          className="
-          mt-10
-          flex
-          items-center
-          justify-between
-          gap-4
-          border-t
-          border-black/10
-          dark:border-white/10
-          pt-6
-        "
-        >
+        <div className="mt-10 flex items-center justify-between gap-4 border-t border-black/10 dark:border-white/10 pt-6">
           <div className="flex items-center gap-4">
             {/* Image */}
-            <div
-              className="
-              relative
-              h-14
-              w-14
-              overflow-hidden
-              rounded-full
-              border
-              border-orange-500/30
-              bg-black/5
-              dark:bg-white/5
-            "
-            >
+            <div className="relative h-14 w-14 overflow-hidden rounded-full border border-orange-500/30 bg-black/5 dark:bg-white/5">
               <Image
                 src={item.avatar}
                 alt={item.name}
@@ -128,52 +87,17 @@ export default function TestimonialCard({ item, index }) {
 
             {/* Info */}
             <div>
-              <h3
-                className="
-                text-base
-                font-semibold
-                text-black
-                dark:text-white
-              "
-              >
+              <h3 className="text-base font-semibold text-black dark:text-white">
                 {item.name}
               </h3>
-              <p
-                className="
-                mt-1
-                text-sm
-                text-black/45
-                dark:text-white/45
-              "
-              >
+              <p className="mt-1 text-sm text-black/45 dark:text-white/45">
                 {item.role} · {item.company}
               </p>
             </div>
           </div>
 
           {/* Icon */}
-          <div
-            className="
-            flex
-            h-11
-            w-11
-            items-center
-            justify-center
-            rounded-xl
-            border
-            border-black/10
-            dark:border-white/10
-            bg-black/[0.03]
-            dark:bg-white/[0.03]
-            text-lg
-            text-black/70
-            dark:text-white/70
-            transition-all
-            duration-300
-            group-hover:border-orange-500/30
-            group-hover:text-orange-400
-          "
-          >
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] text-lg text-black/70 dark:text-white/70 transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-400">
             <Icon />
           </div>
         </div>
