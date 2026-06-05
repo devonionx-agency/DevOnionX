@@ -2,26 +2,12 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import { FaStar } from "react-icons/fa6";
-import {
-  RiFacebookFill,
-  RiLinkedinFill,
-  RiTwitterXFill,
-  RiGithubFill,
-  RiDribbbleFill,
-} from "react-icons/ri";
-
-// Component er baaire — module level e ekbar create hoy, bar bar noy
-const socialIcons = [
-  RiLinkedinFill,
-  RiFacebookFill,
-  RiTwitterXFill,
-  RiGithubFill,
-  RiDribbbleFill,
-];
+import { Star } from "lucide-react";
+import { RiDoubleQuotesL } from "react-icons/ri";
+import Link from "next/link";
 
 export default function TestimonialCard({ item, index }) {
-  const Icon = socialIcons[index % socialIcons.length];
+  const Icon = item.icon;
 
   // Protic render e notu Array.from() avoid kora hocche
   const stars = useMemo(
@@ -40,30 +26,19 @@ export default function TestimonialCard({ item, index }) {
       <div className="relative z-10 flex h-full flex-col">
         {/* Top */}
         <div className="mb-6 flex items-center justify-between">
-          <svg
-            width="64"
-            height="64"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-orange-500"
-          >
-            <path
-              d="M10 11H6.5C6.5 14 5 15 3 15V18C7 18 10 15 10 11ZM21 11H17.5C17.5 14 16 15 14 15V18C18 18 21 15 21 11Z"
-              fill="currentColor"
-            />
-          </svg>
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF5101]/10">
+            <RiDoubleQuotesL className="text-3xl text-[#FF5101]" />
+          </div>
 
-          <div className="flex items-center gap-1 text-orange-400">
-            {/* useMemo theke cached stars array use kora hocche */}
+          <div className="flex items-center gap-1">
             {stars.map((_, i) => (
-              <FaStar key={i} className="text-sm" />
+              <Star key={i} className="h-4 w-4 fill-[#FF5101] text-[#FF5101]" />
             ))}
           </div>
         </div>
 
         {/* Review */}
-        <p className="flex-1 text-[15px] leading-8 text-black/80 dark:text-white/80 line-clamp-8">
+        <p className="flex-1 text-[15px] leading-8 text-white/80">
           {item.text}
         </p>
 
@@ -81,7 +56,6 @@ export default function TestimonialCard({ item, index }) {
                 // Viewport e first few card visible thakle priority dewa uchit
                 // Baakigulo lazy load e thakbe (default)
                 loading={index < 2 ? "eager" : "lazy"}
-                // Local image hওয়ায় sizes dite hobe না — Next.js নিজেই optimize করবে
               />
             </div>
 
@@ -97,9 +71,14 @@ export default function TestimonialCard({ item, index }) {
           </div>
 
           {/* Icon */}
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] text-lg text-black/70 dark:text-white/70 transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-400">
+          <Link
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] text-lg text-black/70 dark:text-white/70 transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-400"
+          >
             <Icon />
-          </div>
+          </Link>
         </div>
       </div>
     </article>
