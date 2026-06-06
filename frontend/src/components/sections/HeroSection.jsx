@@ -6,7 +6,6 @@ import Container from "../ui/Container";
 import ParticlesBackground from "../ui/ParticlesBackground";
 import OrbitRing from "../ui/OrbitRing";
 import DashboardCard from "../ui/DashboardCard";
-import MobileCard from "../ui/MobileCard";
 import CRMCard from "../ui/CRMCard";
 import { ArrowRight } from "lucide-react";
 import { stats } from "@/helper/herohelper";
@@ -45,25 +44,10 @@ export default function HomeSection() {
         delay: 0.3,
       });
 
-      gsap.from(".stats-card", {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        stagger: 0.08,
-        delay: 0.4,
-      });
-
       gsap.from(".dashboard-card", {
         opacity: 0,
         x: 100,
         duration: 1,
-      });
-
-      gsap.from(".mobile-card", {
-        opacity: 0,
-        x: -100,
-        duration: 1,
-        delay: 0.2,
       });
 
       gsap.from(".crm-card", {
@@ -81,20 +65,13 @@ export default function HomeSection() {
         ease: "power1.inOut",
       });
 
-      gsap.to(".mobile-card", {
-        y: -18,
-        repeat: -1,
-        yoyo: true,
-        duration: 4,
-        ease: "power1.inOut",
-      });
-
       gsap.to(".crm-card", {
-        y: -10,
+        y: -5,
         repeat: -1,
         yoyo: true,
         duration: 3.5,
         ease: "power1.inOut",
+        delay:1,
       });
     }, heroRef);
 
@@ -116,7 +93,7 @@ export default function HomeSection() {
 
       <Container
         size="hero"
-        className="relative z-10 min-h-[850px] lg:min-h-screen flex items-center"
+        className="relative z-10 lg:min-h-screen flex items-center"
       >
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center py-8 lg:py-24 w-full">
           {/* LEFT */}
@@ -126,7 +103,7 @@ export default function HomeSection() {
               Digital Products. Engineered To Scale.
             </div>
 
-            <h1 className=" mt-6 lg:mt-8 headingOne">
+            <h1 className="hero-title pt-6 lg:mt-8 headingOne">
               Building Digital Products That
               <br />
               <span className="bg-gradient-to-r from-[#FF5101] via-orange-300 to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
@@ -134,7 +111,7 @@ export default function HomeSection() {
               </span>
             </h1>
 
-            <p className=" mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed">
+            <p className="hero-text mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed">
               We help ambitious startups and businesses build scalable digital
               products and experiences that drive measurable growth.
             </p>
@@ -162,17 +139,13 @@ export default function HomeSection() {
               <DashboardCard />
             </div>
 
-            <div className="mobile-card absolute left-15 top-110 z-20">
-              <MobileCard />
-            </div>
-
             <div className="crm-card absolute -right-15 bottom-10 z-20">
               <CRMCard />
             </div>
 
-            <div className="absolute left-[45%] top-[70%] z-30 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-[#FF5101]/20 bg-black shadow-[0_0_60px_rgba(255,81,1,.4)]">
+            {/* <div className="absolute left-[45%] top-[70%] z-30 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-[#FF5101]/20 bg-black shadow-[0_0_60px_rgba(255,81,1,.4)]">
               <span className="text-5xl font-bold text-[#FF5101]">X</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>

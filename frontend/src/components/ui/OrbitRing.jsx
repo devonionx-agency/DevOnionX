@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -7,13 +6,17 @@ export default function OrbitRing() {
   const orbitRef = useRef(null);
 
   useEffect(() => {
-    gsap.to(orbitRef.current, {
+    if (!orbitRef.current) return; // ✅ null check
+
+    const anim = gsap.to(orbitRef.current, {
       rotation: 360,
       duration: 20,
       repeat: -1,
       ease: "none",
       transformOrigin: "center center",
     });
+
+    return () => anim.kill(); // ✅ cleanup
   }, []);
 
   return (
