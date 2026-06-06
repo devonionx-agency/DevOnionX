@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import NavbarDesktop from "./NavbarDesktop";
 import NavbarMobile from "./NavbarMobile";
-import { RiArrowDownSLine } from "react-icons/ri";
 export const navLinks = [
   {
     label: "Services",

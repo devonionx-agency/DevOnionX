@@ -22,7 +22,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
           src="/images/logo/navlogo.png"
           alt="DevonionX"
           width={180}
-          height={40}
+          height={43}
           priority
         />
       </Link>

@@ -44,25 +44,10 @@ export default function HomeSection() {
         delay: 0.3,
       });
 
-      gsap.from(".stats-card", {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        stagger: 0.08,
-        delay: 0.4,
-      });
-
       gsap.from(".dashboard-card", {
         opacity: 0,
         x: 100,
         duration: 1,
-      });
-
-      gsap.from(".mobile-card", {
-        opacity: 0,
-        x: -100,
-        duration: 1,
-        delay: 0.2,
       });
 
       gsap.from(".crm-card", {
@@ -77,14 +62,6 @@ export default function HomeSection() {
         repeat: -1,
         yoyo: true,
         duration: 3,
-        ease: "power1.inOut",
-      });
-
-      gsap.to(".mobile-card", {
-        y: -18,
-        repeat: -1,
-        yoyo: true,
-        duration: 4,
         ease: "power1.inOut",
       });
 
@@ -126,7 +103,7 @@ export default function HomeSection() {
               Digital Products. Engineered To Scale.
             </div>
 
-            <h1 className=" mt-6 lg:mt-8 headingOne">
+            <h1 className="hero-title pt-6 lg:mt-8 headingOne">
               Building Digital Products That
               <br />
               <span className="bg-gradient-to-r from-[#FF5101] via-orange-300 to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
@@ -134,7 +111,7 @@ export default function HomeSection() {
               </span>
             </h1>
 
-            <p className=" mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed">
+            <p className="hero-text mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed">
               We help ambitious startups and businesses build scalable digital
               products and experiences that drive measurable growth.
             </p>
