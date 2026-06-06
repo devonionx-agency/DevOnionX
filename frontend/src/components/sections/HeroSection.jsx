@@ -8,7 +8,7 @@ import OrbitRing from "../ui/OrbitRing";
 import DashboardCard from "../ui/DashboardCard";
 import MobileCard from "../ui/MobileCard";
 import CRMCard from "../ui/CRMCard";
-import { ArrowRight} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { stats } from "@/helper/herohelper";
 
 export default function HomeSection() {
@@ -118,7 +118,7 @@ export default function HomeSection() {
         size="hero"
         className="relative z-10 min-h-[850px] lg:min-h-screen flex items-center"
       >
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 lg:py-24 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center py-8 lg:py-24 w-full">
           {/* LEFT */}
           <div className="max-w-2xl">
             <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-[#FF5101]/20 bg-[#FF5101]/10 px-4 py-2 text-xs sm:text-sm text-[#FF5101]">
@@ -129,12 +129,12 @@ export default function HomeSection() {
             <h1 className=" mt-6 lg:mt-8 headingOne">
               Building Digital Products That
               <br />
-              <span className="text-theme-inverted">
+              <span className="bg-gradient-to-r from-[#FF5101] via-orange-300 to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
                 Move Businesses Forward.
               </span>
             </h1>
 
-            <p className=" mt-6 lg:mt-8 max-w-xl text-base sm:text-lg text-zinc-400 leading-relaxed">
+            <p className=" mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed">
               We help ambitious startups and businesses build scalable digital
               products and experiences that drive measurable growth.
             </p>
@@ -158,11 +158,11 @@ export default function HomeSection() {
           <div className="hidden lg:block relative h-[720px]">
             <OrbitRing />
 
-            <div className="dashboard-card absolute right-15 top-5 z-20">
+            <div className="dashboard-card absolute right- -top-5 z-20">
               <DashboardCard />
             </div>
 
-            <div className="mobile-card absolute left-0 top-60 z-20">
+            <div className="mobile-card absolute left-15 top-110 z-20">
               <MobileCard />
             </div>
 
@@ -170,7 +170,7 @@ export default function HomeSection() {
               <CRMCard />
             </div>
 
-            <div className="absolute left-[35%] top-1/2 z-30 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-[#FF5101]/20 bg-black shadow-[0_0_60px_rgba(255,81,1,.4)]">
+            <div className="absolute left-[45%] top-[70%] z-30 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-[#FF5101]/20 bg-black shadow-[0_0_60px_rgba(255,81,1,.4)]">
               <span className="text-5xl font-bold text-[#FF5101]">X</span>
             </div>
           </div>
