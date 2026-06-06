@@ -24,17 +24,7 @@ export default function CRMCard() {
 
   return (
     <div
-      className="
-        relative
-        w-[380px]
-        rounded-[32px]
-        border border-white/5
-        bg-[#050505]/95
-        p-6
-        backdrop-blur-xl
-        ring-1 ring-white/10
-        shadow-[0_0_60px_rgba(255,81,1,.12)]
-      "
+     className="relative w-[380px] rounded-[32px] border border-white/5 bg-[#050505]/95 p-6 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_60px_rgba(255,81,1,.12)]"
     >
       {/* Accent Line */}
       <div className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-transparent via-[#FF5101]/70 to-transparent" />
@@ -51,20 +41,7 @@ export default function CRMCard() {
           <select
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="
-              appearance-none
-              rounded-xl
-              border border-white/10
-              bg-white/[0.03]
-              px-4
-              py-2
-              pr-9
-              text-sm
-              text-white
-              outline-none
-              transition
-              hover:border-white/20
-            "
+           className="appearance-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 pr-9 text-sm text-white outline-none transition hover:border-white/20"
           >
             {Object.keys(crmData).map((month) => (
               <option
@@ -135,16 +112,7 @@ export default function CRMCard() {
             {currentData.bars.map((height, index) => (
               <div
                 key={index}
-                className="
-                  flex-1
-                  rounded-t-full
-                  bg-gradient-to-t
-                  from-[#FF5101]
-                  to-[#FF7A3D]
-                  shadow-[0_0_20px_rgba(255,81,1,.25)]
-                  transition-all
-                  duration-500
-                "
+                className="flex-1 rounded-t-full bg-gradient-to-t from-[#FF5101] to-[#FF7A3D] shadow-[0_0_20px_rgba(255,81,1,.25)] transition-all duration-500"
                 style={{
                   height: `${height}px`,
                 }}

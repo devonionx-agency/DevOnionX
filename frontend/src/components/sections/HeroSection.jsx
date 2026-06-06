@@ -6,7 +6,6 @@ import Container from "../ui/Container";
 import ParticlesBackground from "../ui/ParticlesBackground";
 import OrbitRing from "../ui/OrbitRing";
 import DashboardCard from "../ui/DashboardCard";
-import MobileCard from "../ui/MobileCard";
 import CRMCard from "../ui/CRMCard";
 import { ArrowRight } from "lucide-react";
 import { stats } from "@/helper/herohelper";
@@ -90,11 +89,12 @@ export default function HomeSection() {
       });
 
       gsap.to(".crm-card", {
-        y: -10,
+        y: -5,
         repeat: -1,
         yoyo: true,
         duration: 3.5,
         ease: "power1.inOut",
+        delay:1,
       });
     }, heroRef);
 
@@ -116,7 +116,7 @@ export default function HomeSection() {
 
       <Container
         size="hero"
-        className="relative z-10 min-h-[850px] lg:min-h-screen flex items-center"
+        className="relative z-10 lg:min-h-screen flex items-center"
       >
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center py-8 lg:py-24 w-full">
           {/* LEFT */}
@@ -162,17 +162,13 @@ export default function HomeSection() {
               <DashboardCard />
             </div>
 
-            <div className="mobile-card absolute left-15 top-110 z-20">
-              <MobileCard />
-            </div>
-
             <div className="crm-card absolute -right-15 bottom-10 z-20">
               <CRMCard />
             </div>
 
-            <div className="absolute left-[45%] top-[70%] z-30 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-[#FF5101]/20 bg-black shadow-[0_0_60px_rgba(255,81,1,.4)]">
+            {/* <div className="absolute left-[45%] top-[70%] z-30 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-[#FF5101]/20 bg-black shadow-[0_0_60px_rgba(255,81,1,.4)]">
               <span className="text-5xl font-bold text-[#FF5101]">X</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>

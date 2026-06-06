@@ -4,8 +4,6 @@ import { forwardRef } from "react";
 
 const WhyChooseCard = forwardRef(({ feature }, ref) => {
   const Icon = feature.icon;
-  console.log(feature);
-  console.log(feature.icon);
 
   return (
     <div
