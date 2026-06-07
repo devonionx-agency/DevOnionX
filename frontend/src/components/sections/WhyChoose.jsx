@@ -18,6 +18,12 @@ export default function WhyChoose() {
   const cardsRef = useRef([]);
 
   useEffect(() => {
+    const cards = cardsRef.current.filter(Boolean);
+    if (!headerRef.current || !visualRef.current || cards.length === 0) return;
+
+    // ScrollTrigger refresh korar age e dekhabe
+    ScrollTrigger.refresh();
+
     const ctx = gsap.context(() => {
       gsap.from(headerRef.current, {
         opacity: 0,
@@ -41,14 +47,14 @@ export default function WhyChoose() {
         },
       });
 
-      gsap.from(cardsRef.current, {
+      gsap.from(cards, {
         opacity: 0,
         y: 40,
         duration: 0.7,
         stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: cardsRef.current[0],
+          trigger: cards[0],
           start: "top 85%",
         },
       });

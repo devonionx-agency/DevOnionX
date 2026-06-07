@@ -126,8 +126,7 @@ export default function Footer() {
                     src="/images/logo/navlogo.png"
                     alt="DevonionX"
                     width={180}
-                    height={40}
-                    className="h-auto"
+                    height={43}
                   />
                 </Link>
                 <p>
