@@ -33,11 +33,11 @@ video {
   max-width: 100%;
 }
 
-button {
+/* button {
   cursor: pointer;
   border: none;
   outline: none;
-}
+} */
 
 input,
 textarea {
