@@ -2,7 +2,7 @@
 import React from "react";
 import SectionHeader from "../ui/SectionHeader";
 import Container from "../ui/Container";
-export default function Insights() {
+export default function FeaturedWork() {
   return (
     <>
       <section className="bg-[#02090F]">
@@ -10,9 +10,9 @@ export default function Insights() {
           <div className="relative">
             <div className="pb-20 text-center">
               <SectionHeader
-                label="Our Blog"
-                text="Insights and Updates"
-                colorWord="Updates"
+                label="Our Work"
+                text="Projects That Drive Results"
+                colorWord="Drive Results"
               />
 
               <p className="mx-auto max-w-[600px] para-lg text-white/80">
