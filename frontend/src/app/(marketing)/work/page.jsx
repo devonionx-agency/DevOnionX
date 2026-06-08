@@ -1,7 +1,7 @@
 import PageHero from "@/components/common/PageHero";
 import WorkShowcase from "@/components/sections/work/WorkShowcase";
-import { workPageHeroData } from "@/helper/workPage";
-import React from "react";
+import { workPageHeroData } from "@/helper/pageHero";
+
 
 const page = () => {
   return (
