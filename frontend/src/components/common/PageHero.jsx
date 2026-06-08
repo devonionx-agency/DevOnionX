@@ -44,7 +44,7 @@ const PageHero = ({
   buttonSize = "lg",
   buttonClassName = "w-[220px] sm:w-[260px] lg:w-[300px] text-base lg:text-lg",
   buttonTextTypo = "font-medium",
-  buttonHref = "#",
+  buttonHref = "/contact",
 
   // ── waterfall ──
   waterfallPlates = [
