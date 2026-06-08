@@ -16,9 +16,6 @@ import {
 } from "react-icons/si";
 
 
-
-
-
 // for work category filter items
 
 export const workCategories = [

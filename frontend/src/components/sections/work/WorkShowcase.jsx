@@ -47,7 +47,7 @@ const WorkShowcase = () => {
       gsap.fromTo(
         gridRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
       );
     }
   };
@@ -75,7 +75,7 @@ const WorkShowcase = () => {
           duration: 0.5,
           stagger: 0.07,
         },
-        0.2
+        0.2,
       );
 
       // grid cards — stagger slide up
@@ -88,7 +88,7 @@ const WorkShowcase = () => {
           duration: 0.65,
           stagger: 0.1,
         },
-        0.4
+        0.4,
       );
 
       // load more button
@@ -97,7 +97,7 @@ const WorkShowcase = () => {
           loadMoreRef.current,
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.5 },
-          1.0
+          1.0,
         );
       }
     }, sectionRef);
@@ -115,7 +115,7 @@ const WorkShowcase = () => {
       gsap.fromTo(
         newCards,
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.55, stagger: 0.1, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 0.55, stagger: 0.1, ease: "power3.out" },
       );
     }
   }, [showCount]);
@@ -134,7 +134,9 @@ const WorkShowcase = () => {
           <div ref={filterRef} className="flex flex-wrap gap-2 sm:gap-3">
             {workCategories.map((items) => (
               <DirectionalButton
-                borderColor={activeCategory === items.value ? "#ff5101" : "#fff"}
+                borderColor={
+                  activeCategory === items.value ? "#ff5101" : "#fff"
+                }
                 textColor="white"
                 borderHoverColor="#ff5101"
                 label={items.label}
