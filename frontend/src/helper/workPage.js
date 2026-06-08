@@ -15,7 +15,7 @@ import {
   SiRedis,
 } from "react-icons/si";
 
-const { workPage } = allPageHeroImg;
+
 
 
 

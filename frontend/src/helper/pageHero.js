@@ -1,3 +1,6 @@
+import { allPageHeroImg } from "./imageProvider/pageHeroImage";
+
+const { workPage } = allPageHeroImg;
 // workPageData.js page hero (helper file)
 
 export const workPageHeroData = {
