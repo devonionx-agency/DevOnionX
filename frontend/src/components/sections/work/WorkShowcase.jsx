@@ -1,8 +1,11 @@
+"use client";
+
 import DirectionalButton from "@/components/common/Directionalbutton";
 import Responsive from "@/components/common/Responsive";
 import Container from "@/components/ui/Container";
+import FeaturedWorkCard from "@/components/ui/FeaturedWork";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { workCategories } from "@/helper/workPage";
+import { featuredWorkItems, workCategories } from "@/helper/workPage";
 import React from "react";
 
 const WorkShowcase = () => {
@@ -26,6 +29,14 @@ const WorkShowcase = () => {
               );
             })}
           </Responsive.Flex>
+        </div>
+
+        <div className="text-white mt-[80px] ">
+          <Responsive.Grid gap="lg" cols={{ base: 1, sm: 2, lg: 3 }}>
+            {featuredWorkItems.map((projects) => {
+              return <FeaturedWorkCard project={projects} key={projects.id} />;
+            })}
+          </Responsive.Grid>
         </div>
       </Container>
     </section>
