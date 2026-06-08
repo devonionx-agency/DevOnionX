@@ -2,7 +2,7 @@ import { allPageHeroImg } from "./imageProvider/pageHeroImage";
 
 const { workPage } = allPageHeroImg;
 
-// workPageData.js (helper file)
+// workPageData.js page hero (helper file)
 
 export const workPageHeroData = {
   buttonLabel: "Connect Us",
@@ -30,3 +30,17 @@ export const workPageHeroData = {
   ],
   heroPageImage: workPage[0].img,
 };
+
+// for work category filter items
+
+export const workCategories = [
+  { id: 1, label: "All Projects", value: "all" },
+  { id: 2, label: "Case Studies", value: "case-studies" },
+  { id: 3, label: "SaaS Platforms", value: "saas" },
+  { id: 4, label: "Business Websites", value: "business-websites" },
+  { id: 5, label: "AI Projects", value: "ai" },
+  { id: 6, label: "E-Commerce", value: "ecommerce" },
+  { id: 7, label: "Web Applications", value: "web-applications" },
+  { id: 8, label: "Dashboard & CRM", value: "dashboard-crm" },
+  { id: 9, label: "Featured", value: "featured" },
+];
