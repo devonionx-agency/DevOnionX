@@ -1,9 +1,12 @@
-import React from 'react'
+import PageHero from "@/components/common/PageHero";
+import { aboutPageHeroData } from "@/helper/pageHero";
 
-const Blog = () => {
+const About = () => {
   return (
-    <div>Blog</div>
-  )
-}
+    <>
+      <PageHero  {...aboutPageHeroData}/>
+    </>
+  );
+};
 
-export default Blog
+export default About;
