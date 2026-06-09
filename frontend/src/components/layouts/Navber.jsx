@@ -70,7 +70,7 @@ export const navLinks = [
 
   {
     label: "Work",
-    href: "/portfolio",
+    href: "/work",
     submenu: [
       {
         title: "Featured Projects",

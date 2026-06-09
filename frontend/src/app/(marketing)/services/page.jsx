@@ -1,9 +1,15 @@
-import React from 'react'
+import PageHero from "@/components/common/PageHero";
+import ServiceShowcase from "@/components/sections/services/ServiceShowcase";
+import { servicesPageHeroData } from "@/helper/pageHero";
+import React from "react";
 
 const Services = () => {
   return (
-    <div>Services</div>
-  )
-}
+    <>
+      <PageHero {...servicesPageHeroData} />
+      <ServiceShowcase/>
+    </>
+  );
+};
 
-export default Services
+export default Services;

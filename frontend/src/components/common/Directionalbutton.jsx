@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 
 export default function DirectionalButton({
@@ -15,6 +16,8 @@ export default function DirectionalButton({
   shadowHover = "0 0 18px 2px #ff510133",
   size = "md",
   onClick,
+  href,           
+  target,        
   className = "",
   textTypo,
 }) {
@@ -31,6 +34,15 @@ export default function DirectionalButton({
   const sz = sizeMap[size] ?? sizeMap.md;
   const shadowResting = "0 0 0px 0px transparent";
 
+  const sharedClasses = [
+    "relative overflow-hidden inline-flex items-center justify-center",
+    "rounded-full cursor-pointer outline-none border bg-transparent",
+    "border-[var(--btn-border)]",
+    "[-webkit-tap-highlight-color:transparent]",
+    sz,
+    className,
+  ].join(" ");
+
   useEffect(() => {
     const btn = btnRef.current;
     const flair = flairRef.current;
@@ -38,7 +50,7 @@ export default function DirectionalButton({
 
     const setFlairSize = () => {
       const { width, height } = btn.getBoundingClientRect();
-      const diagonal = Math.sqrt(width ** 2 + height ** 2) * 2.5; // 2.2 → 2.5
+      const diagonal = Math.sqrt(width ** 2 + height ** 2) * 2.5;
       gsap.set(flair, {
         width: diagonal,
         height: diagonal,
@@ -51,7 +63,7 @@ export default function DirectionalButton({
 
     setFlairSize();
     gsap.set(labelEl, { color: textColor });
-    gsap.set(btn, { "--btn-border": borderColor }); // ← initial border set
+    gsap.set(btn, { "--btn-border": borderColor });
 
     const getPos = (e) => {
       const rect = btn.getBoundingClientRect();
@@ -67,31 +79,13 @@ export default function DirectionalButton({
 
       activeTl = gsap.timeline();
       activeTl.to(flair, { scale: 1, duration: 0.75, ease: "power3.out" });
-      activeTl.to(
-        labelEl,
-        { color: textHoverColor, duration: 0.25, ease: "power2.out" },
-        0,
-      );
+      activeTl.to(labelEl, { color: textHoverColor, duration: 0.25, ease: "power2.out" }, 0);
 
-      if (borderHoverColor) {
-        activeTl.to(
-          btn,
-          {
-            "--btn-border": borderHoverColor,
-            duration: 0.3,
-            ease: "power2.out",
-          },
-          0,
-        );
-      }
+      if (borderHoverColor)
+        activeTl.to(btn, { "--btn-border": borderHoverColor, duration: 0.3, ease: "power2.out" }, 0);
 
-      if (shadowHover) {
-        activeTl.to(
-          btn,
-          { boxShadow: shadowHover, duration: 0.4, ease: "power2.out" },
-          0,
-        );
-      }
+      if (shadowHover)
+        activeTl.to(btn, { boxShadow: shadowHover, duration: 0.4, ease: "power2.out" }, 0);
     };
 
     const onLeave = (e) => {
@@ -101,27 +95,13 @@ export default function DirectionalButton({
 
       activeTl = gsap.timeline();
       activeTl.to(flair, { scale: 0, duration: 0.65, ease: "power3.inOut" });
-      activeTl.to(
-        labelEl,
-        { color: textColor, duration: 0.2, ease: "power2.out" },
-        0.45,
-      );
+      activeTl.to(labelEl, { color: textColor, duration: 0.2, ease: "power2.out" }, 0.45);
 
-      if (borderHoverColor) {
-        activeTl.to(
-          btn,
-          { "--btn-border": borderColor, duration: 0.3, ease: "power2.out" },
-          0.45,
-        );
-      }
+      if (borderHoverColor)
+        activeTl.to(btn, { "--btn-border": borderColor, duration: 0.3, ease: "power2.out" }, 0.45);
 
-      if (shadowHover) {
-        activeTl.to(
-          btn,
-          { boxShadow: shadowResting, duration: 0.4, ease: "power2.out" },
-          0,
-        );
-      }
+      if (shadowHover)
+        activeTl.to(btn, { boxShadow: shadowResting, duration: 0.4, ease: "power2.out" }, 0);
     };
 
     btn.addEventListener("mouseenter", onEnter);
@@ -133,35 +113,11 @@ export default function DirectionalButton({
       btn.removeEventListener("mouseleave", onLeave);
       window.removeEventListener("resize", setFlairSize);
     };
-  }, [
-    flairColor,
-    textColor,
-    textHoverColor,
-    shadowHover,
-    borderColor,
-    borderHoverColor,
-    className,
-  ]);
+  }, [flairColor, textColor, textHoverColor, shadowHover, borderColor, borderHoverColor]);
 
-  return (
-    <button
-      ref={btnRef}
-      onClick={onClick}
-      style={{ "--btn-border": borderColor }}
-      className={[
-        "relative overflow-hidden inline-flex items-center justify-center",
-        "rounded-full cursor-pointer outline-none border bg-transparent",
-        "border-[var(--btn-border)]",
-        "[-webkit-tap-highlight-color:transparent]",
-        sz,
-        className,
-      ].join(" ")}
-    >
-      <span
-        ref={flairRef}
-        className="absolute rounded-full pointer-events-none"
-      />
-
+  const inner = (
+    <>
+      <span ref={flairRef} className="absolute rounded-full pointer-events-none" />
       <span
         ref={labelRef}
         className={[
@@ -169,18 +125,37 @@ export default function DirectionalButton({
           "font-(family-name:--font-body) font-medium tracking-[0.01em] leading-none whitespace-nowrap",
         ].join(" ")}
       >
-        {leftIcon && (
-          <span className="inline-flex items-center text-[1.1em]">
-            {leftIcon}
-          </span>
-        )}
-        <span className={`${textTypo}`}>{label}</span>
-        {rightIcon && (
-          <span className="inline-flex items-center text-[1.1em]">
-            {rightIcon}
-          </span>
-        )}
+        {leftIcon && <span className="inline-flex items-center text-[1.1em]">{leftIcon}</span>}
+        <span className={textTypo}>{label}</span>
+        {rightIcon && <span className="inline-flex items-center text-[1.1em]">{rightIcon}</span>}
       </span>
+    </>
+  );
+
+ 
+  if (href) {
+    return (
+      <Link
+        ref={btnRef}
+        href={href}
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
+        style={{ "--btn-border": borderColor }}
+        className={sharedClasses}
+      >
+        {inner}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      ref={btnRef}
+      onClick={onClick}
+      style={{ "--btn-border": borderColor }}
+      className={sharedClasses}
+    >
+      {inner}
     </button>
   );
 }
