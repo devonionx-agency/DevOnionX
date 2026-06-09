@@ -1,6 +1,6 @@
 import { allPageHeroImg } from "./imageProvider/pageHeroImage";
 
-const { workPage, servicePage } = allPageHeroImg;
+const { workPage, servicePage, blogPage } = allPageHeroImg;
 // workPageData.js page hero (helper file)
 
 export const workPageHeroData = {
@@ -73,4 +73,73 @@ export const servicesPageHeroData = {
     { label: "DevOps", color: "#43E8D8", glow: "#1EC8B8", isBase: false },
   ],
   heroPageImage: servicePage[0].img,
+};
+
+// for blog page hero
+export const blogPageHeroData = {
+  buttonLabel: "Let's Talk",
+  services: false,
+  sectionLabel: "Our Blog",
+  sectionText: "Insights That Drive. Stories That Stick.",
+  sectionColorText: "Stories That Stick.",
+  heroDescription:
+    "We don't just build for clients — we think out loud. Explore deep dives into AI, web engineering, design systems, and the real stories behind the products we ship. No fluff. Just sharp thinking from a team that lives and breathes digital.",
+
+  waterfallPlates: [
+    {
+      label: "Tech Articles",
+      color: "#00D4FF",
+      glow: "#00A8CC",
+      isBase: true,
+    },
+    {
+      label: "Case Studies",
+      color: "#E040FB",
+      glow: "#C000F0",
+      isBase: false,
+    },
+    {
+      label: "AI & Innovation",
+      color: "#69FF94",
+      glow: "#38D968",
+      isBase: false,
+    },
+    {
+      label: "Design Thinking",
+      color: "#FF6B6B",
+      glow: "#E53E3E",
+      isBase: false,
+    },
+    {
+      label: "Dev Tutorials",
+      color: "#F5A623",
+      glow: "#D4891A",
+      isBase: false,
+    },
+    {
+      label: "Product Stories",
+      color: "#FF8FE8",
+      glow: "#E060C8",
+      isBase: false,
+    },
+    {
+      label: "Industry News",
+      color: "#5B8DEF",
+      glow: "#3A6BE0",
+      isBase: false,
+    },
+    {
+      label: "Behind The Build",
+      color: "#FFD166",
+      glow: "#F0B429",
+      isBase: false,
+    },
+    {
+      label: "Open Source",
+      color: "#43E8D8",
+      glow: "#1EC8B8",
+      isBase: false,
+    },
+  ],
+  heroPageImage: blogPage[0].img,
 };

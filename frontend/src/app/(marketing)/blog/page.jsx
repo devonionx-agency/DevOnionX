@@ -1,9 +1,12 @@
-import React from 'react'
+import PageHero from "@/components/common/PageHero";
+import { blogPageHeroData } from "@/helper/pageHero";
 
 const Blog = () => {
   return (
-    <div>Blog</div>
-  )
-}
+    <>
+      <PageHero {...blogPageHeroData}/>
+    </>
+  );
+};
 
-export default Blog
+export default Blog;
