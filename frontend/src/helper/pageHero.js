@@ -1,6 +1,6 @@
 import { allPageHeroImg } from "./imageProvider/pageHeroImage";
 
-const { workPage, servicePage } = allPageHeroImg;
+const { workPage, servicePage, blogPage,aboutPage } = allPageHeroImg;
 // workPageData.js page hero (helper file)
 
 export const workPageHeroData = {
@@ -73,4 +73,142 @@ export const servicesPageHeroData = {
     { label: "DevOps", color: "#43E8D8", glow: "#1EC8B8", isBase: false },
   ],
   heroPageImage: servicePage[0].img,
+};
+
+// for blog page hero
+export const blogPageHeroData = {
+  buttonLabel: "Let's Talk",
+  services: false,
+  sectionLabel: "Our Blog",
+  sectionText: "Insights That Drive. Stories That Stick.",
+  sectionColorText: "Stories That Stick.",
+  heroDescription:
+    "We don't just build for clients — we think out loud. Explore deep dives into AI, web engineering, design systems, and the real stories behind the products we ship. No fluff. Just sharp thinking from a team that lives and breathes digital.",
+
+  waterfallPlates: [
+    {
+      label: "Tech Articles",
+      color: "#00D4FF",
+      glow: "#00A8CC",
+      isBase: true,
+    },
+    {
+      label: "Case Studies",
+      color: "#E040FB",
+      glow: "#C000F0",
+      isBase: false,
+    },
+    {
+      label: "AI & Innovation",
+      color: "#69FF94",
+      glow: "#38D968",
+      isBase: false,
+    },
+    {
+      label: "Design Thinking",
+      color: "#FF6B6B",
+      glow: "#E53E3E",
+      isBase: false,
+    },
+    {
+      label: "Dev Tutorials",
+      color: "#F5A623",
+      glow: "#D4891A",
+      isBase: false,
+    },
+    {
+      label: "Product Stories",
+      color: "#FF8FE8",
+      glow: "#E060C8",
+      isBase: false,
+    },
+    {
+      label: "Industry News",
+      color: "#5B8DEF",
+      glow: "#3A6BE0",
+      isBase: false,
+    },
+    {
+      label: "Behind The Build",
+      color: "#FFD166",
+      glow: "#F0B429",
+      isBase: false,
+    },
+    {
+      label: "Open Source",
+      color: "#43E8D8",
+      glow: "#1EC8B8",
+      isBase: false,
+    },
+  ],
+  heroPageImage: blogPage[0].img,
+};
+
+
+export const aboutPageHeroData = {
+  buttonLabel: "Let's Talk",
+  services: false,
+  sectionLabel: "About Us",
+  sectionText: "Built Different. Wired for Results.",
+  sectionColorText: "Wired for Results.",
+  heroDescription:
+    "DevOnionX isn't your typical agency. We're a team of obsessive builders, strategic thinkers, and relentless problem-solvers — united by one goal: making your business win online. Every pixel we push, every line we write, every system we architect is built with purpose. Not just to impress — but to perform.",
+
+  waterfallPlates: [
+    {
+      label: "Our Story",
+      color: "#E040FB",
+      glow: "#C000F0",
+      isBase: true,
+    },
+    {
+      label: "Our Mission",
+      color: "#00D4FF",
+      glow: "#00A8CC",
+      isBase: false,
+    },
+    {
+      label: "The Team",
+      color: "#69FF94",
+      glow: "#38D968",
+      isBase: false,
+    },
+    {
+      label: "Client First",
+      color: "#FF6B6B",
+      glow: "#E53E3E",
+      isBase: false,
+    },
+    {
+      label: "Built Different",
+      color: "#F5A623",
+      glow: "#D4891A",
+      isBase: false,
+    },
+    {
+      label: "No Bullshit",
+      color: "#FF8FE8",
+      glow: "#E060C8",
+      isBase: false,
+    },
+    {
+      label: "50+ Projects",
+      color: "#5B8DEF",
+      glow: "#3A6BE0",
+      isBase: false,
+    },
+    {
+      label: "Global Clients",
+      color: "#FFD166",
+      glow: "#F0B429",
+      isBase: false,
+    },
+    {
+      label: "100% Remote",
+      color: "#43E8D8",
+      glow: "#1EC8B8",
+      isBase: false,
+    },
+  ],
+  heroPageImage: aboutPage[0].img,
 };
