@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import ParticlesBackground from "../ui/ParticlesBackground";
 import { companyLinks, serviceLinks, socialLinks } from "@/helper/footer";
@@ -9,6 +9,7 @@ import { TbMessageCircleCode } from "react-icons/tb";
 import { RiMailSendLine } from "react-icons/ri";
 import { LuTimerReset } from "react-icons/lu";
 import Container from "../ui/Container";
+import DirectionalButton from "../common/Directionalbutton";
 
 function FooterLink({ href, children }) {
   return (
@@ -38,16 +39,16 @@ export default function Footer() {
         <ParticlesBackground />
       </div>
       <Container size="xl">
-        <div className="relative  px-6 sm:px-8 lg:px-12">
+        <div className="relative px-0 lg:px-10">
           {/* CTA SECTION */}
           <section className="py-5">
-            <div className="relative overflow-hidden rounded-[40px] border border-[#FF5101]/30 p-5">
-              <div className="relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="relative overflow-hidden rounded-[24px] sm:rounded-[40px] border border-[#FF5101]/30 p-5 sm:p-8">
+              <div className="relative z-10 grid gap-8 grid-cols-1 lg:grid-cols-2 lg:items-center">
                 <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-[#FF5101]/10 blur-[140px]" />
 
                 <div className="absolute left-0 bottom-0 h-[300px] w-[300px] rounded-full bg-violet-500/10 blur-[120px]" />
                 <div className="max-w-3xl">
-                  <h2 className="text-3xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+                  <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl lg:text-6xl">
                     Have an idea?
                     <br />
                     Let&apos;s turn it into{" "}
@@ -60,15 +61,9 @@ export default function Footer() {
                     Let&apos;s discuss your next digital product, SaaS platform,
                     or business website.
                   </p>
-                  <Link href="/contact" className="">
-                    <div className="flex items-center gap-1">
-                      <span className="text-lg font-medium">Book a Call</span>
-                      <ArrowUpRight className="" />
-                    </div>
-                  </Link>
                 </div>
                 {/* Right Side Card */}
-                <div className="max-w-[480px] relative z-10">
+                <div className="w-full max-w-[480px] mx-auto lg:mx-0 relative z-10">
                   <div className="rounded-[32px] border border-white/10 bg-white/3 p-8">
                     <div className="flex items-center gap-4">
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF5101]/20 bg-[#FF5101]/10">
@@ -83,12 +78,12 @@ export default function Footer() {
                       timeline, and requirements.
                     </p>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 pb-5">
                       <div className="flex items-center gap-1">
                         <p className="flex text-[18px] text-[#FF5101]">
                           <RiMailSendLine />
                         </p>
-                        <p className="text-white">hello@devonionx.com</p>
+                        <p className="text-white">devonionx@gmail.com</p>
                       </div>
 
                       <div className="flex items-center gap-1">
@@ -99,12 +94,12 @@ export default function Footer() {
                       </div>
                     </div>
 
-                    <Link
-                      href="/contact"
-                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#FF5101] px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105"
-                    >
-                      Schedule a Call
-                      <ArrowUpRight className="h-4 w-4" />
+                    <Link href="/contact" className="btn-schedule group">
+                      <span>Schedule a Call</span>
+                      <ArrowUpRight
+                        size={14}
+                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
                     </Link>
                   </div>
                 </div>
@@ -114,7 +109,7 @@ export default function Footer() {
 
           {/* MAIN FOOTER */}
           <section className="border-t border-white/10">
-            <div className="grid gap-10 py-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+            <div className="grid gap-10 py-5 lg:py-14 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
               {/* Brand */}
               <div className="rounded-[28px] border border-white/20 bg-white/3 p-8">
                 <Link
@@ -129,7 +124,7 @@ export default function Footer() {
                     height={43}
                   />
                 </Link>
-                <p>
+                <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
                   We design and develop premium digital experiences for
                   ambitious businesses and startups
                 </p>
