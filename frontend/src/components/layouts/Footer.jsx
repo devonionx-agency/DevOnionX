@@ -39,16 +39,16 @@ export default function Footer() {
         <ParticlesBackground />
       </div>
       <Container size="xl">
-        <div className="relative  px-6 sm:px-8 lg:px-12">
+        <div className="relative px-0 lg:px-10">
           {/* CTA SECTION */}
           <section className="py-5">
-            <div className="relative overflow-hidden rounded-[40px] border border-[#FF5101]/30 p-5">
-              <div className="relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="relative overflow-hidden rounded-[24px] sm:rounded-[40px] border border-[#FF5101]/30 p-5 sm:p-8">
+              <div className="relative z-10 grid gap-8 grid-cols-1 lg:grid-cols-2 lg:items-center">
                 <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-[#FF5101]/10 blur-[140px]" />
 
                 <div className="absolute left-0 bottom-0 h-[300px] w-[300px] rounded-full bg-violet-500/10 blur-[120px]" />
                 <div className="max-w-3xl">
-                  <h2 className="text-3xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+                  <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl lg:text-6xl">
                     Have an idea?
                     <br />
                     Let&apos;s turn it into{" "}
@@ -69,7 +69,7 @@ export default function Footer() {
                   </Link>
                 </div>
                 {/* Right Side Card */}
-                <div className="max-w-[480px] relative z-10">
+                <div className="w-full max-w-[480px] mx-auto lg:mx-0 relative z-10">
                   <div className="rounded-[32px] border border-white/10 bg-white/3 p-8">
                     <div className="flex items-center gap-4">
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF5101]/20 bg-[#FF5101]/10">
@@ -115,7 +115,7 @@ export default function Footer() {
 
           {/* MAIN FOOTER */}
           <section className="border-t border-white/10">
-            <div className="grid gap-10 py-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+            <div className="grid gap-10 py-5 lg:py-14 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
               {/* Brand */}
               <div className="rounded-[28px] border border-white/20 bg-white/3 p-8">
                 <Link
@@ -130,7 +130,7 @@ export default function Footer() {
                     height={43}
                   />
                 </Link>
-                <p>
+                <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
                   We design and develop premium digital experiences for
                   ambitious businesses and startups
                 </p>
