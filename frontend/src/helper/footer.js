@@ -4,7 +4,7 @@ export const companyLinks = [
   { name: "Our Story", href: "/about" },
   { name: "Our Work", href: "/work" },
   { name: "Our Services", href: "/services" },
-  { name: "Insights", href: "/insights" },
+  { name: "Insights", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 

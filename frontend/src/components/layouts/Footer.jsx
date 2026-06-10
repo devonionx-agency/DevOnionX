@@ -61,12 +61,6 @@ export default function Footer() {
                     Let&apos;s discuss your next digital product, SaaS platform,
                     or business website.
                   </p>
-                  <Link href="/contact" className="btn-book">
-                    <span className="btn-book-text">Book a Call</span>
-                    <span className="btn-book-icon">
-                      <ArrowUpRight size={13} />
-                    </span>
-                  </Link>
                 </div>
                 {/* Right Side Card */}
                 <div className="w-full max-w-[480px] mx-auto lg:mx-0 relative z-10">
@@ -89,7 +83,7 @@ export default function Footer() {
                         <p className="flex text-[18px] text-[#FF5101]">
                           <RiMailSendLine />
                         </p>
-                        <p className="text-white">hello@devonionx.com</p>
+                        <p className="text-white">devonionx@gmail.com</p>
                       </div>
 
                       <div className="flex items-center gap-1">
