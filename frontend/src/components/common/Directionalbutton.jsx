@@ -50,10 +50,10 @@ export default function DirectionalButton({
 
     const setFlairSize = () => {
       const { width, height } = btn.getBoundingClientRect();
-      const diagonal = Math.sqrt(width ** 2 + height ** 2) * 1.5;
+      const diameter = Math.max(width, height) * 2.2;
       gsap.set(flair, {
-        width: diagonal,
-        height: diagonal,
+        width: diameter,
+        height: diameter,
         xPercent: -50,
         yPercent: -50,
         scale: 0,
@@ -78,11 +78,18 @@ export default function DirectionalButton({
       gsap.set(flair, { left: x, top: y, scale: 0 });
 
       activeTl = gsap.timeline();
-      activeTl.to(flair, { scale: 1, duration: 0.45, ease: "expo.out" });
+
+      // Slow, soft flair expansion — ease.inOut feels organic
+      activeTl.to(flair, {
+        scale: 1,
+        duration: 0.55,
+        ease: "power2.inOut",
+      });
+
       activeTl.to(
         labelEl,
-        { color: textHoverColor, duration: 0.25, ease: "power2.out" },
-        0,
+        { color: textHoverColor, duration: 0.35, ease: "power2.out" },
+        0.1,
       );
 
       if (borderHoverColor)
@@ -90,7 +97,7 @@ export default function DirectionalButton({
           btn,
           {
             "--btn-border": borderHoverColor,
-            duration: 0.3,
+            duration: 0.4,
             ease: "power2.out",
           },
           0,
@@ -99,18 +106,19 @@ export default function DirectionalButton({
       if (shadowHover)
         activeTl.to(
           btn,
-          { boxShadow: shadowHover, duration: 0.4, ease: "power2.out" },
+          { boxShadow: shadowHover, duration: 0.5, ease: "power2.out" },
           0,
         );
-        activeTl.to(
-  btn,
-  {
-    scale: 1.02,
-    duration: 0.25,
-    ease: "power2.out",
-  },
-  0
-);
+
+      activeTl.to(
+        btn,
+        {
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        0,
+      );
     };
 
     const onLeave = (e) => {
@@ -119,33 +127,41 @@ export default function DirectionalButton({
       gsap.set(flair, { left: x, top: y });
 
       activeTl = gsap.timeline();
-      activeTl.to(flair, { scale: 0, duration: 0.3, ease: "power2.inOut" });
+
+      // Slightly slower retreat too — feels balanced
+      activeTl.to(flair, {
+        scale: 0,
+        duration: 0.45,
+        ease: "power2.inOut",
+      });
+
       activeTl.to(
         labelEl,
-        { color: textColor, duration: 0.2, ease: "power2.out" },
-        0.45,
+        { color: textColor, duration: 0.25, ease: "power2.out" },
+        0.3,
       );
+
       activeTl.to(
-  btn,
-  {
-    scale: 1,
-    duration: 0.2,
-    ease: "power2.out",
-  },
-  0
-);
+        btn,
+        {
+          scale: 1,
+          duration: 0.25,
+          ease: "power2.out",
+        },
+        0,
+      );
 
       if (borderHoverColor)
         activeTl.to(
           btn,
-          { "--btn-border": borderColor, duration: 0.3, ease: "power2.out" },
-          0.45,
+          { "--btn-border": borderColor, duration: 0.35, ease: "power2.out" },
+          0.3,
         );
 
       if (shadowHover)
         activeTl.to(
           btn,
-          { boxShadow: shadowResting, duration: 0.4, ease: "power2.out" },
+          { boxShadow: shadowResting, duration: 0.45, ease: "power2.out" },
           0,
         );
     };
