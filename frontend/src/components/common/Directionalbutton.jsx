@@ -16,8 +16,8 @@ export default function DirectionalButton({
   shadowHover = "0 0 18px 2px #ff510133",
   size = "md",
   onClick,
-  href,           
-  target,        
+  href,
+  target,
   className = "",
   textTypo,
 }) {
@@ -35,7 +35,7 @@ export default function DirectionalButton({
   const shadowResting = "0 0 0px 0px transparent";
 
   const sharedClasses = [
-    "relative overflow-hidden inline-flex items-center justify-center",
+    "relative overflow-hidden inline-flex items-center justify-center transform-gpu will-change-transform",
     "rounded-full cursor-pointer outline-none border bg-transparent",
     "border-[var(--btn-border)]",
     "[-webkit-tap-highlight-color:transparent]",
@@ -50,7 +50,7 @@ export default function DirectionalButton({
 
     const setFlairSize = () => {
       const { width, height } = btn.getBoundingClientRect();
-      const diagonal = Math.sqrt(width ** 2 + height ** 2) * 2.5;
+      const diagonal = Math.sqrt(width ** 2 + height ** 2) * 1.5;
       gsap.set(flair, {
         width: diagonal,
         height: diagonal,
@@ -78,14 +78,39 @@ export default function DirectionalButton({
       gsap.set(flair, { left: x, top: y, scale: 0 });
 
       activeTl = gsap.timeline();
-      activeTl.to(flair, { scale: 1, duration: 0.75, ease: "power3.out" });
-      activeTl.to(labelEl, { color: textHoverColor, duration: 0.25, ease: "power2.out" }, 0);
+      activeTl.to(flair, { scale: 1, duration: 0.45, ease: "expo.out" });
+      activeTl.to(
+        labelEl,
+        { color: textHoverColor, duration: 0.25, ease: "power2.out" },
+        0,
+      );
 
       if (borderHoverColor)
-        activeTl.to(btn, { "--btn-border": borderHoverColor, duration: 0.3, ease: "power2.out" }, 0);
+        activeTl.to(
+          btn,
+          {
+            "--btn-border": borderHoverColor,
+            duration: 0.3,
+            ease: "power2.out",
+          },
+          0,
+        );
 
       if (shadowHover)
-        activeTl.to(btn, { boxShadow: shadowHover, duration: 0.4, ease: "power2.out" }, 0);
+        activeTl.to(
+          btn,
+          { boxShadow: shadowHover, duration: 0.4, ease: "power2.out" },
+          0,
+        );
+        activeTl.to(
+  btn,
+  {
+    scale: 1.02,
+    duration: 0.25,
+    ease: "power2.out",
+  },
+  0
+);
     };
 
     const onLeave = (e) => {
@@ -94,30 +119,61 @@ export default function DirectionalButton({
       gsap.set(flair, { left: x, top: y });
 
       activeTl = gsap.timeline();
-      activeTl.to(flair, { scale: 0, duration: 0.65, ease: "power3.inOut" });
-      activeTl.to(labelEl, { color: textColor, duration: 0.2, ease: "power2.out" }, 0.45);
+      activeTl.to(flair, { scale: 0, duration: 0.3, ease: "power2.inOut" });
+      activeTl.to(
+        labelEl,
+        { color: textColor, duration: 0.2, ease: "power2.out" },
+        0.45,
+      );
+      activeTl.to(
+  btn,
+  {
+    scale: 1,
+    duration: 0.2,
+    ease: "power2.out",
+  },
+  0
+);
 
       if (borderHoverColor)
-        activeTl.to(btn, { "--btn-border": borderColor, duration: 0.3, ease: "power2.out" }, 0.45);
+        activeTl.to(
+          btn,
+          { "--btn-border": borderColor, duration: 0.3, ease: "power2.out" },
+          0.45,
+        );
 
       if (shadowHover)
-        activeTl.to(btn, { boxShadow: shadowResting, duration: 0.4, ease: "power2.out" }, 0);
+        activeTl.to(
+          btn,
+          { boxShadow: shadowResting, duration: 0.4, ease: "power2.out" },
+          0,
+        );
     };
 
-    btn.addEventListener("mouseenter", onEnter);
-    btn.addEventListener("mouseleave", onLeave);
+    btn.addEventListener("pointerenter", onEnter);
+    btn.addEventListener("pointerleave", onLeave);
     window.addEventListener("resize", setFlairSize);
 
     return () => {
-      btn.removeEventListener("mouseenter", onEnter);
-      btn.removeEventListener("mouseleave", onLeave);
+      btn.removeEventListener("pointerenter", onEnter);
+      btn.removeEventListener("pointerleave", onLeave);
       window.removeEventListener("resize", setFlairSize);
     };
-  }, [flairColor, textColor, textHoverColor, shadowHover, borderColor, borderHoverColor]);
+  }, [
+    flairColor,
+    textColor,
+    textHoverColor,
+    shadowHover,
+    borderColor,
+    borderHoverColor,
+  ]);
 
   const inner = (
     <>
-      <span ref={flairRef} className="absolute rounded-full pointer-events-none" />
+      <span
+        ref={flairRef}
+        className="absolute rounded-full pointer-events-none"
+      />
       <span
         ref={labelRef}
         className={[
@@ -125,14 +181,21 @@ export default function DirectionalButton({
           "font-(family-name:--font-body) font-medium tracking-[0.01em] leading-none whitespace-nowrap",
         ].join(" ")}
       >
-        {leftIcon && <span className="inline-flex items-center text-[1.1em]">{leftIcon}</span>}
+        {leftIcon && (
+          <span className="inline-flex items-center text-[1.1em]">
+            {leftIcon}
+          </span>
+        )}
         <span className={textTypo}>{label}</span>
-        {rightIcon && <span className="inline-flex items-center text-[1.1em]">{rightIcon}</span>}
+        {rightIcon && (
+          <span className="inline-flex items-center text-[1.1em]">
+            {rightIcon}
+          </span>
+        )}
       </span>
     </>
   );
 
- 
   if (href) {
     return (
       <Link

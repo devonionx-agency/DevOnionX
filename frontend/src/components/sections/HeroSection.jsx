@@ -1,77 +1,87 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Container from "../ui/Container";
 import ParticlesBackground from "../ui/ParticlesBackground";
-import OrbitRing from "../ui/OrbitRing";
 import DashboardCard from "../ui/DashboardCard";
 import CRMCard from "../ui/CRMCard";
 import { ArrowRight } from "lucide-react";
-import { stats } from "@/helper/herohelper";
+import DirectionalButton from "../common/Directionalbutton";
 
 export default function HomeSection() {
   const heroRef = useRef(null);
+  const [showParticles, setShowParticles] = useState(false);
+
+  useEffect(() => {
+    // 🔥 delay particles load (reduce initial GPU spike)
+    const t = setTimeout(() => {
+      setShowParticles(true);
+    }, 500);
+
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
 
     const ctx = gsap.context(() => {
-      gsap.from(".hero-badge", {
+      // 🚀 ONE timeline only (important)
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      });
+
+      tl.from(".hero-badge", {
         opacity: 0,
-        y: 30,
-        duration: 0.8,
-      });
+        y: 20,
+      })
+        .from(
+          ".hero-title",
+          {
+            opacity: 0,
+            y: 30,
+          },
+          "-=0.5",
+        )
+        .from(
+          ".hero-text",
+          {
+            opacity: 0,
+            y: 20,
+          },
+          "-=0.4",
+        )
+        .from(
+          ".hero-btns",
+          {
+            opacity: 0,
+            y: 20,
+          },
+          "-=0.4",
+        )
+        .from(
+          ".dashboard-card",
+          {
+            opacity: 0,
+            x: 50,
+          },
+          "-=0.6",
+        )
+        .from(
+          ".crm-card",
+          {
+            opacity: 0,
+            y: 50,
+          },
+          "-=0.5",
+        );
 
-      gsap.from(".hero-title", {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        delay: 0.1,
-      });
-
-      gsap.from(".hero-text", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: 0.2,
-      });
-
-      gsap.from(".hero-btns", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: 0.3,
-      });
-
-      gsap.from(".dashboard-card", {
-        opacity: 0,
-        x: 100,
-        duration: 1,
-      });
-
-      gsap.from(".crm-card", {
-        opacity: 0,
-        y: 100,
-        duration: 1,
-        delay: 0.3,
-      });
-
-      gsap.to(".dashboard-card", {
-        y: -12,
-        repeat: -1,
-        yoyo: true,
-        duration: 3,
-        ease: "power1.inOut",
-      });
-
-      gsap.to(".crm-card", {
-        y: -5,
-        repeat: -1,
-        yoyo: true,
-        duration: 3.5,
-        ease: "power1.inOut",
-        delay:1,
+      // 🚀 GPU hint only (NO infinite animation)
+      gsap.set([".dashboard-card", ".crm-card"], {
+        willChange: "transform",
       });
     }, heroRef);
 
@@ -83,12 +93,12 @@ export default function HomeSection() {
       ref={heroRef}
       className="relative overflow-hidden bg-black text-white"
     >
-      {/* Desktop Only Particles */}
+      {/* 🔥 Lazy particles (no initial GPU load) */}
       <div className="hidden lg:block">
-        <ParticlesBackground />
+        {showParticles && <ParticlesBackground />}
       </div>
 
-      {/* Glow */}
+      {/* Glow (keep static = good for GPU) */}
       <div className="absolute right-0 top-0 h-[500px] w-[500px] lg:h-[700px] lg:w-[700px] rounded-full bg-[#FF5101]/20 blur-[120px]" />
 
       <Container
@@ -98,54 +108,56 @@ export default function HomeSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center py-8 lg:py-24 w-full">
           {/* LEFT */}
           <div className="max-w-2xl">
-            <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-[#FF5101]/20 bg-[#FF5101]/10 px-4 py-2 text-xs sm:text-sm text-[#FF5101]">
+            <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-[#FF5101]/20 bg-[#FF5101]/10 px-4 py-2 text-xs sm:text-sm text-[#FF5101] will-change-transform">
               <span className="h-2 w-2 rounded-full bg-[#FF5101]" />
               Digital Products. Engineered To Scale.
             </div>
 
-            <h1 className="hero-title pt-6 lg:mt-8 headingOne">
+            <h1 className="hero-title pt-6 lg:mt-8 headingOne will-change-transform">
               Building Digital Products That
               <br />
-              <span className="bg-gradient-to-r from-[#FF5101] via-orange-300 to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-[#FF5101] via-orange-300 to-white bg-clip-text text-transparent animate-gradient">
                 Move Businesses Forward.
               </span>
             </h1>
 
-            <p className="hero-text mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed">
+            <p className="hero-text mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed will-change-transform">
               We help ambitious startups and businesses build scalable digital
               products and experiences that drive measurable growth.
             </p>
 
-            <div className="hero-btns mt-8 lg:mt-10 flex flex-wrap gap-4">
-              <button className="flex items-center gap-3 rounded-full bg-[#FF5101] px-6 py-3 lg:px-7 lg:py-4 font-medium">
-                Start Project
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
-                  <ArrowRight size={18} />
-                </span>
-              </button>
-
-              <button className="flex items-center gap-2 text-white">
-                View Work
-                <ArrowRight size={18} />
-              </button>
+            <div className="hero-btns mt-8 lg:mt-10 flex flex-wrap gap-4 will-change-transform">
+              <DirectionalButton
+                href="/contact"
+                label="Start a Project"
+                flairColor="#FF5101"
+                borderColor="rgba(255,81,1,0.8)"
+                textColor="#ffffff"
+                className="font-semibold py-3 shadow-lg shadow-orange-500/20"
+                rightIcon={<ArrowRight size={18} />}
+              />
+              <DirectionalButton
+                href="/work"
+                label="View Work"
+                flairColor="transparent"
+                borderColor="rgba(255,255,255,0.2)"
+                textColor="#ffffff"
+                className="font-medium py-3 hover:border-white/5 transition"
+                rightIcon={<ArrowRight size={18} />}
+              />
             </div>
           </div>
 
-          {/* Desktop Visual Only */}
+          {/* RIGHT VISUAL */}
           <div className="hidden lg:block relative h-[720px]">
-            <OrbitRing />
-
-            <div className="dashboard-card absolute right- -top-5 z-20">
+            {/*  floating cards replaced infinite GSAP */}
+            <div className="dashboard-card absolute -top-5 right-80 z-20 animate-float will-change-transform">
               <DashboardCard />
             </div>
 
-            <div className="crm-card absolute -right-15 bottom-10 z-20">
+            <div className="crm-card absolute -right-10 bottom-10 z-20 animate-float-slow will-change-transform">
               <CRMCard />
             </div>
-
-            {/* <div className="absolute left-[45%] top-[70%] z-30 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-[#FF5101]/20 bg-black shadow-[0_0_60px_rgba(255,81,1,.4)]">
-              <span className="text-5xl font-bold text-[#FF5101]">X</span>
-            </div> */}
           </div>
         </div>
       </Container>
