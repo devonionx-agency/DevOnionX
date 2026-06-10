@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -38,9 +39,9 @@ export default function ContactForm() {
         setTimeout(resolve, 1500)
       );
 
-      alert("Message sent successfully");
+      toast.success("Message sent successfully");
     } catch (error) {
-      alert("Something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
