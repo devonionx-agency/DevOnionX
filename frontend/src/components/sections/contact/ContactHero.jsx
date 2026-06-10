@@ -30,12 +30,6 @@ export default function ContactHero() {
 
 
 
-  const toggleService = (s) =>
-    setSelected((prev) =>
-      prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s],
-    );
-
- 
 
   useEffect(() => {
     gsap.fromTo(
