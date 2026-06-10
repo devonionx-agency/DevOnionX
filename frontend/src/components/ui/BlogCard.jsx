@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const BlogCard = ({
   category = "Case Study",
+  categoryClass = "bg-red-500",
   readTime = "5 min read",
   title = "How we built a real-time chat system",
   excerpt = "A deep dive into our architecture decisions, scaling challenges, and lessons learned from building a production-grade chat app.",
@@ -13,6 +14,7 @@ const BlogCard = ({
   tags = ["Node.js", "Socket.io", "Express.js", "MongoDB"],
   image = null,
   href = "/",
+  overlayClass = "bg-gradient-to-t from-[#FF5101]/60 from-13% via-black/40 via-40% to-transparent",
 }) => {
   const { blogOne } = blogImages;
   const { timer } = allIcon;
@@ -20,8 +22,10 @@ const BlogCard = ({
 
   return (
     <div className="relative w-full h-[420px] sm:h-[450px] overflow-hidden group rounded-xl z-0">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#FF5101]/60 from-13% via-black/40 via-40% to-transparent z-5" />
-      <span className="z-10 absolute top-3 sm:top-4 left-3 sm:left-4 bg-red-500 text-white text-xs font-medium px-2.5 sm:px-3 py-1 rounded-full">
+      <div className={`absolute inset-0 ${overlayClass}  z-5`} />
+      <span
+        className={`z-10 absolute top-3 sm:top-4 left-3 sm:left-4  text-white text-xs font-medium px-2.5 sm:px-3 py-1 rounded-full ${categoryClass}`}
+      >
         {category}
       </span>
       <span className="z-10 absolute top-3 sm:top-4 right-3 sm:right-4 bg-black text-white text-xs font-medium px-2.5 sm:px-3 py-1 rounded-full flex items-center gap-x-1.5">
@@ -34,8 +38,8 @@ const BlogCard = ({
         alt={title}
         className="object-cover group-hover:scale-[1.2] transition duration-500 ease-in-out"
       />
-      {/* Bottom Content  for xs, sm, md, lg*/}
-      <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 space-y-2 sm:space-y-3 z-10 block xl:hidden">
+      {/* Bottom Content  for xs, sm, md*/}
+      <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 space-y-2 sm:space-y-3 z-10 block lg:hidden">
         <div className="space-y-1">
           <p className="text-white text-sm sm:text-base font-medium">
             {category}
@@ -71,8 +75,8 @@ const BlogCard = ({
           </div>
         </div>
       </div>
-      {/* Bottom Content  for xl 2xl*/}
-      <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 space-y-2 sm:space-y-3 z-10 hidden xl:block ">
+      {/* Bottom Content  for lg xl 2xl*/}
+      <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 lg:p-6 space-y-2 sm:space-y-3 z-10 hidden lg:block ">
         <div className="space-y-1">
           <p className="text-white text-sm sm:text-base font-medium">
             {category}
