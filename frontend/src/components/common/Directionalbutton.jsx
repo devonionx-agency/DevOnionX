@@ -8,6 +8,8 @@ export default function DirectionalButton({
   label,
   leftIcon,
   rightIcon,
+  type = "button",
+  disabled = false,
   borderColor = "#ff5101",
   borderHoverColor = null,
   flairColor = "#ff5101",

@@ -12,10 +12,8 @@ import Input from "@/components/ui/Input";
 import ServiceSelector from "./ServiceSelector";
 import BudgetSelector from "./BudgetSelector";
 
-import {
-  contactSchema,
-  defaultValues,
-} from "./contact.schema";
+import { contactSchema, defaultValues } from "./contact.schema";
+import DirectionalButton from "@/components/common/Directionalbutton";
 
 export default function ContactForm() {
   const [selected, setSelected] = useState([]);
@@ -35,9 +33,7 @@ export default function ContactForm() {
     try {
       console.log(data);
 
-      await new Promise((resolve) =>
-        setTimeout(resolve, 1500)
-      );
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       toast.success("Message sent successfully");
     } catch (error) {
@@ -56,15 +52,10 @@ export default function ContactForm() {
         {/* Name + Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <Input
-              placeholder="Full Name"
-              {...register("name")}
-            />
+            <Input placeholder="Full Name" {...register("name")} />
 
             {errors.name && (
-              <p className="mt-2 text-xs text-red-400">
-                {errors.name.message}
-              </p>
+              <p className="mt-2 text-xs text-red-400">{errors.name.message}</p>
             )}
           </div>
 
@@ -85,10 +76,7 @@ export default function ContactForm() {
 
         {/* Company + Phone */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input
-            placeholder="Company (Optional)"
-            {...register("company")}
-          />
+          <Input placeholder="Company (Optional)" {...register("company")} />
 
           <div>
             <Input
@@ -140,30 +128,18 @@ export default function ContactForm() {
         {/* Submit */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-[12px] text-[#475569]">
-            Your information is safe with us. No spam,
-            ever.
+            Your information is safe with us. No spam, ever.
           </p>
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-[14px] font-semibold text-white bg-[#FF5101] rounded-full px-8 py-3.5 hover:bg-[#e04800] hover:-translate-y-0.5 shadow-[0_0_24px_rgba(255,81,1,0.25)] hover:shadow-[0_8px_28px_rgba(255,81,1,0.4)] transition-all duration-300"
-          >
-            {isSubmitting
-              ? "Sending..."
-              : "Send Message"}
-
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
+          <DirectionalButton
+            label={isSubmitting ? "Sending..." : "Send Message"}
+            size="lg"
+            textColor="#ffffff"
+            textHoverColor="#ffffff"
+            borderColor="#FF5101"
+            flairColor="#FF5101"
+            className="w-full sm:w-auto"
+          />
         </div>
       </form>
     </GlowCard>
