@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import ParticlesBackground from "../ui/ParticlesBackground";
 import { companyLinks, serviceLinks, socialLinks } from "@/helper/footer";
@@ -9,6 +9,7 @@ import { TbMessageCircleCode } from "react-icons/tb";
 import { RiMailSendLine } from "react-icons/ri";
 import { LuTimerReset } from "react-icons/lu";
 import Container from "../ui/Container";
+import DirectionalButton from "../common/Directionalbutton";
 
 function FooterLink({ href, children }) {
   return (
@@ -60,11 +61,11 @@ export default function Footer() {
                     Let&apos;s discuss your next digital product, SaaS platform,
                     or business website.
                   </p>
-                  <Link href="/contact" className="">
-                    <div className="flex items-center gap-1">
-                      <span className="text-lg font-medium">Book a Call</span>
-                      <ArrowUpRight className="" />
-                    </div>
+                  <Link href="/contact" className="btn-book">
+                    <span className="btn-book-text">Book a Call</span>
+                    <span className="btn-book-icon">
+                      <ArrowUpRight size={13} />
+                    </span>
                   </Link>
                 </div>
                 {/* Right Side Card */}
@@ -83,7 +84,7 @@ export default function Footer() {
                       timeline, and requirements.
                     </p>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 pb-5">
                       <div className="flex items-center gap-1">
                         <p className="flex text-[18px] text-[#FF5101]">
                           <RiMailSendLine />
@@ -99,12 +100,12 @@ export default function Footer() {
                       </div>
                     </div>
 
-                    <Link
-                      href="/contact"
-                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#FF5101] px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105"
-                    >
-                      Schedule a Call
-                      <ArrowUpRight className="h-4 w-4" />
+                    <Link href="/contact" className="btn-schedule group">
+                      <span>Schedule a Call</span>
+                      <ArrowUpRight
+                        size={14}
+                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
                     </Link>
                   </div>
                 </div>
