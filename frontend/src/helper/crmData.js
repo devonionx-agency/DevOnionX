@@ -40,59 +40,59 @@ export const crmData = {
   },
 
   June: {
-    leads: "1.7K",
-    growth: "+28.4%",
-    newLeads: "510",
-    newLeadsGrowth: "+20.6%",
+    leads: "0.4K",
+    growth: "+2.4%",
+    newLeads: "51",
+    newLeadsGrowth: "+15.6%",
     bars: [70, 88, 105, 90, 120],
   },
 
   July: {
-    leads: "1.8K",
-    growth: "+31.2%",
-    newLeads: "592",
-    newLeadsGrowth: "+24.1%",
-    bars: [75, 95, 115, 100, 130],
+    leads: "0",
+    growth: "0%",
+    newLeads: "0",
+    newLeadsGrowth: "0%",
+    bars: [60, 78, 95, 82, 110],
   },
 
   August: {
-    leads: "2.0K",
-    growth: "+34.8%",
-    newLeads: "655",
-    newLeadsGrowth: "+27.3%",
-    bars: [80, 100, 125, 110, 140],
+    leads: "0",
+    growth: "0%",
+    newLeads: "0",
+    newLeadsGrowth: "0%",
+    bars: [60, 78, 95, 82, 110],
   },
 
   September: {
-    leads: "2.2K",
-    growth: "+37.5%",
-    newLeads: "712",
-    newLeadsGrowth: "+29.8%",
-    bars: [90, 110, 135, 118, 150],
+    leads: "0",
+    growth: "0%",
+    newLeads: "0",
+    newLeadsGrowth: "0%",
+    bars: [60, 78, 95, 82, 110],
   },
 
   October: {
-    leads: "2.3K",
-    growth: "+40.1%",
-    newLeads: "780",
-    newLeadsGrowth: "+32.4%",
-    bars: [95, 120, 145, 125, 160],
+    leads: "0",
+    growth: "0%",
+    newLeads: "0",
+    newLeadsGrowth: "0%",
+    bars: [60, 78, 95, 82, 110],
   },
 
   November: {
-    leads: "2.5K",
-    growth: "+42.8%",
-    newLeads: "845",
-    newLeadsGrowth: "+35.2%",
-    bars: [105, 130, 155, 135, 170],
+    leads: "0",
+    growth: "0%",
+    newLeads: "0",
+    newLeadsGrowth: "0%",
+    bars: [60, 78, 95, 82, 110],
   },
 
   December: {
-    leads: "2.8K",
-    growth: "+48.6%",
-    newLeads: "924",
-    newLeadsGrowth: "+39.8%",
-    bars: [115, 140, 170, 145, 185],
+    leads: "0",
+    growth: "0%",
+    newLeads: "0",
+    newLeadsGrowth: "0%",
+    bars: [60, 78, 95, 82, 110],
   },
 };
 
@@ -111,13 +111,7 @@ export const performanceStats = [
   },
 ];
 
-export const chartLabels = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-];
+export const chartLabels = ["Jan", "Feb", "Mar", "Apr", "May"];
 
 export const dashboardMeta = {
   title: "CRM Dashboard",

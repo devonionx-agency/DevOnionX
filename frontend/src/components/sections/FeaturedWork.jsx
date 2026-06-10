@@ -35,15 +35,13 @@ export default function FeaturedWork() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <Link
-            href="/work"
-            className="group inline-flex items-center gap-3 rounded-full border border-orange-500/30 px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:border-orange-500 hover:bg-orange-500/10"
-          >
-            View All Projects
-
-            <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </div>
+  <Link href="/work" className="btn3 group">
+    <span className="relative z-10 flex items-center gap-3">
+      View All Projects
+      <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+    </span>
+  </Link>
+</div>
       </Container>
     </section>
   );
