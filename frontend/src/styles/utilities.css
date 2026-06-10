@@ -307,3 +307,48 @@
   position: relative;
   z-index: 1;
 }
+
+/* PRESS FEEL */
+.btn3:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* PREMIUM LIGHT SWEEP */
+.btn3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 140%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn3:hover::before {
+  left: 140%;
+}
+
+/* SUBTLE GLOW CORE */
+.btn3::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 81, 1, 0.18),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn3:hover::after {
+  opacity: 1;
+}
