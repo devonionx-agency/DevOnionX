@@ -167,7 +167,9 @@
 .swiper-pagination-bullet-active {
   background: #ff5101 !important;
 }
-/* HeroSection */
+ /* =========================================
+     Hero Section
+  ========================================= */
 @keyframes gradient {
   0% {
     background-position: 0% center;
@@ -181,5 +183,7 @@
 }
 
 .animate-gradient {
+  background-size: 200% 200%;
   animation: gradient 8s ease-in-out infinite;
+  will-change: background-position;
 }

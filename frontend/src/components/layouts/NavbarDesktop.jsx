@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RiArrowDownSLine, RiArrowRightLine } from "react-icons/ri";
+import DirectionalButton from "../common/Directionalbutton";
 
 export default function NavbarDesktop({ navLinks }) {
   return (
@@ -125,12 +126,17 @@ export default function NavbarDesktop({ navLinks }) {
       </ul>
 
       {/* CTA */}
-      <Link
+      <DirectionalButton
         href="/contact"
-        className="inline-flex items-center gap-2 rounded-full bg-[#FF5101] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,81,1,0.35)]"
-      >
-        Start a Project
-      </Link>
+        label="Start a Project"
+        flairColor="#FF5101"
+        borderColor="rgba(255,81,1,0.6)"
+        textColor="#ffffff"
+        textHoverColor="#ffffff"
+        shadowHover=""
+        size="md"
+        className="font-semibold py-3"
+      />
     </div>
   );
 }
