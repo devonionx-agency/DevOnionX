@@ -7,7 +7,7 @@ import ProcessGrid from "../ui/ProcessGrid";
 
 export default function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-[#02090F] px-6 py-10 xl:py-[80px]">
+    <section className="relative overflow-hidden bg-[#02090F] py-10 xl:py-[80px]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"

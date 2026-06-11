@@ -9,7 +9,6 @@ import { TbMessageCircleCode } from "react-icons/tb";
 import { RiMailSendLine } from "react-icons/ri";
 import { LuTimerReset } from "react-icons/lu";
 import Container from "../ui/Container";
-import DirectionalButton from "../common/Directionalbutton";
 
 function FooterLink({ href, children }) {
   return (
@@ -64,7 +63,7 @@ export default function Footer() {
                 </div>
                 {/* Right Side Card */}
                 <div className="w-full max-w-[480px] mx-auto lg:mx-0 relative z-10">
-                  <div className="rounded-[32px] border border-white/10 bg-white/3 p-8">
+                  <div className="rounded-[32px] border border-white/10 bg-white/3 p-4 lg:p-8">
                     <div className="flex items-center gap-4">
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF5101]/20 bg-[#FF5101]/10">
                         <TbMessageCircleCode className="h-6 w-6 text-[#FF5101]" />
