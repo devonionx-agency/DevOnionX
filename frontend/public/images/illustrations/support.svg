@@ -1,0 +1,15 @@
+<svg width="130" height="110" viewBox="0 0 130 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="65" cy="55" r="42" fill="none" stroke="#ff5101" stroke-width="0.8" stroke-opacity="0.12"/>
+  <circle cx="65" cy="55" r="32" fill="none" stroke="#ff5101" stroke-width="0.8" stroke-opacity="0.2"/>
+  <circle cx="65" cy="55" r="22" fill="#ff5101" fill-opacity="0.05" stroke="#ff5101" stroke-width="0.8" stroke-opacity="0.3"/>
+  <text x="65" y="50" text-anchor="middle" fill="#ff5101" font-size="15" font-weight="700" font-family="sans-serif">24/7</text>
+  <text x="65" y="64" text-anchor="middle" fill="white" fill-opacity="0.3" font-size="7" font-family="sans-serif" letter-spacing="2">SUPPORT</text>
+  <circle cx="65" cy="13" r="4" fill="#ff5101" fill-opacity="0.5"/>
+  <circle cx="65" cy="97" r="4" fill="#ff5101" fill-opacity="0.28"/>
+  <circle cx="23" cy="55" r="4" fill="#ff5101" fill-opacity="0.28"/>
+  <circle cx="107" cy="55" r="4" fill="#ff5101" fill-opacity="0.28"/>
+  <circle cx="35" cy="23" r="3" fill="#ff5101" fill-opacity="0.18"/>
+  <circle cx="95" cy="23" r="3" fill="#ff5101" fill-opacity="0.18"/>
+  <circle cx="35" cy="87" r="3" fill="#ff5101" fill-opacity="0.14"/>
+  <circle cx="95" cy="87" r="3" fill="#ff5101" fill-opacity="0.14"/>
+</svg>

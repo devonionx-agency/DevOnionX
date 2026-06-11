@@ -1,0 +1,14 @@
+<svg width="110" height="90" viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="6" width="60" height="72" rx="6" fill="#1a1a1a" stroke="#ec4899" stroke-width="0.8" stroke-opacity="0.3"/>
+  <rect x="16" y="16" width="44" height="28" rx="4" fill="#ec4899" fill-opacity="0.07"/>
+  <circle cx="38" cy="30" r="9" fill="#ec4899" fill-opacity="0.18" stroke="#ec4899" stroke-width="0.8" stroke-opacity="0.4"/>
+  <circle cx="38" cy="30" r="4" fill="#ec4899" fill-opacity="0.4"/>
+  <rect x="16" y="50" width="30" height="3" rx="1.5" fill="white" fill-opacity="0.18"/>
+  <rect x="16" y="57" width="44" height="2" rx="1" fill="white" fill-opacity="0.07"/>
+  <rect x="16" y="63" width="36" height="2" rx="1" fill="white" fill-opacity="0.07"/>
+  <rect x="72" y="12" width="28" height="36" rx="4" fill="#1a1a1a" stroke="#ec4899" stroke-width="0.6" stroke-opacity="0.2"/>
+  <rect x="76" y="17" width="20" height="12" rx="2" fill="#ec4899" fill-opacity="0.08"/>
+  <rect x="76" y="33" width="20" height="2" rx="1" fill="white" fill-opacity="0.1"/>
+  <rect x="76" y="38" width="14" height="2" rx="1" fill="white" fill-opacity="0.07"/>
+  <path d="M68 30 L72 30" stroke="#ec4899" stroke-width="0.8" stroke-dasharray="2 1.5" stroke-opacity="0.3"/>
+</svg>
