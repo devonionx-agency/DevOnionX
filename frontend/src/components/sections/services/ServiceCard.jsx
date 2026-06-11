@@ -9,7 +9,7 @@ const ServiceCard = ({ service }) => {
     <div
       className={`
         group relative overflow-hidden rounded-2xl border border-white/[0.07]
-        bg-[#111111] flex flex-col justify-between
+        bg-[#02090F] flex flex-col justify-between
         transition-all duration-300 hover:-translate-y-0.5 hover:border-orange-500/40
         ${isFull ? "flex-row items-center gap-10 p-8" : "p-7"}
         ${isThird ? "min-h-[190px]" : "min-h-[220px]"}
@@ -24,7 +24,7 @@ const ServiceCard = ({ service }) => {
 
       {/* Main Content */}
       <div className={isFull ? "flex-1" : ""}>
-        <p className="text-[11px] text-white/25 tracking-widest font-medium mb-2.5">
+        <p className="text-[16px] text-white/85 tracking-widest font-medium mb-2.5">
           {service.num}
         </p>
 
@@ -39,7 +39,7 @@ const ServiceCard = ({ service }) => {
 
         <p
           className={`
-            text-white/38 leading-relaxed mb-4
+            text-white/58 leading-relaxed mb-4
             ${isThird ? "text-[12px]" : "text-[13px]"}
             ${isFull ? "max-w-lg" : "max-w-[260px]"}
           `}
@@ -52,7 +52,7 @@ const ServiceCard = ({ service }) => {
           {service.tags.map((tag) => (
             <span
               key={tag}
-              className="flex items-center gap-1.5 text-[11px] text-white/45 bg-white/4 border border-white/[0.07] rounded-full px-2.5 py-1"
+              className="flex items-center gap-1.5 text-[11px] text-white/45 bg-white/4 border border-white/[0.07] rounded-full px-2.5 py-1 "
             >
               <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" />
               {tag}
@@ -63,7 +63,7 @@ const ServiceCard = ({ service }) => {
         {/* CTA */}
         <Link
           href={`/services/${service.value}`}
-          className="inline-flex items-center gap-2 text-[13px] text-white/45 hover:text-orange-500 transition-colors duration-200"
+          className="inline-flex items-center gap-2 text-[16px] text-white hover:text-orange-500 transition-colors duration-200"
         >
           Explore Service
           <i className="ti ti-arrow-right text-base" aria-hidden="true" />
