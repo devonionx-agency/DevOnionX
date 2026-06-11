@@ -64,7 +64,7 @@ export const services = [
       "Responsive Design",
       "Fast Performance",
       "SEO Optimized",
-      "CMS Integration",
+      "CMS",
     ],
     icon: "ti-world",
     iconColor: "#ff5101",
