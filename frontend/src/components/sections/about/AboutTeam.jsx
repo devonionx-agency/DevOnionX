@@ -6,77 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { Grid } from "@/components/common/Responsive";
+import { TEAM } from "@/helper/about";
 import TeamMemberCard from "@/components/ui/TeamMemberCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TEAM = [
-  {
-    name: "Al Mahmud",
-    role: "Frontend Engineer",
-    bio: "Architects clean, scalable systems from database to UI. Obsessed with performance and shipping things that last.",
-    image: "/images/about/mahmud.jpg",
-    slug: "/team/al-mahmud",
-    yearsOfExperience: 3,
-    expertise: ["React", "Next.js", "Tailwind"],
-    socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub",   url: "https://github.com/username" },
-    ],
-  },
-  {
-    name: "Jihad M.",
-    role: "Frontend Engineer",
-    bio: "Turns complex problems into intuitive interfaces. Every screen he designs feels inevitable.",
-    image: "/images/about/jihad.png",
-    slug: "/team/jihad-mahmud",
-    yearsOfExperience: 2,
-    expertise: ["React", "GSAP", "Figma"],
-    socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub",   url: "https://github.com/username" },
-    ],
-  },
-  {
-    name: "Hamim A.",
-    role: "Backend Developer",
-    bio: "Builds APIs and infrastructure that scale silently. Rock-solid systems, zero drama.",
-    image: "/images/about/hamim.jpg",
-    slug: "/team/hamim-ahmed",
-    yearsOfExperience: 3,
-    expertise: ["Node.js", "PostgreSQL", "DevOps"],
-    socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub",   url: "https://github.com/username" },
-    ],
-  },
-  {
-    name: "Nadil H.",
-    role: "Full-Stack Developer",
-    bio: "Brings designs to life with pixel-perfect precision. If it moves on screen, he made it feel right.",
-    image: "/images/about/nadil.jpg",
-    slug: "/team/nadil-hossain",
-    yearsOfExperience: 2,
-    expertise: ["React", "Node.js", "MongoDB"],
-    socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub",   url: "https://github.com/username" },
-    ],
-  },
-  {
-    name: "Jhulon K.",
-    role: "Frontend Engineer",
-    bio: "Builds smooth, performant UIs that feel genuinely native. Fast, precise, always on time.",
-    image: "/images/about/jhulon.jpg",
-    slug: "/team/jhulon-kumar-roy",
-    yearsOfExperience: 2,
-    expertise: ["React", "TypeScript", "Tailwind"],
-    socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub",   url: "https://github.com/username" },
-    ],
-  },
-];
 
 export default function AboutTeam() {
   const gridRef = useRef(null);
