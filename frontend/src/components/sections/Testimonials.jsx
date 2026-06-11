@@ -50,7 +50,7 @@ export default function Testimonials() {
   );
 
   return (
-    <section className="bg-[#02090F] py-10">
+    <section className="relative overflow-hidden bg-[#02090F] py-10">
       {/* Background Glow */}
       <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-accent/10 blur-[140px]" />
 

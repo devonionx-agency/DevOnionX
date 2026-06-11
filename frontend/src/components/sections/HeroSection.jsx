@@ -14,7 +14,7 @@ export default function HomeSection() {
   const [showParticles, setShowParticles] = useState(false);
 
   useEffect(() => {
-    // 🔥 delay particles load (reduce initial GPU spike)
+    // delay particles load (reduce initial GPU spike)
     const t = setTimeout(() => {
       setShowParticles(true);
     }, 500);
@@ -26,7 +26,7 @@ export default function HomeSection() {
     if (window.innerWidth < 1024) return;
 
     const ctx = gsap.context(() => {
-      // 🚀 ONE timeline only (important)
+      //  ONE timeline only (important)
       const tl = gsap.timeline({
         defaults: {
           duration: 0.8,
@@ -79,7 +79,7 @@ export default function HomeSection() {
           "-=0.5",
         );
 
-      // 🚀 GPU hint only (NO infinite animation)
+      // GPU hint only (NO infinite animation)
       gsap.set([".dashboard-card", ".crm-card"], {
         willChange: "transform",
       });
@@ -93,7 +93,7 @@ export default function HomeSection() {
       ref={heroRef}
       className="relative overflow-hidden bg-black text-white"
     >
-      {/* 🔥 Lazy particles (no initial GPU load) */}
+      {/* Lazy particles (no initial GPU load) */}
       <div className="hidden lg:block">
         {showParticles && <ParticlesBackground />}
       </div>
@@ -105,7 +105,7 @@ export default function HomeSection() {
         size="hero"
         className="relative z-10 lg:min-h-screen flex items-center"
       >
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center py-8 lg:py-24 w-full">
+        <div className="grid lg:grid-cols-[1fr_420px] xl:grid-cols-2 gap-12 lg:gap-6 xl:gap-10 items-center py-8 lg:py-24 w-full">
           {/* LEFT */}
           <div className="max-w-2xl">
             <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-[#FF5101]/20 bg-[#FF5101]/10 px-4 py-2 text-xs sm:text-sm text-[#FF5101] will-change-transform">
@@ -121,7 +121,7 @@ export default function HomeSection() {
               </span>
             </h1>
 
-            <p className="hero-text mt-6 lg:mt-8 max-w-3xl text-base sm:text-lg text-zinc-400 leading-relaxed will-change-transform">
+            <p className="hero-text mt-6 lg:mt-8 max-w-[600px] text-base sm:text-[18px] xl:text-[16px] text-white/80 leading-relaxed will-change-transform">
               We help ambitious startups and businesses build scalable digital
               products and experiences that drive measurable growth.
             </p>
@@ -149,13 +149,11 @@ export default function HomeSection() {
           </div>
 
           {/* RIGHT VISUAL */}
-          <div className="hidden lg:block relative h-[720px]">
-            {/*  floating cards replaced infinite GSAP */}
-            <div className="dashboard-card absolute -top-5 right-80 z-20 animate-float will-change-transform">
+          <div className="hidden lg:block relative h-[600px] xl:h-[720px]">
+            <div className="dashboard-card absolute -top-5 -right-5 z-20 will-change-transform scale-[0.65] xl:scale-100 origin-top-right">
               <DashboardCard />
             </div>
-
-            <div className="crm-card absolute -right-10 bottom-10 z-20 animate-float-slow will-change-transform">
+            <div className="crm-card absolute top-0 right-[240px] xl:right-[320px] z-10 will-change-transform scale-[0.65] xl:scale-100 origin-top-right">
               <CRMCard />
             </div>
           </div>

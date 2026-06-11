@@ -32,7 +32,7 @@
 
   .headingOne {
     @apply font-semibold tracking-tight;
-    font-size: clamp(42px, 7vw, 76px);
+    font-size: clamp(42px, 5vw, 60px);
     line-height: 0.95;
   }
 
