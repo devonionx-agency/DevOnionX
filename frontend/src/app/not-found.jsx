@@ -1,9 +1,6 @@
-import React from 'react'
+// app/not-found.jsx
+import NotFoundContent from "@/components/sections/NotFoundContent";
 
-const NotFound = () => {
-  return (
-    <div>NotFound</div>
-  )
+export default function NotFound() {
+  return <NotFoundContent />;
 }
-
-export default NotFound
