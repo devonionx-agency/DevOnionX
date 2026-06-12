@@ -144,6 +144,7 @@ export const blogPageHeroData = {
   heroPageImage: blogPage[0].img,
 };
 
+// for about page hero
 
 export const aboutPageHeroData = {
   buttonLabel: "Let's Talk",
@@ -211,4 +212,5 @@ export const aboutPageHeroData = {
     },
   ],
   heroPageImage: aboutPage[0].img,
+  statsGrid :false
 };
