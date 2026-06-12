@@ -9,10 +9,10 @@ export const companyLinks = [
 ];
 
 export const serviceLinks = [
-  { name: "Web Applications", href: "/services/web-development" },
-  { name: "SaaS Platforms", href: "/services/saas-development" },
-  { name: "UI/UX Design", href: "/services/ui-ux-design" },
-  { name: "API Integration", href: "/services/api-integration" },
+  { name: "Web Applications", href: "/services/custom-web" },
+  { name: "SaaS Platforms", href: "/services/saas" },
+  { name: "UI/UX Design", href: "/services/uiux" },
+  { name: "API Integration", href: "/services/backend" },
 ];
 
 export const socialLinks = [
