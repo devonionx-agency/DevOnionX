@@ -1,14 +1,14 @@
-import ServiceHero from '@/components/common/ServiceHero'
-import ServiceShow from '@/components/sections/services/servicedetails/ServiceShow'
-import React from 'react'
+import ServiceHero from "@/components/common/ServiceHero";
+import ServiceShow from "@/components/sections/services/servicedetails/ServiceShow";
+import React from "react";
 
-function ServiceDetails() {
+export default async function ServiceDetails({ params }) {
+  const { slug } = await params;
+
   return (
     <>
-    <ServiceHero/>
-    <ServiceShow/>
+      <ServiceHero />
+      <ServiceShow slug={slug} />
     </>
-  )
+  );
 }
-
-export default ServiceDetails
