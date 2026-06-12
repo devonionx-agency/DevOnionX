@@ -5,6 +5,7 @@ import OurProcess from "@/components/sections/OurProcess";
 import TrustMetrics from "@/components/sections/TrustMetrics";
 import WhyChoose from "@/components/sections/WhyChoose";
 import FeaturedWork from "@/components/sections/FeaturedWork";
+import FaqHome from "@/components/sections/FaqHome";
 
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
 
@@ -18,6 +19,7 @@ export default function page() {
       <WhyChoose />
       <Testimonials />
       <Insights />
+      <FaqHome/>
     </>
   );
 }
