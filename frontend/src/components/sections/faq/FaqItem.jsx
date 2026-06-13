@@ -8,8 +8,8 @@ export default function FaqItem({ item, isOpen, onToggle }) {
       className={`overflow-hidden rounded-2xl border transition-all duration-300
       ${
         isOpen
-          ? "border-orange-500/20 bg-orange-500/[0.03]"
-          : "border-white/5 bg-white/[0.02]"
+          ? "border-orange-500/20 bg-orange-500/3"
+          : "border-white/5 bg-white/2"
       }`}
     >
       <button
