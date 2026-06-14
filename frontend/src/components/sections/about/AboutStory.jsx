@@ -334,7 +334,7 @@ export default function AboutStory() {
                   >
                     {pillar.number}
                   </span>
-                  <span className="text-2xl">{pillar.icon}</span>
+                  <span className="text-[#FF5101]">{pillar.icon}</span>
                 </div>
 
 

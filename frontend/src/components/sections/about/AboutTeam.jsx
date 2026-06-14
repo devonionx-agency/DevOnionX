@@ -3,27 +3,38 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { TEAM } from "@/helper/about";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { Grid } from "@/components/common/Responsive";
-import { TEAM } from "@/helper/about";
 import TeamMemberCard from "@/components/ui/TeamMemberCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ────────────────────────────────────────────────────────────
+   AboutTeam
+   Renders the full team grid using the reusable TeamMemberCard
+   component. Cards stagger in on scroll with GSAP.
+──────────────────────────────────────────────────────────── */
 
 export default function AboutTeam() {
   const gridRef = useRef(null);
 
   useEffect(() => {
     const isMobile = window.matchMedia("(pointer: coarse)").matches;
+
     const ctx = gsap.context(() => {
+      // Staggered card entrance on scroll
       gsap.fromTo(
         Array.from(gridRef.current.children),
         { opacity: 0, y: isMobile ? 20 : 40 },
         {
-          opacity: 1, y: 0,
-          duration: 0.8, ease: "power3.out", stagger: 0.1,
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.1,
           scrollTrigger: {
             trigger: gridRef.current,
             start: isMobile ? "top 92%" : "top 85%",
@@ -32,13 +43,14 @@ export default function AboutTeam() {
         }
       );
     }, gridRef);
+
     return () => ctx.revert();
   }, []);
 
   return (
     <section className="bg-[#0a0a0a] py-28 relative overflow-hidden">
 
-      {/* Background */}
+      {/* Background decorations */}
       <div
         className="pointer-events-none absolute inset-0 opacity-30"
         style={{
@@ -58,6 +70,7 @@ export default function AboutTeam() {
           className="mb-14"
         />
 
+        {/* Team grid — responsive via Responsive.Grid utility */}
         <div ref={gridRef}>
           <Grid cols={{ base: 1, sm: 2, lg: 3, xl: 5 }} gap="sm">
             {TEAM.map((member) => (
