@@ -121,7 +121,7 @@ export default function AboutMission() {
   }, []);
 
   return (
-    <section className="bg-[#050505] py-28 relative overflow-hidden">
+    <section className="bg-[#050505] py-4 md:py-12 relative overflow-hidden">
 
       {/* Background decorations */}
       <div
@@ -141,7 +141,7 @@ export default function AboutMission() {
           label="Mission & Vision"
           text="Why We Do What We Do"
           colorWord="What We Do"
-          className="mb-16"
+          className="mb-16 pb-4 sm:pb-6"
         />
 
         {/* Mission + Vision */}
