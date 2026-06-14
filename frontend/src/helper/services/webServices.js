@@ -111,7 +111,7 @@ export const webServices = {
         desc: "WCAG compliant interfaces",
       },
       {
-        icon: "ti-brand-framer",
+        icon: "ti-brand-gsap",
         title: "Animations",
         desc: "Smooth & purposeful motion",
       },
@@ -154,7 +154,7 @@ export const webServices = {
       { icon: "ti-brand-nextjs", label: "Next.js", color: "#ffffff" },
       { icon: "ti-brand-typescript", label: "TypeScript", color: "#3178C6" },
       { icon: "ti-brand-tailwind", label: "Tailwind", color: "#38BDF8" },
-      { icon: "ti-brand-framer", label: "Framer", color: "#0055FF" },
+      { icon: "ti-brand-gsap", label: "GSAP", color: "#0055FF" },
       { icon: "ti-brand-redux", label: "Redux", color: "#764ABC" },
       { icon: "ti-test-pipe", label: "Jest", color: "#C21325" },
       { icon: "ti-brand-figma", label: "Figma", color: "#F24E1E" },
