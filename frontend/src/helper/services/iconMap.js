@@ -12,7 +12,6 @@ import {
   Component,
   Smartphone,
   Accessibility,
-  Sparkles,
   Palette,
   BookOpen,
   TestTube,
@@ -26,6 +25,9 @@ import {
   Server,
   CloudUpload,
   Headphones,
+  Users,
+  UserPlus,
+  BarChart3, 
 } from "lucide-react";
 
 import {
@@ -43,11 +45,11 @@ import {
   SiDocker,
   SiGithubactions,
   SiGithub,
-  SiFramer,
   SiRedux,
   SiJest,
   SiFigma,
   SiGsap,
+  SiStripe,
 } from "react-icons/si";
 
 import { FaAws } from "react-icons/fa";
@@ -80,6 +82,9 @@ export const iconMap = {
   "ti-server-2": Server,
   "ti-cloud-upload": CloudUpload,
   "ti-headphones": Headphones,
+  "ti-users": Users,
+  "ti-user-plus": UserPlus,
+  "ti-chart-bar": BarChart3,
 };
 
 // Brand / tech stack icons (Simple Icons via react-icons)
@@ -102,4 +107,5 @@ export const techIconMap = {
   "ti-brand-redux": SiRedux,
   "ti-test-pipe": SiJest,
   "ti-brand-figma": SiFigma,
+  "ti-brand-stripe": SiStripe,
 };

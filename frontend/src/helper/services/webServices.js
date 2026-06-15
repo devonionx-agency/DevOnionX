@@ -273,11 +273,6 @@ export const webServices = {
         desc: "Design, optimize & manage",
       },
       {
-        icon: "ti-brand-docker",
-        title: "DevOps",
-        desc: "CI/CD & containerization",
-      },
-      {
         icon: "ti-lock",
         title: "Auth & Security",
         desc: "End-to-end protection",
