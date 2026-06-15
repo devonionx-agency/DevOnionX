@@ -27,7 +27,8 @@ import {
   Headphones,
   Users,
   UserPlus,
-  BarChart3, 
+  BarChart3,
+  TrendingUp, Bot, FileBarChart, Bell, Calendar,
 } from "lucide-react";
 
 import {
@@ -50,6 +51,7 @@ import {
   SiFigma,
   SiGsap,
   SiStripe,
+  SiChartdotjs,
 } from "react-icons/si";
 
 import { FaAws } from "react-icons/fa";
@@ -85,6 +87,11 @@ export const iconMap = {
   "ti-users": Users,
   "ti-user-plus": UserPlus,
   "ti-chart-bar": BarChart3,
+  "ti-chart-line": TrendingUp,
+"ti-robot": Bot,
+"ti-file-analytics": FileBarChart,
+"ti-bell": Bell,
+"ti-calendar": Calendar,
 };
 
 // Brand / tech stack icons (Simple Icons via react-icons)
@@ -108,4 +115,5 @@ export const techIconMap = {
   "ti-test-pipe": SiJest,
   "ti-brand-figma": SiFigma,
   "ti-brand-stripe": SiStripe,
+  "ti-brand-recharts": SiChartdotjs,
 };
