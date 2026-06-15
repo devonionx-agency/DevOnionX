@@ -40,6 +40,10 @@ import {
   User,
   LayoutTemplate,
   FileOutput,
+  RefreshCw,
+  Bug,
+  MessageCircle,
+  ClipboardList,
 } from "lucide-react";
 
 import {
@@ -69,6 +73,9 @@ import {
   SiNotion,
   SiLottiefiles,
   SiGooglechrome,
+  SiCloudflare,
+  SiSentry,
+  SiSlack,
 } from "react-icons/si";
 
 import { FaAws } from "react-icons/fa";
@@ -117,6 +124,11 @@ export const iconMap = {
   "ti-brand-figma": SiFigma,
   "ti-brand-framer": SiFramer,
   "ti-file-export": FileOutput,
+  "ti-refresh": RefreshCw,
+  "ti-bug": Bug,
+  "ti-message": MessageCircle,
+  "ti-clipboard-list": ClipboardList,
+  "ti-shield-check": ShieldCheck,
 };
 
 // Brand / tech stack icons (Simple Icons via react-icons)
@@ -148,4 +160,9 @@ export const techIconMap = {
   "ti-brand-notion": SiNotion,
   "ti-brand-lottie": SiLottiefiles,
   "ti-brand-chrome": SiGooglechrome,
+  "ti-brand-cloudflare": SiCloudflare,
+  "ti-brand-sentry": SiSentry,
+  "ti-database": Database,
+  "ti-activity": Activity,
+  "ti-brand-slack": SiSlack,
 };
