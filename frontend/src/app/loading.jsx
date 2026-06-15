@@ -1,9 +1,10 @@
+import Loading from '@/components/sections/Loading'
 import React from 'react'
 
-const Loading = () => {
+export default function loading() {
   return (
-    <div>Loading</div>
+    <div>
+      <Loading/>
+    </div>
   )
 }
-
-export default Loading
