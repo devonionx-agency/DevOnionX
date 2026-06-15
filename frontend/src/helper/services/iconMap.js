@@ -1,3 +1,4 @@
+import { LiaAdobe } from "react-icons/lia";
 import {
   // General / deliver icons (lucide-react)
   Check,
@@ -37,6 +38,8 @@ import {
   Truck,
   Tag,
   User,
+  LayoutTemplate,
+  FileOutput,
 } from "lucide-react";
 
 import {
@@ -61,6 +64,11 @@ import {
   SiStripe,
   SiChartdotjs,
   SiShopify,
+  SiFramer,
+  SiStorybook,
+  SiNotion,
+  SiLottiefiles,
+  SiGooglechrome,
 } from "react-icons/si";
 
 import { FaAws } from "react-icons/fa";
@@ -105,6 +113,10 @@ export const iconMap = {
   "ti-truck": Truck,
   "ti-tag": Tag,
   "ti-user": User,
+  "ti-layout-2": LayoutTemplate,
+  "ti-brand-figma": SiFigma,
+  "ti-brand-framer": SiFramer,
+  "ti-file-export": FileOutput,
 };
 
 // Brand / tech stack icons (Simple Icons via react-icons)
@@ -130,4 +142,10 @@ export const techIconMap = {
   "ti-brand-stripe": SiStripe,
   "ti-brand-recharts": SiChartdotjs,
   "ti-brand-shopify": SiShopify,
+  "ti-brand-framer": SiFramer,
+  "ti-brand-adobe": LiaAdobe,
+  "ti-brand-storybook": SiStorybook,
+  "ti-brand-notion": SiNotion,
+  "ti-brand-lottie": SiLottiefiles,
+  "ti-brand-chrome": SiGooglechrome,
 };
