@@ -14,7 +14,7 @@ import {
   SiSupabase,
   SiRedis,
 } from "react-icons/si";
-
+import { allIcon } from "./iconProvider";
 
 // for work category filter items
 
@@ -29,6 +29,8 @@ export const workCategories = [
   { id: 8, label: "Dashboard & CRM", value: "dashboard-crm" },
   { id: 9, label: "Featured", value: "featured" },
 ];
+
+const { workHeroIconsArr } = allIcon;
 
 export const featuredWorkItems = [
   {
@@ -233,5 +235,30 @@ export const featuredWorkItems = [
       { name: "TypeScript", icon: SiTypescript },
     ],
     href: "https://bitox-business-consulting-website.vercel.app/",
+  },
+];
+
+// work hero
+
+export const workHeroArrObject = [
+  {
+    label: "Client",
+    icon: workHeroIconsArr[0].icon,
+    value: "FitZone Ltd.",
+  },
+  {
+    label: "Industry",
+    icon: workHeroIconsArr[1].icon,
+    value: "Fitness & Health",
+  },
+  {
+    label: "Duration",
+    icon: workHeroIconsArr[2].icon,
+    value: "12 Weeks",
+  },
+  {
+    label: "Year",
+    icon: workHeroIconsArr[3].icon,
+    value: "2026",
   },
 ];

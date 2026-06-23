@@ -1,7 +1,11 @@
-import React from "react";
+import WorkDetilsHero from "@/components/sections/work/workDetils/WorkDetilsHero";
 
 const WorkDetails = () => {
-  return <div>WorkDetails</div>;
+  return (
+    <>
+      <WorkDetilsHero />
+    </>
+  );
 };
 
 export default WorkDetails;
