@@ -48,3 +48,13 @@ textarea {
   background: var(--color-brand);
   color: #ffffff;
 }
+
+/* ─── Shimmer animation — used in loading.jsx skeleton screens ───
+   Slides a light sweep across skeleton blocks to indicate loading.
+   Referenced via Tailwind arbitrary: animate-[shimmer_1.5s_infinite]
+──────────────────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

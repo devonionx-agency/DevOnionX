@@ -13,7 +13,7 @@ export const navLinks = [
         items: [
           {
             title: "Custom Web Development",
-            href: "/services/web-development",
+            href: "/services/custom-web",
           },
           {
             title: "Frontend Development",
@@ -53,7 +53,7 @@ export const navLinks = [
         items: [
           {
             title: "UI/UX Design",
-            href: "/services/ui-ux",
+            href: "/services/uiux",
           },
           {
             title: "Website Maintenance",
