@@ -5,20 +5,23 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiMongodb,
-  SiSocketdotio,
-  SiPostgresql,
   SiPrisma,
+  SiReact,
+  SiGreensock,
+  SiJavascript,
 } from "react-icons/si";
 
 export const featuredWorks = [
   {
     id: 1,
-    category: "SaaS Platform",
-    title: "Nimbus Dashboard",
-    description:
-      "A comprehensive analytics platform for SaaS businesses to track performance, revenue, and growth in real time.",
+    category: "CRM Dashboard",
 
-    image: "/images/projects/saas.png",
+    title: "Vertex CRM",
+
+    description:
+      "A modern CRM dashboard designed to simplify business operations with interactive analytics, customer management, responsive layouts, and a clean user experience built for productivity.",
+
+    image: "/images/projects/dashboard.webp",
 
     technologies: [
       {
@@ -30,8 +33,8 @@ export const featuredWorks = [
         icon: SiTypescript,
       },
       {
-        name: "Tailwind CSS",
-        icon: SiTailwindcss,
+        name: "Prisma",
+        icon: SiPrisma,
       },
       {
         name: "MongoDB",
@@ -39,17 +42,19 @@ export const featuredWorks = [
       },
     ],
 
-    href: "https://edufilos.vercel.app/",
+    href: "https://crm-dashboard-ten-orpin.vercel.app/",
   },
 
   {
     id: 2,
-    category: "E-commerce",
-    title: "Urbanove Store",
-    description:
-      "A modern online store designed to deliver a seamless shopping experience and maximize conversions.",
+    category: "Education SaaS",
 
-    image: "/images/projects/ecommerce.png",
+    title: "EduFilo",
+
+    description:
+      "A modern Madrasah management platform built to simplify admissions, student management, and daily academic operations through an intuitive, multilingual interface with a seamless user experience.",
+
+    image: "/images/projects/edufilo.webp",
 
     technologies: [
       {
@@ -57,50 +62,52 @@ export const featuredWorks = [
         icon: SiNextdotjs,
       },
       {
-        name: "Stripe",
-        icon: FaStripe,
-      },
-      {
         name: "Tailwind CSS",
         icon: SiTailwindcss,
       },
       {
-        name: "Prisma",
-        icon: SiPrisma,
+        name: "GSAP",
+        icon: SiGreensock,
+      },
+      {
+        name: "Context API",
+        icon: SiReact,
       },
     ],
 
-    href: "https://morent-hazel.vercel.app/",
+    href: "https://edufilo.vercel.app/",
   },
 
   {
     id: 3,
-    category: "Web Application",
-    title: "ProjectFlow",
-    description:
-      "A collaborative project management platform helping teams organize tasks, workflows, and delivery cycles.",
+    category: "Qeducato University",
 
-    image: "/images/projects/business.png",
+    title: "Qeducato University",
+
+    description:
+      "A premium business website built with a modern interface, responsive layouts, smooth animations, and conversion-focused sections to create a fast and engaging user experience.",
+
+    image: "/images/projects/qeducato.webp",
 
     technologies: [
-      {
-        name: "React",
-        icon: FaReact,
-      },
-      {
-        name: "Node.js",
-        icon: FaNodeJs,
-      },
-      {
-        name: "Socket.io",
-        icon: SiSocketdotio,
-      },
-      {
-        name: "PostgreSQL",
-        icon: SiPostgresql,
-      },
-    ],
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+  },
+  {
+    name: "JavaScript",
+    icon: SiJavascript,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+  },
+  {
+    name: "GSAP",
+    icon: SiGreensock,
+  },
+],
 
-    href: "https://bitox-business-consulting-website.vercel.app/",
+    href: "https://qeducato.vercel.app/",
   },
 ];
