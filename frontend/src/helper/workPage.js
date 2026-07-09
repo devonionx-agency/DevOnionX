@@ -1,5 +1,13 @@
 import { allPageHeroImg } from "./imageProvider/pageHeroImage";
-import { FaReact, FaNodeJs, FaStripe, FaPython } from "react-icons/fa";
+import {
+  FaReact,
+  FaNodeJs,
+  FaStripe,
+  FaPython,
+  FaCode,
+  FaCloud,
+  FaCreditCard,
+} from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -13,8 +21,15 @@ import {
   SiFramer,
   SiSupabase,
   SiRedis,
+  SiGreensock,
+  SiReact,
+  SiJavascript,
+  SiZustand,
+  SiFirebase,
+  SiRedux,
 } from "react-icons/si";
 import { allIcon } from "./iconProvider";
+import { RiScrollToBottomLine } from "react-icons/ri";
 
 // for work category filter items
 
@@ -35,104 +50,127 @@ const { workHeroIconsArr } = allIcon;
 export const featuredWorkItems = [
   {
     id: 1,
-    category: "saas",
+    category: "dashboard-crm",
     featured: true,
-    title: "Nimbus Dashboard",
+    title: "CRM Dashboard",
     description:
-      "A comprehensive analytics platform for SaaS businesses to track performance, revenue, and growth in real time.",
-    image: "/images/projects/saas.png",
+      "A modern CRM dashboard designed to simplify business operations with interactive analytics, customer management, responsive layouts, and a clean user experience built for productivity.",
+    image: "/images/projects/dashboard.webp",
     technologies: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "TypeScript", icon: SiTypescript },
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Prisma", icon: SiPrisma },
+      { name: "Redis", icon: SiRedis },
       { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "MongoDB", icon: SiMongodb },
     ],
-    href: "https://edufilos.vercel.app/",
+    href: "https://crm-dashboard-ten-orpin.vercel.app/",
   },
 
   {
     id: 2,
-    category: "ecommerce",
+    category: "saas",
     featured: false,
-    title: "Urbanove Store",
+    title: "EduFilo",
     description:
-      "A modern online store designed to deliver a seamless shopping experience and maximize conversions.",
-    image: "/images/projects/ecommerce.png",
+      "A modern Madrasah management platform built to simplify admissions, student management, and daily academic operations through an intuitive, multilingual interface with a seamless user experience.",
+    image: "/images/projects/edufilo.webp",
     technologies: [
       { name: "Next.js", icon: SiNextdotjs },
-      { name: "Stripe", icon: FaStripe },
       { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Prisma", icon: SiPrisma },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Firebase Auth", icon: SiFirebase },
+      { name: "Payment Gateway", icon: FaCreditCard },
+      { name: "Context API", icon: SiReact },
+      { name: "GSAP", icon: SiGreensock },
     ],
-    href: "https://morent-hazel.vercel.app/",
+    href: "https://edufilo.vercel.app/",
   },
 
   {
     id: 3,
-    category: "web-applications",
+    category: "case-studies",
     featured: true,
-    title: "ProjectFlow",
+    title: "Qeducato University",
     description:
-      "A collaborative project management platform helping teams organize tasks, workflows, and delivery cycles.",
-    image: "/images/projects/business.png",
+      "A premium business website built with a modern interface, responsive layouts, smooth animations, and conversion-focused sections to create a fast and engaging user experience.",
+    image: "/images/projects/qeducato.webp",
     technologies: [
-      { name: "React", icon: FaReact },
-      { name: "Node.js", icon: FaNodeJs },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Express.js", icon: SiExpress },
+      { name: "Payment Gateway", icon: FaCreditCard },
       { name: "Socket.io", icon: SiSocketdotio },
-      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "GSAP", icon: SiGreensock },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
-    href: "https://bitox-business-consulting-website.vercel.app/",
+    href: "https://qeducato.vercel.app/",
   },
 
   {
     id: 4,
-    category: "ai",
+    category: "business-websites",
     featured: true,
-    title: "SynthMind AI",
+    title: "Bitox Business",
     description:
-      "An AI-powered content generation platform that helps marketers and creators produce high-quality copy at scale.",
-    image: "/images/projects/saas.png",
+      "A modern business consulting website built with Next.js and Tailwind CSS, featuring responsive layouts, engaging animations, and conversion-focused sections designed to showcase services, build trust, and generate high-quality business leads.",
+    image: "/images/projects/business.webp",
     technologies: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "OpenAI", icon: SiOpenai },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "MongoDB", icon: SiMongodb },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "Payment Gateway", icon: FaCreditCard },
+      { name: "GSAP", icon: SiGreensock },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
-    href: "https://edufilos.vercel.app/",
+    href: "https://bitox-business-consulting-website.vercel.app/",
   },
 
   {
     id: 5,
-    category: "dashboard-crm",
+    category: "ecommerce",
     featured: false,
-    title: "ClientAxis CRM",
+    title: "Uomo UIM",
     description:
-      "A smart CRM system built for agencies to manage leads, pipelines, and client relationships all in one place.",
-    image: "/images/projects/business.png",
+      "Built with a modern full-stack architecture using Next.js and Express.js, featuring JavaScript, Firebase Authentication, REST APIs, Redis caching, and Zustand for efficient state management. Enhanced with Lenis for smooth scrolling, delivering a fast, scalable, and responsive user experience.",
+    image: "/images/projects/uimo-uim.webp",
     technologies: [
-      { name: "React", icon: FaReact },
-      { name: "Express", icon: SiExpress },
-      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "Express.js", icon: SiExpress },
+      { name: "REST API", icon: FaCode },
       { name: "Redis", icon: SiRedis },
+      { name: "Zustand", icon: SiRedux },
+      { name: "Cloudinary", icon: FaCloud },
+      { name: "Lenis", icon: RiScrollToBottomLine },
     ],
-    href: "https://bitox-business-consulting-website.vercel.app/",
+    href: "https://uomo-uim.vercel.app/",
   },
 
   {
     id: 6,
-    category: "business-websites",
+    category: "web-applications",
     featured: false,
-    title: "Crestline Consulting",
+    title: "Domainshub",
     description:
-      "A premium business consulting website built to establish authority, attract enterprise clients, and drive conversions.",
-    image: "/images/projects/business.png",
+      "A modern domain marketplace that enables users to search, register, and manage domain names through a fast, responsive interface with secure authentication, real-time availability checks, and integrated payment processing.",
+    image: "/images/projects/domain.webp",
     technologies: [
       { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Framer Motion", icon: SiFramer },
       { name: "TypeScript", icon: SiTypescript },
+      { name: "Express.js", icon: SiExpress },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Payment Gateway", icon: FaCreditCard },
+      { name: "Redis", icon: SiRedis },
+      { name: "REST API", icon: FaCode },
     ],
-    href: "https://bitox-business-consulting-website.vercel.app/",
+    href: "https://domainshub-nine.vercel.app/",
   },
 
   {
