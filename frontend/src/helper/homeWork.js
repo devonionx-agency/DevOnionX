@@ -1,4 +1,4 @@
-import { FaReact, FaNodeJs, FaStripe } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaStripe, FaCreditCard } from "react-icons/fa";
 
 import {
   SiNextdotjs,
@@ -9,6 +9,11 @@ import {
   SiReact,
   SiGreensock,
   SiJavascript,
+  SiSocketdotio,
+  SiExpress,
+  SiPostgresql,
+  SiRedis,
+  SiFirebase,
 } from "react-icons/si";
 
 export const featuredWorks = [
@@ -24,23 +29,15 @@ export const featuredWorks = [
     image: "/images/projects/dashboard.webp",
 
     technologies: [
-      {
-        name: "Next.js",
-        icon: SiNextdotjs,
-      },
-      {
-        name: "TypeScript",
-        icon: SiTypescript,
-      },
-      {
-        name: "Prisma",
-        icon: SiPrisma,
-      },
-      {
-        name: "MongoDB",
-        icon: SiMongodb,
-      },
-    ],
+          { name: "Next.js", icon: SiNextdotjs },
+          { name: "TypeScript", icon: SiTypescript },
+          { name: "Node.js", icon: FaNodeJs },
+          { name: "Express.js", icon: SiExpress },
+          { name: "PostgreSQL", icon: SiPostgresql },
+          { name: "Prisma", icon: SiPrisma },
+          { name: "Redis", icon: SiRedis },
+           { name: "Tailwind CSS", icon: SiTailwindcss },
+        ],
 
     href: "https://crm-dashboard-ten-orpin.vercel.app/",
   },
@@ -57,23 +54,14 @@ export const featuredWorks = [
     image: "/images/projects/edufilo.webp",
 
     technologies: [
-      {
-        name: "Next.js",
-        icon: SiNextdotjs,
-      },
-      {
-        name: "Tailwind CSS",
-        icon: SiTailwindcss,
-      },
-      {
-        name: "GSAP",
-        icon: SiGreensock,
-      },
-      {
-        name: "Context API",
-        icon: SiReact,
-      },
-    ],
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "Firebase Auth", icon: SiFirebase },
+  { name: "Payment Gateway", icon: FaCreditCard },
+  { name: "Context API", icon: SiReact },
+  { name: "GSAP", icon: SiGreensock },
+],
 
     href: "https://edufilo.vercel.app/",
   },
@@ -90,22 +78,14 @@ export const featuredWorks = [
     image: "/images/projects/qeducato.webp",
 
     technologies: [
-  {
-    name: "Next.js",
-    icon: SiNextdotjs,
-  },
-  {
-    name: "JavaScript",
-    icon: SiJavascript,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: SiTailwindcss,
-  },
-  {
-    name: "GSAP",
-    icon: SiGreensock,
-  },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "Express.js", icon: SiExpress },
+  { name: "Payment Gateway", icon: FaCreditCard },
+  { name: "Socket.io", icon: SiSocketdotio },
+  { name: "GSAP", icon: SiGreensock },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
 ],
 
     href: "https://qeducato.vercel.app/",
