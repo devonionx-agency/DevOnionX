@@ -25,12 +25,10 @@ export default function ProcessSection() {
               label="Our Process"
               text="How We Build Digital Products"
               colorWord="Digital Products"
+              description={
+                "   A structured process for turning ideas into scalable digitalproducts."
+              }
             />
-
-            <p className="mx-auto max-w-[460px] para-lg text-white/80">
-              A structured process for turning ideas into scalable digital
-              products.
-            </p>
           </div>
 
           <ProcessGrid items={steps} />

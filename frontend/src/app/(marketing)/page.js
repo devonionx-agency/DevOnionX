@@ -8,6 +8,7 @@ import FeaturedWork from "@/components/sections/FeaturedWork";
 import FaqHome from "@/components/sections/FaqHome";
 import HeroSectionTwo from "@/components/sections/home/HeroSectionTwo";
 import ProblemsSection from "@/components/sections/home/ProblemsSection";
+import ProcessHome from "@/components/sections/home/ProcessHome";
 
 const Testimonials = dynamic(
   () => import("@/components/sections/Testimonials"),
@@ -20,7 +21,8 @@ export default function page() {
       {/* <HeroSection /> */}
       <TrustMetrics />
       <ProblemsSection />
-      <OurProcess />
+      <ProcessHome />
+      {/* <OurProcess /> */}
       <FeaturedWork />
       <WhyChoose />
       <Testimonials />
