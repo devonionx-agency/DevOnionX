@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <NextTopLoader color="#FF5101" showSpinner={false} />
         {children}
         <Toaster position="top-right" richColors closeButton />
