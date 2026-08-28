@@ -12,11 +12,13 @@ export default function SectionHeader({
   label,
   text,
   colorWord,
+  description,
   className = "",
 }) {
   const wrapperRef = useRef(null);
   const labelRef = useRef(null);
   const headingRef = useRef(null);
+  const descRef = useRef(null);
 
   let content;
   if (colorWord) {
@@ -43,7 +45,7 @@ export default function SectionHeader({
   useGSAP(
     () => {
       const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       ).matches;
 
       // Reduced motion → text renders normally, no split, no animation needed.
@@ -60,8 +62,18 @@ export default function SectionHeader({
         mask: "words",
       });
 
+      // description optional — thakle nijer split toiri hobe, na thakle skip
+      const descSplit = descRef.current
+        ? SplitText.create(descRef.current, {
+            type: "lines",
+            mask: "lines",
+            linesClass: "header-desc-line",
+          })
+        : null;
+
       gsap.set(headingSplit.lines, { yPercent: 115 });
       gsap.set(labelSplit.words, { yPercent: 130, autoAlpha: 0 });
+      if (descSplit) gsap.set(descSplit.lines, { yPercent: 100, autoAlpha: 0 });
 
       const mm = gsap.matchMedia();
 
@@ -69,6 +81,49 @@ export default function SectionHeader({
         {
           isMobile: "(max-width: 639px)",
           isTabletUp: "(min-width: 640px)",
+        },
+        (context) => {
+          const { isMobile } = context.conditions;
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: isMobile ? "top 92%" : "top 85%",
+              once: true,
+            },
+            defaults: { ease: "expo.out" },
+          });
+
+          tl.to(labelSplit.words, {
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 0.6,
+            stagger: 0.04,
+          }).to(
+            headingSplit.lines,
+            {
+              yPercent: 0,
+              duration: isMobile ? 0.9 : 1.1,
+              stagger: 0.12,
+            },
+            "-=0.3",
+          );
+
+          if (descSplit) {
+            tl.to(
+              descSplit.lines,
+              {
+                yPercent: 0,
+                autoAlpha: 1,
+                duration: 0.7,
+                stagger: 0.08,
+              },
+              "-=0.45",
+            );
+          }
+
+          // matchMedia cleanup handles ScrollTrigger + timeline;
+          // SplitText reverts automatically via the GSAP context on unmount.
         },
         (context) => {
           const { isMobile } = context.conditions;
@@ -104,7 +159,7 @@ export default function SectionHeader({
 
       return () => mm.revert();
     },
-    { scope: wrapperRef, dependencies: [text, colorWord, label] }
+    { scope: wrapperRef, dependencies: [text, colorWord, label, description] },
   );
 
   return (
@@ -124,6 +179,15 @@ export default function SectionHeader({
       >
         {content}
       </h2>
+
+      {description ? (
+        <p
+          ref={descRef}
+          className="para-lg relative z-10 mx-auto mt-4 max-w-[800px] text-white/80 sm:mt-5"
+        >
+          {description}
+        </p>
+      ) : null}
     </div>
   );
 }

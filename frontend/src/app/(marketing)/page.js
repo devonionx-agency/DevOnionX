@@ -7,6 +7,7 @@ import WhyChoose from "@/components/sections/WhyChoose";
 import FeaturedWork from "@/components/sections/FeaturedWork";
 import FaqHome from "@/components/sections/FaqHome";
 import HeroSectionTwo from "@/components/sections/home/HeroSectionTwo";
+import ProblemsSection from "@/components/sections/home/ProblemsSection";
 
 const Testimonials = dynamic(
   () => import("@/components/sections/Testimonials"),
@@ -18,6 +19,7 @@ export default function page() {
       <HeroSectionTwo />
       {/* <HeroSection /> */}
       <TrustMetrics />
+      <ProblemsSection />
       <OurProcess />
       <FeaturedWork />
       <WhyChoose />
