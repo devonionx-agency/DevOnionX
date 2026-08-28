@@ -1,20 +1,12 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+
+import { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
-
-function buildST(trigger, isMobile) {
-  return {
-    trigger,
-    start: isMobile ? "top 92%" : "top 88%",
-    end: "bottom top",
-    ...(isMobile
-      ? { once: true }
-      : { toggleActions: "play none none reverse" }),
-  };
-}
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function SectionHeader({
   label,
@@ -23,6 +15,8 @@ export default function SectionHeader({
   className = "",
 }) {
   const wrapperRef = useRef(null);
+  const labelRef = useRef(null);
+  const headingRef = useRef(null);
 
   let content;
   if (colorWord) {
@@ -46,47 +40,88 @@ export default function SectionHeader({
     content = <>{text}</>;
   }
 
-  useEffect(() => {
-    const isMobile =
-      typeof window !== "undefined" &&
-      window.matchMedia("(pointer: coarse)").matches;
+  useGSAP(
+    () => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-    const ctx = gsap.context(() => {
-      gsap.set(wrapperRef.current, { willChange: "transform, opacity" });
+      // Reduced motion → text renders normally, no split, no animation needed.
+      if (reduceMotion) return;
 
-      gsap.fromTo(
-        wrapperRef.current,
-        { opacity: 0, y: isMobile ? 18 : 22 },
+      const headingSplit = SplitText.create(headingRef.current, {
+        type: "lines",
+        mask: "lines",
+        linesClass: "header-line",
+      });
+
+      const labelSplit = SplitText.create(labelRef.current, {
+        type: "words",
+        mask: "words",
+      });
+
+      gsap.set(headingSplit.lines, { yPercent: 115 });
+      gsap.set(labelSplit.words, { yPercent: 130, autoAlpha: 0 });
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
         {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          force3D: true,
-          scrollTrigger: buildST(wrapperRef.current, isMobile),
-          onComplete: isMobile
-            ? () =>
-                gsap.set(wrapperRef.current, {
-                  clearProps: "willChange,transform",
-                })
-            : undefined,
+          isMobile: "(max-width: 639px)",
+          isTabletUp: "(min-width: 640px)",
         },
-      );
-    }, wrapperRef);
+        (context) => {
+          const { isMobile } = context.conditions;
 
-    return () => ctx.revert();
-  }, []);
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: isMobile ? "top 92%" : "top 85%",
+              once: true,
+            },
+            defaults: { ease: "expo.out" },
+          });
+
+          tl.to(labelSplit.words, {
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 0.6,
+            stagger: 0.04,
+          }).to(
+            headingSplit.lines,
+            {
+              yPercent: 0,
+              duration: isMobile ? 0.9 : 1.1,
+              stagger: 0.12,
+            },
+            "-=0.3"
+          );
+
+          // matchMedia cleanup handles ScrollTrigger + timeline;
+          // SplitText reverts automatically via the GSAP context on unmount.
+        }
+      );
+
+      return () => mm.revert();
+    },
+    { scope: wrapperRef, dependencies: [text, colorWord, label] }
+  );
 
   return (
     <div
       ref={wrapperRef}
       className={`relative text-center py-4 sm:py-6 mb-2 ${className}`}
     >
-      
-      <p className="relative z-10 mb-4 text-[18px] font-bold uppercase tracking-[4px] text-[#FF5101]">
+      <p
+        ref={labelRef}
+        className="relative z-10 mb-4 text-[18px] font-bold uppercase tracking-[4px] text-[#FF5101]"
+      >
         {label}
       </p>
-      <h2 className="relative text-white z-10 text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide capitalize">
+      <h2
+        ref={headingRef}
+        className="relative z-10 text-4xl font-bold capitalize tracking-wide text-white sm:text-5xl md:text-6xl"
+      >
         {content}
       </h2>
     </div>
