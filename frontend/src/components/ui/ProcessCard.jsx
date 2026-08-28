@@ -247,7 +247,7 @@ export default function ProcessCard({ step }) {
 
         <h3
           ref={titleRef}
-          className="relative z-10 mt-7 text-3xl font-extrabold text-white sm:text-4xl"
+          className="relative z-10 mt-7 text-3xl font-extrabold text-white "
         >
           {step.title}
         </h3>
