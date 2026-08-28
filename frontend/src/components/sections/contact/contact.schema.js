@@ -13,10 +13,7 @@ export const contactSchema = z.object({
 
   budget: z.string().min(1, "Select a budget"),
 
-  message: z.string().min(
-    20,
-    "Message must be at least 20 characters"
-  ),
+  message: z.string().min(20, "Message must be at least 20 characters"),
 });
 
 export const defaultValues = {

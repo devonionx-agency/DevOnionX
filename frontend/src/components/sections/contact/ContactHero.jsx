@@ -62,7 +62,7 @@ export default function ContactHero() {
   }, []);
 
   return (
-    <section className="bg-[#050505] pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
+    <section className="bg-[#050607] pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
       {/* Dot grid — backgroundImage + backgroundSize cannot be Tailwind */}
       <div
         className="pointer-events-none absolute inset-0"

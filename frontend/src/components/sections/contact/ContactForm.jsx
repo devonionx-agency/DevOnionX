@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,6 +24,7 @@ export default function ContactForm() {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(contactSchema),
@@ -31,13 +33,32 @@ export default function ContactForm() {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+      const templateParams = {
+        name: data.name,
+        email: data.email,
+        company: data.company || "Not provided",
+        phone: data.phone,
+        services: data.services?.join(", ") || "Not selected",
+        budget: data.budget || "Not selected",
+        message: data.message,
+      };
 
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      );
 
-      toast.success("Message sent successfully");
+      toast.success("Message sent successfully!");
+
+      reset();
+      setSelected([]);
+      setBudget("");
     } catch (error) {
-      toast.error("Something went wrong");
+      console.error("EmailJS Error:", error);
+
+      toast.error("Failed to send message. Please try again.");
     }
   };
 
