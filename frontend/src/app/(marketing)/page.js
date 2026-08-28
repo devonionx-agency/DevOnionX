@@ -22,7 +22,7 @@ export default function page() {
       <TrustMetrics />
       <ProblemsSection />
       <ProcessHome />
-      <OurProcess />
+      {/* <OurProcess /> */}
       <FeaturedWork />
       <WhyChoose />
       <Testimonials />
