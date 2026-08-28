@@ -125,6 +125,36 @@ export default function SectionHeader({
           // matchMedia cleanup handles ScrollTrigger + timeline;
           // SplitText reverts automatically via the GSAP context on unmount.
         },
+        (context) => {
+          const { isMobile } = context.conditions;
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: isMobile ? "top 92%" : "top 85%",
+              once: true,
+            },
+            defaults: { ease: "expo.out" },
+          });
+
+          tl.to(labelSplit.words, {
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 0.6,
+            stagger: 0.04,
+          }).to(
+            headingSplit.lines,
+            {
+              yPercent: 0,
+              duration: isMobile ? 0.9 : 1.1,
+              stagger: 0.12,
+            },
+            "-=0.3"
+          );
+
+          // matchMedia cleanup handles ScrollTrigger + timeline;
+          // SplitText reverts automatically via the GSAP context on unmount.
+        }
       );
 
       return () => mm.revert();
