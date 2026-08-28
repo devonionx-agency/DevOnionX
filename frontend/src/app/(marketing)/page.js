@@ -6,20 +6,24 @@ import TrustMetrics from "@/components/sections/TrustMetrics";
 import WhyChoose from "@/components/sections/WhyChoose";
 import FeaturedWork from "@/components/sections/FeaturedWork";
 import FaqHome from "@/components/sections/FaqHome";
+import HeroSectionTwo from "@/components/sections/home/HeroSectionTwo";
 
-const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
+const Testimonials = dynamic(
+  () => import("@/components/sections/Testimonials"),
+);
 
 export default function page() {
   return (
     <>
-      <HeroSection />
+      <HeroSectionTwo />
+      {/* <HeroSection /> */}
       <TrustMetrics />
       <OurProcess />
-      <FeaturedWork/>
+      <FeaturedWork />
       <WhyChoose />
       <Testimonials />
       <Insights />
-      <FaqHome/>
+      <FaqHome />
     </>
   );
 }

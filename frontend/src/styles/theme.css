@@ -1,54 +1,54 @@
-@theme {
-  /* =========================================
-     BRAND
-  ========================================= */
+   @theme {
+   /* =========================================
+      BRAND
+   ========================================= */
 
-  --color-brand: #ff5101;
+   --color-brand: #ff5101;
 
-  /* =========================================
-     FONT FAMILY
-  ========================================= */
+   /* =========================================
+      FONT FAMILY
+   ========================================= */
 
-  --font-heading: var(--font-geist);
-  --font-body: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
-}
+   --font-heading: var(--font-geist);
+   --font-body: var(--font-inter);
+   --font-mono: var(--font-geist-mono);
+   }
 
-/* =========================================
-   LIGHT MODE
-========================================= */
+   /* =========================================
+      LIGHT MODE
+   ========================================= */
 
-:root {
-  /* Background */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
+   :root {
+   /* Background */
+   --bg-primary: #ffffff;
+   --bg-secondary: #f8fafc;
+   --bg-tertiary: #f1f5f9;
 
-  /* Text */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --text-inverted: #FF5101;
+   /* Text */
+   --text-primary: #0f172a;
+   --text-secondary: #475569;
+   --text-muted: #64748b;
+   --text-inverted: #FF5101;
 
-  /* Border */
-  --border-color: #e2e8f0;
-}
+   /* Border */
+   --border-color: #e2e8f0;
+   }
 
-/* =========================================
-   DARK MODE
-========================================= */
+   /* =========================================
+      DARK MODE
+   ========================================= */
 
-.dark {
-  /* Background */
-  --bg-primary: #050505;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: #111111;
-  
-  /* Text */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+   .dark {
+   /* Background */
+   --bg-primary: #050505;
+   --bg-secondary: #0a0a0a;
+   --bg-tertiary: #111111;
+   
+   /* Text */
+   --text-primary: #f8fafc;
+   --text-secondary: #cbd5e1;
+   --text-muted: #94a3b8;
 
-  /* Border */
-  --border-color: rgba(255, 255, 255, 0.08);
-}
+   /* Border */
+   --border-color: rgba(255, 255, 255, 0.08);
+   }
