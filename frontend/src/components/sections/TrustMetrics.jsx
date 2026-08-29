@@ -11,7 +11,7 @@ export default function TrustMetrics() {
         text="Built For Growth. Trusted For Results."
         colorWord="Trusted For Results."
       />
-      <Container size="xl">
+      <Container size="hero">
         <div className="pt-8 lg:pt-14">
           <StatsGrid items={stats} />
         </div>

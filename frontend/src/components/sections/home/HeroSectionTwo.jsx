@@ -98,7 +98,7 @@ const HeroSectionTwo = () => {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/65 via-transparent to-black/25" />
       <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_80%_75%,rgba(255,81,1,0.16),transparent_55%)]" />
 
-      <Container className="relative z-20">
+      <Container size="hero" className="relative z-20">
         <div className="max-w-[650px] py-24 sm:py-28 lg:py-0">
           <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-[#FF5101]/20 bg-[#FF5101]/10 px-4 py-2 text-xs sm:text-sm text-[#FF5101] backdrop-blur-sm">
             <span className="h-2 w-2 rounded-full bg-[#FF5101]" />

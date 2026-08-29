@@ -12,7 +12,6 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
 
   useEffect(() => {
     setIsOpen(false);
-    setOpenMenu(null);
   }, [pathname, setIsOpen]);
 
   const toggleMenu = (label) => {
@@ -20,7 +19,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
   };
 
   return (
-    <div className="flex md:hidden items-center justify-between h-16">
+    <div className="flex h-16 items-center justify-between lg:hidden">
       {/* Logo */}
       <Link href="/" aria-label="DevonionX Home">
         <Image
@@ -34,8 +33,15 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
 
       {/* Menu Button */}
       <button
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => {
+          setIsOpen((prev) => {
+            if (prev) setOpenMenu(null);
+            return !prev;
+          });
+        }}
         aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isOpen}
+        type="button"
         className="relative flex h-9 w-9 items-center justify-center text-white"
       >
         <span
@@ -63,7 +69,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
             : "pointer-events-none -translate-y-2 opacity-0"
         }`}
       >
-        <div className="flex h-full flex-col px-6 py-8">
+        <div className="flex h-full flex-col overflow-hidden px-3 py-6 sm:px-6 sm:py-8">
           <ul className="flex-1 overflow-y-auto">
             {navLinks.map((item, index) => {
               const hasDropdown = item.submenu || item.sections;
