@@ -58,3 +58,224 @@ textarea {
     transform: translateX(100%);
   }
 }
+
+/* =========================================
+   GRADIENT TEXT — BLUE VARIANT
+========================================= */
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #ffffff, var(--sc-blue, #2b6cff));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================
+   SERVICE CARD (always dark — independent of site theme)
+========================================= */
+
+.service-card {
+  isolation: isolate;
+  --card-bg: #0b0f1e;
+  --sc-blue: #2b6cff;
+  --color-brand: #ff5101;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--card-bg), var(--card-bg)),
+    linear-gradient(135deg, rgba(43, 108, 255, 0.5), rgba(255, 81, 1, 0.5));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  min-height: 440px;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(255, 81, 1, 0.18);
+}
+
+/* Ambient Glows */
+.service-card__glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.service-card__glow--blue {
+  top: -70px;
+  left: -70px;
+  background: var(--sc-blue, #2b6cff);
+}
+
+.service-card__glow--orange {
+  bottom: -70px;
+  right: -70px;
+  background: var(--color-brand);
+}
+
+/* Dots pattern */
+.service-card__dots {
+  width: 10px;
+  height: 30px;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.25) 1px,
+    transparent 1px
+  );
+  background-size: 4px 4px;
+  flex-shrink: 0;
+}
+
+/* Icon Box */
+.service-card__icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #1c4fd6, #0a2a80);
+  border: 1px solid rgba(120, 170, 255, 0.35);
+  box-shadow:
+    0 0 20px rgba(43, 108, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  will-change: transform;
+}
+
+/* Arrow Button */
+.service-card__arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--color-brand);
+  box-shadow: 0 0 20px rgba(255, 81, 1, 0.35);
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+}
+
+.service-card:hover .service-card__arrow-btn {
+  box-shadow: 0 0 30px rgba(255, 81, 1, 0.55);
+}
+
+/* Title */
+.service-card__title-top {
+  display: block;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Accent Line */
+.service-card__accent-line {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 3px;
+  width: 40px;
+  border-radius: 999px;
+  background: var(--color-brand);
+}
+
+.service-card__accent-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 46px;
+  width: 12px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--sc-blue, #2b6cff);
+}
+
+/* Description */
+.service-card__desc {
+  display: block;
+  color: rgba(226, 232, 245, 0.72);
+}
+
+/* Learn More Link */
+.service-card__learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-brand);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 81, 1, 0.4);
+  padding-bottom: 2px;
+  transition:
+    gap 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+
+.service-card__learn-more:hover {
+  gap: 12px;
+  border-color: rgba(255, 81, 1, 0.9);
+}
+
+/* Wave decoration container */
+.service-card__wave-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(85%, 320px);
+  aspect-ratio: 4 / 3;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .service-card {
+    min-height: 400px;
+    border-radius: 24px;
+    padding: 24px;
+  }
+  
+  .service-card__glow {
+    width: 160px;
+    height: 160px;
+    filter: blur(50px);
+  }
+  
+  .service-card__glow--blue {
+    top: -50px;
+    left: -50px;
+  }
+  
+  .service-card__glow--orange {
+    bottom: -50px;
+    right: -50px;
+  }
+  
+  .service-card__icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+  
+  .service-card__arrow-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card__icon-box,
+  .service-card__arrow-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+}
