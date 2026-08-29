@@ -7,7 +7,7 @@ import DirectionalButton from "../common/Directionalbutton";
 
 export default function NavbarDesktop({ navLinks }) {
   return (
-    <div className="hidden md:flex items-center justify-between h-16">
+    <div className="hidden lg:flex h-16 items-center justify-between">
       {/* Logo */}
       <Link href="/" aria-label="DevonionX Home">
         <Image
@@ -40,7 +40,7 @@ export default function NavbarDesktop({ navLinks }) {
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
                 {/* SERVICES MEGA MENU */}
                 {label === "Services" && sections && (
-                  <div className="w-[900px] rounded-3xl border border-white/10 bg-[#0B0B0B] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
+                  <div className="w-[calc(100vw-2rem)] max-w-[900px] rounded-3xl border border-white/10 bg-[#0B0B0B] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
                     <div className="mb-6 border-b border-white/10 pb-4">
                       <p className="text-xs uppercase tracking-[0.2em] text-[#FF5101]">
                         Services
@@ -51,7 +51,7 @@ export default function NavbarDesktop({ navLinks }) {
                       </h3>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
                       {sections.map((section) => (
                         <div key={section.title}>
                           <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FF5101]">
@@ -82,7 +82,7 @@ export default function NavbarDesktop({ navLinks }) {
 
                 {/* WORK MEGA MENU */}
                 {label === "Work" && submenu && (
-                  <div className="w-[900px] rounded-3xl border border-white/10 bg-[#0B0B0B] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
+                  <div className="w-[calc(100vw-2rem)] max-w-[900px] rounded-3xl border border-white/10 bg-[#0B0B0B] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
                     <div className="mb-6 border-b border-white/10 pb-4">
                       <p className="text-xs uppercase tracking-[0.2em] text-[#FF5101]">
                         Portfolio
@@ -93,7 +93,7 @@ export default function NavbarDesktop({ navLinks }) {
                       </h3>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                       {submenu.map((item) => (
                         <Link
                           key={item.href}

@@ -37,8 +37,8 @@ export default function Footer() {
       <div className="hidden lg:block">
         <ParticlesBackground />
       </div>
-      <Container size="xl">
-        <div className="relative px-0 lg:px-10">
+      <Container size="hero">
+        <div className="relative ">
           {/* CTA SECTION */}
           <section className="py-5">
             <div className="relative overflow-hidden rounded-[24px] sm:rounded-[40px] border border-[#FF5101]/30 p-5 sm:p-8">

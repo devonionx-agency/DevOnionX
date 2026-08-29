@@ -6,7 +6,7 @@ import FaqStats from "./faq/FaqStats";
 export default function FaqHome() {
   return (
     <section className="bg-[#02090F] py-10 lg:py-20">
-      <Container size="xl">
+      <Container size="hero">
         <div className="text-center">
           <SectionHeader
             label="FAQ"

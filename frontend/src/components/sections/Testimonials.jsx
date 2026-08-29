@@ -57,7 +57,7 @@ export default function Testimonials() {
       {/* Grid Texture */}
       <div className="absolute inset-0 opacity-[0.03] [background-image:radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px]" />
 
-      <Container className="relative z-10">
+      <Container size="hero" className="relative z-10">
         {/* Section Header */}
         <SectionHeader
           label="Testimonials"

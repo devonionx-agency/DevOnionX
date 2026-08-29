@@ -6,7 +6,7 @@ import problemsArr from "@/helper/problemsArr";
 const ProblemsSection = () => {
   return (
     <section className="section-padding bg-[#000]">
-      <Container>
+      <Container size="hero">
         <div className="flex flex-col items-center gap-10 sm:gap-12 lg:gap-16">
           <div className="flex flex-col items-center gap-3 text-center sm:gap-4">
             <SectionHeader

@@ -11,7 +11,7 @@ import FeaturedWorkCard from "../ui/FeaturedWork";
 export default function FeaturedWork() {
   return (
     <section className="bg-[#02090F]">
-      <Container size="xl">
+      <Container size="hero">
         <div className="pb-20 text-center">
           <SectionHeader
             label="Our Work"

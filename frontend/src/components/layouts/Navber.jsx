@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import NavbarDesktop from "./NavbarDesktop";
 import NavbarMobile from "./NavbarMobile";
+import Container from "../ui/Container";
 export const navLinks = [
   {
     label: "Services",
@@ -130,16 +131,15 @@ export default function Navbar() {
       role="banner"
       className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/10"
     >
-      <nav
-        aria-label="Main navigation"
-        className="max-w-7xl mx-auto px-5 md:px-8"
-      >
-        <NavbarDesktop navLinks={navLinks} />
-        <NavbarMobile
-          navLinks={navLinks}
-          isOpen={mobileOpen}
-          setIsOpen={setMobileOpen}
-        />
+      <nav aria-label="Main navigation" className="w-full">
+        <Container size="hero">
+          <NavbarDesktop navLinks={navLinks} />
+          <NavbarMobile
+            navLinks={navLinks}
+            isOpen={mobileOpen}
+            setIsOpen={setMobileOpen}
+          />
+        </Container>
       </nav>
     </header>
   );

@@ -6,7 +6,7 @@ export default function Insights() {
   return (
     <>
       <section className="bg-[#02090F]">
-        <Container size="xl">
+        <Container size="hero">
           <div className="relative">
             <div className="pb-20 text-center">
               <SectionHeader

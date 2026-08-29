@@ -67,7 +67,7 @@ export default function WhyChoose() {
     <section ref={sectionRef} className="relative overflow-hidden bg-[#02090F]">
       <div className="absolute left-1/2 top-0 h-[400px] w-[900px] -translate-x-1/2 bg-[radial-gradient(circle,rgba(168,85,247,0.08)_0%,transparent_70%)] blur-3xl pointer-events-none" />
 
-      <Container size="lg">
+      <Container size="hero">
         <div className="mb-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-8">
           <div ref={headerRef}>
             <SectionHeader
