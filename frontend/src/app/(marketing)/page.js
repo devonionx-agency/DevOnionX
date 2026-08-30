@@ -10,6 +10,7 @@ import HeroSectionTwo from "@/components/sections/home/HeroSectionTwo";
 import ProblemsSection from "@/components/sections/home/ProblemsSection";
 import ProcessHome from "@/components/sections/home/ProcessHome";
 import ServicesGrid from "@/components/sections/home/ServicesGrid";
+import WhatYouGet from "@/components/sections/home/WhatYouGet";
 
 const Testimonials = dynamic(
   () => import("@/components/sections/Testimonials"),
@@ -23,6 +24,7 @@ export default function page() {
       <TrustMetrics />
       <ProblemsSection />
       <ServicesGrid />
+      <WhatYouGet/>
       <ProcessHome />
       {/* <OurProcess /> */}
       <FeaturedWork />
