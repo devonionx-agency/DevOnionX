@@ -196,7 +196,6 @@ export default function WhatYouGetList() {
     }, sectionRef);
 
     return () => {
-      mm?.revert();
       ctx.revert();
     };
   }, []);

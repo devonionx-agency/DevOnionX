@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -130,24 +131,39 @@ export default function StatsGrid({ items }) {
         return (
           <div
             key={item.id}
-            className="stat-card group rounded-3xl border border-white/10 bg-white/3 p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#FF5101]/40 hover:shadow-[0_20px_60px_rgba(255,81,1,0.15)]"
+            className="stat-card group relative isolate overflow-hidden rounded-3xl border border-white/10 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#FF5101]/40 hover:shadow-[0_20px_60px_rgba(255,81,1,0.15)]"
           >
-            <div className="stat-icon mb-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF5101]/20 bg-[#FF5101]/10 transition-all duration-500 group-hover:scale-110">
-              <Icon className="text-2xl text-[#FF5101]" />
+            <Image
+              src={item.image}
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 25vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-black/70 transition-colors duration-500 group-hover:bg-black/60"
+            />
+
+            <div className="relative z-10">
+              <div className="stat-icon mb-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF5101]/20 bg-[#FF5101]/10 transition-all duration-500 group-hover:scale-110">
+                <Icon className="text-2xl text-[#FF5101]" />
+              </div>
+
+              <h3
+                className="stat-value mb-2 text-5xl font-bold text-[#FF5101]"
+                data-value={item.value}
+              >
+                {item.value}
+              </h3>
+
+              <h4 className="mb-3 text-xl font-semibold text-white">
+                {item.title}
+              </h4>
+
+              <p className="leading-relaxed text-white/60">{item.description}</p>
             </div>
-
-            <h3
-              className="stat-value mb-2 text-5xl font-bold text-[#FF5101]"
-              data-value={item.value}
-            >
-              {item.value}
-            </h3>
-
-            <h4 className="mb-3 text-xl font-semibold text-white">
-              {item.title}
-            </h4>
-
-            <p className="leading-relaxed text-white/60">{item.description}</p>
           </div>
         );
       })}

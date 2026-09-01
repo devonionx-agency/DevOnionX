@@ -17,15 +17,13 @@ export default function FeaturedWork() {
             label="Our Work"
             text="Projects That Drive Results"
             colorWord="Drive Results"
+            description={
+              "Explore a selection of SaaS platforms, web applications, and digitalz products we've crafted to help businesses grow and scale."
+            }
           />
-
-          <p className="mx-auto max-w-[650px] para-lg text-white/80">
-            Explore a selection of SaaS platforms, web applications, and digital
-            products we've crafted to help businesses grow and scale.
-          </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-2">
           {featuredWorks.map((project) => (
             <FeaturedWorkCard key={project.id} project={project} />
           ))}

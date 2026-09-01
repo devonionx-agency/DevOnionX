@@ -1,0 +1,310 @@
+/* =========================================
+   FEATURED WORK CARD
+========================================= */
+
+.work-card {
+  position: relative;
+  isolation: isolate;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 81, 1, 0.3);
+  background: #050505;
+  overflow: hidden;
+  box-shadow:
+    0 30px 90px -30px rgba(255, 81, 1, 0.22),
+    0 0 0 1px rgba(255, 81, 1, 0.06);
+}
+
+.work-card__ambient {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 30% 100%,
+    rgba(255, 81, 1, 0.16),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.work-card__preview {
+  position: relative;
+  z-index: 1;
+  margin: 0px;
+  padding: 32px 20px 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(circle at 80% 0%, rgba(255, 81, 1, 0.1), transparent 55%),
+    #030303;
+}
+
+.work-card__preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 14px 14px;
+  mask-image: radial-gradient(circle at 80% 20%, black, transparent 65%);
+  pointer-events: none;
+}
+
+.work-card__badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100% - 40px);
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(5, 5, 5, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.work-card__badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--color-brand);
+  color: #fff;
+  font-size: 11px;
+}
+
+.work-card__badge-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.work-card__mockup {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+}
+
+.work-card__mockup-frame {
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.7);
+}
+
+.work-card__content {
+  position: relative;
+  z-index: 1;
+  padding: 32px 28px 28px;
+}
+
+.work-card__heading {
+  min-width: 0;
+}
+
+.work-card__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  margin-bottom: 10px;
+}
+
+.work-card__title {
+  color: #ffffff;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.work-card__arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 81, 1, 0.4);
+  color: var(--color-brand);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.work-card__arrow-btn:hover {
+  background: var(--color-brand);
+  color: #fff;
+  box-shadow: 0 0 30px rgba(255, 81, 1, 0.45);
+  transform: translate(2px, -2px);
+}
+
+.work-card__desc {
+  color: rgba(226, 232, 245, 0.72);
+}
+
+.work-card__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 24px 0;
+}
+
+.work-card__tech-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 245, 0.5);
+  margin-bottom: 16px;
+}
+
+.work-card__tech-label .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--color-brand);
+  flex-shrink: 0;
+}
+
+.work-card__tech-label .dash {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 81, 1, 0.4), transparent);
+}
+
+.work-card__tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.work-card__tech-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0; /* lets the item shrink instead of overflowing the card */
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.work-card__tech-item:hover {
+  border-color: rgba(255, 81, 1, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.work-card__tech-item svg {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.work-card__tech-item span {
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.work-card__cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 81, 1, 0.35);
+  background: linear-gradient(180deg, rgba(255, 81, 1, 0.06), transparent);
+}
+
+.work-card__cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255, 81, 1, 0.12);
+  color: var(--color-brand);
+}
+
+.work-card__cta-text {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .work-card__cta-text {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.work-card__cta-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.work-card__cta-desc {
+  color: rgba(226, 232, 245, 0.6);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.work-card__cta .btn-schedule {
+  width: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 480px) {
+  .work-card__preview {
+    margin: 14px;
+    padding: 24px 14px 0;
+  }
+  .work-card__content {
+    padding: 24px 20px 20px;
+  }
+  .work-card__cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .work-card__cta .btn-schedule {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card__arrow-btn {
+    transition: none !important;
+  }
+}
