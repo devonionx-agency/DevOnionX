@@ -3,11 +3,10 @@
 @import "./theme.css";
 @import "./typography.css";
 @import "./utilities.css";
-
+@import "./work-card.css";
 /* =========================================
    RESET
 ========================================= */
-
 *,
 *::before,
 *::after {
@@ -240,29 +239,29 @@ textarea {
     border-radius: 24px;
     padding: 24px;
   }
-  
+
   .service-card__glow {
     width: 160px;
     height: 160px;
     filter: blur(50px);
   }
-  
+
   .service-card__glow--blue {
     top: -50px;
     left: -50px;
   }
-  
+
   .service-card__glow--orange {
     bottom: -50px;
     right: -50px;
   }
-  
+
   .service-card__icon-box {
     width: 48px;
     height: 48px;
     border-radius: 14px;
   }
-  
+
   .service-card__arrow-btn {
     width: 36px;
     height: 36px;

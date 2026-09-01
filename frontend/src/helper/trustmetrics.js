@@ -36,6 +36,8 @@
 //   },
 // ];
 
+
+
 export const stats = [
   {
     id: 1,
@@ -44,6 +46,7 @@ export const stats = [
     title: "Projects Delivered",
     description:
       "Real-world projects delivered with a focus on quality, performance, and business goals.",
+      image: "/images/trustGrowth/project.png",
   },
   {
     id: 2,
@@ -52,6 +55,7 @@ export const stats = [
     title: "Team Members",
     description:
       "A focused team of skilled professionals working together to build impactful digital solutions.",
+      image: "/images/trustGrowth/team.png",
   },
   {
     id: 3,
@@ -60,6 +64,7 @@ export const stats = [
     title: "Conversion Focused",
     description:
       "We design and optimize digital experiences to turn visitors into leads and customers.",
+      image: "/images/trustGrowth/cro.png",
   },
   {
     id: 4,
@@ -68,5 +73,6 @@ export const stats = [
     title: "Client Acquisition",
     description:
       "Focused on helping businesses attract, engage, and convert the right potential clients.",
+      image: "/images/trustGrowth/lead.png",
   },
 ];
