@@ -6,7 +6,7 @@ import React from "react";
 
 const ProcessHome = () => {
   return (
-    <section className="bg-[#02090F] py-10 xl:py-[80px]">
+    <section className="bg-[#000000] py-10 xl:py-[80px]">
       <Container size="hero">
         <div>
           <div className="pb-20 text-center">

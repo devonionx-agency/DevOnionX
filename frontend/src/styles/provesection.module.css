@@ -1,0 +1,214 @@
+/*
+  ProveSection scoped styles.
+
+  This section's reference uses a multi-color spectrum (orange → pink →
+  purple → indigo) that sits outside your dark/orange/blue token set, so —
+  as agreed — the accent colors below are new, local values, scoped only
+  to this component via [data-accent]. Everything else (backgrounds, text,
+  borders) still reuses your existing --bg-*, --text-*, --border-color.
+*/
+
+.section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #030308;
+  padding-block: 6rem;
+}
+
+.banner {
+  object-fit: cover;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+/* =========================================
+   STAT CARD
+========================================= */
+
+.card {
+  --glow-x: 50%;
+  --glow-y: 50%;
+  position: relative;
+  isolation: isolate;
+  min-height: 264px;
+  background:
+    radial-gradient(
+      circle at var(--glow-x) var(--glow-y),
+      color-mix(in srgb, var(--accent-a) 17%, transparent),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.025) 38%,
+      rgba(3, 3, 8, 0.72)
+    );
+  border: 1px solid
+    color-mix(in srgb, var(--accent-a) 70%, rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(18px) saturate(135%);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-a) 18%, transparent) inset,
+    0 18px 45px -28px color-mix(in srgb, var(--accent-a) 80%, transparent);
+  transition:
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  will-change: transform;
+}
+
+.cardImage {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  z-index: 0;
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  object-position: right bottom;
+  opacity: 0.38;
+  mix-blend-mode: screen;
+  filter: drop-shadow(
+    0 0 18px color-mix(in srgb, var(--accent-a) 55%, transparent)
+  );
+  pointer-events: none;
+  user-select: none;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent-b) 90%, #fff 20%);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-a) 35%, transparent) inset,
+    0 0 28px -8px color-mix(in srgb, var(--accent-a) 70%, transparent),
+    0 30px 65px -28px color-mix(in srgb, var(--accent-a) 90%, transparent);
+}
+
+.card[data-accent="orange"] {
+  --accent-a: #ff5a1f;
+  --accent-b: #ff8a3d;
+}
+
+.card[data-accent="pink"] {
+  --accent-a: #ff2f87;
+  --accent-b: #ff6fb0;
+}
+
+.card[data-accent="purple"] {
+  --accent-a: #9b3bff;
+  --accent-b: #c084ff;
+}
+
+.card[data-accent="indigo"] {
+  --accent-a: #5b3bff;
+  --accent-b: #7f6bff;
+}
+
+.badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 35% 30%,
+    var(--accent-b),
+    var(--accent-a) 70%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 10px 24px -10px color-mix(in srgb, var(--accent-a) 70%, transparent);
+}
+
+.badgeIcon {
+  width: 26px;
+  height: 26px;
+  color: #fff;
+}
+
+.value {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  line-height: 1;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  color: var(--accent-a);
+  font-weight: 600;
+}
+
+.underline {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: var(--accent-a);
+}
+
+.dots {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 76px;
+  height: 76px;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle,
+    var(--accent-a) 1px,
+    transparent 1px
+  );
+  background-size: 8px 8px;
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(
+    circle at bottom right,
+    black 25%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    circle at bottom right,
+    black 25%,
+    transparent 75%
+  );
+}
+
+/* =========================================
+   FULL-BLEED GRADIENT ARC
+========================================= */
+
+.arcWrap {
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  width: 100vw;
+  max-width: 1600px;
+  height: 160px;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.arcGlow {
+  filter: blur(20px);
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .cardImage {
+    transition: none !important;
+  }
+}
