@@ -10,7 +10,7 @@ import FeaturedWorkCard from "../ui/FeaturedWork";
 
 export default function FeaturedWork() {
   return (
-    <section className="bg-[#02090F]">
+    <section className="bg-[#000000] pb-8 lg:pb-15">
       <Container size="hero">
         <div className="pb-20 text-center">
           <SectionHeader
