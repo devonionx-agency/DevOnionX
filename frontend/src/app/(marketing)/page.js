@@ -34,7 +34,7 @@ export default function page() {
       {/* <WhyChoose /> */}
       <WhyChooseTwo/>
       <Testimonials />
-      <Insights />
+      {/* <Insights /> */}
       <FaqHome />
     </>
   );
