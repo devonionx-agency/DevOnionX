@@ -1,316 +1,254 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  FaUsers,
-  FaRocket,
-  FaChartLine,
-  FaClock,
-  FaHandshakeSimple,
-  FaArrowRight,
-  FaCircleCheck,
-} from "react-icons/fa6";
+  Code2,
+  Headphones,
+  MessagesSquare,
+  ShieldCheck,
+  Target,
+  Zap,
+} from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
+import BannerImage from "../../../../public/images/whychoose/whyChooseTwo.jpg";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// public folder theke serve hoy URL hisebe, JS import hisebe na
-const orbitImage = "/images/whychoose/orbit.png";
-
-const impactStats = [
+const chooseCards = [
   {
-    icon: FaUsers,
-    title: "Small, Senior Team",
-    desc: "No juniors learning on your budget — only experienced hands.",
+    icon: Target,
+    title: "Business-First",
+    description: "We focus on your goals, not just code.",
     number: "01",
-    color: "orange",
+    accent: "#8b5cf6",
   },
   {
-    icon: FaRocket,
-    title: "Fast Shipping",
-    desc: "Lean team means fewer meetings, faster decisions, quicker launches.",
+    icon: Code2,
+    title: "Modern Engineering",
+    description: "Clean, scalable and maintainable code.",
     number: "02",
-    color: "blue",
+    accent: "#a855f7",
   },
   {
-    icon: FaChartLine,
-    title: "Real Growth",
-    desc: "Every project is measured against business outcomes, not just delivery.",
+    icon: MessagesSquare,
+    title: "Direct Communication",
+    description: "Talk with the actual builders.",
     number: "03",
-    color: "orange",
+    accent: "#38bdf8",
   },
   {
-    icon: FaClock,
-    title: "On-Time, Every Time",
-    desc: "Clear timelines, no surprises — we respect your deadlines.",
+    icon: Zap,
+    title: "Fast & Focused",
+    description: "Small team, faster decisions.",
     number: "04",
-    color: "blue",
+    accent: "#60a5fa",
   },
   {
-    icon: FaHandshakeSimple,
-    title: "Long-Term Partnership",
-    desc: "We stick around after launch — your growth is our growth.",
+    icon: ShieldCheck,
+    title: "Transparent Process",
+    description: "Clear updates at every step.",
     number: "05",
-    color: "orange",
+    accent: "#c084fc",
+  },
+  {
+    icon: Headphones,
+    title: "Long-Term Support",
+    description: "We stay with you even after launch.",
+    number: "06",
+    accent: "#5eead4",
   },
 ];
 
-const WhyChooseTwo = () => {
-  const sectionRef = useRef(null);
-  const leftRef = useRef(null);
-  const rightRef = useRef(null);
-  const cardsRef = useRef([]);
-
-  useEffect(() => {
-    const mm = gsap.matchMedia();
-
-    // reduced-motion respect kore — accessibility + performance
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const ctx = gsap.context(() => {
-        const cards = cardsRef.current.filter(Boolean);
-
-        gsap.set([leftRef.current, rightRef.current, ...cards], {
-          willChange: "transform, opacity",
-        });
-
-        gsap.fromTo(
-          leftRef.current,
-          { xPercent: -15, opacity: 0 },
-          {
-            xPercent: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 75%",
-              once: true,
-            },
-          },
-        );
-
-        gsap.fromTo(
-          rightRef.current,
-          { xPercent: 15, opacity: 0 },
-          {
-            xPercent: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 75%",
-              once: true,
-            },
-          },
-        );
-
-        gsap.fromTo(
-          cards,
-          { y: 26, opacity: 0, scale: 0.98 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.72,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: rightRef.current,
-              start: "top 78%",
-              once: true,
-            },
-          },
-        );
-      }, sectionRef);
-
-      return () => ctx.revert();
-    });
-
-    return () => mm.revert();
-  }, []);
+function WhyChooseCard({ item }) {
+  const Icon = item.icon;
 
   return (
-    <section className="bg-black overflow-hidden py-16 md:py-24">
-      <Container size="hero">
-        <SectionHeader
-          label="THE PROOF"
-          text="Small Team. Big Impact."
-          colorWord="Big Impact."
-          description="Young agency, real results."
-        />
+    <article
+      className="why-choose-card group relative min-h-[210px] overflow-hidden rounded-[10px] border border-white/15 bg-[#0b1022]/70 p-5 outline-none backdrop-blur-xl transition-colors duration-300 [--glow-x:50%] [--glow-y:0%] focus-visible:border-white/50 sm:min-h-[230px] lg:min-h-[245px]"
+      style={{ "--accent": item.accent }}
+      tabIndex={0}
+    >
+      <span
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        style={{
+          background:
+            "radial-gradient(circle at var(--glow-x) var(--glow-y), color-mix(in srgb, var(--accent) 38%, transparent), transparent 38%)",
+        }}
+        aria-hidden="true"
+      />
 
+      <span
+        className="pointer-events-none absolute inset-0 rounded-[10px] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        style={{
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,.22), 0 0 36px color-mix(in srgb, var(--accent) 34%, transparent)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 flex h-full flex-col">
         <div
-          ref={sectionRef}
-          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
+          className="mb-9 grid size-12 place-items-center rounded-full border border-white/15 bg-white/[0.06] text-white shadow-[0_0_24px_rgba(139,92,246,.35)] transition-transform duration-300 group-hover:scale-105"
+          style={{
+            color: item.accent,
+            background:
+              "radial-gradient(circle at 35% 30%, rgba(255,255,255,.22), color-mix(in srgb, var(--accent) 22%, transparent) 42%, rgba(255,255,255,.04))",
+          }}
         >
-          {/* Left: Orbit visual panel */}
-          <div
-            ref={leftRef}
-            className="relative h-[380px] overflow-hidden rounded-3xl border border-orange-500/30 bg-black shadow-[0_0_35px_rgba(255,81,1,0.12),inset_0_0_45px_rgba(0,70,255,0.08)] sm:h-[440px] md:h-[520px]"
-          >
-            <Image
-              src={orbitImage}
-              alt="Orbit visual"
-              width={520}
-              height={520}
-              priority
-              className="absolute right-[-18px] top-[-12px] z-0 h-[430px] w-[430px] max-w-none object-cover opacity-90 sm:h-[500px] sm:w-[500px] md:right-[-28px] md:top-[-18px] md:h-[570px] md:w-[570px]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/55 to-black/10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/15" />
+          <Icon size={24} strokeWidth={1.9} aria-hidden="true" />
+        </div>
 
-            <div className="relative z-10 flex h-full max-w-[58%] flex-col justify-end p-6 sm:max-w-[55%] sm:p-8 md:max-w-[54%] md:p-10">
-              <div className="mb-5 flex items-center gap-3 sm:mb-7">
-                <span className="text-[10px] font-semibold tracking-[0.2em] text-orange-500 sm:text-xs">
-                  OUR APPROACH
-                </span>
-                <span className="h-px w-10 bg-gradient-to-r from-orange-500 to-blue-500" />
-              </div>
-              <h3 className="mb-4 text-3xl font-extrabold leading-[0.98] text-white sm:text-4xl md:text-5xl">
-                Built for <span className="block text-orange-500">Business</span>
-              </h3>
-              <p className="mb-5 max-w-[280px] text-xs leading-relaxed text-gray-300 sm:text-sm md:text-base">
-                We don&apos;t just build websites or apps. We build digital
-                solutions that help your business grow, scale and succeed.
-              </p>
+        <h3 className="text-[16px] font-bold leading-tight text-white sm:text-[17px]">
+          {item.title}
+        </h3>
+        <span
+          className="mt-3 h-[2px] w-5 rounded-full transition-all duration-300 group-hover:w-9"
+          style={{ backgroundColor: item.accent }}
+          aria-hidden="true"
+        />
+        <p className="mt-4 max-w-[170px] text-[13px] leading-5 text-white/66 sm:text-sm">
+          {item.description}
+        </p>
 
-              <ul className="mb-6 space-y-2 text-xs text-gray-300 sm:text-sm">
-                {["Growth Mindset", "Scalable Solutions", "Real Business Impact"].map(
-                  (item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <FaCircleCheck className="h-3 w-3 shrink-0 text-orange-500 sm:h-3.5 sm:w-3.5" />
-                      <span>{item}</span>
-                    </li>
-                  ),
-                )}
-              </ul>
+        <span className="absolute bottom-[-12px] right-[-12px]     text-[26px] font-bold leading-none text-white/[0.05] transition-colors duration-300 group-hover:text-white/[0.09]">
+          {item.number}
+        </span>
+      </div>
+    </article>
+  );
+}
 
-              <a
-                href="#contact"
-                className="group inline-flex w-fit items-center gap-2 border-b border-orange-500 pb-2 text-xs font-semibold text-white transition-colors hover:text-orange-400 sm:text-sm"
-              >
-                Let&apos;s Build Together
-                <FaArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1 sm:h-3.5 sm:w-3.5" />
-              </a>
-            </div>
+const WhyChooseTwo = () => {
+  const sectionRef = useRef(null);
 
-            <div className="absolute bottom-8 right-5 z-10 hidden border-l border-white/15 pl-4 text-[9px] leading-[1.8] tracking-widest text-gray-400 md:block">
-              <span className="block">PLAN</span>
-              <span className="block">BUILD</span>
-              <span className="block">GROW</span>
-              <span className="mt-3 block h-px w-7 bg-orange-500" />
-            </div>
-          </div>
+  useGSAP(
+    () => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const cards = gsap.utils.toArray(".why-choose-card");
 
-          {/* Right: Impact stat cards */}
-          <div ref={rightRef} className="flex flex-col gap-4">
-            {impactStats.map((item, index) => {
-              const Icon = item.icon;
-              const isOrange = item.color === "orange";
-              return (
-                <div
-                  key={item.number}
-                  ref={(node) => {
-                    cardsRef.current[index] = node;
-                  }}
-                  onMouseEnter={(event) => {
-                    const card = event.currentTarget;
-                    const glow = card.querySelector("[data-card-glow]");
-                    const icon = card.querySelector("[data-card-icon]");
-                    const arrow = card.querySelector("[data-card-arrow]");
+      if (reduceMotion) {
+        gsap.set(cards, { autoAlpha: 1, y: 0, scale: 1, rotateX: 0 });
+        return;
+      }
 
-                    gsap.to(card, {
-                      y: -5,
-                      scale: 1.012,
-                      duration: 0.4,
-                      ease: "power3.out",
-                      overwrite: "auto",
-                    });
-                    gsap.to([glow, icon, arrow], {
-                      opacity: 1,
-                      scale: 1.05,
-                      duration: 0.35,
-                      ease: "power2.out",
-                      overwrite: "auto",
-                    });
-                  }}
-                  onMouseLeave={(event) => {
-                    const card = event.currentTarget;
-                    const glow = card.querySelector("[data-card-glow]");
-                    const icon = card.querySelector("[data-card-icon]");
-                    const arrow = card.querySelector("[data-card-arrow]");
+      gsap.set(cards, {
+        autoAlpha: 0,
+        y: 54,
+        scale: 0.94,
+        rotateX: 12,
+        transformPerspective: 900,
+        transformOrigin: "50% 70%",
+        willChange: "transform, opacity",
+      });
 
-                    gsap.to(card, {
-                      y: 0,
-                      scale: 1,
-                      duration: 0.55,
-                      ease: "elastic.out(1, 0.55)",
-                      overwrite: "auto",
-                    });
-                    gsap.to([glow, icon, arrow], {
-                      opacity: 0.82,
-                      scale: 1,
-                      duration: 0.4,
-                      ease: "power2.out",
-                      overwrite: "auto",
-                    });
-                  }}
-                  className={`group relative isolate flex items-center gap-4 overflow-hidden rounded-2xl border p-4 backdrop-blur-xl transition-colors duration-300 sm:p-5 ${
-                    isOrange ? "border-orange-500/30" : "border-blue-500/30"
-                  } bg-white/[0.035] hover:bg-white/[0.075]`}
-                >
-                  <span
-                    data-card-glow
-                    aria-hidden="true"
-                    className={`pointer-events-none absolute -inset-12 -z-10 rounded-full opacity-80 blur-2xl transition-opacity ${
-                      isOrange ? "bg-orange-500/15" : "bg-blue-500/15"
-                    }`}
-                  />
-                  <span
-                    aria-hidden="true"
-                    className={`pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent to-transparent opacity-70 ${
-                      isOrange ? "via-orange-400" : "via-blue-400"
-                    }`}
-                  />
-                  <div
-                    data-card-icon
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl sm:h-12 sm:w-12 ${
-                      isOrange
-                        ? "bg-orange-500/10 text-orange-500"
-                        : "bg-blue-500/10 text-blue-500"
-                    }`}
-                  >
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </div>
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 72%",
+          once: true,
+        },
+      });
 
-                  <div className="min-w-0 flex-1">
-                    <h4 className="text-sm font-bold text-white sm:text-base">
-                      {item.title}
-                    </h4>
-                    <p className="mt-0.5 text-xs text-gray-400 sm:text-sm">
-                      {item.desc}
-                    </p>
-                  </div>
+      tl.to(cards, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        rotateX: 0,
+        duration: 0.9,
+        stagger: { each: 0.08, from: "center" },
+        ease: "back.out(1.25)",
+      });
 
-                  <div className="hidden items-center gap-3 border-l border-white/10 pl-3 sm:flex">
-                    <span className="text-xs text-gray-500">{item.number}</span>
-                    <FaArrowRight
-                      data-card-arrow
-                      className={`h-4 w-4 ${
-                        isOrange ? "text-orange-500" : "text-blue-500"
-                      }`}
-                    />
-                  </div>
-                </div>
-              );
-            })}
+      const cleanups = cards.map((card) => {
+        const rotateXTo = gsap.quickTo(card, "rotateX", {
+          duration: 0.42,
+          ease: "power3.out",
+        });
+        const rotateYTo = gsap.quickTo(card, "rotateY", {
+          duration: 0.42,
+          ease: "power3.out",
+        });
+        const yTo = gsap.quickTo(card, "y", {
+          duration: 0.42,
+          ease: "power3.out",
+        });
+        const onMove = (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width;
+          const y = (event.clientY - rect.top) / rect.height;
+
+          rotateYTo((x - 0.5) * 12);
+          rotateXTo((0.5 - y) * 12);
+          yTo(-10);
+          card.style.setProperty("--glow-x", `${x * 100}%`);
+          card.style.setProperty("--glow-y", `${y * 100}%`);
+        };
+
+        const onLeave = () => {
+          rotateXTo(0);
+          rotateYTo(0);
+          yTo(0);
+          card.style.setProperty("--glow-x", "50%");
+          card.style.setProperty("--glow-y", "0%");
+        };
+
+        card.addEventListener("pointermove", onMove);
+        card.addEventListener("pointerleave", onLeave);
+        card.addEventListener("blur", onLeave);
+
+        return () => {
+          card.removeEventListener("pointermove", onMove);
+          card.removeEventListener("pointerleave", onLeave);
+          card.removeEventListener("blur", onLeave);
+        };
+      });
+
+      return () => cleanups.forEach((cleanup) => cleanup());
+    },
+    { scope: sectionRef },
+  );
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative isolate overflow-hidden bg-[#030611] py-12 sm:py-16 xl:py-[92px]"
+    >
+      <Image
+        src={BannerImage}
+        alt=""
+        fill
+        priority={false}
+        sizes="100vw"
+        className="pointer-events-none -z-20 object-cover opacity-70"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_12%,rgba(37,99,235,.28),transparent_33%),linear-gradient(180deg,rgba(3,6,17,.38),rgba(3,6,17,.95)_88%)]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+      <Container size="hero">
+        <div className="mx-auto max-w-[1180px]">
+          <SectionHeader
+            label="WHY BUSINESSES CHOOSE US"
+            text="Why Businesses Choose DevonionX"
+            colorWord="DevonionX"
+            description="A partner who cares about your success."
+            className="mb-6 sm:mb-9"
+          />
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {chooseCards.map((item) => (
+              <WhyChooseCard key={item.number} item={item} />
+            ))}
           </div>
         </div>
       </Container>
