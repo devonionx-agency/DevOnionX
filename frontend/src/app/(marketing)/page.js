@@ -26,7 +26,7 @@ export default function Page() {
 
       <ServicesGrid />
 
-      {/* <WhatYouGet /> */}
+      <WhatYouGet />
 
       {/* <ProcessHome />
 

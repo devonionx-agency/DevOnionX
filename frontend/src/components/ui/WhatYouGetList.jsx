@@ -1,29 +1,8 @@
-'use client';
+"use client";
 
-/**
- * WhatYouGetList.jsx
- * ---------------------------------------------------------------
- * "Process Steps" section — horizontal timeline on large screens,
- * vertical timeline on mobile/tablet. Built with Tailwind CSS +
- * GSAP (ScrollTrigger) for scroll-driven reveal animations.
- *
- * NOTE ON COLORS/TYPOGRAPHY:
- * This is a fresh session, so I didn't have access to the global
- * CSS you mentioned sharing earlier. Colors below (orange/amber on
- * near-black text tones) were matched to your reference screenshot.
- * Swap the `orange-*` / `zinc-*` Tailwind classes for your own
- * theme tokens (or CSS variables) if your global stylesheet defines
- * custom ones — the structure/animation logic won't need to change.
- *
- * No outer container / max-width wrapper or background image is
- * added here, as requested — this section inherits its background
- * from the parent page/layout.
- * ---------------------------------------------------------------
- */
-
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   TbTarget,
   TbPencil,
@@ -32,47 +11,47 @@ import {
   TbRocket,
   TbHeadset,
   TbChevronDown,
-} from 'react-icons/tb';
+} from "react-icons/tb";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const STEPS = [
   {
-    number: '01',
-    title: 'Strategy',
-    description: 'Understand the business before writing code.',
+    number: "01",
+    title: "Strategy",
+    description: "Understand the business before writing code.",
     Icon: TbTarget,
   },
   {
-    number: '02',
-    title: 'UX / UI Design',
-    description: 'Make the product simple, intuitive, and user-friendly.',
+    number: "02",
+    title: "UX / UI Design",
+    description: "Make the product simple, intuitive, and user-friendly.",
     Icon: TbPencil,
   },
   {
-    number: '03',
-    title: 'Development',
-    description: 'Build with modern, scalable and clean technology.',
+    number: "03",
+    title: "Development",
+    description: "Build with modern, scalable, and clean technology.",
     Icon: TbCode,
   },
   {
-    number: '04',
-    title: 'Testing',
-    description: 'Quality assurance before launch.',
+    number: "04",
+    title: "Testing",
+    description: "Quality assurance before launch.",
     Icon: TbShieldCheck,
   },
   {
-    number: '05',
-    title: 'Deployment',
-    description: 'Get your product live and ready for users.',
+    number: "05",
+    title: "Deployment",
+    description: "Get your product live and ready for users.",
     Icon: TbRocket,
   },
   {
-    number: '06',
-    title: 'Support',
-    description: 'We stay with you and keep improving after launch.',
+    number: "06",
+    title: "Support",
+    description: "We stay with you and keep improving after launch.",
     Icon: TbHeadset,
   },
 ];
@@ -84,9 +63,9 @@ export default function WhatYouGetList() {
   const bottomRef = useRef(null);
 
   useEffect(() => {
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     if (prefersReducedMotion) return;
 
@@ -94,15 +73,15 @@ export default function WhatYouGetList() {
     const header = headerRef.current;
     const line = lineRef.current;
     const nodes = section
-      ? Array.from(section.querySelectorAll('[data-wyg-step]'))
+      ? Array.from(section.querySelectorAll("[data-wyg-step]"))
       : [];
     const bottom = bottomRef.current;
 
     if (!section) return;
 
     let mm;
+
     const ctx = gsap.context(() => {
-      // Header eyebrow / heading / chevron entrance
       if (header) {
         gsap.fromTo(
           header,
@@ -111,23 +90,22 @@ export default function WhatYouGetList() {
             opacity: 1,
             y: 0,
             duration: 0.7,
-            ease: 'power3.out',
+            ease: "power3.out",
             scrollTrigger: {
               trigger: section,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
+              start: "top 85%",
+              toggleActions: "play none none none",
             },
-          }
+          },
         );
       }
 
-      // Connecting line — orientation-aware via matchMedia (perf-friendly,
-      // one-shot duration animation instead of scroll-scrubbed).
       mm = gsap.matchMedia();
+
       mm.add(
         {
-          isDesktop: '(min-width: 1024px)',
-          isCompact: '(max-width: 1023px)',
+          isDesktop: "(min-width: 1024px)",
+          isCompact: "(max-width: 1023px)",
         },
         (context) => {
           const { isDesktop } = context.conditions;
@@ -135,47 +113,41 @@ export default function WhatYouGetList() {
           const lineEnd = isDesktop ? { scaleX: 1 } : { scaleY: 1 };
 
           if (line) {
-            gsap.fromTo(
-              line,
-              lineStart,
-              {
-                ...lineEnd,
-                duration: 1,
-                ease: 'power2.inOut',
-                transformOrigin: isDesktop ? 'left center' : 'top center',
-                scrollTrigger: {
-                  trigger: section,
-                  start: 'top 70%',
-                  toggleActions: 'play none none none',
-                },
-              }
-            );
+            gsap.fromTo(line, lineStart, {
+              ...lineEnd,
+              duration: 1,
+              ease: "power2.inOut",
+              transformOrigin: isDesktop ? "left center" : "top center",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 70%",
+                toggleActions: "play none none none",
+              },
+            });
           }
-        }
+        },
       );
 
-      // Step nodes — staggered pop-in
       if (nodes.length) {
         gsap.fromTo(
           nodes,
-          { opacity: 0, y: 28, scale: 0.92 },
+          { opacity: 0, y: 28, scale: 0.94 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
             duration: 0.6,
-            ease: 'back.out(1.7)',
+            ease: "back.out(1.7)",
             stagger: 0.1,
             scrollTrigger: {
               trigger: section,
-              start: 'top 68%',
-              toggleActions: 'play none none none',
+              start: "top 68%",
+              toggleActions: "play none none none",
             },
-          }
+          },
         );
       }
 
-      // Bottom tagline
       if (bottom) {
         gsap.fromTo(
           bottom,
@@ -184,13 +156,13 @@ export default function WhatYouGetList() {
             opacity: 1,
             y: 0,
             duration: 0.7,
-            ease: 'power2.out',
+            ease: "power2.out",
             scrollTrigger: {
               trigger: bottom,
-              start: 'top 92%',
-              toggleActions: 'play none none none',
+              start: "top 92%",
+              toggleActions: "play none none none",
             },
-          }
+          },
         );
       }
     }, sectionRef);
@@ -201,16 +173,12 @@ export default function WhatYouGetList() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="w-full "
-    >
+    <section ref={sectionRef} className="w-full bg-white">
       {/* Header */}
-      <div className="text-center mb-4">
-
-        <div ref={headerRef} className="wyg-header-anim mt-4 flex justify-center">
+      <div className="mb-4 text-center">
+        <div ref={headerRef} className="mt-4 flex justify-center">
           <TbChevronDown
-            className="w-5 h-5 text-orange-500 animate-bounce"
+            className="h-5 w-5 animate-bounce text-[#FF5101]"
             aria-hidden="true"
           />
         </div>
@@ -218,47 +186,45 @@ export default function WhatYouGetList() {
 
       {/* Timeline */}
       <div className="relative mt-10 lg:mt-16">
-        {/* Connecting line: vertical on mobile/tablet, horizontal on lg+ */}
+        {/* Connecting line */}
         <div
           ref={lineRef}
           aria-hidden="true"
-          className="absolute left-9 lg:left-0 right-auto lg:right-0 top-2 lg:top-9 bottom-2 lg:bottom-auto w-[2px] lg:w-auto h-auto lg:h-[2px] bg-gradient-to-b lg:bg-gradient-to-r from-orange-500/0 via-orange-500/60 to-orange-500/0"
+          className="absolute bottom-2 left-9 top-2 w-[2px] bg-gradient-to-b from-[#FF5101]/0 via-[#FF5101]/30 to-[#FF5101]/0 lg:bottom-auto lg:left-0 lg:right-0 lg:top-9 lg:h-[2px] lg:w-auto lg:bg-gradient-to-r"
         />
 
-        <div className="relative grid grid-cols-1 lg:grid-cols-6 gap-y-10 lg:gap-y-0 gap-x-6 max-w-xl lg:max-w-none mx-auto lg:mx-0">
+        <div className="relative mx-auto grid max-w-xl grid-cols-1 gap-x-6 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-6 lg:gap-y-0">
           {STEPS.map((step) => {
             const { Icon } = step;
+
             return (
               <div
                 key={step.number}
                 data-wyg-step
-                className="group relative flex flex-row lg:flex-col items-start lg:items-center gap-5 lg:gap-0 text-left lg:text-center"
+                className="group relative flex flex-row items-start gap-4 text-left lg:flex-col lg:items-center lg:gap-0 lg:text-center"
               >
-                {/* Icon node */}
-                <div className="relative z-10 flex-shrink-0 lg:mb-5">
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 rounded-full bg-orange-500/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-                  <div className="relative flex items-center justify-center w-[72px] h-[72px] rounded-full bg-zinc-950 border border-orange-500/25 shadow-[0_0_18px_-6px_rgba(255,122,0,0.5)] transition-colors duration-300 group-hover:border-orange-400">
+                {/* Card */}
+                <div className="relative z-10 flex min-h-[260px] w-full flex-1 flex-col rounded-3xl border border-[#E5E5E0] bg-[#F5F5F2] p-5 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#FF5101]/30 group-hover:shadow-[0_12px_30px_rgba(23,25,35,0.07)]">
+                  <div className="relative mx-auto flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-[#E5E5E0] bg-white">
                     <Icon
-                      className="w-7 h-7 text-orange-400 transition-transform duration-300 group-hover:scale-110"
+                      className="h-7 w-7 text-[#FF5101]"
                       aria-hidden="true"
                     />
-                    <span className="absolute -top-1.5 -right-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-orange-500 to-amber-300 text-[10px] font-bold text-black">
+
+                    <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#FF5101] text-[9px] font-bold text-white">
                       {step.number}
                     </span>
                   </div>
-                </div>
 
-                {/* Text */}
-                <div className="pt-1 lg:pt-0">
-                  <h3 className="text-white font-semibold text-base lg:text-lg mb-1.5">
-                    {step.title}
-                  </h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed lg:max-w-[170px] lg:mx-auto">
-                    {step.description}
-                  </p>
+                  <div className="mt-5 flex flex-1 flex-col text-center">
+                    <h3 className="mb-2 text-lg font-semibold leading-tight text-[#171923]">
+                      {step.title}
+                    </h3>
+
+                    <p className="mx-auto max-w-[180px] text-sm leading-6 text-[#62646F]">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             );
@@ -269,15 +235,15 @@ export default function WhatYouGetList() {
       {/* Bottom text */}
       <div
         ref={bottomRef}
-        className="wyg-bottom-anim flex items-center justify-center gap-3 sm:gap-4 mt-16 sm:mt-20 lg:mt-24"
+        className="mt-16 flex items-center justify-center gap-3 sm:mt-20 sm:gap-4 lg:mt-24"
       >
-        <span className="h-px w-8 sm:w-16 bg-gradient-to-r from-transparent to-orange-500/70" />
-        <span className="w-1.5 h-1.5 rotate-45 bg-orange-400 flex-shrink-0" />
-        <p className="text-[10px] sm:text-xs font-semibold tracking-[0.35em] uppercase text-zinc-300 whitespace-nowrap">
-          Partner in Your Digital Success
+        <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#FF5101]/50 sm:w-16" />
+        <span className="h-1.5 w-1.5 shrink-0 rotate-45 bg-[#FF5101]" />
+        <p className="whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.35em] text-[#62646F] sm:text-xs">
+          Partner in Your Success
         </p>
-        <span className="w-1.5 h-1.5 rotate-45 bg-orange-400 flex-shrink-0" />
-        <span className="h-px w-8 sm:w-16 bg-gradient-to-l from-transparent to-orange-500/70" />
+        <span className="h-1.5 w-1.5 shrink-0 rotate-45 bg-[#FF5101]" />
+        <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#FF5101]/50 sm:w-16" />
       </div>
     </section>
   );
