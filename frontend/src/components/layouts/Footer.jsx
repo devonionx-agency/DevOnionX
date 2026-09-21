@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import ParticlesBackground from "../ui/ParticlesBackground";
 import { companyLinks, serviceLinks, socialLinks } from "@/helper/footer";
 import { TbMessageCircleCode } from "react-icons/tb";
 import { RiMailSendLine } from "react-icons/ri";
@@ -33,10 +32,6 @@ function FooterHeading({ children }) {
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-black text-white">
-      {/* Background Glow */}
-      <div className="hidden lg:block">
-        <ParticlesBackground />
-      </div>
       <Container size="hero">
         <div className="relative ">
           {/* CTA SECTION */}

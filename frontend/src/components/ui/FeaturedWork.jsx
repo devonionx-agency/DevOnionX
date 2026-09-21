@@ -15,9 +15,7 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Resting 3D tilt for the mockup — the permanent "floating dashboard" look.
-// Set via gsap.set() (not plain CSS) so .from() tweens interpolate back to
-// THIS instead of resetting to a flat 0deg once the reveal finishes.
+// Resting 3D tilt for the mockup.
 const TILT_X = 6;
 const TILT_Y = -3;
 
@@ -26,20 +24,25 @@ export default function FeaturedWorkCard({ project }) {
   const mockupRef = useRef(null);
 
   useGSAP(
-    () => {
+    (context) => {
+      const card = cardRef.current;
+      const mockup = mockupRef.current;
+
+      if (!card || !mockup) return;
+
       const mm = gsap.matchMedia();
 
       mm.add(
         {
-          isDesktop: "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
+          isDesktop:
+            "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
           reduced: "(prefers-reduced-motion: reduce)",
         },
-        (context) => {
-          const { reduced, isDesktop } = context.conditions;
+        (matchContext) => {
+          const { reduced, isDesktop } = matchContext.conditions;
 
-          // Resting tilt applies always — it's a static look, not motion,
-          // so it isn't skipped for prefers-reduced-motion.
-          gsap.set(mockupRef.current, {
+          // Resting 3D position.
+          gsap.set(mockup, {
             transformPerspective: 1200,
             transformOrigin: "50% 100%",
             rotateX: TILT_X,
@@ -48,24 +51,40 @@ export default function FeaturedWorkCard({ project }) {
 
           if (reduced) {
             gsap.set(
-              [".work-card__badge", ".work-card__reveal", ".work-card__tech-item"],
-              { clearProps: "all" }
+              card.querySelectorAll(
+                ".work-card__badge, .work-card__reveal, .work-card__tech-item",
+              ),
+              {
+                clearProps: "all",
+              },
             );
+
             return;
           }
 
+          const badge = card.querySelector(".work-card__badge");
+          const revealElements = card.querySelectorAll(".work-card__reveal");
+          const techItems = card.querySelectorAll(".work-card__tech-item");
+          const cta = card.querySelector(".work-card__cta");
+
           const tl = gsap.timeline({
-            defaults: { ease: "power3.out" },
+            defaults: {
+              ease: "power3.out",
+            },
             scrollTrigger: {
-              trigger: cardRef.current,
+              trigger: card,
               start: "top 82%",
               once: true,
             },
           });
 
-          tl.from(cardRef.current, { opacity: 0, y: 50, duration: 0.9 })
+          tl.from(card, {
+            opacity: 0,
+            y: 50,
+            duration: 0.9,
+          })
             .from(
-              mockupRef.current,
+              mockup,
               {
                 opacity: 0,
                 y: 40,
@@ -75,45 +94,79 @@ export default function FeaturedWorkCard({ project }) {
                 duration: 1.1,
                 ease: "power4.out",
               },
-              "-=0.6"
+              "-=0.6",
             )
             .from(
-              ".work-card__badge",
-              { opacity: 0, y: -10, scale: 0.85, duration: 0.5 },
-              "-=0.7"
+              badge,
+              {
+                opacity: 0,
+                y: -10,
+                scale: 0.85,
+                duration: 0.5,
+              },
+              "-=0.7",
             )
             .from(
-              ".work-card__reveal",
-              { opacity: 0, y: 18, duration: 0.6, stagger: 0.08 },
-              "-=0.5"
+              revealElements,
+              {
+                opacity: 0,
+                y: 18,
+                duration: 0.6,
+                stagger: 0.08,
+              },
+              "-=0.5",
             )
             .from(
-              ".work-card__tech-item",
-              { opacity: 0, y: 12, duration: 0.4, stagger: 0.045 },
-              "-=0.35"
+              techItems,
+              {
+                opacity: 0,
+                y: 12,
+                duration: 0.4,
+                stagger: 0.045,
+              },
+              "-=0.35",
             )
-            .from(".work-card__cta", { opacity: 0, y: 20, duration: 0.6 }, "-=0.25");
+            .from(
+              cta,
+              {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+              },
+              "-=0.25",
+            );
 
-          // Desktop-only cursor tilt — tilts AROUND the resting angle, not
-          // back to zero, so it never fights the permanent 3D look.
+          // Desktop-only cursor tilt.
           if (isDesktop) {
-            const card = cardRef.current;
-            const xTo = gsap.quickTo(mockupRef.current, "rotateY", {
-              duration: 0.6,
-              ease: "power3.out",
-            });
-            const yTo = gsap.quickTo(mockupRef.current, "rotateX", {
-              duration: 0.6,
-              ease: "power3.out",
+            let xTo;
+            let yTo;
+
+            // Cursor tweens are kept outside the GSAP context.
+            context.ignore(() => {
+              xTo = gsap.quickTo(mockup, "rotateY", {
+                duration: 0.6,
+                ease: "power3.out",
+              });
+
+              yTo = gsap.quickTo(mockup, "rotateX", {
+                duration: 0.6,
+                ease: "power3.out",
+              });
             });
 
-            const handleMove = (e) => {
+            const handleMove = (event) => {
               const rect = card.getBoundingClientRect();
-              const px = (e.clientX - rect.left) / rect.width - 0.5;
-              const py = (e.clientY - rect.top) / rect.height - 0.5;
+
+              if (!rect.width || !rect.height) return;
+
+              const px = (event.clientX - rect.left) / rect.width - 0.5;
+
+              const py = (event.clientY - rect.top) / rect.height - 0.5;
+
               xTo(TILT_Y + px * 10);
               yTo(TILT_X + py * -8);
             };
+
             const handleLeave = () => {
               xTo(TILT_Y);
               yTo(TILT_X);
@@ -125,14 +178,29 @@ export default function FeaturedWorkCard({ project }) {
             return () => {
               card.removeEventListener("mousemove", handleMove);
               card.removeEventListener("mouseleave", handleLeave);
+
+              if (xTo?.tween) {
+                xTo.tween.kill();
+              }
+
+              if (yTo?.tween) {
+                yTo.tween.kill();
+              }
+
+              gsap.killTweensOf(mockup);
             };
           }
-        }
+        },
       );
 
-      return () => mm.revert();
+      return () => {
+        mm.revert();
+      };
     },
-    { scope: cardRef, dependencies: [] }
+    {
+      scope: cardRef,
+      dependencies: [],
+    },
   );
 
   const words = project.title.trim().split(" ");
@@ -148,6 +216,7 @@ export default function FeaturedWorkCard({ project }) {
           <span className="work-card__badge-icon">
             <HiOutlineSquares2X2 />
           </span>
+
           <span className="work-card__badge-text">{project.category}</span>
         </span>
 
@@ -170,6 +239,7 @@ export default function FeaturedWorkCard({ project }) {
             <span className="work-card__eyebrow work-card__reveal block">
               {project.category}
             </span>
+
             <h3 className="work-card__title work-card__reveal headingFour">
               {leadingWords && <>{leadingWords} </>}
               <span className="text-brand">{lastWord}</span>
@@ -202,6 +272,7 @@ export default function FeaturedWorkCard({ project }) {
         <div className="work-card__tech-grid">
           {project.technologies.map((tech) => {
             const Icon = tech.icon;
+
             return (
               <div key={tech.name} className="work-card__tech-item">
                 <Icon />
@@ -215,13 +286,16 @@ export default function FeaturedWorkCard({ project }) {
           <span className="work-card__cta-icon">
             <HiOutlineDocumentText className="text-xl" />
           </span>
+
           <div className="work-card__cta-text">
             <p className="work-card__cta-title">Want to see it in action?</p>
+
             <p className="work-card__cta-desc">
               Explore the full case study to see how {project.title} can
               transform your business.
             </p>
           </div>
+
           <Link
             href={project.href}
             target="_blank"

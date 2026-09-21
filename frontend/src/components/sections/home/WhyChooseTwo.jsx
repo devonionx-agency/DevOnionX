@@ -71,12 +71,12 @@ function WhyChooseCard({ item }) {
 
   return (
     <article
-      className="why-choose-card group relative min-h-[210px] overflow-hidden rounded-[10px] border border-white/15 bg-[#0b1022]/70 p-5 outline-none backdrop-blur-xl transition-colors duration-300 [--glow-x:50%] [--glow-y:0%] focus-visible:border-white/50 sm:min-h-[230px] lg:min-h-[245px]"
+      className="why-choose-card group relative min-h-[210px] overflow-hidden rounded-[10px] border border-white/15 bg-[#0b1022]/70 p-5 outline-none backdrop-blur-xl transition-colors duration-300 [--glow-x:50%] [--glow-y:0%] focus-brand:border-white/50 sm:min-h-[230px] lg:min-h-[245px]"
       style={{ "--accent": item.accent }}
       tabIndex={0}
     >
       <span
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-brand:opacity-100"
         style={{
           background:
             "radial-gradient(circle at var(--glow-x) var(--glow-y), color-mix(in srgb, var(--accent) 38%, transparent), transparent 38%)",
@@ -85,7 +85,7 @@ function WhyChooseCard({ item }) {
       />
 
       <span
-        className="pointer-events-none absolute inset-0 rounded-[10px] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className="pointer-events-none absolute inset-0 rounded-[10px] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-brand:opacity-100"
         style={{
           boxShadow:
             "inset 0 1px 0 rgba(255,255,255,.22), 0 0 36px color-mix(in srgb, var(--accent) 34%, transparent)",
@@ -108,16 +108,18 @@ function WhyChooseCard({ item }) {
         <h3 className="text-[16px] font-bold leading-tight text-white sm:text-[17px]">
           {item.title}
         </h3>
+
         <span
           className="mt-3 h-[2px] w-5 rounded-full transition-all duration-300 group-hover:w-9"
           style={{ backgroundColor: item.accent }}
           aria-hidden="true"
         />
+
         <p className="mt-4 max-w-[170px] text-[13px] leading-5 text-white/66 sm:text-sm">
           {item.description}
         </p>
 
-        <span className="absolute bottom-[-12px] right-[-12px]     text-[26px] font-bold leading-none text-white/[0.05] transition-colors duration-300 group-hover:text-white/[0.09]">
+        <span className="absolute bottom-[-12px] right-[-12px] text-[26px] font-bold leading-none text-white/[0.05] transition-colors duration-300 group-hover:text-white/[0.09]">
           {item.number}
         </span>
       </div>
@@ -129,14 +131,26 @@ const WhyChooseTwo = () => {
   const sectionRef = useRef(null);
 
   useGSAP(
-    () => {
+    (context) => {
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
-      const cards = gsap.utils.toArray(".why-choose-card");
+
+      const cards = gsap.utils.toArray(".why-choose-card", sectionRef.current);
+
+      if (!cards.length) {
+        return;
+      }
 
       if (reduceMotion) {
-        gsap.set(cards, { autoAlpha: 1, y: 0, scale: 1, rotateX: 0 });
+        gsap.set(cards, {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          rotateX: 0,
+          rotateY: 0,
+        });
+
         return;
       }
 
@@ -145,18 +159,29 @@ const WhyChooseTwo = () => {
         y: 54,
         scale: 0.94,
         rotateX: 12,
+        rotateY: 0,
         transformPerspective: 900,
         transformOrigin: "50% 70%",
-        willChange: "transform, opacity",
       });
 
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out" },
+        defaults: {
+          ease: "power3.out",
+        },
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 72%",
           once: true,
         },
+        onComplete: () => {
+          gsap.set(cards, {
+            clearProps: "willChange",
+          });
+        },
+      });
+
+      tl.set(cards, {
+        willChange: "transform, opacity",
       });
 
       tl.to(cards, {
@@ -164,58 +189,154 @@ const WhyChooseTwo = () => {
         y: 0,
         scale: 1,
         rotateX: 0,
+        rotateY: 0,
         duration: 0.9,
-        stagger: { each: 0.08, from: "center" },
+        stagger: {
+          each: 0.08,
+          from: "center",
+        },
         ease: "back.out(1.25)",
       });
 
-      const cleanups = cards.map((card) => {
-        const rotateXTo = gsap.quickTo(card, "rotateX", {
-          duration: 0.42,
-          ease: "power3.out",
+      /*
+       * Pointer tilt is intentionally kept outside the GSAP context.
+       *
+       * useGSAP automatically reverts animations created inside its
+       * context. quickTo() creates internal tweens that should instead
+       * be manually killed during cleanup. Keeping these interactions
+       * outside the context prevents the rotateX/rotateY reset warnings.
+       */
+      const pointerCleanups = [];
+
+      context.ignore(() => {
+        cards.forEach((card) => {
+          let rect = card.getBoundingClientRect();
+          let rafId = null;
+
+          let pendingX = 0.5;
+          let pendingY = 0.5;
+          let isPointerInside = false;
+
+          const rotateXTo = gsap.quickTo(card, "rotateX", {
+            duration: 0.42,
+            ease: "power3.out",
+          });
+
+          const rotateYTo = gsap.quickTo(card, "rotateY", {
+            duration: 0.42,
+            ease: "power3.out",
+          });
+
+          const yTo = gsap.quickTo(card, "y", {
+            duration: 0.42,
+            ease: "power3.out",
+          });
+
+          const updatePointer = () => {
+            rafId = null;
+
+            if (!isPointerInside) {
+              return;
+            }
+
+            rotateYTo((pendingX - 0.5) * 12);
+            rotateXTo((0.5 - pendingY) * 12);
+            yTo(-10);
+
+            card.style.setProperty("--glow-x", `${pendingX * 100}%`);
+
+            card.style.setProperty("--glow-y", `${pendingY * 100}%`);
+          };
+
+          const onEnter = () => {
+            rect = card.getBoundingClientRect();
+            isPointerInside = true;
+
+            card.style.setProperty("will-change", "transform");
+          };
+
+          const onMove = (event) => {
+            if (!isPointerInside) {
+              return;
+            }
+
+            pendingX = (event.clientX - rect.left) / rect.width;
+            pendingY = (event.clientY - rect.top) / rect.height;
+
+            pendingX = Math.max(0, Math.min(1, pendingX));
+            pendingY = Math.max(0, Math.min(1, pendingY));
+
+            if (rafId === null) {
+              rafId = window.requestAnimationFrame(updatePointer);
+            }
+          };
+
+          const onLeave = () => {
+            isPointerInside = false;
+
+            if (rafId !== null) {
+              window.cancelAnimationFrame(rafId);
+              rafId = null;
+            }
+
+            rotateXTo(0);
+            rotateYTo(0);
+            yTo(0);
+
+            card.style.setProperty("--glow-x", "50%");
+            card.style.setProperty("--glow-y", "0%");
+
+            card.style.removeProperty("will-change");
+          };
+
+          const onResize = () => {
+            if (!isPointerInside) {
+              return;
+            }
+
+            rect = card.getBoundingClientRect();
+          };
+
+          card.addEventListener("pointerenter", onEnter);
+          card.addEventListener("pointermove", onMove);
+          card.addEventListener("pointerleave", onLeave);
+          window.addEventListener("resize", onResize);
+
+          pointerCleanups.push(() => {
+            card.removeEventListener("pointerenter", onEnter);
+            card.removeEventListener("pointermove", onMove);
+            card.removeEventListener("pointerleave", onLeave);
+            window.removeEventListener("resize", onResize);
+
+            if (rafId !== null) {
+              window.cancelAnimationFrame(rafId);
+              rafId = null;
+            }
+
+            isPointerInside = false;
+
+            /*
+             * Kill the quickTo tweens directly instead of creating
+             * new tweens during React/GSAP cleanup.
+             */
+            rotateXTo.tween?.kill();
+            rotateYTo.tween?.kill();
+            yTo.tween?.kill();
+
+            card.style.removeProperty("will-change");
+            card.style.setProperty("--glow-x", "50%");
+            card.style.setProperty("--glow-y", "0%");
+          });
         });
-        const rotateYTo = gsap.quickTo(card, "rotateY", {
-          duration: 0.42,
-          ease: "power3.out",
-        });
-        const yTo = gsap.quickTo(card, "y", {
-          duration: 0.42,
-          ease: "power3.out",
-        });
-        const onMove = (event) => {
-          const rect = card.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width;
-          const y = (event.clientY - rect.top) / rect.height;
-
-          rotateYTo((x - 0.5) * 12);
-          rotateXTo((0.5 - y) * 12);
-          yTo(-10);
-          card.style.setProperty("--glow-x", `${x * 100}%`);
-          card.style.setProperty("--glow-y", `${y * 100}%`);
-        };
-
-        const onLeave = () => {
-          rotateXTo(0);
-          rotateYTo(0);
-          yTo(0);
-          card.style.setProperty("--glow-x", "50%");
-          card.style.setProperty("--glow-y", "0%");
-        };
-
-        card.addEventListener("pointermove", onMove);
-        card.addEventListener("pointerleave", onLeave);
-        card.addEventListener("blur", onLeave);
-
-        return () => {
-          card.removeEventListener("pointermove", onMove);
-          card.removeEventListener("pointerleave", onLeave);
-          card.removeEventListener("blur", onLeave);
-        };
       });
 
-      return () => cleanups.forEach((cleanup) => cleanup());
+      return () => {
+        pointerCleanups.forEach((cleanup) => cleanup());
+      };
     },
-    { scope: sectionRef },
+    {
+      scope: sectionRef,
+    },
   );
 
   return (
@@ -232,7 +353,9 @@ const WhyChooseTwo = () => {
         className="pointer-events-none -z-20 object-cover opacity-70"
         aria-hidden="true"
       />
+
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_12%,rgba(37,99,235,.28),transparent_33%),linear-gradient(180deg,rgba(3,6,17,.38),rgba(3,6,17,.95)_88%)]" />
+
       <div className="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
       <Container size="hero">

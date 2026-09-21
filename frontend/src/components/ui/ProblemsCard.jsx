@@ -1,4 +1,3 @@
-// ProblemCard.jsx
 "use client";
 
 import { useRef } from "react";
@@ -23,13 +22,16 @@ export default function ProblemCard({
   const headingRef = useRef(null);
 
   let content;
+
   if (colorWord) {
     const idx = title.indexOf(colorWord);
+
     if (idx === -1) {
       content = <>{title}</>;
     } else {
       const before = title.slice(0, idx);
       const after = title.slice(idx + colorWord.length);
+
       content = (
         <>
           {before}
@@ -54,7 +56,10 @@ export default function ProblemCard({
         type: "lines",
         mask: "lines",
       });
-      gsap.set(headingSplit.lines, { yPercent: 115 });
+
+      gsap.set(headingSplit.lines, {
+        yPercent: 115,
+      });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -62,24 +67,31 @@ export default function ProblemCard({
           start: "top 88%",
           once: true,
         },
-        defaults: { ease: "power3.out" },
+        defaults: {
+          ease: "power3.out",
+        },
       });
 
       tl.fromTo(
         cardRef.current,
-        { autoAlpha: 0, y: 44 },
+        {
+          autoAlpha: 0,
+          y: 44,
+        },
         {
           autoAlpha: 1,
           y: 0,
           duration: 0.8,
-          // 👉 GSAP এর inline transform mucche dey animation shesh e,
-          // tai Tailwind er hover:-translate-y-2 abar normally kaj korte pare
           clearProps: "transform",
         },
       )
         .fromTo(
           ".problem-icon",
-          { scale: 0, rotate: -15, autoAlpha: 0 },
+          {
+            scale: 0,
+            rotate: -15,
+            autoAlpha: 0,
+          },
           {
             scale: 1,
             rotate: 0,
@@ -89,31 +101,43 @@ export default function ProblemCard({
           },
           "-=0.5",
         )
-        .fromTo(
-          ".problem-reaction",
-          { scale: 0, autoAlpha: 0 },
-          { scale: 1, autoAlpha: 1, duration: 0.55, ease: "back.out(2.4)" },
-          "-=0.4",
-        )
         .to(
           headingSplit.lines,
-          { yPercent: 0, duration: 0.8, stagger: 0.08 },
+          {
+            yPercent: 0,
+            duration: 0.8,
+            stagger: 0.08,
+          },
           "-=0.35",
         )
         .fromTo(
           ".problem-underline",
-          { scaleX: 0 },
-          { scaleX: 1, duration: 0.5, transformOrigin: "left" },
+          {
+            scaleX: 0,
+          },
+          {
+            scaleX: 1,
+            duration: 0.5,
+            transformOrigin: "left",
+          },
           "-=0.3",
         )
         .fromTo(
           ".problem-desc",
-          { autoAlpha: 0, y: 14 },
-          { autoAlpha: 1, y: 0, duration: 0.6 },
+          {
+            autoAlpha: 0,
+            y: 14,
+          },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+          },
           "-=0.25",
         );
 
       const flowLine = cardRef.current.querySelector(".problem-wave-flow");
+
       if (flowLine) {
         gsap.to(flowLine, {
           strokeDashoffset: -400,
@@ -123,7 +147,10 @@ export default function ProblemCard({
         });
       }
     },
-    { scope: cardRef, dependencies: [title, colorWord, description, emoji] },
+    {
+      scope: cardRef,
+      dependencies: [title, colorWord, description, emoji],
+    },
   );
 
   return (
@@ -139,15 +166,6 @@ export default function ProblemCard({
           <span key={i} className="h-[3px] w-[3px] rounded-full bg-[#FF5101]" />
         ))}
       </div>
-
-      {/* <div
-        className="problem-reaction absolute right-6 top-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#FF5101]/40 shadow-[0_0_30px_rgba(255,81,1,0.35)] sm:right-8 sm:top-8 sm:h-16 sm:w-16"
-        aria-hidden="true"
-      >
-        <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-[#ffb648] to-[#FF5101]">
-          <ReactionIcon className="h-6 w-6 text-black/70 sm:h-7 sm:w-7" />
-        </div>
-      </div> */}
 
       <div className="problem-icon relative z-10 mb-8 mt-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#FF5101]/35 bg-[#FF5101]/10 sm:h-16 sm:w-16">
         {emoji ? (
@@ -189,10 +207,13 @@ export default function ProblemCard({
             <stop offset="100%" stopColor="#FF5101" stopOpacity="0.15" />
           </linearGradient>
         </defs>
+
         {[0, 18, 36, 54, 72, 90].map((offset, i) => (
           <path
             key={offset}
-            d={`M0 ${260 - offset} C 180 ${220 - offset}, 260 ${40 - offset}, 600 ${10 - offset}`}
+            d={`M0 ${260 - offset} C 180 ${220 - offset}, 260 ${
+              40 - offset
+            }, 600 ${10 - offset}`}
             fill="none"
             stroke="url(#problemWaveGrad)"
             strokeWidth={i === 3 ? 1.6 : 1}

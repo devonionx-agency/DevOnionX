@@ -5,29 +5,25 @@ import Image from "next/image";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ArrowRight } from "lucide-react";
 
 import Container from "../../ui/Container";
 import DirectionalButton from "../../common/Directionalbutton";
-import { ArrowRight } from "lucide-react";
 import heroSlides from "@/helper/heroSlides";
 
-// Swiper is heavy — code-split it and keep a static image as fallback
-// so the LCP image still renders instantly before JS hydrates.
 const HeroSlider = dynamic(() => import("./HeroSlider"), {
   ssr: false,
   loading: () => (
-    <div className="relative h-full w-full">
-      <Image
-        src={heroSlides[0].src}
-        alt={heroSlides[0].alt}
-        fill
-        priority
-        fetchPriority="high"
-        sizes="100vw"
-        quality={82}
-        className="object-[65%_center] lg:object-center object-cover"
-      />
-    </div>
+    <Image
+      src={heroSlides[0].src}
+      alt={heroSlides[0].alt}
+      fill
+      priority
+      fetchPriority="high"
+      sizes="(max-width: 1023px) calc(100vw - 48px), 55vw"
+      quality={75}
+      className="object-cover object-center"
+    />
   ),
 });
 
@@ -40,41 +36,49 @@ const HeroSectionTwo = () => {
         "(prefers-reduced-motion: reduce)",
       ).matches;
 
+      const animatedElements = [
+        ".hero-badge",
+        ".hero-line-inner",
+        ".hero-text",
+        ".hero-btns > *",
+      ];
+
       if (prefersReducedMotion) {
-        gsap.set(
-          [".hero-badge", ".hero-line-inner", ".hero-text", ".hero-btns > *"],
-          { autoAlpha: 1, y: 0, yPercent: 0 },
-        );
+        gsap.set(animatedElements, {
+          autoAlpha: 1,
+          y: 0,
+          yPercent: 0,
+        });
         return;
       }
 
       const tl = gsap.timeline({
-        defaults: { ease: "power4.out" },
-        delay: 0.2,
+        defaults: { ease: "power3.out" },
+        delay: 0.15,
       });
 
       tl.fromTo(
         ".hero-badge",
-        { autoAlpha: 0, y: -16 },
-        { autoAlpha: 1, y: 0, duration: 0.7 },
+        { autoAlpha: 0, y: -12 },
+        { autoAlpha: 1, y: 0, duration: 0.5 },
       )
         .fromTo(
           ".hero-line-inner",
-          { yPercent: 115 },
-          { yPercent: 0, duration: 1.1, stagger: 0.12 },
-          "-=0.35",
+          { yPercent: 110 },
+          { yPercent: 0, duration: 0.8, stagger: 0.1 },
+          "-=0.2",
         )
         .fromTo(
           ".hero-text",
-          { autoAlpha: 0, y: 24 },
-          { autoAlpha: 1, y: 0, duration: 0.8 },
-          "-=0.55",
+          { autoAlpha: 0, y: 16 },
+          { autoAlpha: 1, y: 0, duration: 0.6 },
+          "-=0.35",
         )
         .fromTo(
           ".hero-btns > *",
-          { autoAlpha: 0, y: 20, scale: 0.96 },
-          { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.12 },
-          "-=0.45",
+          { autoAlpha: 0, y: 12 },
+          { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.1 },
+          "-=0.3",
         );
     },
     { scope: containerRef },
@@ -83,65 +87,101 @@ const HeroSectionTwo = () => {
   return (
     <section
       ref={containerRef}
-      className="relative isolate overflow-hidden min-h-[100svh] flex items-center bg-gradient-to-b from-[#0a0a0d] to-black"
+      className="relative isolate flex min-h-[calc(100svh-116px)] items-center overflow-hidden bg-[#F5F5F2] text-[#171923] pt-16 sm:pt-20 lg:pt-16"
     >
-      {/* Slim accent line — visually separates navbar (#000) from hero */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FF5101]/50 to-transparent" />
+      {/* Top accent line */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF5101]/50 to-transparent"
+      />
 
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <HeroSlider />
-      </div>
+      {/* Soft background glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_45%,rgba(255,81,1,0.07),transparent_45%)]"
+      />
 
-      {/* Tuned overlay — image stays visible, text stays readable */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/55 to-transparent lg:to-black/5" />
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/65 via-transparent to-black/25" />
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_80%_75%,rgba(255,81,1,0.16),transparent_55%)]" />
+      <Container size="hero" className="relative z-10 w-full">
+        <div className="grid grid-cols-1 items-center gap-8 py-16 sm:gap-10 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-6 lg:py-16 xl:gap-8">
+          {/* LEFT: Content */}
+          <div className="relative z-10 min-w-0 max-w-[680px]">
+            <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-[#FF5101]/25 bg-[#FF5101]/8 px-4 py-2 text-xs font-medium text-[#C7460A] sm:text-sm">
+              <span className="h-2 w-2 shrink-0 rounded-full bg-[#FF5101]" />
+              Built Around Your Business
+            </div>
 
-      <Container size="hero" className="relative z-20">
-        <div className="max-w-[650px] py-24 sm:py-28 lg:py-0">
-          <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-[#FF5101]/20 bg-[#FF5101]/10 px-4 py-2 text-xs sm:text-sm text-[#FF5101] backdrop-blur-sm">
-            <span className="h-2 w-2 rounded-full bg-[#FF5101]" />
-            Digital Products. Engineered To Scale.
+            <h1 className="text-5xl sm:text-6xl lg:text-[70px] pt-6 font-extrabold leading-[1.12] tracking-[-0.035em] text-[#171923]">
+              <span className="block overflow-hidden">
+                <span className="hero-line-inner block">
+                  Engineering Digital
+                </span>
+              </span>
+
+              <span className="block overflow-hidden">
+                <span className="hero-line-inner block">Experiences That</span>
+              </span>
+
+              <span className="block overflow-hidden">
+                <span className="hero-line-inner block bg-gradient-to-r from-[#E94B0C] via-[#FF5101] to-[#F59E0B] bg-clip-text text-transparent">
+                  Move Your Business Forward.
+                </span>
+              </span>
+            </h1>
+
+            <p className="hero-text mt-6 max-w-[580px] text-sm leading-relaxed text-[#62646F] sm:text-base">
+              DevOnionX helps startups and businesses build modern digital
+              products through custom software, web applications, SaaS
+              platforms, and scalable web solutions.
+            </p>
+
+            <div className="hero-btns mt-7 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
+              <DirectionalButton
+                href="/contact"
+                label="Discuss Your Project"
+                size="lg"
+                flairColor="#FF5101"
+                borderColor="rgba(255,81,1,0.75)"
+                borderHoverColor="#FF5101"
+                textColor="#171923"
+                textHoverColor="#ffffff"
+                shadowHover="0 0 24px 2px #ff510133"
+                className="py-3.5 font-semibold"
+                rightIcon={<ArrowRight size={18} />}
+              />
+
+              <DirectionalButton
+                href="/work"
+                label="Explore Our Work"
+                size="lg"
+                flairColor="#171923"
+                borderColor="rgba(23,25,35,0.2)"
+                borderHoverColor="rgba(23,25,35,0.5)"
+                textColor="#171923"
+                textHoverColor="#ffffff"
+                shadowHover={null}
+                className="py-3.5 font-medium"
+                rightIcon={<ArrowRight size={18} />}
+              />
+            </div>
           </div>
 
-          <h1 className="hero-title pt-6 lg:mt-8 headingOne text-white">
-            <span className="block overflow-hidden">
-              <span className="hero-line-inner block">
-                Building Digital Products That
-              </span>
-            </span>
-            <span className="block overflow-hidden">
-              <span className="hero-line-inner block bg-gradient-to-r from-[#FF5101] via-orange-300 to-white bg-clip-text text-transparent animate-gradient">
-                Move Businesses Forward.
-              </span>
-            </span>
-          </h1>
+          {/* RIGHT: Visual */}
+          <div className="relative order-last w-full min-w-0 lg:order-none lg:-translate-x-6 xl:-translate-x-10">
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-[680px] overflow-hidden rounded-2xl sm:aspect-[16/10] lg:aspect-[5/4] xl:aspect-[4/3]">
+              {/* Image glow */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-[10%] rounded-full bg-[#FF5101]/[0.08] blur-[70px]"
+              />
 
-          <p className="hero-text mt-6 lg:mt-8 max-w-[600px] text-base sm:text-[18px] xl:text-[16px] text-white/80 leading-relaxed">
-            We help ambitious startups and businesses build scalable digital
-            products and experiences that drive measurable growth.
-          </p>
+              <HeroSlider />
 
-          <div className="hero-btns mt-8 lg:mt-10 flex flex-wrap gap-4">
-            <DirectionalButton
-              href="/contact"
-              label="Start a Project"
-              flairColor="#FF5101"
-              borderColor="rgba(255,81,1,0.8)"
-              textColor="#ffffff"
-              className="font-semibold py-3 shadow-lg shadow-orange-500/20"
-              rightIcon={<ArrowRight size={18} />}
-            />
-            <DirectionalButton
-              href="/work"
-              label="View Work"
-              flairColor="transparent"
-              borderColor="rgba(255,255,255,0.2)"
-              textColor="#ffffff"
-              className="font-medium py-3 hover:border-white/5 transition"
-              rightIcon={<ArrowRight size={18} />}
-            />
+              {/* Bottom image overlay */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[15%] bg-gradient-to-t from-[#F5F5F2]/30 to-transparent"
+              />
+            </div>
           </div>
         </div>
       </Container>
