@@ -25,7 +25,6 @@ const services = [
       "High-performance websites built to strengthen your brand, build trust, and turn visitors into qualified customers.",
     link: "/services/custom-web",
   },
-
   {
     icon: HiOutlineCodeBracket,
     titleTop: "Frontend",
@@ -34,7 +33,6 @@ const services = [
       "Fast, responsive, conversion-focused interfaces that create a smooth experience across every device.",
     link: "/services/frontend",
   },
-
   {
     icon: HiOutlineServerStack,
     titleTop: "Backend",
@@ -43,7 +41,6 @@ const services = [
       "Secure and scalable backend systems engineered for reliability, performance, and long-term business growth.",
     link: "/services/backend",
   },
-
   {
     icon: HiOutlineSquares2X2,
     titleTop: "Full Stack",
@@ -52,7 +49,6 @@ const services = [
       "Complete end-to-end solutions that connect powerful technology with your business goals and customer needs.",
     link: "/services/fullstack",
   },
-
   {
     icon: HiOutlineRocketLaunch,
     titleTop: "SaaS",
@@ -61,7 +57,6 @@ const services = [
       "Scalable SaaS products designed for real users, recurring growth, and a strong foundation for your next big idea.",
     link: "/services/saas",
   },
-
   {
     icon: HiOutlineChartBarSquare,
     titleTop: "Dashboard &",
@@ -70,7 +65,6 @@ const services = [
       "Smart dashboards and CRM systems that simplify operations, improve decision-making, and help you manage customers better.",
     link: "/services/dashboard-crm",
   },
-
   {
     icon: HiOutlineShoppingCart,
     titleTop: "E-Commerce",
@@ -87,7 +81,6 @@ const services = [
       "Continuous updates, optimization, and performance improvements that keep your website secure, fast, and conversion-ready.",
     link: "/services/maintenance",
   },
-
   {
     icon: HiOutlineLifebuoy,
     titleTop: "Technical",
@@ -100,21 +93,21 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="section-padding bg-[#000]">
+    <section className="section-padding bg-[#F5F5F2]">
       <Container size="hero">
         <div className="flex flex-col items-center gap-10 sm:gap-12 lg:gap-16">
-          <div className="flex flex-col items-center gap-3 text-center sm:gap-4">
+          <div className="flex w-full flex-col items-center gap-3 text-center sm:gap-4">
             <SectionHeader
-              label="WHAT WE DO"
-              text="Solutions Built To . Grow Your Business."
-              colorWord="Grow Your Business."
-              description="From high-converting websites to scalable digital products, we build modern solutions that earn trust, drive conversions, and turn visitors into valuable customers."
+              label="OUR EXPERTISE"
+              text="Full-Spectrum Software Engineering"
+              colorWord="Engineering"
+              description="From web applications to scalable software systems, we build reliable solutions around your business needs, with a focus on performance, security, and long-term growth."
             />
           </div>
 
-          <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
-            {services.map((service, i) => (
-              <ServiceCard key={i} index={i} {...service} />
+          <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
+            {services.map((service) => (
+              <ServiceCard key={service.link} service={service} />
             ))}
           </div>
         </div>

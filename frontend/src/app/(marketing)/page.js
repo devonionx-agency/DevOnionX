@@ -22,13 +22,13 @@ export default function Page() {
 
       <TrustMetrics />
 
-      {/*<ProblemsSection />
+      {/* <ProblemsSection /> */}
 
       <ServicesGrid />
 
-      <WhatYouGet />
+      {/* <WhatYouGet /> */}
 
-      <ProcessHome />
+      {/* <ProcessHome />
 
       <FeaturedWork />
 
