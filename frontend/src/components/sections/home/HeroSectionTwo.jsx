@@ -137,15 +137,15 @@ const HeroSectionTwo = () => {
             <div className="hero-btns mt-7 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
               <DirectionalButton
                 href="/contact"
-                label="Discuss Your Project"
+                label="Let’s Build Your Vision"
                 size="lg"
                 flairColor="#FF5101"
-                borderColor="rgba(255,81,1,0.75)"
+                borderColor="#FF5101"
                 borderHoverColor="#FF5101"
-                textColor="#171923"
+                textColor="#ffffff"
                 textHoverColor="#ffffff"
-                shadowHover="0 0 24px 2px #ff510133"
-                className="py-3.5 font-semibold"
+                shadowHover={null}
+                className="bg-[#FF5101]! text-white! py-5 font-semibold rounded-lg!"
                 rightIcon={<ArrowRight size={18} />}
               />
 
@@ -159,7 +159,7 @@ const HeroSectionTwo = () => {
                 textColor="#171923"
                 textHoverColor="#ffffff"
                 shadowHover={null}
-                className="py-3.5 font-medium"
+                className="py-5 font-medium rounded-lg!"
                 rightIcon={<ArrowRight size={18} />}
               />
             </div>

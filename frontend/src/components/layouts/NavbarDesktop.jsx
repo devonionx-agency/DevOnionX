@@ -7,7 +7,7 @@ import DirectionalButton from "../common/Directionalbutton";
 
 export default function NavbarDesktop({ navLinks }) {
   return (
-    <div className="hidden lg:flex h-20 items-center justify-between rounded-[24px] border border-white/70 bg-white px-9 shadow-[0_18px_50px_rgba(23,25,35,0.10)]">
+    <div className="hidden lg:flex h-20 items-center justify-between rounded-3xl border border-white/70 bg-white px-9 shadow-[0_18px_50px_rgba(23,25,35,0.10)]">
       {/* Logo */}
       <Link href="/" aria-label="DevonionX Home" className="shrink-0">
         <Image
@@ -128,17 +128,12 @@ export default function NavbarDesktop({ navLinks }) {
       </ul>
 
       {/* CTA */}
-      <DirectionalButton
+      <Link
         href="/contact"
-        label="Start a Project"
-        flairColor="#FF5101"
-        borderColor="rgba(255,81,1,0.6)"
-        textColor="#171923"
-        textHoverColor="#FFFFFF"
-        shadowHover=""
-        size="md"
-        className="px-7 py-4 font-semibold"
-      />
+        className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#FF5101] px-6 py-3.5 font-semibold text-white transition-all duration-300 hover:shadow-[0_0_24px_2px_#ff510133]"
+      >
+        <span>Book a Free Consultation</span>
+      </Link>
     </div>
   );
 }
