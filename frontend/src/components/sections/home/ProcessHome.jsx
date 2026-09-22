@@ -15,7 +15,7 @@ const ProcessHome = () => {
               text="How We Build Digital Products"
               colorWord="Digital Products"
               description={
-                "   A structured process for turning ideas into scalable digitalproducts."
+                "A structured process for turning ideas into scalable digitalproducts."
               }
             />
           </div>
