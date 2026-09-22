@@ -114,8 +114,8 @@ export default function Footer() {
                   <Image
                     src="/images/logo/navlogo.png"
                     alt="DevonionX"
-                    width={180}
-                    height={43}
+                    width={300}
+                    height={57}
                   />
                 </Link>
                 <p className="mt-3 text-sm text-zinc-400 leading-relaxed">

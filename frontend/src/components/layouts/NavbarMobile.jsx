@@ -25,10 +25,10 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
         <Image
           src="/images/logo/navlogo.png"
           alt="DevonionX"
-          width={260}
-          height={70}
+          width={300}
+          height={57}
           priority
-          style={{ width: "260px", height: "auto" }}
+          
         />
       </Link>
 

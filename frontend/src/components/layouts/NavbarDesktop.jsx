@@ -14,9 +14,9 @@ export default function NavbarDesktop({ navLinks }) {
           src="/images/logo/navlogo.png"
           alt="DevonionX"
           width={300}
-          height={70}
+          height={57}
           priority
-          style={{ width: "300px", height: "auto" }}
+          
         />
       </Link>
 
