@@ -11,17 +11,10 @@ export default function WorkCard({ project, index, total }) {
 
   return (
     <article
-      className={`
-        group
-        ${isWide ? "md:col-span-2" : ""}
-        ${isWide ? "grid grid-cols-1 gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-center md:gap-12" : ""}
-      `}
+      className={`group ${isWide ? "md:col-span-2" : ""} ${isWide ? "grid grid-cols-1 gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-center md:gap-12" : ""}`}
     >
       <div
-        className={`
-          relative w-full overflow-hidden rounded-[18px]
-          ${isWide ? "aspect-[16/10]" : "aspect-[4/3]"}
-        `}
+        className={`relative w-full overflow-hidden rounded-[18px] ${isWide ? "aspect-[16/10]" : "aspect-[4/3]"}`}
         style={{ border: "1px solid rgba(23, 26, 33, 0.08)" }}
       >
         <Image
@@ -34,10 +27,7 @@ export default function WorkCard({ project, index, total }) {
               ? "(min-width: 768px) 65vw, 100vw"
               : "(min-width: 768px) 40vw, 100vw"
           }
-          className="
-            object-cover transition-transform duration-500 ease-out
-            group-hover:scale-[1.02] motion-reduce:transition-none
-          "
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none"
         />
       </div>
 
@@ -92,20 +82,12 @@ export default function WorkCard({ project, index, total }) {
           href={project.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="
-            group/link mt-8 inline-flex items-center gap-1.5 text-[13.5px] font-medium
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5101]
-            focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5F4F1] rounded-sm
-            "
+          className="group/link mt-8 inline-flex items-center gap-1.5 text-[13.5px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5101] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5F4F1] rounded-sm"
           style={{ color: "#171A21" }}
         >
           Explore project
           <FiArrowUpRight
-            className="
-              h-3.5 w-3.5 transition-transform duration-300 ease-out
-              group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5
-              motion-reduce:transition-none
-            "
+            className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 motion-reduce:transition-none"
             style={{ color: "#FF5101" }}
           />
         </Link>

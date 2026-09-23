@@ -20,10 +20,7 @@ export default function WorkFeatured({ project, index, total }) {
           fill
           priority
           sizes="(min-width: 1024px) 55vw, 100vw"
-          className="
-            object-cover transition-transform duration-500 ease-out
-            group-hover:scale-[1.02] motion-reduce:transition-none
-          "
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none"
         />
       </div>
 
@@ -78,20 +75,12 @@ export default function WorkFeatured({ project, index, total }) {
           href={project.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="
-            group/link mt-8 inline-flex items-center gap-1.5 text-[13.5px] font-medium
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5101]
-            focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5F4F1] rounded-sm
-        "
+          className="group/link mt-8 inline-flex items-center gap-1.5 text-[13.5px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5101] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5F4F1] rounded-sm"
           style={{ color: "#171A21" }}
         >
           Explore project
           <FiArrowUpRight
-            className="
-              h-4 w-4 transition-transform duration-300 ease-out
-              group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5
-              motion-reduce:transition-none
-            "
+            className="h-4 w-4 transition-transform duration-300 ease-out group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 motion-reduce:transition-none"
             style={{ color: "#FF5101" }}
           />
         </Link>

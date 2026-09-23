@@ -20,6 +20,6 @@ export const techIcons = {
   MongoDB: SiMongodb,
   "Firebase Auth": SiFirebase,
   Firebase: SiFirebase,
-  GSAP: TbBrandFramerMotion, // placeholder, GSAP-er dedicated icon nai react-icons e
+  GSAP: TbBrandFramerMotion,
   "Tailwind CSS": SiTailwindcss,
 };

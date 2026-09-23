@@ -6,7 +6,8 @@ import WorkFilters from "@/components/ui/work/WorkFilters";
 import WorkFeatured from "@/components/ui/work/WorkFeatured";
 import WorkCard from "@/components/ui/work/WorkCard";
 import WorkCTA from "@/components/ui/work/WorkCTA";
-import { workFilters, workProjects } from "@/helper/workData";
+import { workFilters, workProjects } from "@/helper/homework/workData";
+import Container from "@/components/ui/Container";
 
 export default function WorkSection() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -25,10 +26,10 @@ export default function WorkSection() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="px-6 py-24 sm:px-8 lg:px-10 lg:py-32"
+      className="px-6 py-10 sm:px-8 lg:px-10 lg:py-10"
       style={{ backgroundColor: "#F5F4F1" }}
     >
-      <div className="mx-auto max-w-[1240px]">
+      <Container size="hero">
         {/* Header */}
         <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
@@ -96,7 +97,7 @@ export default function WorkSection() {
         <div className="mt-24 lg:mt-32">
           <WorkCTA />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

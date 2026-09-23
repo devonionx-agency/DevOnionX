@@ -23,7 +23,15 @@ export const workProjects = [
     description:
       "A modern CRM platform designed to simplify customer operations and help growing businesses manage their sales, support and relationships more efficiently.",
     image: "/images/projects/dashboard.webp",
-    technologies: ["Next.js", "TypeScript", "Node.js", "Express.js","Redis","MongoDB", "Firebase Auth" ],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Redis",
+      "MongoDB",
+      "Firebase Auth",
+    ],
     href: "https://crm-dashboard-ten-orpin.vercel.app/",
     featured: true,
     size: "lg",
@@ -37,7 +45,13 @@ export const workProjects = [
     description:
       "A digital education platform built for madrasah institutions to manage courses, students and academic operations efficiently.",
     image: "/images/projects/edufilo.webp",
-    technologies: ["Next.js", "Firebase Auth", "Context API" , "GSAP" ,"Tailwind CSS"],
+    technologies: [
+      "Next.js",
+      "Firebase Auth",
+      "Context API",
+      "GSAP",
+      "Tailwind CSS",
+    ],
     href: "https://edufilo.vercel.app/",
     featured: false,
     size: "md",
@@ -51,7 +65,13 @@ export const workProjects = [
     description:
       "A modern business consulting website built with Next.js and Tailwind CSS, featuring responsive layouts, engaging animations, and conversion-focused sections designed to showcase services, build trust, and generate high-quality business leads",
     image: "/images/projects/business.webp",
-    technologies: ["Next.js", "Firebase","Payment Gateway","GSAP", "Tailwind CSS"],
+    technologies: [
+      "Next.js",
+      "Firebase",
+      "Payment Gateway",
+      "GSAP",
+      "Tailwind CSS",
+    ],
     href: "https://bitox-business-consulting-website.vercel.app/",
     featured: false,
     size: "md",
@@ -65,7 +85,13 @@ export const workProjects = [
     description:
       "A complete university management system designed to streamline academic operations, student management and administration.",
     image: "/images/projects/qeducato.webp",
-    technologies: ["Next.js", "Express.js", "MongoDB", "Payment Gateway","GSAP"],
+    technologies: [
+      "Next.js",
+      "Express.js",
+      "MongoDB",
+      "Payment Gateway",
+      "GSAP",
+    ],
     href: "https://qeducato.vercel.app/",
     featured: false,
     size: "lg",
