@@ -134,7 +134,7 @@ const HeroSectionTwo = () => {
               platforms, and scalable web solutions.
             </p>
 
-            <div className="hero-btns mt-7 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
+            <div className="hero-btns mt-7 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <DirectionalButton
                 href="/contact"
                 label="Let’s Build Your Vision"
@@ -145,7 +145,7 @@ const HeroSectionTwo = () => {
                 textColor="#ffffff"
                 textHoverColor="#ffffff"
                 shadowHover={null}
-                className="bg-[#FF5101]! text-white! py-5 font-semibold rounded-lg!"
+                className="bg-[#FF5101]! text-white! w-full justify-center py-4 text-sm font-semibold rounded-lg! sm:w-auto sm:py-4 sm:text-base md:py-5"
                 rightIcon={<ArrowRight size={18} />}
               />
 

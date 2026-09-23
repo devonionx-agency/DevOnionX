@@ -19,7 +19,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
   };
 
   return (
-    <div className="flex h-16 items-center justify-between lg:hidden">
+    <div className="sticky top-0 z-50 -mx-4 -mt-4 flex h-16 items-center justify-between bg-white px-3 shadow-sm sm:px-6 lg:hidden">
       {/* Logo */}
       <Link href="/" aria-label="DevonionX Home">
         <Image
