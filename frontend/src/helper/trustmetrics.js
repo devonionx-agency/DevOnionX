@@ -1,43 +1,3 @@
-// import {
-//   FiBriefcase,
-//   FiTrendingUp,
-//   FiUsers,
-//   FiHeadphones,
-// } from "react-icons/fi";
-
-// export const stats = [
-//   {
-//     id: 1,
-//     icon: FiBriefcase,
-//     value: "15+",
-//     title: "Projects Completed",
-//     description: "Successfully delivered projects across multiple industries.",
-//   },
-//   {
-//     id: 2,
-//     icon: FiTrendingUp,
-//     value: "99%",
-//     title: "Client Satisfaction",
-//     description: "Building long-term partnerships through quality work.",
-//   },
-//   {
-//     id: 3,
-//     icon: FiUsers,
-//     value: "5+",
-//     title: "Expert Team",
-//     description: "Skilled professionals focused on innovation and growth.",
-//   },
-//   {
-//     id: 4,
-//     icon: FiHeadphones,
-//     value: "24/7",
-//     title: "Support Available",
-//     description: "Reliable assistance whenever your business needs it.",
-//   },
-// ];
-
-
-
 export const stats = [
   {
     id: 1,
@@ -46,7 +6,7 @@ export const stats = [
     title: "Projects Delivered",
     description:
       "Real-world projects delivered with a focus on quality, performance, and business goals.",
-      image: "/images/trustGrowth/project.png",
+    image: "/images/trustGrowth/project.jpg",
   },
   {
     id: 2,
@@ -55,7 +15,7 @@ export const stats = [
     title: "Team Members",
     description:
       "A focused team of skilled professionals working together to build impactful digital solutions.",
-      image: "/images/trustGrowth/team.png",
+    image: "/images/trustGrowth/team.jpg",
   },
   {
     id: 3,
@@ -64,7 +24,7 @@ export const stats = [
     title: "Conversion Focused",
     description:
       "We design and optimize digital experiences to turn visitors into leads and customers.",
-      image: "/images/trustGrowth/cro.png",
+    image: "/images/trustGrowth/cro.jpg",
   },
   {
     id: 4,
@@ -73,6 +33,6 @@ export const stats = [
     title: "Client Acquisition",
     description:
       "Focused on helping businesses attract, engage, and convert the right potential clients.",
-      image: "/images/trustGrowth/lead.png",
+    image: "/images/trustGrowth/lead.jpg",
   },
 ];

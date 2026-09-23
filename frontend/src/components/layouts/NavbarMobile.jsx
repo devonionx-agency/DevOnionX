@@ -19,15 +19,16 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
   };
 
   return (
-    <div className="flex h-16 items-center justify-between lg:hidden">
+    <div className="sticky top-0 z-50 -mx-4 -mt-4 flex h-16 items-center justify-between bg-white px-3 shadow-sm sm:px-6 lg:hidden">
       {/* Logo */}
       <Link href="/" aria-label="DevonionX Home">
         <Image
           src="/images/logo/navlogo.png"
           alt="DevonionX"
-          width={180}
-          height={43}
+          width={300}
+          height={57}
           priority
+          
         />
       </Link>
 
@@ -42,7 +43,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
         aria-label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
         type="button"
-        className="relative flex h-9 w-9 items-center justify-center text-white"
+        className="relative flex h-9 w-9 items-center justify-center text-[#171923]"
       >
         <span
           className={`absolute transition-all duration-200 ${
@@ -63,7 +64,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 top-16 z-40 bg-black transition-all duration-300 ${
+        className={`fixed inset-0 top-20 z-40 bg-white transition-all duration-300 ${
           isOpen
             ? "translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0"
@@ -90,14 +91,14 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
                     <>
                       <button
                         onClick={() => toggleMenu(item.label)}
-                        className="flex w-full items-center justify-between border-b border-white/10 py-5 text-2xl font-semibold text-white"
+                        className="flex w-full items-center justify-between border-b border-[#E5E5E0] py-5 text-2xl font-semibold text-[#171923]"
                       >
                         <div className="flex items-center gap-2">
                           <span>{item.label}</span>
 
                           <IoChevronDown
                             size={18}
-                            className={`text-white/50 transition-all duration-300 ${
+                            className={`text-[#62646F] transition-all duration-300 ${
                               openMenu === item.label
                                 ? "rotate-180 text-[#FF5101]"
                                 : ""
@@ -125,7 +126,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
                                     <Link
                                       key={service.href}
                                       href={service.href}
-                                      className="block rounded-lg py-2 pl-4 text-sm text-white/70 transition-colors hover:text-[#FF5101]"
+                                      className="block rounded-lg py-2 pl-4 text-sm text-[#62646F] transition-colors hover:bg-[#FFF0E9] hover:text-[#FF5101]"
                                     >
                                       {service.title}
                                     </Link>
@@ -140,7 +141,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
                               <Link
                                 key={subItem.href}
                                 href={subItem.href}
-                                className="block rounded-lg py-3 pl-4 text-sm text-white/70 transition-colors hover:text-[#FF5101]"
+                                className="block rounded-lg py-3 pl-4 text-sm text-[#62646F] transition-colors hover:bg-[#FFF0E9] hover:text-[#FF5101]"
                               >
                                 {subItem.title}
                               </Link>
@@ -151,7 +152,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
                   ) : (
                     <Link
                       href={item.href}
-                      className="flex items-center justify-between border-b border-white/10 py-5 text-2xl font-semibold text-white"
+                      className="flex items-center justify-between border-b border-[#E5E5E0] py-5 text-2xl font-semibold text-[#171923] transition-colors duration-200 hover:text-[#FF5101]"
                     >
                       {item.label}
                     </Link>
@@ -164,7 +165,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
           {/* CTA */}
           <Link
             href="/contact"
-            className="mt-6 flex items-center justify-center rounded-full bg-[#FF5101] py-4 text-sm font-semibold text-white transition-all duration-200 hover:brightness-110"
+            className="mt-6 flex items-center justify-center rounded-full bg-[#FF5101] py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#E74700]"
           >
             Start a Project
           </Link>

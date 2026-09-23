@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 
@@ -50,9 +50,17 @@ export default function DirectionalButton({
     const flair = flairRef.current;
     const labelEl = labelRef.current;
 
+    if (!btn || !flair || !labelEl) {
+      return;
+    }
+
+    let activeTl = null;
+    let resizeTimer = null;
+
     const setFlairSize = () => {
       const { width, height } = btn.getBoundingClientRect();
       const diameter = Math.max(width, height) * 2.2;
+
       gsap.set(flair, {
         width: diameter,
         height: diameter,
@@ -63,25 +71,59 @@ export default function DirectionalButton({
       });
     };
 
-    setFlairSize();
-    gsap.set(labelEl, { color: textColor });
-    gsap.set(btn, { "--btn-border": borderColor });
+    const handleResize = () => {
+      if (resizeTimer) {
+        window.clearTimeout(resizeTimer);
+      }
 
-    const getPos = (e) => {
-      const rect = btn.getBoundingClientRect();
-      return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      resizeTimer = window.setTimeout(() => {
+        setFlairSize();
+        resizeTimer = null;
+      }, 100);
     };
 
-    let activeTl = null;
+    const getPos = (event) => {
+      const rect = btn.getBoundingClientRect();
 
-    const onEnter = (e) => {
-      const { x, y } = getPos(e);
-      activeTl?.kill();
-      gsap.set(flair, { left: x, top: y, scale: 0 });
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+    };
+
+    const killActiveTimeline = () => {
+      if (!activeTl) {
+        return;
+      }
+
+      activeTl.kill();
+      activeTl = null;
+    };
+
+    // Initial setup
+    setFlairSize();
+
+    gsap.set(labelEl, {
+      color: textColor,
+    });
+
+    gsap.set(btn, {
+      "--btn-border": borderColor,
+    });
+
+    const onEnter = (event) => {
+      const { x, y } = getPos(event);
+
+      killActiveTimeline();
+
+      gsap.set(flair, {
+        left: x,
+        top: y,
+        scale: 0,
+      });
 
       activeTl = gsap.timeline();
 
-      // Slow, soft flair expansion — ease.inOut feels organic
       activeTl.to(flair, {
         scale: 1,
         duration: 0.55,
@@ -90,11 +132,15 @@ export default function DirectionalButton({
 
       activeTl.to(
         labelEl,
-        { color: textHoverColor, duration: 0.35, ease: "power2.out" },
+        {
+          color: textHoverColor,
+          duration: 0.35,
+          ease: "power2.out",
+        },
         0.1,
       );
 
-      if (borderHoverColor)
+      if (borderHoverColor) {
         activeTl.to(
           btn,
           {
@@ -104,13 +150,19 @@ export default function DirectionalButton({
           },
           0,
         );
+      }
 
-      if (shadowHover)
+      if (shadowHover) {
         activeTl.to(
           btn,
-          { boxShadow: shadowHover, duration: 0.5, ease: "power2.out" },
+          {
+            boxShadow: shadowHover,
+            duration: 0.5,
+            ease: "power2.out",
+          },
           0,
         );
+      }
 
       activeTl.to(
         btn,
@@ -123,14 +175,18 @@ export default function DirectionalButton({
       );
     };
 
-    const onLeave = (e) => {
-      const { x, y } = getPos(e);
-      activeTl?.kill();
-      gsap.set(flair, { left: x, top: y });
+    const onLeave = (event) => {
+      const { x, y } = getPos(event);
+
+      killActiveTimeline();
+
+      gsap.set(flair, {
+        left: x,
+        top: y,
+      });
 
       activeTl = gsap.timeline();
 
-      // Slightly slower retreat too — feels balanced
       activeTl.to(flair, {
         scale: 0,
         duration: 0.45,
@@ -139,7 +195,11 @@ export default function DirectionalButton({
 
       activeTl.to(
         labelEl,
-        { color: textColor, duration: 0.25, ease: "power2.out" },
+        {
+          color: textColor,
+          duration: 0.25,
+          ease: "power2.out",
+        },
         0.3,
       );
 
@@ -153,29 +213,47 @@ export default function DirectionalButton({
         0,
       );
 
-      if (borderHoverColor)
+      if (borderHoverColor) {
         activeTl.to(
           btn,
-          { "--btn-border": borderColor, duration: 0.35, ease: "power2.out" },
+          {
+            "--btn-border": borderColor,
+            duration: 0.35,
+            ease: "power2.out",
+          },
           0.3,
         );
+      }
 
-      if (shadowHover)
+      if (shadowHover) {
         activeTl.to(
           btn,
-          { boxShadow: shadowResting, duration: 0.45, ease: "power2.out" },
+          {
+            boxShadow: shadowResting,
+            duration: 0.45,
+            ease: "power2.out",
+          },
           0,
         );
+      }
     };
 
     btn.addEventListener("pointerenter", onEnter);
     btn.addEventListener("pointerleave", onLeave);
-    window.addEventListener("resize", setFlairSize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       btn.removeEventListener("pointerenter", onEnter);
       btn.removeEventListener("pointerleave", onLeave);
-      window.removeEventListener("resize", setFlairSize);
+      window.removeEventListener("resize", handleResize);
+
+      if (resizeTimer) {
+        window.clearTimeout(resizeTimer);
+      }
+
+      killActiveTimeline();
+
+      gsap.killTweensOf([btn, flair, labelEl]);
     };
   }, [
     flairColor,
@@ -192,6 +270,7 @@ export default function DirectionalButton({
         ref={flairRef}
         className="absolute rounded-full pointer-events-none"
       />
+
       <span
         ref={labelRef}
         className={[
@@ -204,7 +283,9 @@ export default function DirectionalButton({
             {leftIcon}
           </span>
         )}
+
         <span className={textTypo}>{label}</span>
+
         {rightIcon && (
           <span className="inline-flex items-center text-[1.1em]">
             {rightIcon}
@@ -232,6 +313,8 @@ export default function DirectionalButton({
   return (
     <button
       ref={btnRef}
+      type={type}
+      disabled={disabled}
       onClick={onClick}
       style={{ "--btn-border": borderColor }}
       className={sharedClasses}

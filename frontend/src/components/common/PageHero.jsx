@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Container from "../ui/Container";
 import { allPageHeroImg } from "@/helper/imageProvider/pageHeroImage";
 import DirectionalButton from "./Directionalbutton";
@@ -12,8 +12,6 @@ import WaterfallStack from "@/components/common/WaterfallStack";
 import StatsGrid from "../ui/StatsGrid";
 import BreadCrumb from "./BreadCrumb";
 import SectionHeader from "../ui/SectionHeader";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const { pageHero } = allPageHeroImg;
 
@@ -48,10 +46,30 @@ const PageHero = ({
 
   // ── waterfall ──
   waterfallPlates = [
-    { label: ".json", color: "#7c3aed", glow: "#a855f7", isBase: true },
-    { label: ".react", color: "#61dafb", glow: "#61dafb", isBase: false },
-    { label: ".next", color: "#ffffff", glow: "#aaaaff", isBase: false },
-    { label: ".node", color: "#84cc16", glow: "#84cc16", isBase: false },
+    {
+      label: ".json",
+      color: "#7c3aed",
+      glow: "#a855f7",
+      isBase: true,
+    },
+    {
+      label: ".react",
+      color: "#61dafb",
+      glow: "#61dafb",
+      isBase: false,
+    },
+    {
+      label: ".next",
+      color: "#ffffff",
+      glow: "#aaaaff",
+      isBase: false,
+    },
+    {
+      label: ".node",
+      color: "#84cc16",
+      glow: "#84cc16",
+      isBase: false,
+    },
   ],
   waterfallHeight = 500,
 
@@ -68,105 +86,214 @@ const PageHero = ({
   const statsRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // ── initial hidden states ──
-      gsap.set(
-        [
-          breadcrumbRef.current,
-          headingRef.current,
-          descRef.current,
-          buttonRef.current,
-          waterfallRef.current,
-        ],
-        { opacity: 0, willChange: "transform, opacity" },
-      );
+    const section = sectionRef.current;
 
-      if (statsGrid && statsRef.current) {
-        gsap.set(statsRef.current, { opacity: 0 });
+    if (!section) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      // ─────────────────────────────────────────────────────────────
+      // Collect only existing DOM targets.
+      // This prevents GSAP from receiving null targets.
+      // ─────────────────────────────────────────────────────────────
+      const introTargets = [
+        breadcrumbRef.current,
+        headingRef.current,
+        descRef.current,
+        buttonRef.current,
+        waterfallRef.current,
+      ].filter(Boolean);
+
+      // ─────────────────────────────────────────────────────────────
+      // Initial hidden state
+      // ─────────────────────────────────────────────────────────────
+      if (introTargets.length > 0) {
+        gsap.set(introTargets, {
+          opacity: 0,
+          willChange: "transform, opacity",
+        });
       }
 
+      if (statsGrid && statsRef.current) {
+        gsap.set(statsRef.current, {
+          opacity: 0,
+        });
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // Main intro timeline
+      // ─────────────────────────────────────────────────────────────
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out" },
+        defaults: {
+          ease: "power3.out",
+        },
+
         onComplete: () => {
-          gsap.set(
-            [
-              breadcrumbRef.current,
-              headingRef.current,
-              descRef.current,
-              buttonRef.current,
-              waterfallRef.current,
-            ],
-            { clearProps: "willChange" },
-          );
+          // Only clear will-change.
+          // Do not clear transforms/opacity because those are
+          // part of the final animation state.
+          if (introTargets.length > 0) {
+            gsap.set(introTargets, {
+              clearProps: "willChange",
+            });
+          }
         },
       });
 
-      // 1. overlay — depth reveal
-      tl.fromTo(
-        overlayRef.current,
-        { opacity: 1 },
-        { opacity: 0.82, duration: 1.6, ease: "power1.inOut" },
-        0,
-      );
+      // ─────────────────────────────────────────────────────────────
+      // 1. Overlay — depth reveal
+      // ─────────────────────────────────────────────────────────────
+      if (overlayRef.current) {
+        tl.fromTo(
+          overlayRef.current,
+          {
+            opacity: 1,
+          },
+          {
+            opacity: 0.82,
+            duration: 1.6,
+            ease: "power1.inOut",
+          },
+          0,
+        );
+      }
 
-      // 2. breadcrumb — fade + drop
-      tl.fromTo(
-        breadcrumbRef.current,
-        { opacity: 0, y: -16 },
-        { opacity: 1, y: 0, duration: 0.65, ease: "power2.out" },
-        0.25,
-      );
+      // ─────────────────────────────────────────────────────────────
+      // 2. Breadcrumb — fade + drop
+      // ─────────────────────────────────────────────────────────────
+      if (breadcrumbRef.current) {
+        tl.fromTo(
+          breadcrumbRef.current,
+          {
+            opacity: 0,
+            y: -16,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: "power2.out",
+          },
+          0.25,
+        );
+      }
 
-      // 3. heading — mask reveal
-      tl.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 52, clipPath: "inset(110% 0% 0% 0%)" },
-        {
-          opacity: 1,
-          y: 0,
-          clipPath: "inset(0% 0% 0% 0%)",
-          duration: 1.05,
-          ease: "expo.out",
-        },
-        0.45,
-      );
+      // ─────────────────────────────────────────────────────────────
+      // 3. Heading — mask reveal
+      // ─────────────────────────────────────────────────────────────
+      if (headingRef.current) {
+        tl.fromTo(
+          headingRef.current,
+          {
+            opacity: 0,
+            y: 52,
+            clipPath: "inset(110% 0% 0% 0%)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            clipPath: "inset(0% 0% 0% 0%)",
+            duration: 1.05,
+            ease: "expo.out",
+          },
+          0.45,
+        );
+      }
 
-      // 4. description — fade + rise
-      tl.fromTo(
-        descRef.current,
-        { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-        0.78,
-      );
+      // ─────────────────────────────────────────────────────────────
+      // 4. Description — fade + rise
+      // ─────────────────────────────────────────────────────────────
+      if (descRef.current) {
+        tl.fromTo(
+          descRef.current,
+          {
+            opacity: 0,
+            y: 28,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          0.78,
+        );
+      }
 
-      // 5. button — spring scale in
-      tl.fromTo(
-        buttonRef.current,
-        { opacity: 0, scale: 0.82, y: 10 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "back.out(1.6)" },
-        1.0,
-      );
+      // ─────────────────────────────────────────────────────────────
+      // 5. Button — spring scale in
+      // ─────────────────────────────────────────────────────────────
+      if (buttonRef.current) {
+        tl.fromTo(
+          buttonRef.current,
+          {
+            opacity: 0,
+            scale: 0.82,
+            y: 10,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "back.out(1.6)",
+          },
+          1.0,
+        );
+      }
 
-      // 6. waterfall — diagonal slide in
-      tl.fromTo(
-        waterfallRef.current,
-        { opacity: 0, x: 70, y: 20 },
-        { opacity: 1, x: 0, y: 0, duration: 1.1, ease: "expo.out" },
-        0.5,
-      );
+      // ─────────────────────────────────────────────────────────────
+      // 6. Waterfall — diagonal slide in
+      // ─────────────────────────────────────────────────────────────
+      if (waterfallRef.current) {
+        tl.fromTo(
+          waterfallRef.current,
+          {
+            opacity: 0,
+            x: 70,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 1.1,
+            ease: "expo.out",
+          },
+          0.5,
+        );
+      }
 
-      // 7. stats — fade + rise
+      // ─────────────────────────────────────────────────────────────
+      // 7. Stats — fade + rise
+      // ─────────────────────────────────────────────────────────────
       if (statsGrid && statsRef.current) {
         tl.fromTo(
           statsRef.current,
-          { opacity: 0, y: 36 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+          {
+            opacity: 0,
+            y: 36,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power2.out",
+          },
           1.1,
         );
       }
-    }, sectionRef);
 
-    return () => ctx.revert();
+      // Explicit timeline cleanup.
+      return () => {
+        tl.kill();
+      };
+    }, section);
+
+    return () => {
+      ctx.revert();
+    };
   }, [existButton, statsGrid]);
 
   return (
@@ -203,6 +330,7 @@ const PageHero = ({
                   <h2 className="headingTwo text-white leading-tight">
                     {servicesTextTop}
                   </h2>
+
                   <h2 className="headingTwo bg-gradient-to-r from-[#FF5101] via-pink-500 to-violet-500 bg-clip-text text-transparent leading-tight">
                     {servicesTextBottom}
                   </h2>
@@ -219,7 +347,7 @@ const PageHero = ({
 
             <p
               ref={descRef}
-              className="para-base sm:para-lg text-white/80  max-w-[680px]"
+              className="para-base sm:para-lg text-white/80 max-w-[680px]"
             >
               {heroDescription}
             </p>
@@ -250,9 +378,15 @@ const PageHero = ({
           >
             <WaterfallStack
               height={waterfallHeight}
-              style={{ backgroundColor: "transparent" }}
+              style={{
+                backgroundColor: "transparent",
+              }}
               plates={waterfallPlates}
-              config={{ fallDuration: 4, stagger: 2, holdDuration: 0.3 }}
+              config={{
+                fallDuration: 4,
+                stagger: 2,
+                holdDuration: 0.3,
+              }}
             />
           </div>
         </div>

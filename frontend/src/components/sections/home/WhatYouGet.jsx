@@ -7,21 +7,7 @@ import React from "react";
 
 const WhatYouGet = () => {
   return (
-    <section className="relative section-padding overflow-hidden">
-      {/* ---------------------------------------------------------------
-       * Background image
-       * - `fill` + `sizes="100vw"` lets Next.js generate a responsive
-       *   srcset and serve the right size per device (mobile/tablet/desktop).
-       * - `object-cover` keeps it filling the section without distortion
-       *   at any breakpoint.
-       * - Swap the `src` below with your own image (put it in /public,
-       *   e.g. /public/images/what-you-get-bg.jpg → src="/images/what-you-get-bg.jpg").
-       * - If this section sits above the fold on page load, add
-       *   `priority` to the <Image> for better LCP. Otherwise leave it
-       *   out — Next.js lazy-loads it by default.
-       * - Using a remote/CDN image instead of a local file? Add that
-       *   domain under images.remotePatterns in next.config.js first.
-       * --------------------------------------------------------------- */}
+    <section className="relative section-padding overflow-hidden bg-[#FFFFFF]">
       <div className="absolute inset-0 -z-20">
         <Image
           src={WhatWeGetImage}
@@ -46,12 +32,10 @@ const WhatYouGet = () => {
         <div className="relative z-10">
           <div>
             <SectionHeader
-              label={"WHAT YOU GET"}
-              text={"More Than Code. A Complete Digital Product."}
-              colorWord={"A Complete Digital Product."}
-              description={
-                "We don't just build websites—we build digital products designed to earn client trust, drive conversions, and turn visitors into loyal customers. From strategy to launch, every detail is crafted to make your brand look credible, feel professional, and deliver real business value."
-              }
+              label="OUR PROCESS"
+              text="Our Development Process"
+              colorWord="Process"
+              description="A structured approach to planning, building, testing, and delivering reliable software that meets real business requirements."
             />
           </div>
           <div>
