@@ -131,23 +131,23 @@ const AboutSection = () => {
         <div className="relative px-5 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid items-center gap-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20 xl:gap-24">
             {/* LEFT */}
-            <div className="min-w-0">
+            <div className="engineering-visual order-2 min-w-0 lg:order-1">
               <EngineeringTerminal />
             </div>
 
             {/* RIGHT */}
-            <div className="about-content max-w-[670px]">
+            <div className="about-content order-1 w-full max-w-[670px] lg:order-2">
               {/* eyebrow */}
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-8 bg-brand" />
+              <div className="about-label mb-4 flex items-center gap-3 sm:mb-6">
+                <span className="h-px w-6 bg-brand sm:w-8" />
 
-                <span className="font-inter text-[15px] font-medium uppercase tracking-[0.24em] text-[#697689]">
+                <span className="font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-[#697689] sm:text-[15px] sm:tracking-[0.24em]">
                   About DevOnionX
                 </span>
               </div>
 
               {/* heading */}
-              <h2 className="max-w-[700px] font-geist text-[clamp(2.5rem,4.5vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.055em] text-[#122033]">
+              <h2 className="max-w-[700px] font-geist text-[clamp(1.85rem,7vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.03em] text-[#122033] sm:leading-[1] sm:tracking-[-0.055em]">
                 We turn ambitious ideas into products{" "}
                 <span className="relative inline-block text-[#ff5101]">
                   built to move.
@@ -155,7 +155,7 @@ const AboutSection = () => {
               </h2>
 
               {/* description */}
-              <p className="mt-8 max-w-[590px] font-inter text-[14px] leading-[1.8] text-[#68778a] sm:text-[18px]">
+              <p className="mt-5 max-w-[590px] font-inter text-[14px] leading-[1.7] text-[#68778a] sm:mt-8 sm:text-[18px] sm:leading-[1.8]">
                 DevOnionX is a digital product engineering studio for teams that
                 need more than a website. We design and build thoughtful digital
                 products, scalable web experiences, and software that is made to
@@ -163,13 +163,13 @@ const AboutSection = () => {
               </p>
 
               {/* features */}
-              <div className="mt-12 grid grid-cols-1 gap-9 sm:grid-cols-3 sm:gap-0">
+              <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-3 sm:gap-0 sm:gap-9">
                 {features.map((feature, index) => (
                   <div
                     key={feature.title}
                     className={
                       index !== 0
-                        ? "border-t border-[#dce0e3] pt-9 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0"
+                        ? "border-t border-[#dce0e3] pt-6 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0 sm:pt-9"
                         : ""
                     }
                   >
@@ -179,10 +179,10 @@ const AboutSection = () => {
               </div>
 
               {/* CTA */}
-              <div className="mt-12">
+              <div className="mt-8 sm:mt-12">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#FF5101] px-6 py-3.5 font-semibold text-white transition-all duration-300 hover:shadow-[0_0_24px_2px_#ff510133]"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#FF5101] px-6 py-3 font-semibold text-white transition-all duration-300 hover:shadow-[0_0_24px_2px_#ff510133] sm:w-auto sm:py-3.5"
                 >
                   <span>See How We Work</span>
                 </Link>
