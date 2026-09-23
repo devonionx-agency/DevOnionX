@@ -42,7 +42,7 @@ export default function Page() {
 
       {/* <Testimonials /> */}
 
-      {/* <FaqHome /> */}
+      <FaqHome />
     </>
   );
 }
