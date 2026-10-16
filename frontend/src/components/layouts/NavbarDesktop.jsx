@@ -13,8 +13,8 @@ export default function NavbarDesktop({ navLinks }) {
         <Image
           src="/images/logo/navlogo.png"
           alt="DevonionX"
-          width={300}
-          height={57}
+          width={200}
+          height={67}
           priority
           
         />
