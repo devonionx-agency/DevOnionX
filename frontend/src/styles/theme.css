@@ -23,6 +23,12 @@
    --bg-primary: #ffffff;
    --bg-secondary: #f8fafc;
    --bg-tertiary: #f1f5f9;
+   
+   --color-brand: #ff5101;
+  --color-ivory: #f7f5f0;
+  --color-navy: #08111f;
+  --color-near-black: #03070c;
+  --color-slate-muted: #697586;
 
    /* Text */
    --text-primary: #0f172a;

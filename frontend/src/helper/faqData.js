@@ -1,38 +1,38 @@
 export const faqItems = [
   {
     id: 1,
-    question: "How much does a website or web application cost?",
+    question: "How much does a website cost?",
     answer:
-      "The investment varies based on what you're building. After learning about your goals and requirements, we'll provide a clear proposal with no hidden costs or unnecessary add-ons.",
+      "It depends on what you need. A simple business website costs less than a custom platform with more features. Tell us what you have in mind, and we'll discuss the scope and cost before getting started.",
   },
   {
     id: 2,
-    question: "How long does it take to complete a project?",
+    question: "How long will my project take?",
     answer:
-      "Every project moves at its own pace, but most websites are completed within a few weeks. We'll share a realistic timeline upfront and keep you informed throughout the entire process.",
+      "That depends on the size of the project and the features you need. Once we understand your requirements, we'll give you an estimated timeline so you know what to expect.",
   },
   {
     id: 3,
-    question: "Do you create custom designs or use templates?",
+    question: "Can you build a website around my business needs?",
     answer:
-      "We don't believe every business should look the same. That's why we design experiences that reflect your brand, connect with your audience, and support your business goals.",
+      "Yes. We'll first learn about your business, your audience, and what you want the website to achieve. Then we'll build something that fits those needs instead of forcing your business into a generic design.",
   },
   {
     id: 4,
-    question: "Is SEO included in your development process?",
+    question: "Will my website be SEO-friendly?",
     answer:
-      "Yes. We build with search visibility in mind from day one, focusing on performance, accessibility, clean code, and technical SEO best practices.",
+      "We keep SEO in mind while building your website, including page structure, loading speed, and other technical details. Getting higher rankings on Google also depends on your content, competition, and ongoing SEO efforts.",
   },
   {
     id: 5,
-    question: "Do you provide maintenance and ongoing support?",
+    question: "Can you help after the website goes live?",
     answer:
-      "Launching your project is just the beginning. We're available to help with updates, improvements, and ongoing support whenever your business needs it.",
+      "Of course. If you need updates, fixes, or new features after launch, we can discuss the support you need and work out the best way to handle it.",
   },
   {
     id: 6,
-    question: "How do we get started?",
+    question: "How do I get started?",
     answer:
-      "Start with a conversation. Tell us about your idea, goals, or challenges, and we'll guide you through the next steps with a clear plan tailored to your project.",
+      "Just get in touch and tell us a little about your project. We'll talk through your idea, answer your questions, and figure out the next steps together.",
   },
 ];
