@@ -34,8 +34,8 @@ export default function WorkSection() {
         <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <span
-              className="text-[11px] font-medium tracking-wide"
-              style={{ color: "#FF5101" }}
+              className="text-[#FF5101] text-[18px] font-bold tracking-[0.2em]"
+              
             >
               OUR WORK
             </span>

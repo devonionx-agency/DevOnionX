@@ -23,6 +23,8 @@ export const workProjects = [
     description:
       "A modern CRM platform designed to simplify customer operations and help growing businesses manage their sales, support and relationships more efficiently.",
     image: "/images/projects/dashboard.webp",
+    imageWidth: 1892,
+    imageHeight: 905,
     technologies: [
       "Next.js",
       "TypeScript",
@@ -45,6 +47,8 @@ export const workProjects = [
     description:
       "A digital education platform built for madrasah institutions to manage courses, students and academic operations efficiently.",
     image: "/images/projects/edufilo.webp",
+    imageWidth: 1885,
+    imageHeight: 917,
     technologies: [
       "Next.js",
       "Firebase Auth",
@@ -65,6 +69,8 @@ export const workProjects = [
     description:
       "A modern business consulting website built with Next.js and Tailwind CSS, featuring responsive layouts, engaging animations, and conversion-focused sections designed to showcase services, build trust, and generate high-quality business leads",
     image: "/images/projects/business.webp",
+    imageWidth: 1885,
+    imageHeight: 916,
     technologies: [
       "Next.js",
       "Firebase",
@@ -85,6 +91,8 @@ export const workProjects = [
     description:
       "A complete university management system designed to streamline academic operations, student management and administration.",
     image: "/images/projects/qeducato.webp",
+    imageWidth: 1901,
+    imageHeight: 920,
     technologies: [
       "Next.js",
       "Express.js",

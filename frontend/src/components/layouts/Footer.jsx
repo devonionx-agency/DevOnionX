@@ -112,10 +112,10 @@ export default function Footer() {
                   aria-label="Devonionx Home"
                 >
                   <Image
-                    src="/images/logo/navlogo.png"
+                    src="/images/logo/footer-logo.png"
                     alt="DevonionX"
-                    width={300}
-                    height={57}
+                    width={200}
+                    height={67}
                   />
                 </Link>
                 <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
