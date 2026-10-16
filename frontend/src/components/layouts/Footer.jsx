@@ -31,7 +31,7 @@ function FooterHeading({ children }) {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-black text-white">
+    <footer className="relative overflow-hidden bg-[#03070C] text-white">
       <Container size="hero">
         <div className="relative ">
           {/* CTA SECTION */}
@@ -41,21 +41,23 @@ export default function Footer() {
                 <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-[#FF5101]/10 blur-[140px]" />
 
                 <div className="absolute left-0 bottom-0 h-[300px] w-[300px] rounded-full bg-violet-500/10 blur-[120px]" />
+
                 <div className="max-w-3xl">
                   <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl lg:text-6xl">
-                    Have an idea?
-                    <br />
-                    Let&apos;s turn it into{" "}
+                    Good ideas deserve
+                    <br className="hidden sm:block" />{" "}
                     <span className="bg-gradient-to-r from-[#FF5101] via-pink-500 to-violet-500 bg-clip-text text-transparent">
-                      something exceptional
+                      great execution.
                     </span>
                   </h2>
 
                   <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
-                    Let&apos;s discuss your next digital product, SaaS platform,
-                    or business website.
+                    From business websites to custom software, we help turn your
+                    plans into reliable digital products built around your
+                    goals.
                   </p>
                 </div>
+
                 {/* Right Side Card */}
                 <div className="w-full max-w-[480px] mx-auto lg:mx-0 relative z-10">
                   <div className="rounded-[32px] border border-white/10 bg-white/3 p-4 lg:p-8">
@@ -64,12 +66,15 @@ export default function Footer() {
                         <TbMessageCircleCode className="h-6 w-6 text-[#FF5101]" />
                       </div>
 
-                      <h3 className="text-3xl font-semibold">Let's Talk</h3>
+                      <h3 className="text-3xl font-semibold">
+                        Tell Us What You Need
+                      </h3>
                     </div>
 
                     <p className="mt-4 text-zinc-400 leading-relaxed">
-                      Have a project in mind? Let&apos;s discuss your goals,
-                      timeline, and requirements.
+                      Have a project to discuss or a question about our
+                      services? Send us a message and let’s figure out the next
+                      step.
                     </p>
 
                     <div className="space-y-2 pb-5">
@@ -88,10 +93,15 @@ export default function Footer() {
                       </div>
                     </div>
 
-                    <Link href="/contact" className="btn-schedule group">
-                      <span>Schedule a Call</span>
+                    <Link
+                      href="/contact"
+                      className="group inline-flex w-full items-center justify-center gap-3 rounded-xl bg-[#FF5101] px-6 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E84900] hover:shadow-[0_0_30px_rgba(255,81,1,0.2)] active:scale-[0.98] sm:w-auto"
+                    >
+                      <span>Let's Discuss Your Project</span>
+
                       <ArrowUpRight
-                        size={14}
+                        size={17}
+                        strokeWidth={2}
                         className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       />
                     </Link>
@@ -112,15 +122,15 @@ export default function Footer() {
                   aria-label="Devonionx Home"
                 >
                   <Image
-                    src="/images/logo/navlogo.png"
+                    src="/images/logo/footer-logo.png"
                     alt="DevonionX"
-                    width={300}
-                    height={57}
+                    width={200}
+                    height={67}
                   />
                 </Link>
-                <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
-                  We design and develop premium digital experiences for
-                  ambitious businesses and startups
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-zinc-400">
+                  We build modern websites and custom digital solutions that
+                  help businesses grow, work smarter, and stand out online.
                 </p>
               </div>
 

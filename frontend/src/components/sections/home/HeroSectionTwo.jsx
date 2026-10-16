@@ -6,7 +6,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "lucide-react";
-
 import Container from "../../ui/Container";
 import DirectionalButton from "../../common/Directionalbutton";
 import heroSlides from "@/helper/heroSlides";
@@ -87,7 +86,7 @@ const HeroSectionTwo = () => {
   return (
     <section
       ref={containerRef}
-      className="relative isolate flex min-h-[calc(100svh-116px)] items-center overflow-hidden bg-[#F5F5F2] text-[#171923] pt-16 sm:pt-20 lg:pt-16"
+      className="relative isolate flex min-h-[calc(100svh-116px)] items-center overflow-hidden bg-[#f7f5f0] text-[#171923] pt-16 sm:pt-20 lg:pt-16"
     >
       {/* Top accent line */}
       <div

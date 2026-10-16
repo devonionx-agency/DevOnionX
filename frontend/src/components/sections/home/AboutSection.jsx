@@ -121,7 +121,7 @@ const AboutSection = () => {
     <section
       ref={sectionRef}
       id="about"
-      className="relative overflow-hidden bg-[#f8f7f3] py-5 sm:py-10 lg:py-16 xl:py-20"
+      className="relative overflow-hidden bg-white py-5 sm:py-10 lg:py-16 xl:py-20"
     >
       {/* Background ambient light */}
       <div className="pointer-events-none absolute left-[8%] top-[25%] h-[320px] w-[320px] rounded-full bg-[#ff5101]/[0.035] blur-[100px]" />
