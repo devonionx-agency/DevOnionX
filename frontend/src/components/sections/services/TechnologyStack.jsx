@@ -57,7 +57,7 @@ function TechnologyStack() {
               className="group flex flex-col items-center gap-4 rounded-2xl border border-slate-300 bg-[#fafaf8] py-7 shadow-[0_1px_2px_rgba(15,27,61,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <div
-                className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110"
+                className="flex h-18 w-18 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 style={{ backgroundColor: `${color}1A` }}
               >
                 <Icon size={36} color={color} />
