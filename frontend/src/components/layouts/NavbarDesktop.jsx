@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RiArrowDownSLine, RiArrowRightLine } from "react-icons/ri";
-import DirectionalButton from "../common/Directionalbutton";
 
 export default function NavbarDesktop({ navLinks }) {
   return (
@@ -16,7 +15,6 @@ export default function NavbarDesktop({ navLinks }) {
           width={200}
           height={67}
           priority
-          
         />
       </Link>
 
@@ -40,34 +38,26 @@ export default function NavbarDesktop({ navLinks }) {
 
             {(submenu || sections) && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
-                {/* SERVICES MEGA MENU */}
+                {/* SERVICES MENU */}
                 {label === "Services" && sections && (
-                  <div className="w-[calc(100vw-2rem)] max-w-[900px] rounded-3xl border border-[#E5E5E0] bg-white p-6 shadow-[0_20px_60px_rgba(23,25,35,0.12)]">
-                    <div className="mb-6 border-b border-[#E5E5E0] pb-4">
-                      <p className="text-xs uppercase tracking-[0.2em] text-[#FF5101]">
-                        Services
-                      </p>
-
-                      <h3 className="mt-2 text-xl font-semibold text-[#171923]">
-                        Explore Our Services
-                      </h3>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+                  <div className="w-[400px] rounded-3xl border border-[#E5E5E0] bg-white p-6 shadow-[0_20px_60px_rgba(23,25,35,0.12)]">
+                    <div className="grid grid-cols-1 gap-6">
                       {sections.map((section) => (
                         <div key={section.title}>
-                          <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FF5101]">
-                            {section.title}
-                          </h4>
+                          {sections.length > 1 && (
+                            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FF5101]">
+                              {section.title}
+                            </h4>
+                          )}
 
                           <div className="space-y-2">
-                            {section.items.map((item) => (
+                            {section.items?.map((item) => (
                               <Link
                                 key={item.href}
                                 href={item.href}
                                 className="group/service flex items-center justify-between rounded-xl px-3 py-3 text-[#62646F] transition-all duration-200 hover:bg-[#FFF0E9] hover:text-[#FF5101]"
                               >
-                                <span>{item.title}</span>
+                                <span>{item.label}</span>
 
                                 <RiArrowRightLine
                                   size={16}
