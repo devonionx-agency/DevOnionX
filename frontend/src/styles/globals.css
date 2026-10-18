@@ -65,5 +65,15 @@ textarea {
   background-clip: text;
   color: transparent;
 }
+@layer utilities {
+  .hero-gradient {
+    background: radial-gradient(
+      ellipse at 50% 45%,
+      #d9f8d8 0%,
+      #e8fbe8 35%,
+      #ffffff 75%
+    );
+  }
+}
 
 
