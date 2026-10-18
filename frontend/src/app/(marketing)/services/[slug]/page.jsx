@@ -8,14 +8,12 @@ import ServiceProcess from "@/components/sections/services/service-details/Servi
 import WhatWeDeliver from "@/components/sections/services/service-details/WhatWeDeliver";
 
 
-export default function ServiceDetails() {
-  // const { slug } = await params;
+export default async function ServiceDetails({ params}) {
+  const { slug } = await params;
 
   return (
     <>
-      {/* <ServiceHero />
-      <ServiceShow slug={slug} /> */}
-      <ServiceDetailsHero />
+      <ServiceDetailsHero slug={slug} />
       <BusinessChallenge />
       <WhatWeDeliver />
       <OurApproachTechnology />
