@@ -6,6 +6,8 @@ import NavbarMobile from "./NavbarMobile";
 import Container from "../ui/Container";
 
 export const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   {
     label: "Services",
     href: "/services",
@@ -41,18 +43,9 @@ export const navLinks = [
   {
     label: "Work",
     href: "/work",
-    submenu: [
-      { title: "Featured Projects", href: "/portfolio" },
-      { title: "Case Studies", href: "/case-studies" },
-      { title: "SaaS Platforms", href: "/portfolio/saas" },
-      { title: "Business Websites", href: "/portfolio/websites" },
-      { title: "E-Commerce", href: "/portfolio/ecommerce" },
-      { title: "Web Applications", href: "/portfolio/web-apps" },
-      { title: "Dashboard & CRM", href: "/portfolio/dashboard-crm" },
-    ],
   },
 
-  { label: "About", href: "/about" },
+  
   { label: "Insights", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];

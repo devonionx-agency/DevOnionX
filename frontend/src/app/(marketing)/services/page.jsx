@@ -9,8 +9,6 @@ import TechnologyStack from "@/components/sections/services/TechnologyStack";
 const Services = () => {
   return (
     <>
-      {/* <PageHero {...servicesPageHeroData} />
-      <ServiceShowcase/> */}
       <ServicesHero />
       <OurServices />
       <BusinessSolutions />
