@@ -75,14 +75,14 @@ const ServiceHero = () => {
       {/* Soft background glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 -top-40 -z-10 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-orange-100/70 to-transparent blur-2xl"
+        className="pointer-events-none absolute -right-40 -top-40 -z-10 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-orange-100/50 to-transparent blur-2xl"
       />
 
       <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
         {/* Eyebrow */}
         <p
           data-hero="eyebrow"
-          className="mb-6 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-500"
+          className="mb-6 flex items-center gap-2 text-[14px] font-medium uppercase tracking-[0.2em] text-neutral-500"
         >
           <span className="h-px w-3 bg-neutral-400" />
           <span>/</span>
@@ -90,7 +90,8 @@ const ServiceHero = () => {
         </p>
 
         {/* Heading */}
-        <h1 className="font-serif text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-[#0f172a] sm:text-6xl lg:text-[4.5rem]">
+
+        <h1 className="text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-[#0f172a] sm:text-6xl lg:text-[5.5rem]">
           {titleLines.map((line) => (
             <span key={line.text} className="block">
               {line.text.split(" ").map((word, i) => (
@@ -100,11 +101,7 @@ const ServiceHero = () => {
                 >
                   <span
                     data-hero="word"
-                    className={`inline-block will-change-transform ${
-                      line.accent
-                        ? "italic font-medium text-orange-500 sm:text-7xl lg:text-[5.5rem]"
-                        : ""
-                    }`}
+                    className={`inline-block font-extrabold will-change-transform ${line.accent ? "italic text-orange-500 sm:text-7xl lg:text-[5.5rem]" : ""}`}
                   >
                     {word}
                   </span>
