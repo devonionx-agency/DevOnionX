@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, MoveUpRight } from "lucide-react";
 
 import { VALUES } from "@/helper/about";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,52 +23,15 @@ export default function AboutValues() {
     ).matches;
 
     const ctx = gsap.context(() => {
-      const heading = section.querySelectorAll("[data-values-heading]");
       const cards = section.querySelectorAll("[data-value-card]");
       const footer = section.querySelector("[data-values-footer]");
-      const line = section.querySelector("[data-values-line]");
 
       if (reduceMotion) {
-        gsap.set([...heading, ...cards, footer, line].filter(Boolean), {
+        gsap.set([...cards, footer].filter(Boolean), {
           autoAlpha: 1,
           y: 0,
-          scaleX: 1,
         });
         return;
-      }
-
-      gsap.fromTo(
-        heading,
-        { autoAlpha: 0, y: 28 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: heading[0],
-            start: "top 88%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      if (line) {
-        gsap.fromTo(
-          line,
-          { scaleX: 0, transformOrigin: "left center" },
-          {
-            scaleX: 1,
-            duration: 0.9,
-            ease: "power3.inOut",
-            scrollTrigger: {
-              trigger: line,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
       }
 
       if (cards.length) {
@@ -128,45 +92,14 @@ export default function AboutValues() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        {/* Section heading */}
-        <div className="mx-auto max-w-3xl text-center">
-          <div
-            data-values-heading
-            className="mb-5 flex items-center justify-center gap-3"
-          >
-            <span className="h-px w-8 bg-[#E74700]" />
-
-            <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#E74700] sm:text-xs">
-              The values we stand for
-            </span>
-
-            <span className="h-px w-8 bg-[#E74700]" />
-          </div>
-
-          <h2
-            data-values-heading
-            className="text-4xl font-semibold leading-[1.1] tracking-[-0.055em] text-[#191923] sm:text-5xl md:text-6xl lg:text-[68px]"
-          >
-            Principles That Shape{" "}
-            <span className="text-[#E74700]">
-              Everything We Build.
-            </span>
-          </h2>
-
-          <p
-            data-values-heading
-            className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#70717A] sm:text-base sm:leading-8"
-          >
-            Our values guide every decision, every partnership, and every
-            experience we create. They are more than words — they define how
-            we think, collaborate, and deliver meaningful results.
-          </p>
-
-          <div
-            data-values-line
-            className="mx-auto mt-8 h-[2px] w-24 origin-left bg-[#E74700]"
-          />
-        </div>
+        {/* Section Header */}
+        <SectionHeader
+          label="THE VALUES WE STAND FOR"
+          text="Principles That Shape Everything We Build."
+          colorWord="Everything We Build."
+          description="Our values guide every decision, every partnership, and every experience we create. They are more than words — they define how we think, collaborate, and deliver meaningful results."
+          className="mx-auto mb-12 max-w-4xl sm:mb-16"
+        />
 
         {/* Values cards */}
         <div className="mt-14 grid gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">

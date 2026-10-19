@@ -15,6 +15,9 @@ import {
   Handshake,
   Users,
   Sparkles,
+  Code2,
+  Workflow,
+  HeartHandshake,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────
@@ -64,11 +67,10 @@ export const WHO_WE_ARE_STEPS = [
   },
 ];
 
-/*
- * Kept for compatibility with existing sections.
- * Replace these with verified agency metrics if you
- * display them publicly.
- */
+/* ─────────────────────────────────────────────
+   Statistics
+───────────────────────────────────────────── */
+
 export const STATS = [
   {
     label: "Client retention",
@@ -104,8 +106,8 @@ export const ZapIcon = Zap;
 export const TargetIcon = Target;
 
 /* ─────────────────────────────────────────────
-   Mission Section Data
-   Existing exports preserved
+   Values Section
+   Used in AboutValues.jsx
 ───────────────────────────────────────────── */
 
 export const VALUES = [
@@ -274,7 +276,7 @@ export const TEAM = [
 ];
 
 /* ─────────────────────────────────────────────
-   Mission & Vision Section Data
+   Mission & Vision Section
    Used in AboutMissionVision.jsx
 ───────────────────────────────────────────── */
 
@@ -312,3 +314,152 @@ export const MISSION_VISION = [
     theme: "vision",
   },
 ];
+
+/* ─────────────────────────────────────────────
+   Why Choose DevOnionX Section
+   Used in AboutWhyChooseUs.jsx
+───────────────────────────────────────────── */
+
+export const ABOUT_WHY_STATS = [
+  {
+    value: "15+",
+    label: "Projects Completed",
+    detail: "Ideas turned into real products",
+  },
+  {
+    value: "05",
+    label: "Creative Developers",
+    detail: "One team, shared vision",
+  },
+  {
+    value: "100%",
+    label: "Commitment",
+    detail: "Quality in every detail",
+  },
+];
+
+export const ABOUT_WHY_FEATURES = [
+  {
+    number: "01",
+    title: "Thoughtful Engineering",
+    description:
+      "We build responsive, maintainable digital experiences with attention to performance, usability, and clean code.",
+    tag: "Built with purpose",
+    icon: Code2,
+  },
+  {
+    number: "02",
+    title: "A Clear Process",
+    description:
+      "From the first discussion to the final delivery, we keep communication clear and every step focused on your goals.",
+    tag: "No guesswork",
+    icon: Workflow,
+  },
+  {
+    number: "03",
+    title: "A Team That Cares",
+    description:
+      "We value long-term relationships, thoughtful collaboration, and helping your product move forward after launch.",
+    tag: "Here for the journey",
+    icon: HeartHandshake,
+  },
+];
+
+export const ABOUT_WHY_HIGHLIGHT = {
+  eyebrow: "THE DEVONIONX DIFFERENCE",
+  title: "Small Team",
+  accent: "Meaningful Impact.",
+  description:
+    "We bring design thinking, modern development, and genuine collaboration together to turn ambitious ideas into useful digital products.",
+  closing: "Good work starts with understanding what matters to you.",
+};
+
+
+
+import {
+  FiDollarSign,
+  FiHeart,
+  FiShoppingBag,
+  FiBookOpen,
+  FiSettings,
+  FiTruck,
+  FiBriefcase,
+  FiZap,
+  FiHome,
+  FiGlobe,
+} from "react-icons/fi";
+
+// Industries Section Data
+export const INDUSTRIES = [
+  {
+    title: "FinTech",
+    description: "Smarter digital experiences for modern finance.",
+    icon: FiDollarSign,
+    wide: true,
+  },
+  {
+    title: "Healthcare",
+    description: "Connected solutions built around people.",
+    icon: FiHeart,
+    wide: false,
+  },
+  {
+    title: "E-Commerce",
+    description: "Digital storefronts designed to convert.",
+    icon: FiShoppingBag,
+    wide: false,
+  },
+  {
+    title: "Education",
+    description: "Better ways to learn, teach, and grow.",
+    icon: FiBookOpen,
+    wide: false,
+  },
+  {
+    title: "Manufacturing",
+    description: "Streamlined systems for complex operations.",
+    icon: FiSettings,
+    wide: false,
+  },
+  {
+    title: "Logistics",
+    description: "Simplifying movement, tracking, and delivery.",
+    icon: FiTruck,
+    wide: false,
+  },
+  {
+    title: "Enterprise",
+    description: "Scalable software for growing organizations.",
+    icon: FiBriefcase,
+    wide: false,
+  },
+  {
+    title: "Startups",
+    description: "From ambitious ideas to launch-ready products.",
+    icon: FiZap,
+    wide: true,
+  },
+  {
+    title: "Real Estate",
+    description: "Modern digital tools for property businesses.",
+    icon: FiHome,
+    wide: false,
+  },
+  {
+    title: "Professional Services",
+    description: "Digital experiences that build trust.",
+    icon: FiGlobe,
+    wide: false,
+  },
+];
+
+export const INDUSTRIES_CONTENT = {
+  label: "INDUSTRIES WE SERVE",
+  title: "Different Industries. One Thoughtful Approach.",
+  colorWord: "One Thoughtful Approach.",
+  description:
+    "We build digital solutions around the unique challenges, goals, and opportunities of every business.",
+  closing:
+    "Different challenges. Tailored solutions. A shared commitment to meaningful results.",
+  footerLabel: "Built around your business",
+};
