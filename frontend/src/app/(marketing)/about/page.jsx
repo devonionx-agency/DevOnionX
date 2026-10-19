@@ -5,6 +5,7 @@ import AboutStory from "@/components/sections/about/AboutStory";
 import AboutMissionVision from "@/components/sections/about/AboutMissionVision";
 import AboutMission from "@/components/sections/about/AboutMission";
 import AboutTeam from "@/components/sections/about/AboutTeam";
+import AboutValues from "@/components/sections/about/AboutValues";
  
 export const metadata = {
   title: "About — DevonionX",
@@ -18,6 +19,7 @@ const About = () => {
       <PageHero  {...aboutPageHeroData}/>
        <AboutStory />
         <AboutMissionVision />
+        <AboutValues/>
       {/* <AboutMission /> */}
       {/* <AboutTeam /> */}
     </>

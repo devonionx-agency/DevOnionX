@@ -9,6 +9,12 @@ import {
   Target,
   CheckCircle2,
   Eye,
+  Compass,
+  Rocket,
+  Award,
+  Handshake,
+  Users,
+  Sparkles,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────
@@ -83,15 +89,13 @@ export const STATS = [
 
 /* ─────────────────────────────────────────────
    Mission & Vision Icons
-   Used in AboutMission.jsx
 ───────────────────────────────────────────── */
 
 export const MissionIcon = CheckCircle2;
 export const VisionIcon = Eye;
 
 /* ─────────────────────────────────────────────
-   Value Icons
-   Used in AboutMission.jsx
+   Existing Value Icons
 ───────────────────────────────────────────── */
 
 export const FlameIcon = Flame;
@@ -101,28 +105,58 @@ export const TargetIcon = Target;
 
 /* ─────────────────────────────────────────────
    Mission Section Data
+   Existing exports preserved
 ───────────────────────────────────────────── */
 
 export const VALUES = [
   {
-    icon: FlameIcon,
-    title: "Quality in Every Detail",
-    body: "We care about the details that make a real difference, from thoughtful interfaces to maintainable code and reliable functionality.",
+    number: "01",
+    title: "Innovation",
+    description:
+      "We embrace emerging technologies and creative thinking to build solutions that move businesses forward.",
+    icon: Lightbulb,
+    tag: "Think beyond",
+    featured: true,
   },
   {
-    icon: ShieldIcon,
-    title: "Honest Collaboration",
-    body: "We believe in clear communication, realistic expectations, and keeping you informed throughout the development process.",
+    number: "02",
+    title: "Excellence",
+    description:
+      "Every line of code, design decision, and interaction reflects our commitment to quality.",
+    icon: Award,
+    tag: "Raise the standard",
   },
   {
-    icon: ZapIcon,
-    title: "Progress With Purpose",
-    body: "We work efficiently without losing sight of quality, usability, or the long-term health of your product.",
+    number: "03",
+    title: "Integrity",
+    description:
+      "Honest communication, transparency, and accountability form the foundation of every partnership.",
+    icon: Handshake,
+    tag: "Earn trust",
   },
   {
-    icon: TargetIcon,
-    title: "Your Goals Come First",
-    body: "We align technical decisions with your users' needs and business objectives to create meaningful digital solutions.",
+    number: "04",
+    title: "Collaboration",
+    description:
+      "We work alongside our clients, share knowledge, and solve challenges together as one team.",
+    icon: Users,
+    tag: "Better together",
+  },
+  {
+    number: "05",
+    title: "Client Success",
+    description:
+      "Your growth is our measure of success. We build with real outcomes and long-term value in mind.",
+    icon: TrendingUp,
+    tag: "Your growth matters",
+  },
+  {
+    number: "06",
+    title: "Continuous Growth",
+    description:
+      "We keep learning, improving, and adapting to create solutions ready for what's next.",
+    icon: Sparkles,
+    tag: "Always evolving",
   },
 ];
 
@@ -239,10 +273,10 @@ export const TEAM = [
   },
 ];
 
-
-
-
-import { Compass, Rocket } from "lucide-react";
+/* ─────────────────────────────────────────────
+   Mission & Vision Section Data
+   Used in AboutMissionVision.jsx
+───────────────────────────────────────────── */
 
 export const MISSION_VISION = [
   {
@@ -278,8 +312,3 @@ export const MISSION_VISION = [
     theme: "vision",
   },
 ];
-
-
-
-// Values
-
