@@ -70,7 +70,7 @@ const ServiceHero = () => {
   return (
     <section
       ref={rootRef}
-      className="relative isolate overflow-hidden bg-[#f6f2ec] px-4 pb-16 pt-[120px] sm:px-6 lg:px-8"
+      className="relative isolate overflow-hidden hero-gradient px-4 pb-16 pt-[120px] sm:px-6 lg:px-8"
     >
       {/* Soft background glow */}
       <div
@@ -82,7 +82,7 @@ const ServiceHero = () => {
         {/* Eyebrow */}
         <p
           data-hero="eyebrow"
-          className="mb-6 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-500"
+          className="mb-6 flex items-center gap-2 text-[15px] font-medium uppercase tracking-[0.2em] text-neutral-500"
         >
           <span className="h-px w-3 bg-neutral-400" />
           <span>/</span>
@@ -90,7 +90,7 @@ const ServiceHero = () => {
         </p>
 
         {/* Heading */}
-        <h1 className="font-serif text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-[#0f172a] sm:text-6xl lg:text-[4.5rem]">
+        <h1 className="font-serif text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-[#0f172a] sm:text-6xl lg:text-[4.5rem]">
           {titleLines.map((line) => (
             <span key={line.text} className="block">
               {line.text.split(" ").map((word, i) => (
@@ -100,9 +100,9 @@ const ServiceHero = () => {
                 >
                   <span
                     data-hero="word"
-                    className={`inline-block will-change-transform ${
+                    className={`inline-block will-change-transform font-serif ${
                       line.accent
-                        ? "italic font-medium text-orange-500 sm:text-7xl lg:text-[5.5rem]"
+                        ? "italic font-serif font-extrabold text-orange-500 sm:text-7xl lg:text-[5.5rem]"
                         : ""
                     }`}
                   >

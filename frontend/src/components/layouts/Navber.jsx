@@ -8,34 +8,19 @@ import Container from "../ui/Container";
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+
   {
     label: "Services",
     href: "/services",
     sections: [
       {
-        title: "Development",
+        title: "Services",
         items: [
-          { title: "Custom Web Development", href: "/services/custom-web" },
-          { title: "Frontend Development", href: "/services/frontend" },
-          { title: "Backend Development", href: "/services/backend" },
-          { title: "Full Stack Development", href: "/services/fullstack" },
-        ],
-      },
-      {
-        title: "Products",
-        items: [
-          { title: "SaaS Development", href: "/services/saas" },
-          { title: "Dashboard & CRM Systems", href: "/services/dashboard-crm" },
-          { title: "E-Commerce Development", href: "/services/ecommerce" },
-        ],
-      },
-      {
-        title: "Design & Support",
-        items: [
-          { title: "UI/UX Design", href: "/services/uiux" },
-          { title: "Website Maintenance", href: "/services/maintenance" },
-          { title: "Technical Support", href: "/services/support" },
-        ],
+        { label: "Website & SaaS Engineering", href: "/services/web-saas-development" },
+        { label: "Business Systems, ERP & CRM", href: "/services/erp-crm-systems" },
+        { label: "AI Integration & Automation", href: "/services/ai-automation" },
+        { label: "UI/UX, Maintenance & Support", href: "/services/ui-ux-support" },
+      ],
       },
     ],
   },
@@ -45,7 +30,6 @@ export const navLinks = [
     href: "/work",
   },
 
-  
   { label: "Insights", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -71,10 +55,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header
-      role="banner"
-      className="fixed top-4 left-0 right-0 z-50"
-    >
+    <header role="banner" className="fixed top-4 left-0 right-0 z-50">
       <nav aria-label="Main navigation" className="w-full">
         <Container size="hero">
           <NavbarDesktop navLinks={navLinks} />

@@ -28,7 +28,6 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
           width={200}
           height={67}
           priority
-          
         />
       </Link>
 
@@ -117,18 +116,20 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
                           {item.sections &&
                             item.sections.map((section) => (
                               <div key={section.title} className="mb-5">
-                                <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#FF5101]">
-                                  {section.title}
-                                </h4>
+                                {item.sections.length > 1 && (
+                                  <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#FF5101]">
+                                    {section.title}
+                                  </h4>
+                                )}
 
                                 <div className="space-y-1">
-                                  {section.items.map((service) => (
+                                  {section.items?.map((service) => (
                                     <Link
                                       key={service.href}
                                       href={service.href}
                                       className="block rounded-lg py-2 pl-4 text-sm text-[#62646F] transition-colors hover:bg-[#FFF0E9] hover:text-[#FF5101]"
                                     >
-                                      {service.title}
+                                      {service.label}
                                     </Link>
                                   ))}
                                 </div>
