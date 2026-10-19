@@ -44,69 +44,75 @@ export default function AboutIndustries() {
         "[data-industries-label]"
       );
 
+      // Accessibility: disable entrance animations if requested
       if (reduceMotion) {
         gsap.set(
-          [cards, closing, topLabel],
-          { autoAlpha: 1, y: 0 }
+          [topLabel, ...cards, closing].filter(Boolean),
+          {
+            autoAlpha: 1,
+            y: 0,
+          }
         );
 
         return;
       }
 
-      // Industry label animation
+      // Industry label: reveal and reverse on scroll
       if (topLabel) {
         gsap.fromTo(
           topLabel,
           {
             autoAlpha: 0,
-            y: 14,
+            y: 20,
           },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.55,
-            ease: "power2.out",
+            duration: 0.6,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: topLabel,
               start: "top 90%",
-              once: true,
+              end: "bottom 10%",
+              toggleActions: "play reverse play reverse",
             },
           }
         );
       }
 
-      // Industry cards stagger animation
+      // Industry cards: staggered reveal and reverse
       if (cards.length) {
         gsap.fromTo(
           cards,
           {
             autoAlpha: 0,
-            y: 28,
+            y: 35,
           },
           {
             autoAlpha: 1,
             y: 0,
             duration: 0.65,
-            stagger: 0.09,
+            stagger: 0.1,
             ease: "power3.out",
             scrollTrigger: {
               trigger: section.querySelector(
                 "[data-industries-grid]"
               ),
               start: "top 85%",
-              once: true,
+              end: "bottom 15%",
+              toggleActions: "play reverse play reverse",
             },
           }
         );
       }
 
-      // Closing statement animation
+      // Closing statement: reveal and reverse on scroll
       if (closing) {
         gsap.fromTo(
           closing,
           {
             autoAlpha: 0,
-            y: 22,
+            y: 25,
           },
           {
             autoAlpha: 1,
@@ -115,8 +121,9 @@ export default function AboutIndustries() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: closing,
-              start: "top 92%",
-              once: true,
+              start: "top 90%",
+              end: "bottom 10%",
+              toggleActions: "play reverse play reverse",
             },
           }
         );

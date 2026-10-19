@@ -31,7 +31,7 @@ export default function AboutTeam() {
     const ctx = gsap.context(() => {
       const cards = cardsRef.current?.children;
 
-      // Accessibility: disable entrance animations when requested
+      // Accessibility: disable animations when reduced motion is preferred
       if (reduceMotion) {
         gsap.set(
           [
@@ -64,13 +64,13 @@ export default function AboutTeam() {
             scrollTrigger: {
               trigger: introRef.current,
               start: "top 90%",
-              once: true,
+              toggleActions: "play none play reverse",
             },
           }
         );
       }
 
-      // Team cards: staggered fade-up animation
+      // Team cards: staggered reveal and reverse animation
       if (cards?.length) {
         gsap.fromTo(
           cards,
@@ -87,7 +87,7 @@ export default function AboutTeam() {
             scrollTrigger: {
               trigger: cardsRef.current,
               start: "top 88%",
-              once: true,
+              toggleActions: "play none play reverse",
             },
           }
         );
@@ -109,7 +109,7 @@ export default function AboutTeam() {
             scrollTrigger: {
               trigger: footerRef.current,
               start: "top 92%",
-              once: true,
+              toggleActions: "play none play reverse",
             },
           }
         );
@@ -134,11 +134,11 @@ export default function AboutTeam() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-36 top-[45%] -z-10 h-[320px] w-[320px] rounded-full bg-[#E8D8C7]/40 blur-[100px]"
+        className="pointer-events-none absolute -left-36 top-[45%] h-[320px] w-[320px] rounded-full bg-[#E8D8C7]/40 blur-[100px]"
       />
 
       <Container size="xl">
-        {/* Existing heading: unchanged */}
+        {/* Section heading */}
         <div
           ref={introRef}
           className="mb-12 sm:mb-16 lg:mb-[72px]"
@@ -152,7 +152,7 @@ export default function AboutTeam() {
           />
         </div>
 
-        {/* Bento-inspired layout with equal member cards */}
+        {/* Team member cards */}
         <div
           ref={cardsRef}
           className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 sm:gap-5 xl:grid-cols-6 xl:gap-5"
@@ -174,7 +174,7 @@ export default function AboutTeam() {
           ))}
         </div>
 
-        {/* Minimal collaboration footer */}
+        {/* Collaboration footer */}
         <div
           ref={footerRef}
           className="relative mt-14 overflow-hidden rounded-[26px] border border-[#E7DCD0] bg-[#F4EDE4] p-6 sm:mt-20 sm:p-8 lg:p-10"
@@ -219,6 +219,7 @@ export default function AboutTeam() {
           </div>
         </div>
 
+        {/* Section closing text */}
         <div className="mt-6 flex flex-col gap-2 text-[9px] font-medium uppercase tracking-[0.16em] text-[#91867B] sm:flex-row sm:items-center sm:justify-between">
           <span>
             DevOnionX — Better ideas, bigger impact.
