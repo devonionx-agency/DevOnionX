@@ -1,5 +1,6 @@
 import PageHero from "@/components/common/PageHero";
 import WorkShowcase from "@/components/sections/work/WorkShowcase";
+import WorkTechnology from "@/components/sections/work/WorkTechnology";
 import { workPageHeroData } from "@/helper/pageHero";
 
 
@@ -8,6 +9,7 @@ const page = () => {
     <>
       <PageHero {...workPageHeroData} />
       <WorkShowcase />
+      <WorkTechnology />
     </>
   );
 };
