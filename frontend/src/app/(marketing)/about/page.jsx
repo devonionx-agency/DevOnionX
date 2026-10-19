@@ -2,6 +2,7 @@ import PageHero from "@/components/common/PageHero";
 import { aboutPageHeroData } from "@/helper/pageHero";
 
 import AboutStory from "@/components/sections/about/AboutStory";
+import AboutMissionVision from "@/components/sections/about/AboutMissionVision";
 import AboutMission from "@/components/sections/about/AboutMission";
 import AboutTeam from "@/components/sections/about/AboutTeam";
  
@@ -16,8 +17,9 @@ const About = () => {
     <>
       <PageHero  {...aboutPageHeroData}/>
        <AboutStory />
-      <AboutMission />
-      <AboutTeam />
+        <AboutMissionVision />
+      {/* <AboutMission /> */}
+      {/* <AboutTeam /> */}
     </>
   );
 };
