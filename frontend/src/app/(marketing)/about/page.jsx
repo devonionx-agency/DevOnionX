@@ -3,7 +3,6 @@ import { aboutPageHeroData } from "@/helper/pageHero";
 
 import AboutStory from "@/components/sections/about/AboutStory";
 import AboutMissionVision from "@/components/sections/about/AboutMissionVision";
-import AboutMission from "@/components/sections/about/AboutMission";
 import AboutTeam from "@/components/sections/about/AboutTeam";
 import AboutValues from "@/components/sections/about/AboutValues";
 import AboutWhyChooseUs from "@/components/sections/about/AboutWhyChooseUs";
@@ -24,8 +23,7 @@ const About = () => {
         <AboutValues/>
         <AboutWhyChooseUs/>
         <AboutIndustries/>
-      {/* <AboutMission /> */}
-      {/* <AboutTeam /> */}
+      <AboutTeam />
     </>
   );
 };

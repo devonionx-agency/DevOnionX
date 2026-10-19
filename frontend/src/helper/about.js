@@ -162,118 +162,93 @@ export const VALUES = [
   },
 ];
 
-/* ─────────────────────────────────────────────
-   Team Section Data
-   Existing image paths and slugs preserved
-───────────────────────────────────────────── */
+
 
 export const TEAM = [
   {
+    number: "01",
     name: "Al Mahmud",
     role: "Frontend Engineer",
-    bio: "Builds responsive, maintainable interfaces with a focus on usability, performance, and clean frontend architecture.",
+    bio: "Turning complex ideas into clear, responsive interfaces with a strong focus on usability and performance.",
     image: "/images/about/mahmud.jpg",
     slug: "/team/al-mahmud",
     yearsOfExperience: 3,
     expertise: ["React", "Next.js", "Tailwind CSS"],
     socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
     ],
   },
   {
-    name: "Jihad M.",
+    number: "02",
+     name: "Jhulon K.",
     role: "Frontend Engineer",
-    bio: "Creates interactive, user-friendly web experiences with attention to visual detail, animation, and responsive design.",
-    image: "/images/about/jihad.png",
-    slug: "/team/jihad-mahmud",
-    yearsOfExperience: 2,
-    expertise: ["React", "GSAP", "Figma"],
-    socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-    ],
-  },
-  {
-    name: "Hamim A.",
-    role: "Backend Developer",
-    bio: "Develops dependable APIs and backend services with an emphasis on data handling, system reliability, and maintainability.",
-    image: "/images/about/hamim.jpg",
-    slug: "/team/hamim-ahmed",
-    yearsOfExperience: 3,
-    expertise: ["Node.js", "PostgreSQL", "DevOps"],
-    socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-    ],
-  },
-  {
-    name: "Nadil H.",
-    role: "Full-Stack Developer",
-    bio: "Connects frontend experiences with backend functionality to build cohesive, practical, and scalable web applications.",
-    image: "/images/about/nadil.jpg",
-    slug: "/team/nadil-hossain",
-    yearsOfExperience: 2,
-    expertise: ["React", "Node.js", "MongoDB"],
-    socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-    ],
-  },
-  {
-    name: "Jhulon K.",
-    role: "Frontend Engineer",
-    bio: "Focuses on responsive, polished interfaces that deliver smooth interactions and consistent experiences across devices.",
+    bio: "Creating polished, responsive interfaces where consistency, detail, and usability come first.",
     image: "/images/about/jhulon.jpg",
     slug: "/team/jhulon-kumar-roy",
     yearsOfExperience: 2,
     expertise: ["React", "TypeScript", "Tailwind CSS"],
     socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+    ],
+    
+  },
+  {
+    number: "03",
+    name: "Hamim A.",
+    role: "Backend Developer",
+    bio: "Building the systems behind great products, from dependable APIs to structured application logic.",
+    image: "/images/about/hamim.jpg",
+    slug: "/team/hamim-ahmed",
+    yearsOfExperience: 3,
+    expertise: ["Node.js", "APIs", "Database Design"],
+    socials: [
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
     ],
   },
+  {
+    number: "04",
+    name: "Nadil H.",
+    role: "Full-Stack Developer",
+    bio: "Connecting frontend and backend into cohesive applications designed around real user needs.",
+    image: "/images/about/nadil.jpg",
+    slug: "/team/nadil-hossain",
+    yearsOfExperience: 2,
+    expertise: ["React", "Node.js", "MongoDB"],
+    socials: [
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+    ],
+  },
+  {
+    number: "05",
+    name: "Jihad M.",
+    role: "Frontend Engineer",
+    bio: "Bringing digital experiences to life with purposeful interactions, refined visuals, and motion.",
+    image: "/images/about/jihad.png",
+    slug: "/team/jihad-mahmud",
+    yearsOfExperience: 2,
+    expertise: ["React", "GSAP", "UI Development"],
+    socials: [
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+    ],
+   
+  },
 ];
+
+export const TEAM_CONTENT = {
+  label: "THE PEOPLE BEHIND THE PIXELS",
+  title: "Good work takes",
+  colorWord: "good people.",
+  description:
+    "A small, focused team bringing design thinking, engineering, and creative problem-solving together to build better digital experiences.",
+  featuredLabel: "MEET THE TEAM",
+  footerLabel: "ONE TEAM. MANY PERSPECTIVES.",
+  footerText: "We build better when we build together.",
+};
 
 /* ─────────────────────────────────────────────
    Mission & Vision Section
