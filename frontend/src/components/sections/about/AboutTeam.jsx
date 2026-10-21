@@ -1,148 +1,99 @@
 
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FiArrowUpRight, FiPlus } from "react-icons/fi";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 import { TEAM, TEAM_CONTENT } from "@/helper/about";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import TeamMemberCard from "@/components/ui/TeamMemberCard";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function AboutTeam() {
-  const sectionRef = useRef(null);
-  const introRef = useRef(null);
-  const cardsRef = useRef(null);
-  const footerRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const trackRef = useRef(null);
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
+  const total = TEAM.length;
 
-    if (!section) return;
+  const goTo = useCallback(
+    (index) => {
+      if (!total) return;
+      setActiveIndex((index + total) % total);
+    },
+    [total]
+  );
+
+  const next = useCallback(() => {
+    goTo(activeIndex + 1);
+  }, [activeIndex, goTo]);
+
+  const previous = useCallback(() => {
+    goTo(activeIndex - 1);
+  }, [activeIndex, goTo]);
+
+  // Auto-slide every 2 seconds
+  useEffect(() => {
+    if (total < 2 || isPaused) return;
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % total);
+    }, 2000);
+
+    return () => window.clearInterval(timer);
+  }, [total, isPaused]);
+
+  // Smoothly position the active card
+  useEffect(() => {
+    const track = trackRef.current;
+    const card = track?.children[activeIndex];
+
+    if (!track || !card) return;
 
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    const ctx = gsap.context(() => {
-      const cards = cardsRef.current?.children;
+    track.scrollTo({
+      left:
+        card.offsetLeft -
+        track.offsetLeft -
+        (track.clientWidth - card.clientWidth) / 2,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  }, [activeIndex]);
 
-      // Accessibility: disable animations when reduced motion is preferred
-      if (reduceMotion) {
-        gsap.set(
-          [
-            introRef.current,
-            ...(cards ? Array.from(cards) : []),
-            footerRef.current,
-          ].filter(Boolean),
-          {
-            autoAlpha: 1,
-            y: 0,
-          }
-        );
+  // Pause when the page is hidden
+  useEffect(() => {
+    const handleVisibility = () => {
+      setIsPaused(document.hidden);
+    };
 
-        return;
-      }
+    document.addEventListener("visibilitychange", handleVisibility);
 
-      // Section heading animation
-      if (introRef.current) {
-        gsap.fromTo(
-          introRef.current,
-          {
-            autoAlpha: 0,
-            y: 24,
-          },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.75,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: introRef.current,
-              start: "top 90%",
-              toggleActions: "play none play reverse",
-            },
-          }
-        );
-      }
-
-      // Team cards: staggered reveal and reverse animation
-      if (cards?.length) {
-        gsap.fromTo(
-          cards,
-          {
-            autoAlpha: 0,
-            y: 28,
-          },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: "top 88%",
-              toggleActions: "play none play reverse",
-            },
-          }
-        );
-      }
-
-      // Collaboration footer animation
-      if (footerRef.current) {
-        gsap.fromTo(
-          footerRef.current,
-          {
-            autoAlpha: 0,
-            y: 20,
-          },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.65,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: footerRef.current,
-              start: "top 92%",
-              toggleActions: "play none play reverse",
-            },
-          }
-        );
-      }
-    }, section);
-
-    return () => ctx.revert();
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
 
-  if (!TEAM?.length) return null;
+  if (!total) return null;
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative isolate overflow-hidden bg-[#FFF9F3] py-16 sm:py-20 lg:py-28"
-    >
-      {/* Soft ambient accents */}
+    <section className="relative isolate overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+      {/* Background accents */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-36 top-16 -z-10 h-[360px] w-[360px] rounded-full bg-[#FF5101]/[0.07] blur-[110px]"
+        className="pointer-events-none absolute -right-40 top-12 -z-10 h-96 w-96 rounded-full bg-blue-100/60 blur-[110px]"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-36 top-[45%] h-[320px] w-[320px] rounded-full bg-[#E8D8C7]/40 blur-[100px]"
+        className="pointer-events-none absolute -left-40 bottom-0 -z-10 h-80 w-80 rounded-full bg-indigo-50/80 blur-[100px]"
       />
 
       <Container size="xl">
         {/* Section heading */}
-        <div
-          ref={introRef}
-          className="mb-12 sm:mb-16 lg:mb-[72px]"
-        >
+        <div className="mx-auto mb-10 max-w-4xl sm:mb-12 lg:mb-14">
           <SectionHeader
             label={TEAM_CONTENT.label}
             text={`${TEAM_CONTENT.title} ${TEAM_CONTENT.colorWord}`}
@@ -152,82 +103,97 @@ export default function AboutTeam() {
           />
         </div>
 
-        {/* Team member cards */}
+        {/* Carousel */}
         <div
-          ref={cardsRef}
-          className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 sm:gap-5 xl:grid-cols-6 xl:gap-5"
+          className="mx-auto max-w-5xl"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocusCapture={() => setIsPaused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) {
+              setIsPaused(false);
+            }
+          }}
         >
-          {TEAM.map((member, index) => (
-            <div
-              key={member.slug || member.name}
-              className={[
-                "min-w-0 xl:col-span-2",
-                index === 3 ? "xl:col-start-2" : "",
-                index === 4 ? "xl:col-start-4" : "",
-              ].join(" ")}
-            >
-              <TeamMemberCard
-                member={member}
-                index={index}
-              />
-            </div>
-          ))}
-        </div>
+          {/* Carousel header */}
+          <div className="mb-5 flex items-center justify-between border-b border-slate-200 pb-4">
+            <div className="flex items-center gap-3">
+              <span className="h-2 w-2 rounded-full bg-blue-600" />
 
-        {/* Collaboration footer */}
-        <div
-          ref={footerRef}
-          className="relative mt-14 overflow-hidden rounded-[26px] border border-[#E7DCD0] bg-[#F4EDE4] p-6 sm:mt-20 sm:p-8 lg:p-10"
-        >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full border border-[#FF5101]/15"
-          />
-
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-2 -top-8 h-32 w-32 rounded-full border border-[#FF5101]/15"
-          />
-
-          <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#FF5101] text-white shadow-lg shadow-[#FF5101]/15">
-                <FiPlus size={22} />
-              </span>
-
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E74700]">
-                  {TEAM_CONTENT.footerLabel}
-                </p>
-
-                <p className="mt-2 max-w-xl text-xl font-semibold leading-snug tracking-[-0.04em] text-[#29241F] sm:text-2xl">
-                  {TEAM_CONTENT.footerText}
-                </p>
-              </div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500 sm:text-xs">
+                The people behind DevOnionX
+              </p>
             </div>
 
-            <a
-              href="/contact"
-              className="group inline-flex w-fit shrink-0 items-center gap-4 rounded-full bg-[#24211E] py-2 pl-5 pr-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#FF5101]"
-            >
-              Let&apos;s work together
-
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF5101] text-white transition-transform duration-300 group-hover:rotate-45 group-hover:bg-white group-hover:text-[#FF5101]">
-                <FiArrowUpRight size={17} />
+            <p className="text-xs tabular-nums text-slate-400">
+              <span className="font-semibold text-slate-950">
+                {String(activeIndex + 1).padStart(2, "0")}
               </span>
-            </a>
+              {" / "}
+              {String(total).padStart(2, "0")}
+            </p>
           </div>
-        </div>
 
-        {/* Section closing text */}
-        <div className="mt-6 flex flex-col gap-2 text-[9px] font-medium uppercase tracking-[0.16em] text-[#91867B] sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            DevOnionX — Better ideas, bigger impact.
-          </span>
+          {/* Sliding cards */}
+          <div
+            ref={trackRef}
+            aria-label="Our team members"
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-5 lg:gap-6"
+          >
+            {TEAM.map((member, index) => (
+              <div
+                key={member.slug || member.name}
+                aria-current={index === activeIndex ? "true" : undefined}
+                className="w-[86%] shrink-0 snap-center sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+              >
+                <TeamMemberCard member={member} index={index} />
+              </div>
+            ))}
+          </div>
 
-          <span>
-            Thoughtfully built. Collectively delivered.
-          </span>
+          {/* Carousel controls */}
+          <div className="flex items-center justify-between border-t border-slate-200 pt-4">
+            <div className="flex items-center gap-1.5">
+              {TEAM.map((member, index) => (
+                <button
+                  key={member.slug || member.name}
+                  type="button"
+                  onClick={() => goTo(index)}
+                  aria-label={`Show ${member.name}`}
+                  aria-pressed={activeIndex === index}
+                  className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                    activeIndex === index
+                      ? "w-8 bg-blue-600"
+                      : "w-2 bg-slate-200 hover:bg-blue-300"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={previous}
+                aria-label="Previous team member"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 hover:border-blue-600 hover:bg-blue-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                <FiArrowLeft size={17} />
+              </button>
+
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Next team member"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-white transition duration-300 hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                <FiArrowRight size={17} />
+              </button>
+            </div>
+          </div>
+
+          <p className="mt-4 text-center text-[9px] font-medium uppercase tracking-[0.18em] text-slate-400">
+            {isPaused ? "Paused — explore our team" : "Auto-slide · Hover to pause"}
+          </p>
         </div>
       </Container>
     </section>
