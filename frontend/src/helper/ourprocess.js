@@ -1,93 +1,134 @@
-import { FiSearch, FiLayout, FiPenTool, FiCode, FiSend } from "react-icons/fi";
-import xMark from "../../public/images/process/devoion.png";
+import { FaAws, FaGithub, FaJira, FaSlack, FaWhatsapp } from "react-icons/fa";
+import { BsFiletypeAi, BsMicrosoftTeams } from "react-icons/bs";
+import {
+  SiCloudflare,
+  SiCypress,
+  SiExpress,
+  SiFigma,
+  SiFramer,
+  SiGooglemeet,
+  SiGreensock,
+  SiJavascript,
+  SiJest,
+  SiLighthouse,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostman,
+  SiReact,
+  SiSentry,
+  SiTypescript,
+  SiVercel,
+  SiWebflow,
+} from "react-icons/si";
 
-export const steps = [
+// Process section er sob data ekhane. Image path gula nijer asset diye replace korbe.
+export const processIntro = {
+  eyebrow: "OUR PROCESS",
+  title: "From First Idea to Launch",
+  description:
+    "A clear, collaborative process that turns business requirements into reliable, scalable software.",
+};
+
+// tools: icon, name (tooltip + screen reader), color (brand er nijosso color)
+export const processSteps = [
   {
+    id: "strategy",
     number: "01",
-    title: "Discovery",
+    title: "Strategy meeting",
     description:
-      "Understand the business, audience, goals, and technical requirements before making any decisions.",
-    tags: ["Brief", "Audit", "Research"],
-    icon: <FiSearch size={22} />,
+      "We turn your vision into a clear strategy, analyze your competitors, and uncover what your users actually need. Every decision is guided by research and a clear understanding of your goals.",
+    timeline: "Day 1-3",
+    tools: [
+      { name: "Google Meet", icon: SiGooglemeet, color: "#00832D" },
+      { name: "Microsoft Teams", icon: BsMicrosoftTeams, color: "#6264A7" },
+      { name: "WhatsApp", icon: FaWhatsapp, color: "#25D366" },
+      { name: "Slack", icon: FaSlack, color: "#4A154B" },
+    ],
+    image: {
+      src: "/images/process/step1.webp",
+      alt: "Strategy session with project notes",
+    },
   },
   {
+    id: "design",
     number: "02",
-    title: "Strategy",
+    title: "UX/UI Design",
     description:
-      "Define the architecture, tech stack, and roadmap to ensure the project is scalable from day one.",
-    tags: ["Architecture", "Tech Stack", "Roadmap"],
-    icon: <FiLayout size={22} />,
+      "We create wireframes, intuitive UI designs, and interactive Figma prototypes so you can review the experience and approve the design before development begins.",
+    timeline: "Week 1-2",
+    tools: [
+      { name: "Figma", icon: SiFigma, color: "#F24E1E" },
+      { name: "Webflow", icon: SiWebflow, color: "#146EF5" },
+      { name: "Adobe Illustrator", icon: BsFiletypeAi, color: "#FF9A00" },
+      { name: "GSAP", icon: SiGreensock, color: "#88CE02" },
+      { name: "Framer", icon: SiFramer, color: "#0055FF" },
+    ],
+    image: { src: "/images/process/step2.webp", alt: "UX/UI design preview" },
   },
   {
+    id: "development",
     number: "03",
-    title: "Design",
-    description:
-      "Create intuitive user experiences and polished interfaces that balance usability and conversion.",
-    tags: ["Design System", "Figma"],
-    icon: <FiPenTool size={22} />,
-  },
-  {
-    number: "04",
     title: "Development",
     description:
-      "Build fast, scalable, and maintainable applications with clean code and production-ready architecture.",
-    tags: ["Next.js", "API", "CI/CD"],
-    icon: <FiCode size={22} />,
+      "We build tailored web solutions, SaaS platforms, ERP and CRM systems, and AI integrations that help businesses streamline operations and grow. Clear communication, regular updates, and reliable delivery from start to finish.",
+    timeline: "Week 2-5",
+    tools: [
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+      { name: "Express.js", icon: SiExpress, color: "#000000" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "AWS", icon: FaAws, color: "#FF9900" },
+    ],
+    image: { src: "/images/process/step3.webp", alt: "Development workspace" },
   },
   {
+    id: "testing",
+    number: "04",
+    title: "Testing & QA",
+    description:
+      "We validate functionality, responsiveness, accessibility, performance, and important user flows.",
+    timeline: "Week 5-6",
+    tools: [
+      { name: "Jest", icon: SiJest, color: "#C21325" },
+      { name: "Cypress", icon: SiCypress, color: "#17202C" },
+      { name: "Lighthouse", icon: SiLighthouse, color: "#F44B21" },
+      { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+    ],
+    image: { src: "/images/process/step4.webp", alt: "Testing and QA results" },
+  },
+  {
+    id: "launch",
     number: "05",
     title: "Launch",
     description:
-      "Deploy, monitor, and support the product after launch to ensure long-term reliability and growth.",
-    tags: ["Deploy", "Monitoring", "Support"],
-    icon: <FiSend size={22} />,
-  },
-];
-
-export const stepsHome = [
-  {
-    number: "01",
-    title: "Discovery",
-    description:
-      "Understand the business, audience, goals, and technical requirements before making any decisions.",
-    tags: ["Brief", "Audit", "Research"],
-    icon: <FiSearch size={22} />,
-    image: xMark,
+      "We launch your product, keep an eye on performance, and iterate fast — so it holds up under real traffic and keeps growing after launch.",
+    timeline: "Week 6-7",
+    tools: [
+      { name: "Vercel", icon: SiVercel, color: "#000000" },
+      { name: "GitHub", icon: FaGithub, color: "#181717" },
+      { name: "Cloudflare", icon: SiCloudflare, color: "#F38020" },
+    ],
+    image: { src: "/images/process/step5.webp", alt: "Launch overview" },
   },
   {
-    number: "02",
-    title: "Strategy",
+    id: "support",
+    number: "06",
+    title: "Support & Improvement",
     description:
-      "Define the architecture, tech stack, and roadmap to ensure the project is scalable from day one.",
-    tags: ["Architecture", "Tech Stack", "Roadmap"],
-    icon: <FiLayout size={22} />,
-    image: xMark,
-  },
-  {
-    number: "03",
-    title: "Design",
-    description:
-      "Create intuitive user experiences and polished interfaces that balance usability and conversion.",
-    tags: ["Design System", "Figma"],
-    icon: <FiPenTool size={22} />,
-    image: xMark,
-  },
-  {
-    number: "04",
-    title: "Development",
-    description:
-      "Build fast, scalable, and maintainable applications with clean code and production-ready architecture.",
-    tags: ["Next.js", "API", "CI/CD"],
-    icon: <FiCode size={22} />,
-    image: xMark,
-  },
-  {
-    number: "05",
-    title: "Launch",
-    description:
-      "Deploy, monitor, and support the product after launch to ensure long-term reliability and growth.",
-    tags: ["Deploy", "Monitoring", "Support"],
-    icon: <FiSend size={22} />,
-    image: xMark,
+      "Provide agreed maintenance, resolve issues, and improve the product as requirements evolve.",
+    timeline: "Ongoing",
+    tools: [
+      { name: "Sentry", icon: SiSentry, color: "#362D59" },
+      { name: "Slack", icon: FaSlack, color: "#4A154B" },
+      { name: "Jira", icon: FaJira, color: "#0052CC" },
+    ],
+    image: {
+      src: "/images/process/step6.webp",
+      alt: "Support and improvement dashboard",
+    },
   },
 ];
