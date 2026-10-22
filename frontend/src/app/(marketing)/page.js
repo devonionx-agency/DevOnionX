@@ -8,6 +8,7 @@ import ServicesGrid from "@/components/sections/home/ServicesGrid";
 import WhatYouGet from "@/components/sections/home/WhatYouGet";
 import AboutSection from "@/components/sections/home/AboutSection";
 import WorkSection from "@/components/sections/home/WorkSection";
+import TrustHome from "@/components/sections/home/TrustHome";
 
 const Testimonials = dynamic(
   () => import("@/components/sections/Testimonials"),
@@ -17,7 +18,8 @@ export default function Page() {
   return (
     <>
       <HeroSectionTwo />
-      <TrustMetrics />
+      <TrustHome/>
+      {/* <TrustMetrics /> */}
       <AboutSection />
       <ServicesGrid />
       <ProcessHome/>
