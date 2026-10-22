@@ -2,8 +2,11 @@ import PageHero from "@/components/common/PageHero";
 import { aboutPageHeroData } from "@/helper/pageHero";
 
 import AboutStory from "@/components/sections/about/AboutStory";
-import AboutMission from "@/components/sections/about/AboutMission";
+import AboutMissionVision from "@/components/sections/about/AboutMissionVision";
 import AboutTeam from "@/components/sections/about/AboutTeam";
+import AboutValues from "@/components/sections/about/AboutValues";
+import AboutWhyChooseUs from "@/components/sections/about/AboutWhyChooseUs";
+import AboutIndustries from "@/components/sections/about/AboutIndustries";
  
 export const metadata = {
   title: "About — DevonionX",
@@ -16,7 +19,10 @@ const About = () => {
     <>
       <PageHero  {...aboutPageHeroData}/>
        <AboutStory />
-      <AboutMission />
+        <AboutMissionVision />
+        <AboutValues/>
+        <AboutWhyChooseUs/>
+        <AboutIndustries/>
       <AboutTeam />
     </>
   );

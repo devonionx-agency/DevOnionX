@@ -6,12 +6,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import {
-  HiArrowRight,
-  HiArrowUpRight,
-  HiOutlineSquares2X2,
-  HiOutlineDocumentText,
-} from "react-icons/hi2";
+import { HiArrowUpRight, HiOutlineSquares2X2 } from "react-icons/hi2";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,22 +19,22 @@ export default function FeaturedWorkCard({ project }) {
   const mockupRef = useRef(null);
 
   useGSAP(
-    (context) => {
+    () => {
       const card = cardRef.current;
       const mockup = mockupRef.current;
-
       if (!card || !mockup) return;
 
       const mm = gsap.matchMedia();
 
+      // Conditions cover every case, so setup runs on mobile too.
       mm.add(
         {
-          isDesktop:
-            "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
           reduced: "(prefers-reduced-motion: reduce)",
+          canHover:
+            "(min-width: 768px) and (hover: hover) and (prefers-reduced-motion: no-preference)",
         },
-        (matchContext) => {
-          const { reduced, isDesktop } = matchContext.conditions;
+        (ctx) => {
+          const { reduced, canHover } = ctx.conditions;
 
           // Resting 3D position.
           gsap.set(mockup, {
@@ -49,263 +44,149 @@ export default function FeaturedWorkCard({ project }) {
             rotateY: TILT_Y,
           });
 
-          if (reduced) {
-            gsap.set(
-              card.querySelectorAll(
-                ".work-card__badge, .work-card__reveal, .work-card__tech-item",
-              ),
-              {
-                clearProps: "all",
-              },
-            );
+          if (reduced) return;
 
-            return;
-          }
-
-          const badge = card.querySelector(".work-card__badge");
-          const revealElements = card.querySelectorAll(".work-card__reveal");
-          const techItems = card.querySelectorAll(".work-card__tech-item");
-          const cta = card.querySelector(".work-card__cta");
+          const badge = card.querySelector(".wc-badge");
+          const reveal = card.querySelectorAll(".wc-reveal");
 
           const tl = gsap.timeline({
-            defaults: {
-              ease: "power3.out",
-            },
-            scrollTrigger: {
-              trigger: card,
-              start: "top 82%",
-              once: true,
-            },
+            defaults: { ease: "power3.out" },
+            scrollTrigger: { trigger: card, start: "top 82%", once: true },
           });
 
-          tl.from(card, {
-            opacity: 0,
-            y: 50,
-            duration: 0.9,
-          })
+          tl.from(card, { opacity: 0, y: 40, duration: 0.8 })
             .from(
               mockup,
               {
                 opacity: 0,
                 y: 40,
-                rotateX: TILT_X + 22,
-                rotateY: TILT_Y - 7,
-                scale: 0.92,
-                duration: 1.1,
+                rotateX: TILT_X + 18,
+                rotateY: TILT_Y - 6,
+                duration: 1,
                 ease: "power4.out",
               },
-              "-=0.6",
+              "-=0.55",
             )
+            .from(badge, { opacity: 0, y: -8, duration: 0.45 }, "-=0.7")
             .from(
-              badge,
-              {
-                opacity: 0,
-                y: -10,
-                scale: 0.85,
-                duration: 0.5,
-              },
-              "-=0.7",
-            )
-            .from(
-              revealElements,
-              {
-                opacity: 0,
-                y: 18,
-                duration: 0.6,
-                stagger: 0.08,
-              },
+              reveal,
+              { opacity: 0, y: 16, duration: 0.55, stagger: 0.08 },
               "-=0.5",
-            )
-            .from(
-              techItems,
-              {
-                opacity: 0,
-                y: 12,
-                duration: 0.4,
-                stagger: 0.045,
-              },
-              "-=0.35",
-            )
-            .from(
-              cta,
-              {
-                opacity: 0,
-                y: 20,
-                duration: 0.6,
-              },
-              "-=0.25",
             );
 
-          // Desktop-only cursor tilt.
-          if (isDesktop) {
-            let xTo;
-            let yTo;
+          // Desktop cursor tilt (quickTo tweens are reverted with matchMedia).
+          let handleMove;
+          let handleLeave;
 
-            // Cursor tweens are kept outside the GSAP context.
-            context.ignore(() => {
-              xTo = gsap.quickTo(mockup, "rotateY", {
-                duration: 0.6,
-                ease: "power3.out",
-              });
-
-              yTo = gsap.quickTo(mockup, "rotateX", {
-                duration: 0.6,
-                ease: "power3.out",
-              });
+          if (canHover) {
+            const xTo = gsap.quickTo(mockup, "rotateY", {
+              duration: 0.6,
+              ease: "power3.out",
+            });
+            const yTo = gsap.quickTo(mockup, "rotateX", {
+              duration: 0.6,
+              ease: "power3.out",
             });
 
-            const handleMove = (event) => {
+            handleMove = (event) => {
               const rect = card.getBoundingClientRect();
-
               if (!rect.width || !rect.height) return;
-
               const px = (event.clientX - rect.left) / rect.width - 0.5;
-
               const py = (event.clientY - rect.top) / rect.height - 0.5;
-
               xTo(TILT_Y + px * 10);
               yTo(TILT_X + py * -8);
             };
 
-            const handleLeave = () => {
+            handleLeave = () => {
               xTo(TILT_Y);
               yTo(TILT_X);
             };
 
             card.addEventListener("mousemove", handleMove);
             card.addEventListener("mouseleave", handleLeave);
-
-            return () => {
-              card.removeEventListener("mousemove", handleMove);
-              card.removeEventListener("mouseleave", handleLeave);
-
-              if (xTo?.tween) {
-                xTo.tween.kill();
-              }
-
-              if (yTo?.tween) {
-                yTo.tween.kill();
-              }
-
-              gsap.killTweensOf(mockup);
-            };
           }
+
+          return () => {
+            if (handleMove) card.removeEventListener("mousemove", handleMove);
+            if (handleLeave) card.removeEventListener("mouseleave", handleLeave);
+          };
         },
       );
 
-      return () => {
-        mm.revert();
-      };
+      return () => mm.revert();
     },
-    {
-      scope: cardRef,
-      dependencies: [],
-    },
+    { scope: cardRef, dependencies: [] },
   );
 
-  const words = project.title.trim().split(" ");
-  const lastWord = words.pop();
-  const leadingWords = words.join(" ");
-
   return (
-    <article ref={cardRef} className="work-card group relative flex flex-col">
-      <div className="work-card__ambient" />
+    <article
+      ref={cardRef}
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#E4E7EE] bg-white shadow-[0_10px_40px_-20px_rgba(23,25,35,0.18)] transition-[box-shadow,border-color] duration-300 focus-within:ring-2 focus-within:ring-[#FF5101] focus-within:ring-offset-2 hover:border-[#FF5101]/30 hover:shadow-[0_24px_60px_-24px_rgba(23,25,35,0.28)]"
+    >
+      {/* ── Preview ── */}
+      <div className="relative h-[240px] overflow-hidden border-b border-[#E4E7EE] bg-gradient-to-b from-[#EEF2F9] to-[#F6F8FC] px-6 pt-14 sm:h-[280px] sm:px-8">
+        {/* soft grid + brand glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(23,25,35,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(23,25,35,0.05)_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_at_50%_30%,black_20%,transparent_75%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(255,81,1,0.12),transparent_60%)]"
+        />
 
-      <div className="work-card__preview">
-        <span className="work-card__badge">
-          <span className="work-card__badge-icon">
-            <HiOutlineSquares2X2 />
-          </span>
-
-          <span className="work-card__badge-text">{project.category}</span>
+        <span className="wc-badge absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-[#E4E7EE] bg-white px-3 py-1.5 text-xs font-medium text-[#171923] shadow-sm sm:left-5 sm:top-5">
+          <HiOutlineSquares2X2 className="text-[#FF5101]" aria-hidden="true" />
+          {project.category}
         </span>
 
-        <div ref={mockupRef} className="work-card__mockup">
-          <div className="work-card__mockup-frame relative aspect-[16/10]">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover object-top"
-            />
+        {/* Browser-style mockup, cropped at the bottom */}
+        <div ref={mockupRef} className="relative mx-auto w-full max-w-[560px]">
+          <div className="overflow-hidden rounded-t-xl border border-b-0 border-[#D8DCE6] bg-white shadow-[0_30px_60px_-20px_rgba(10,16,32,0.35)]">
+            <div
+              aria-hidden="true"
+              className="flex h-7 items-center gap-1.5 border-b border-[#E4E7EE] bg-[#F6F8FC] px-3"
+            >
+              <span className="h-2 w-2 rounded-full bg-[#D8DCE6]" />
+              <span className="h-2 w-2 rounded-full bg-[#D8DCE6]" />
+              <span className="h-2 w-2 rounded-full bg-[#D8DCE6]" />
+            </div>
+
+            <div className="relative aspect-[16/10]">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="work-card__content flex flex-1 flex-col">
-        <div className="work-card__heading flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <span className="work-card__eyebrow work-card__reveal block">
-              {project.category}
-            </span>
+      {/* ── Content ── */}
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="wc-reveal headingFour min-w-0 leading-tight text-[#171923]">
+            {project.title}
+          </h3>
 
-            <h3 className="work-card__title work-card__reveal headingFour">
-              {leadingWords && <>{leadingWords} </>}
-              <span className="text-brand">{lastWord}</span>
-            </h3>
-          </div>
-
+          {/* Stretched link: the whole card is clickable via the ::after overlay */}
           <Link
             href={project.href}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Open ${project.title} case study`}
-            className="work-card__arrow-btn work-card__reveal"
+            className="wc-reveal flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#E4E7EE] bg-white text-[#171923] transition-colors duration-200 after:absolute after:inset-0 after:content-[''] group-hover:border-[#FF5101] group-hover:bg-[#FF5101] group-hover:text-white focus-visible:outline-none"
           >
-            <HiArrowUpRight className="text-xl" />
+            <HiArrowUpRight className="text-lg" aria-hidden="true" />
           </Link>
         </div>
 
-        <p className="work-card__desc work-card__reveal para-base mt-4">
+        <p className="wc-reveal para-base mt-3 max-w-[60ch] leading-relaxed text-[#5B6275]">
           {project.description}
         </p>
-
-        <div className="work-card__divider work-card__reveal" />
-
-        <div className="work-card__tech-label work-card__reveal">
-          <span className="dot" />
-          Technology Stack
-          <span className="dash" />
-        </div>
-
-        <div className="work-card__tech-grid">
-          {project.technologies.map((tech) => {
-            const Icon = tech.icon;
-
-            return (
-              <div key={tech.name} className="work-card__tech-item">
-                <Icon />
-                <span>{tech.name}</span>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="work-card__cta mt-auto">
-          <span className="work-card__cta-icon">
-            <HiOutlineDocumentText className="text-xl" />
-          </span>
-
-          <div className="work-card__cta-text">
-            <p className="work-card__cta-title">Want to see it in action?</p>
-
-            <p className="work-card__cta-desc">
-              Explore the full case study to see how {project.title} can
-              transform your business.
-            </p>
-          </div>
-
-          <Link
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-schedule"
-          >
-            <span>View Case Study</span>
-            <HiArrowRight />
-          </Link>
-        </div>
       </div>
     </article>
   );
