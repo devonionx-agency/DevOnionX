@@ -18,7 +18,7 @@ const Input = React.forwardRef(
         type={type}
         placeholder={placeholder}
         {...props}
-        className={`w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-3.5 text-[14px] text-white placeholder:text-[#475569] focus:border-[#FF5101]/50 focus:bg-[#FF5101]/[0.03] outline-none transition-all duration-300 ${className}`}
+        className={`block w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-900 shadow-sm outline-none transition-all duration-200 placeholder:text-slate-400 hover:border-slate-400 focus:border-[#FF5101] focus:ring-4 focus:ring-orange-500/10 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-500 ${className}`}
       />
     );
   }
