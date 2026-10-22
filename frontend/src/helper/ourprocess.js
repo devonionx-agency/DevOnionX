@@ -22,14 +22,6 @@ import {
   SiWebflow,
 } from "react-icons/si";
 
-// Process section er sob data ekhane. Image path gula nijer asset diye replace korbe.
-export const processIntro = {
-  eyebrow: "OUR PROCESS",
-  title: "From First Idea to Launch",
-  description:
-    "A clear, collaborative process that turns business requirements into reliable, scalable software.",
-};
-
 // tools: icon, name (tooltip + screen reader), color (brand er nijosso color)
 export const processSteps = [
   {
@@ -90,7 +82,7 @@ export const processSteps = [
     number: "04",
     title: "Testing & QA",
     description:
-      "We validate functionality, responsiveness, accessibility, performance, and important user flows.",
+      "We test every part of your product to make sure it works as expected across devices, performs well, and delivers a smooth, reliable experience for your users.",
     timeline: "Week 5-6",
     tools: [
       { name: "Jest", icon: SiJest, color: "#C21325" },
@@ -105,7 +97,7 @@ export const processSteps = [
     number: "05",
     title: "Launch",
     description:
-      "We launch your product, keep an eye on performance, and iterate fast — so it holds up under real traffic and keeps growing after launch.",
+      "We launch your product, keep an eye on performance, and iterate fast so it holds up under real traffic and keeps growing after launch.",
     timeline: "Week 6-7",
     tools: [
       { name: "Vercel", icon: SiVercel, color: "#000000" },
@@ -119,7 +111,7 @@ export const processSteps = [
     number: "06",
     title: "Support & Improvement",
     description:
-      "Provide agreed maintenance, resolve issues, and improve the product as requirements evolve.",
+      "We keep your product running smoothly, fix issues when they arise, and make improvements as your business grows and your needs change.",
     timeline: "Ongoing",
     tools: [
       { name: "Sentry", icon: SiSentry, color: "#362D59" },

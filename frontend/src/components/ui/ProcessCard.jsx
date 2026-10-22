@@ -13,7 +13,7 @@ const ProcessCard = ({ step, priority = false }) => {
       {/* Left: project image */}
       <div
         data-media
-        className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-black/10 bg-white group-data-[pinned=true]/process:aspect-auto"
+        className="relative aspect-4/3 overflow-hidden rounded-3xl border border-black/10 bg-white group-data-[pinned=true]/process:aspect-auto"
       >
         <Image
           src={image.src}

@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import Container from "@/components/ui/Container";
 import ProcessCard from "@/components/ui/ProcessCard";
 import { processIntro, processSteps } from "@/helper/ourprocess";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -163,20 +164,12 @@ const ProcessHome = () => {
     >
       <Container size="hero">
         {/* Heading area */}
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#6B6B66]">
-            {processIntro.eyebrow}
-          </p>
-          <h2
-            id="process-heading"
-            className="mt-4 text-4xl font-semibold tracking-tight text-balance text-[#1F1F1D] sm:text-5xl lg:text-6xl"
-          >
-            {processIntro.title}
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-[#6B6B66] sm:text-lg">
-            {processIntro.description}
-          </p>
-        </div>
+        <SectionHeader
+          label="OUR PROCESS"
+          text="From First Idea to Launch"
+          colorWord="Idea to"
+          description="A clear, collaborative process that turns business requirements into reliable, scalable software."
+        />
 
         {/* Pin hobe ei stage ta */}
         <div
