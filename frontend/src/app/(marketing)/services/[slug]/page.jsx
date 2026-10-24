@@ -7,8 +7,31 @@ import ServiceFAQs from "@/components/sections/services/service-details/ServiceF
 import ServiceProcess from "@/components/sections/services/service-details/ServiceProcess";
 import WhatWeDeliver from "@/components/sections/services/service-details/WhatWeDeliver";
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
 
-export default async function ServiceDetails({ params}) {
+  const serviceName = slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  return {
+    title: `${serviceName} Services`,
+    description: `Explore DevOnionX ${serviceName.toLowerCase()} services. We build modern, reliable solutions tailored to your business goals.`,
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
+    openGraph: {
+      title: `${serviceName} Services | DevOnionX`,
+      description: `Discover DevOnionX ${serviceName.toLowerCase()} solutions, designed around your business needs.`,
+      url: `/services/${slug}`,
+      siteName: "DevOnionX",
+      type: "website",
+    },
+  };
+}
+
+export default async function ServiceDetails({ params }) {
   const { slug } = await params;
 
   return (
