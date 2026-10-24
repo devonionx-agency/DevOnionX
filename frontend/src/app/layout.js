@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
+import ConsentPopup from "@/components/legal/ConsentPopup";
 
 const geistSans = Geist({
   variable: "--font-geist",
@@ -82,7 +83,7 @@ export default function RootLayout({ children }) {
         />
 
         {children}
-
+          <ConsentPopup />
         <Toaster position="top-right" richColors closeButton />
       </body>
     </html>
