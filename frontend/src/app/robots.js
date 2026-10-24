@@ -4,7 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    
     sitemap: "https://www.devonionx.com/sitemap.xml",
   };
 }
