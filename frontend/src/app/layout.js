@@ -44,8 +44,8 @@ export const metadata = {
       "We build modern websites, e-commerce platforms, SaaS products, and custom software solutions for growing businesses.",
     url: "https://www.devonionx.com",
     siteName: "DevOnionX",
-    type: "website",
     locale: "en_US",
+    type: "website",
   },
 
   twitter: {
@@ -56,6 +56,15 @@ export const metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.devonionx.com/#organization",
+  name: "DevOnionX",
+  alternateName: "DevOnion",
+  url: "https://www.devonionx.com",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -64,7 +73,16 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <NextTopLoader color="#FF5101" showSpinner={false} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
         {children}
+
         <Toaster position="top-right" richColors closeButton />
       </body>
     </html>
