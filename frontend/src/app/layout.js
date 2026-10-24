@@ -19,12 +19,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.devonionx.com"),
+
   title: {
-    default: "DevOnionX",
+    default: "DevOnionX | Web Development & Software Solutions",
     template: "%s | DevOnionX",
   },
+
   description:
-    "We partner with startups and growing businesses to create world-class websites, SaaS platforms, and digital products that deliver real results.",
+    "DevOnionX builds modern websites, e-commerce platforms, SaaS products, and custom software solutions for businesses ready to grow.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "DevOnionX | Web Development & Software Solutions",
+    description:
+      "We build modern websites, e-commerce platforms, SaaS products, and custom software solutions for growing businesses.",
+    url: "https://www.devonionx.com",
+    siteName: "DevOnionX",
+    type: "website",
+    locale: "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "DevOnionX | Web Development & Software Solutions",
+    description:
+      "Modern websites, e-commerce platforms, SaaS products, and custom software solutions for growing businesses.",
+  },
 };
 
 export default function RootLayout({ children }) {
