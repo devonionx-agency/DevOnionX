@@ -75,10 +75,10 @@ export default function ServiceCard({
             data-reveal="text"
             href={href}
             aria-label={`Learn more about ${heading}`}
-            className="group mt-1 inline-flex min-h-11 items-center gap-3 rounded-full text-sm font-medium text-[#1F1F1D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C4491A]"
+            className="group relative isolate mt-1 inline-flex min-h-11 items-center gap-3 overflow-hidden rounded-full text-sm font-medium text-[#1F1F1D] transition-colors duration-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C4491A] before:absolute before:inset-0 before:-z-10 before:origin-right before:scale-x-0 before:bg-[#C4491A] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100"
           >
-            <span>View service</span>
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#C4491A] text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            <span className="relative z-10">View service</span>
+            <span className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#C4491A] text-white transition-colors duration-300 group-hover:bg-transparent">
               <FiArrowUpRight aria-hidden="true" className="h-4 w-4" />
             </span>
           </Link>
