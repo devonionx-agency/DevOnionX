@@ -7,6 +7,7 @@ import AboutTeam from "@/components/sections/about/AboutTeam";
 import AboutValues from "@/components/sections/about/AboutValues";
 import AboutWhyChooseUs from "@/components/sections/about/AboutWhyChooseUs";
 import AboutIndustries from "@/components/sections/about/AboutIndustries";
+import FaqHome from "@/components/sections/FaqHome";
  
 export const metadata = {
   title: "About — DevonionX",
@@ -24,6 +25,7 @@ const About = () => {
         <AboutWhyChooseUs/>
         <AboutIndustries/>
       <AboutTeam />
+      <FaqHome/>
     </>
   );
 };
