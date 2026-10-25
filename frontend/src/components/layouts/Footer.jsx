@@ -97,7 +97,7 @@ export default function Footer() {
                       href="/contact"
                       className="group inline-flex w-full items-center justify-center gap-3 rounded-xl bg-[#FF5101] px-6 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E84900] hover:shadow-[0_0_30px_rgba(255,81,1,0.2)] active:scale-[0.98] sm:w-auto"
                     >
-                      <span>Let's Discuss Your Project</span>
+                      <span>Let&apos;s Discuss Your Project</span>
 
                       <ArrowUpRight
                         size={17}

@@ -1,15 +1,23 @@
 import React from "react";
-import HowWeWork from "@/components/sections/services/HowWeWork";
+import PageHero from "@/components/common/PageHero";
+import { servicesPageHeroData } from "@/helper/pageHero";
 import OurServices from "@/components/sections/services/OurServices";
-import ServicesHero from "@/components/sections/services/ServicesHero";
 import TechnologyStack from "@/components/sections/services/TechnologyStack";
+import HowWeWork from "@/components/sections/services/HowWeWork";
 
+export const metadata = {
+  title: "Services — DevOnionX",
+  description:
+    "We help ambitious businesses turn ideas into powerful digital products built to solve real problems, deliver exceptional experiences, and grow with your business.",
+};
 
 const Services = () => {
   return (
     <>
-      <ServicesHero />
-      <OurServices />
+      <PageHero {...servicesPageHeroData} />
+      <div id="services-list">
+        <OurServices />
+      </div>
       <TechnologyStack />
       <HowWeWork />
     </>

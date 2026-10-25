@@ -16,7 +16,7 @@ export default function Insights() {
               />
 
               <p className="mx-auto max-w-[600px] para-lg text-white/80">
-               Explore a selection of SaaS platforms, web applications, and digital products we've crafted to help businesses grow and scale.
+               Explore a selection of SaaS platforms, web applications, and digital products we&apos;ve crafted to help businesses grow and scale.
               </p>
             </div>
           </div>

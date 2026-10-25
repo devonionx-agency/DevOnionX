@@ -41,7 +41,7 @@ export default function ContactInfo() {
           <div className="flex items-center gap-3 mb-3">
             <div className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
             <span className="text-[13px] font-semibold text-white">
-              We're Online
+              We&apos;re Online
             </span>
           </div>
           <p className="text-[13px] text-[#64748b] leading-[1.7]">
