@@ -10,7 +10,7 @@ export default function FaqInfo() {
       <h3 className="text-3xl font-bold tracking-tight text-[#171C28]">
         Got Questions?
         <br />
-        We're Here to Help.
+        We&apos;re Here to Help.
       </h3>
 
       <p className="mt-4 max-w-md leading-relaxed text-[#475569]">
@@ -28,7 +28,7 @@ export default function FaqInfo() {
           </h4>
 
           <p className="mt-3 text-sm leading-relaxed text-[#475569]">
-            Tell us what you're working on. We'll listen, answer your
+            Tell us what you&apos;re working on. We&apos;ll listen, answer your
             questions, and help you figure out what makes sense for your
             project. No pressure to have everything figured out yet.
           </p>
@@ -46,7 +46,7 @@ export default function FaqInfo() {
           </div>
 
           <p className="mt-4 text-xs text-[#697586]">
-            Have a question? We'd be happy to hear from you.
+            Have a question? We&apos;d be happy to hear from you.
           </p>
         </div>
       </div>

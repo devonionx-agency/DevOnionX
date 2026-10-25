@@ -7,6 +7,38 @@ const { allBlogImages } = blogImages;
 // index 2 → 1, index 3 → 1  (row 2: col-span-1 | col-span-1)
 // index 4 → 1, index 5 → 2  (row 3: col-span-1 | col-span-2)
 
+export const featuredBlogData = {
+  id: "featured-1",
+  badge: "Featured Story",
+  category: "Case Study & Architecture",
+  categoryClass: "bg-[#FF5101]",
+  readTime: "7 min read",
+  title: "Building Real-Time Distributed Systems: Architecture, Scale & Battle-Tested Lessons",
+  excerpt:
+    "An engineering deep dive into how DevOnionX architected a production-ready real-time engine with Next.js 16, WebSocket clustering, and Node.js — delivering sub-20ms latency under high concurrent load.",
+  author: {
+    name: "Jhulon Kumar",
+    role: "Lead Full Stack Architect",
+  },
+  date: "Feb 28, 2026",
+  tags: ["Next.js 16", "WebSockets", "Node.js", "Redis", "System Design"],
+  href: "/blog/real-time-chat-system",
+  image: allBlogImages[0]?.img || blogImages.blogOne,
+};
+
+// ── Topics & Categories ─────────────────────────────────────────────────
+// Each topic maps to a category used in blogData.
+// "All" always appears first.
+export const blogTopics = [
+  { id: "all", label: "All Articles", accentColor: "#FF5101" },
+  { id: "case-study", label: "Case Study", accentColor: "#F97316", filterKey: "Case Study" },
+  { id: "frontend", label: "Frontend", accentColor: "#10B981", filterKey: "Frontend" },
+  { id: "backend", label: "Backend", accentColor: "#EF4444", filterKey: "Backend" },
+  { id: "uiux", label: "UI/UX Design", accentColor: "#8B5CF6", filterKey: "UI/UX Design" },
+  { id: "devops", label: "DevOps", accentColor: "#06B6D4", filterKey: "DevOps" },
+  { id: "ai", label: "AI Integration", accentColor: "#FBBF24", filterKey: "AI Integration" },
+];
+
 const colSpanPattern = [2, 1, 1, 1, 1, 2];
 export const blogData = [
   {

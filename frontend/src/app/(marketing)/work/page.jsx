@@ -1,3 +1,4 @@
+import React from "react";
 import PageHero from "@/components/common/PageHero";
 import WorkShowcase from "@/components/sections/work/WorkShowcase";
 import { workPageHeroData } from "@/helper/pageHero";
@@ -23,7 +24,9 @@ const Work = () => {
   return (
     <>
       <PageHero {...workPageHeroData} />
-      <WorkShowcase />
+      <div id="work-showcase">
+        <WorkShowcase />
+      </div>
     </>
   );
 };

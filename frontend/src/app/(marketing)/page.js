@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 import TrustMetrics from "@/components/sections/TrustMetrics";
 import FaqHome from "@/components/sections/FaqHome";
+import HeroSectionThree from "@/components/sections/home/HeroSectionThree";
 import HeroSectionTwo from "@/components/sections/home/HeroSectionTwo";
 import ProcessHome from "@/components/sections/home/ProcessHome";
 import WhatYouGet from "@/components/sections/home/WhatYouGet";
@@ -17,9 +18,12 @@ const Testimonials = dynamic(
 export default function Page() {
   return (
     <>
-      <HeroSectionTwo />
-      <TrustHome/>
-      {/* <TrustMetrics /> */}
+      <HeroSectionThree />
+      {/* <HeroSectionTwo /> */}
+       
+      <TrustHome />
+       {/* <TrustMetrics /> */}
+      {/* <ProblemsSection /> */}
       <AboutSection />
       <ServicesHome />
       <ProcessHome/>

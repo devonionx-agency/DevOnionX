@@ -1,5 +1,7 @@
+import React from "react";
 import PageHero from "@/components/common/PageHero";
-import BlogShowcase from "@/components/sections/blog/BlogShowcase";
+import FeaturedArticle from "@/components/sections/blog/FeaturedArticle";
+import LatestInsights from "@/components/sections/blog/LatestInsights";
 import { blogPageHeroData } from "@/helper/pageHero";
 
 export const metadata = {
@@ -23,7 +25,12 @@ const Blog = () => {
   return (
     <>
       <PageHero {...blogPageHeroData} />
-      <BlogShowcase />
+      <div className="blog-page">
+        <FeaturedArticle />
+        <div id="latest-insights">
+          <LatestInsights />
+        </div>
+      </div>
     </>
   );
 };

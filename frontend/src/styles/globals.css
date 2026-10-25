@@ -4,6 +4,8 @@
 @import "./typography.css";
 @import "./utilities.css";
 @import "./work-card.css";
+@import "./blog.css";
+
 /* =========================================
    RESET
 ========================================= */
@@ -65,15 +67,12 @@ textarea {
   background-clip: text;
   color: transparent;
 }
+
 @layer utilities {
   .hero-gradient {
-    background: radial-gradient(
-      ellipse at 50% 45%,
-      #d9f8d8 0%,
-      #e8fbe8 35%,
-      #ffffff 75%
-    );
+    background: radial-gradient(ellipse at 50% 45%,
+        #d9f8d8 0%,
+        #e8fbe8 35%,
+        #ffffff 75%);
   }
 }
-
-

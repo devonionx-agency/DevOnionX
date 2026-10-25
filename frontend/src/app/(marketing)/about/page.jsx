@@ -1,6 +1,6 @@
+import React from "react";
 import PageHero from "@/components/common/PageHero";
 import { aboutPageHeroData } from "@/helper/pageHero";
-
 import AboutStory from "@/components/sections/about/AboutStory";
 import AboutMissionVision from "@/components/sections/about/AboutMissionVision";
 import AboutTeam from "@/components/sections/about/AboutTeam";
