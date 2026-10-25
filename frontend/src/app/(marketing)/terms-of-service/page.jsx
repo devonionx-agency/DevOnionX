@@ -3,510 +3,435 @@ import LegalLayout from "@/components/legal/LegalLayout";
 export const metadata = {
   title: "Terms of Service | DevOnionX",
   description:
-    "The terms that apply to the DevOnionX website and our digital development services.",
-  alternates: { canonical: "/terms-of-service" },
+    "Read the terms governing DevOnionX services, project agreements, payments, intellectual property, delivery, maintenance, and client responsibilities.",
+  alternates: {
+    canonical: "/terms-of-service",
+  },
 };
 
-// Content update korle shudhu ei string ar LAST_UPDATED badlaw
-const LAST_UPDATED = "October 24, 2026";
+const LAST_UPDATED = "October 25, 2026";
 
 const CONTENT = `
 ## 01. Introduction
 
-Welcome to DevOnionX.
+Welcome to **DevOnionX**.
 
-These Terms of Service ("Terms") govern your access to and use of the DevOnionX website and the digital development services provided by DevOnionX ("we," "our," or "us").
+These Terms of Service ("Terms") govern your access to and use of the DevOnionX website and the development and technology services we provide. DevOnionX is a product engineering agency based in Kobirpur, Savar, Dhaka, Bangladesh.
 
-DevOnionX is a digital product engineering agency based in Savar, Dhaka, Bangladesh. We provide software development, web application development, SaaS solutions, UI/UX design, website maintenance, and technical support services.
+Our services may include custom website development, frontend and backend development, SaaS solutions, e-commerce platforms, dashboards, UI/UX design, AI integration and automation, deployment, website maintenance, and technical support.
 
-These Terms explain the general conditions under which visitors, prospective clients, and customers may use our website and engage with our services.
+By accessing our website, submitting a project inquiry, or engaging our services, you acknowledge these Terms. If you do not agree with them, please refrain from using our website or engaging our services.
 
-By accessing or using our website, submitting a project inquiry, or engaging our services, you acknowledge that you have read and understood these Terms.
-
-If you do not agree with these Terms, please do not use our website or engage our services.
-
-Project-specific services may also be governed by a separate proposal, Statement of Work (SOW), service agreement, or other written agreement between DevOnionX and the client.
-
-Where a separate written agreement applies to a specific project, the terms of that agreement will govern the relevant project-specific matters to the extent of any inconsistency with these general Terms.
+Individual projects may also be governed by a proposal, Statement of Work (SOW), service agreement, non-disclosure agreement (NDA), or other written agreement. Where a project-specific agreement conflicts with these Terms, the project-specific agreement will take precedence for the matters it expressly covers, subject to applicable law.
 
 ## 02. Acceptance of Terms
 
-By accessing our website or using our services, you agree to comply with these Terms and applicable laws and regulations.
+By using our website or engaging our services, you agree to these Terms to the extent permitted by applicable law.
 
-If you engage our services on behalf of a company, organization, or other legal entity, you represent that you have the authority to act on behalf of that entity and accept these Terms on its behalf.
+If you engage our services on behalf of a company or organization, you confirm that you are authorized to act on its behalf and accept the relevant contractual obligations.
 
-You are responsible for ensuring that your use of our website and services complies with applicable laws and regulations.
+DevOnionX may update these Terms when our services, business operations, or legal requirements change. Updated versions will be published on this page with a revised date. Where required by law, we will provide appropriate notice or obtain consent.
 
-We may update these Terms from time to time to reflect changes in our services, business operations, or legal requirements.
-
-Updated Terms will be published on this page with a revised "Last updated" date.
-
-Where applicable law requires additional notice or consent for material changes, we will take appropriate steps to provide it.
-
-Your continued use of our website after updated Terms become effective constitutes acceptance of the revised Terms to the extent permitted by applicable law.
-
-These Terms do not replace a separately signed agreement, NDA, or project-specific SOW.
+These Terms do not replace or override an applicable signed agreement, NDA, or project-specific SOW. Continued use of our website after an update does not override any consent requirements imposed by applicable law.
 
 ## 03. About DevOnionX
 
-DevOnionX is a digital product engineering agency providing development and technology services to businesses, startups, and organizations.
+DevOnionX provides web development and technology services to businesses, startups, and organizations.
 
-Our agency works with modern web technologies and provides services throughout the product development process, including planning, design, development, testing, deployment, and support.
+Our work may cover planning, interface design, development, testing, deployment, and ongoing technical support, depending on the agreed project scope.
 
 **Business Information**
-Agency Name: DevOnionX
-Business Location: Kobirpur, Savar, Dhaka, Bangladesh
-Trade License No.: 20262672183007657
-Authorized Representative: Al Mahmud, CEO
-Email: [devonionx@gmail.com](mailto:devonionx@gmail.com)
-Website: [https://www.devonionx.com](https://www.devonionx.com)
-Phone / WhatsApp: +8801566068310
 
-Our services are provided according to the requirements, scope, and conditions agreed upon with each client.
+- Business name: DevOnionX
+- Business location: Kobirpur, Savar, Dhaka, Bangladesh
+- Authorized representative: Al Mahmud, Founder & CEO
+- Email: [devonionx@gmail.com](mailto:devonionx@gmail.com)
+- Website: [https://www.devonionx.com](https://www.devonionx.com)
+- Phone / WhatsApp: +8801566068310
+
+Services are provided according to the requirements, scope, pricing, timeline, and conditions agreed upon with each client.
 
 ## 04. Services We Provide
 
-DevOnionX provides digital development and related technology services.
+DevOnionX offers development and related technology services that may include the following.
 
-Our services may include the following:
+### 4.1 Website and Software Development
 
-### 4.1 Development Services
-
-- Custom web development.
-- Frontend development.
-- Backend development.
-- Full-stack development.
-- React.js and Next.js application development.
+- Custom website development.
+- Frontend, backend, and full-stack development.
+- React.js and Next.js development.
 - REST API development and integration.
-- Database design and development.
+- Database design and implementation.
 - Authentication and role-based access systems.
-
-### 4.2 Product Development
-
-- SaaS development.
-- Dashboard and CRM systems.
-- E-commerce development.
-- Business management platforms.
-- Education and institution management systems.
-- Custom web applications.
-- Landing pages and business websites.
-
-### 4.3 Design and Support Services
-
-- UI/UX design.
 - Website redesign and modernization.
-- Website maintenance.
+
+### 4.2 Digital Product Development
+
+- SaaS products and platforms.
+- E-commerce websites and storefronts.
+- Business dashboards and management systems.
+- CRM and ERP solutions.
+- Education and institution management platforms.
+- Custom business applications and landing pages.
+
+### 4.3 Design, Integration, and Support
+
+- UI/UX design and implementation.
+- AI integration and automation.
 - Performance optimization.
-- Technical support.
-- Bug fixing and troubleshooting.
+- Domain, hosting, and deployment assistance.
+- Website maintenance and bug fixing.
+- Technical support and troubleshooting.
 
-The exact services provided for a particular project will depend on the agreed project scope, technical requirements, availability, and written agreement.
+The services included in a specific project will be determined by the agreed scope and written confirmation.
 
-We reserve the right to decline projects that are outside our capabilities, unavailable within the requested timeline, or otherwise inappropriate for our business.
+We may decline work that is outside our capabilities, cannot reasonably be delivered within the proposed constraints, or would violate applicable law or contractual obligations.
 
 ## 05. Project Scope and Agreements
 
-Every project should have a clearly defined scope of work before development begins.
+Before work begins, the client and DevOnionX should establish the project's requirements and scope in writing.
 
-Depending on the project, the scope may be documented through:
+Depending on the project, this may be documented through a proposal, SOW, service agreement, written confirmation, or another mutually accepted document.
 
-- A project proposal.
-- A Statement of Work (SOW).
-- A service agreement.
-- A written project confirmation.
-- Another mutually agreed written document.
-
-The project agreement should identify the relevant details, including:
+The agreement may specify:
 
 - Project objectives and requirements.
-- Scope of services.
-- Deliverables.
-- Development milestones.
-- Estimated timeline.
-- Pricing and payment terms.
-- Client responsibilities.
-- Revision arrangements.
-- Intellectual property ownership.
-- Maintenance and support arrangements, where applicable.
+- Services and deliverables.
+- Milestones and estimated timelines.
+- Pricing and payment arrangements.
+- Client responsibilities and required access.
+- Revisions and approval procedures.
+- Intellectual property ownership and transfer conditions.
+- Deployment, maintenance, and support arrangements.
 
-### 5.1 Scope Changes
+### 5.1 Changes to Project Scope
 
-Requests that fall outside the agreed project scope may require additional time, resources, and payment.
+Requests that fall outside the agreed scope may require additional time, resources, and payment.
 
-We will discuss significant changes with the client before proceeding.
+We will discuss material changes with the client before proceeding with chargeable additional work. Where appropriate, the change will be documented through written approval, a revised proposal, or an additional SOW.
 
-Where necessary, additional work will be documented through a revised proposal, written approval, or additional SOW.
-
-We are not obligated to provide additional features, services, or deliverables that have not been included in the agreed scope.
+DevOnionX is not obligated to provide features, integrations, or deliverables that are not included in the agreed scope.
 
 ### 5.2 Project Communication
 
-Project requirements, approvals, change requests, and important decisions should be documented in writing.
+Important requirements, approvals, change requests, and project decisions should be documented in writing through the agreed communication channels.
 
-Both parties should communicate promptly to avoid unnecessary delays and misunderstandings.
-
-A project-specific agreement may identify the authorized contacts responsible for communication and approval.
+Both parties should communicate promptly and provide the information or approvals reasonably required to keep the project moving.
 
 ## 06. Pricing and Payment
 
-The pricing of our services depends on the project requirements, complexity, scope, timeline, and agreed deliverables.
+Project pricing depends on the requirements, complexity, scope, timeline, and agreed deliverables.
 
-Project pricing may be established through:
+Pricing may be established through a fixed-price proposal, milestone-based arrangement, or recurring service agreement.
 
-- A fixed-price quotation.
-- A project-specific proposal.
-- Milestone-based pricing.
-- A separately agreed recurring service arrangement.
+The applicable quotation, invoice, proposal, or written agreement will specify the relevant pricing and payment schedule.
 
-The applicable pricing and payment schedule will be communicated to the client before the relevant project work begins.
+### 6.1 Payment Arrangements
 
-### 6.1 Payment Terms
+Depending on the project, payment may be arranged through an advance payment, milestone payments, payment upon delivery, or another mutually agreed schedule.
 
-Payment terms will be determined by the applicable proposal, invoice, SOW, or written agreement.
-
-Depending on the project, payment arrangements may include:
-
-- An advance payment.
-- Milestone payments.
-- Payments upon delivery.
-- Other mutually agreed payment arrangements.
-
-The client is responsible for making payments according to the agreed schedule.
+The client is responsible for making payments according to the agreed terms.
 
 ### 6.2 Additional Work
 
-Additional features, scope changes, integrations, or services not included in the original agreement may require additional charges.
+New features, additional pages, integrations, substantial redesigns, or other work outside the agreed scope may incur additional charges.
 
-We will communicate the relevant additional costs and obtain appropriate approval before proceeding with chargeable additional work.
+We will communicate the relevant cost and obtain appropriate approval before proceeding with chargeable additional work.
 
 ### 6.3 Late Payments
 
-If a client fails to make a payment when due, we may contact the client to resolve the outstanding payment.
+If a payment becomes overdue, DevOnionX may contact the client to resolve the outstanding amount.
 
-Where permitted by the applicable agreement and law, we may suspend affected project work or services until the payment issue is resolved.
+Where permitted by the applicable agreement and law, we may pause affected work or services until the payment issue is resolved.
 
-Any applicable late payment charges must be expressly agreed upon or otherwise permitted by applicable law.
+Late payment charges will apply only where expressly agreed or otherwise permitted by applicable law.
 
-### 6.4 Taxes and Third-Party Costs
+### 6.4 Third-Party Costs and Taxes
 
-Project quotations will specify applicable charges and payment responsibilities.
+Domain registration, hosting, software licenses, paid APIs, subscriptions, cloud infrastructure, and other third-party expenses will be handled according to the project agreement.
 
-Where relevant, the client may be responsible for separately agreed expenses, third-party subscriptions, hosting fees, domain registration, paid software licenses, and other external service costs.
+Where the client is responsible for such expenses, the relevant costs and payment arrangements should be communicated clearly.
 
 Applicable taxes will be handled according to the relevant agreement and applicable law.
 
 ## 07. Client Responsibilities
 
-Clients are responsible for providing the information, materials, approvals, and access necessary for the agreed project.
+Clients are responsible for providing the information, materials, access, and approvals reasonably necessary for the agreed project.
 
-Client responsibilities may include:
+Responsibilities may include:
 
-- Providing accurate project requirements.
-- Supplying necessary content, images, documents, and other materials.
+- Providing accurate requirements and project information.
+- Supplying approved content, images, branding, and documents.
 - Providing timely feedback and approvals.
-- Ensuring that supplied materials may legally be used for the project.
-- Providing necessary access to relevant accounts, systems, repositories, or services.
+- Ensuring they have the necessary rights to supplied materials.
+- Providing appropriate access to accounts, repositories, and services.
 - Reviewing deliverables within the agreed review period.
-- Making payments according to the agreed payment schedule.
-- Identifying relevant business, technical, and legal requirements.
+- Making payments according to the agreed schedule.
+- Informing us of relevant business, technical, and legal requirements.
 
-Clients must not provide credentials, personal information, or confidential information that they are not authorized to share.
+Clients must not share credentials, personal information, or confidential information they are not authorized to disclose.
 
-Clients are responsible for maintaining appropriate ownership, permission, and licensing rights for materials they provide.
+Clients are responsible for maintaining appropriate rights, permissions, and licenses for materials they provide.
 
-If client delays, incomplete information, unavailable approvals, or access restrictions affect project progress, the project timeline may need to be adjusted.
+Delays caused by missing information, unavailable access, late approvals, or other client dependencies may require the project timeline to be adjusted. Material changes should be communicated and documented where appropriate.
 
-Any significant timeline changes will be communicated and documented where appropriate.
+## 08. Project Development, Review, and Delivery
 
-## 08. Intellectual Property Rights
+Project development follows the scope, milestones, and timeline agreed upon with the client.
 
-Intellectual property ownership and usage rights are important parts of our project agreements.
+Our typical delivery process includes:
 
-The ownership of project deliverables will be determined by the applicable proposal, SOW, or written agreement.
+1. **Project Development:** We work on the agreed design, functionality, integrations, and technical requirements.
+2. **Project Review:** The client reviews the relevant deliverables and provides feedback within the agreed review period.
+3. **Final Delivery:** We provide the agreed final deliverables and arrange handover according to the project agreement.
 
-### 8.1 Client Materials
+The exact stages and deliverables may vary by project.
 
-Materials supplied by the client, including text, images, branding, documents, and other content, remain subject to the client's ownership and applicable rights.
+### 8.1 Timelines
 
-The client grants DevOnionX the necessary permission to use those materials solely for performing the agreed services.
+Project timelines are estimates unless a binding deadline is expressly agreed in writing.
 
-The client represents that it has the necessary rights or permissions to provide those materials.
+Delivery may depend on project complexity, client feedback, access to required materials, third-party services, scope changes, and technical circumstances.
 
-### 8.2 Project Deliverables
+If a material issue affects the timeline, we will communicate the situation and discuss reasonable adjustments.
 
-Ownership and transfer of project-specific deliverables, including source code, designs, documentation, and other agreed materials, will be determined by the applicable project agreement.
+### 8.2 Revisions
 
-Where a project agreement provides for ownership transfer upon completion of payment, that transfer will take place according to the agreed conditions.
+Revision allowances and approval procedures will be determined by the project agreement.
 
-Until the applicable ownership transfer conditions are satisfied, the relevant rights remain subject to the project agreement and applicable law.
+Revisions should relate to the agreed requirements and deliverables. New features, additional integrations, substantial redesigns, or changes to previously approved requirements may be treated as additional work.
 
-### 8.3 Pre-Existing and Reusable Materials
+Such work may require additional payment, a revised timeline, or separate written approval.
 
-DevOnionX may use pre-existing tools, libraries, reusable components, development methods, technical knowledge, and general-purpose materials when providing services.
+### 8.3 Client Review and Approval
 
-Unless otherwise expressly agreed, the provision of project services does not automatically transfer ownership of our pre-existing or independently developed reusable materials.
+Clients should review submitted deliverables and communicate any concerns within the agreed review period.
 
-Any such materials incorporated into a project will remain subject to their applicable ownership, licensing, and usage conditions.
+Any formal acceptance process or approval deadline will be established in the project agreement. Where no specific process exists, both parties should communicate in writing to clarify outstanding issues and delivery status.
 
-### 8.4 Third-Party Components
+## 09. Warranty and Bug Fixes
 
-Projects may include third-party libraries, frameworks, software, fonts, images, APIs, or other components.
+DevOnionX aims to deliver work in accordance with the agreed project requirements and applicable written agreement.
 
-Those components remain subject to their respective licenses and terms.
+Unless a project-specific agreement provides otherwise, we offer a **14-calendar-day bug-fix period following final delivery** for reproducible defects within the approved project scope.
 
-The client is responsible for complying with applicable third-party licensing requirements for components that the client uses or controls after delivery.
+### 9.1 What Is Covered
 
-The ownership and licensing of third-party materials will not be altered by these Terms.
+During the applicable bug-fix period, we will review and address reproducible defects that cause the delivered work to materially fail to meet the agreed requirements.
 
-### 8.5 Portfolio and Project References
+Reported issues should include enough information for us to reproduce and assess the problem.
 
-DevOnionX may request permission to display completed project work, screenshots, or project descriptions in its portfolio or marketing materials.
+### 9.2 What Is Not Covered
 
-We will respect applicable confidentiality obligations and any written restrictions agreed with the client.
+The bug-fix period does not automatically include:
 
-Where a project is confidential or subject to an NDA, we will not publicly disclose protected project information without appropriate authorization or another lawful basis.
+- New features or functionality.
+- New pages or additional integrations.
+- Design changes or preference-based revisions beyond the agreed scope.
+- Problems caused by unauthorized modifications.
+- Issues caused by client-controlled systems, incorrect configuration, or misuse.
+- Third-party service interruptions, API changes, or provider-side failures outside our control.
 
-## 09. Third-Party Services
+We will assess issues involving third-party services according to the project agreement and the circumstances of the issue.
 
-Our projects may require third-party services, software, APIs, hosting platforms, payment providers, or other external technologies.
+### 9.3 After the Bug-Fix Period
 
-Examples may include:
+After the applicable bug-fix period, further maintenance, updates, troubleshooting, or development may require a separate support or maintenance agreement.
 
-- Website hosting and deployment platforms.
-- Domain registration providers.
-- Cloud infrastructure.
-- Authentication services.
-- Payment gateways.
-- Third-party APIs.
-- Software libraries and frameworks.
-- External communication services.
+Any additional warranty or service commitment expressly agreed in writing will take precedence for the matters it covers, subject to applicable law.
 
-Third-party services are generally governed by their own terms, licenses, availability, and privacy policies.
+## 10. Intellectual Property Rights
 
-Where third-party services are required for a project, the relevant arrangements and responsibilities should be identified in the project agreement.
+Intellectual property ownership and usage rights are determined by the applicable project agreement and relevant law.
 
-Unless expressly agreed otherwise, DevOnionX does not control the independent operations, policies, pricing, availability, or future changes of third-party providers.
+### 10.1 Client Materials
 
-Clients may be required to maintain their own accounts, subscriptions, licenses, or payment arrangements with third-party providers.
+Text, images, branding, documents, and other materials supplied by the client remain subject to the client's ownership and applicable rights.
 
-We are not responsible for third-party service interruptions or changes outside our reasonable control, subject to applicable law and the relevant project agreement.
+The client grants DevOnionX permission to use those materials as reasonably necessary to perform the agreed services.
 
-## 10. Project Delivery and Revisions
+The client confirms that it has the necessary rights or permissions to provide those materials.
 
-Project delivery will follow the scope, milestones, and timeline agreed upon with the client.
+### 10.2 Project Deliverables
 
-Our development process may include:
+Ownership and transfer of project-specific deliverables, including agreed source code, designs, and documentation, will be determined by the applicable written agreement.
 
-1. Strategy and requirement planning.
-2. UI/UX design.
-3. Development.
-4. Testing and quality assurance.
-5. Deployment.
-6. Support and improvement.
+Where ownership transfer is conditional on full payment or another agreed requirement, transfer will take place according to those conditions.
 
-The applicable project agreement will determine which stages and deliverables are included.
+Until the relevant transfer conditions are satisfied, the applicable rights remain subject to the agreement and applicable law.
 
-### 10.1 Delivery Timeline
+### 10.3 Pre-Existing and Reusable Materials
 
-Project timelines are estimates unless expressly agreed as binding deadlines in a written agreement.
+Unless otherwise expressly agreed in writing, DevOnionX retains ownership of its pre-existing tools, reusable components, general-purpose libraries, development methods, technical knowledge, and independently developed materials.
 
-Timelines may depend on:
+Where such materials are incorporated into a project, the client's rights to use them will be governed by the applicable agreement and any relevant license.
 
-- Project complexity.
-- Client feedback and approvals.
-- Availability of required materials.
-- Third-party services.
-- Scope changes.
-- Technical issues.
-- Other circumstances affecting delivery.
+Nothing in these Terms automatically transfers ownership of our reusable tools or pre-existing intellectual property.
 
-If circumstances affect the agreed timeline, we will communicate relevant changes and discuss appropriate adjustments.
+### 10.4 Third-Party Components
 
-### 10.2 Revisions
+Projects may include third-party libraries, frameworks, fonts, images, APIs, software, or other components.
 
-The number and scope of revisions will be determined by the applicable project agreement.
+These components remain subject to their respective licenses and terms. Their ownership and licensing conditions are not changed by these Terms.
 
-Revision requests should relate to the agreed deliverables and project requirements.
+Clients must comply with applicable third-party licensing requirements for components they use or control after delivery.
 
-Requests for new features, additional pages, significant redesigns, or changes to approved requirements may be treated as additional work.
+### 10.5 Portfolio and Project References
 
-Additional work may require a revised timeline, additional payment, or a separate written agreement.
+DevOnionX may request permission to showcase completed work, screenshots, or project descriptions in its portfolio or marketing materials.
 
-### 10.3 Client Review and Approval
+We will respect applicable confidentiality obligations, NDAs, and written restrictions agreed with the client.
 
-Clients are responsible for reviewing deliverables and providing feedback within the agreed review period.
+Where a project is confidential or subject to an applicable restriction, we will not publicly disclose protected project information without appropriate authorization or another lawful basis.
 
-Any acceptance process, review period, or approval requirements will be established in the project agreement.
+## 11. Third-Party Services and AI Tools
 
-Where no specific acceptance procedure has been agreed, the parties should communicate in writing to confirm the status of delivery and any outstanding issues.
+Projects may depend on external providers, software, APIs, hosting platforms, payment gateways, cloud infrastructure, authentication systems, and other technologies.
 
-## 11. Maintenance and Support
+Third-party services are generally governed by their own terms, licenses, pricing, privacy policies, and availability.
 
-DevOnionX may provide website maintenance, technical support, bug fixing, performance improvements, and other post-launch services.
+Where applicable, the client may need to maintain its own accounts, subscriptions, licenses, and payment arrangements with these providers.
 
-The scope of maintenance and support will depend on the applicable project agreement or service arrangement.
+DevOnionX does not control independent third-party operations, pricing decisions, policy changes, or service availability.
 
-### 11.1 Included Support
+Where AI tools or AI-powered services are used as part of a project, their use will depend on the agreed requirements and relevant service terms. AI-generated output may require human review, testing, and verification before use.
 
-Where included in a project agreement, support may cover:
+We will handle our project responsibilities according to the applicable agreement and law. We do not guarantee the uninterrupted operation or continued compatibility of independent third-party services.
 
-- Troubleshooting project-related issues.
-- Fixing agreed defects.
-- Technical guidance.
-- Deployment assistance.
-- Relevant updates and improvements.
+## 12. Maintenance and Technical Support
 
-The specific scope, duration, and availability of support will be determined by the applicable agreement.
+DevOnionX may provide website maintenance, troubleshooting, bug fixing, performance improvements, deployment assistance, and other technical support.
 
-### 11.2 Excluded Work
+The scope, duration, and availability of these services will be determined by the applicable agreement.
 
-Unless expressly included in the agreement, maintenance and support do not automatically include:
+### 12.1 Included Support
 
-- New features.
-- Major redesigns.
-- Additional integrations.
-- Third-party subscription fees.
-- Hosting or domain charges.
-- Issues caused by unauthorized modifications.
-- Work on unrelated systems.
-- Additional development beyond the agreed support scope.
+Where expressly included, support may cover project-related defects, troubleshooting, agreed deployment assistance, technical guidance, and other specified services.
+
+### 12.2 Excluded Work
+
+Unless included in the agreement, maintenance and support do not automatically cover:
+
+- New features or major redesigns.
+- Additional integrations or unrelated systems.
+- Hosting, domain, subscription, or software license fees.
+- Issues caused by unauthorized changes.
+- Work beyond the agreed support scope.
 
 Additional work may be quoted separately.
 
-### 11.3 Support Availability
+### 12.3 Support Availability
 
-Support availability, response expectations, and service arrangements will be communicated through the applicable project agreement.
+Support channels may include email, WhatsApp, or agreed project management tools.
 
-We do not guarantee continuous availability or a specific response time unless expressly agreed in writing.
+Response expectations, support hours, and service commitments will be determined by the relevant agreement. We do not guarantee continuous availability or a specific response time unless expressly agreed in writing.
 
-## 12. Cancellation and Termination
+## 13. Cancellation, Suspension, and Termination
 
-A project or service may be cancelled or terminated according to the applicable written agreement and applicable law.
+A project or service may be cancelled, suspended, or terminated according to the applicable written agreement and applicable law.
 
-### 12.1 Client Cancellation
+### 13.1 Client Cancellation
 
-Clients wishing to cancel a project or service should notify DevOnionX in writing.
+Clients wishing to cancel a project should notify DevOnionX in writing.
 
-The parties should review:
+The parties should review completed work, outstanding payments, approved additional work, deliverables already provided, and agreed third-party expenses.
 
-- Work completed before cancellation.
-- Outstanding payments.
-- Approved additional work.
-- Deliverables already provided.
-- Third-party expenses.
-- Any applicable cancellation provisions.
+Any refund or remaining payment will be determined by the applicable agreement, the work performed, relevant costs, and applicable law. These Terms do not establish a universal refund entitlement or a blanket non-refundable advance payment rule.
 
-The financial consequences of cancellation will be determined by the applicable agreement and applicable law.
+### 13.2 Termination for Breach
 
-### 12.2 Termination for Breach
+Where a party materially breaches an applicable agreement, the other party may provide written notice describing the issue and requesting appropriate resolution.
 
-Where a party materially breaches an applicable agreement, the other party may provide written notice identifying the breach and requesting appropriate resolution.
+Where the breach remains unresolved within an applicable agreed cure period, the affected party may exercise the termination rights available under the agreement and applicable law.
 
-Where the breach is not resolved within an applicable agreed cure period, the affected party may exercise the termination rights available under the agreement and applicable law.
+### 13.3 Suspension
 
-Immediate termination may be available where permitted by the applicable agreement or law.
-
-### 12.3 Suspension
-
-Where permitted by the applicable agreement and law, DevOnionX may suspend affected services if:
+Where permitted by the agreement and applicable law, DevOnionX may suspend affected work or services if:
 
 - Required payments remain outstanding.
-- The client fails to provide necessary project information or access.
-- The client requests unlawful or unauthorized work.
+- Necessary information or access is not provided.
+- A request involves unlawful or unauthorized activity.
 - A security risk requires temporary suspension.
 - Continued work would violate applicable law or contractual obligations.
 
-We will communicate the relevant issue and any appropriate steps for resolving it.
+We will communicate relevant issues and reasonable steps for resolution where appropriate.
 
-### 12.4 Effect of Termination
+### 13.4 Effect of Termination
 
-Upon termination, the parties will address outstanding obligations according to the applicable agreement.
+Upon termination, the parties will address outstanding obligations under the applicable agreement.
 
-These may include:
+These may include payment for completed work, agreed expenses, handling of confidential information, transfer of deliverables where required, and removal of access to relevant systems.
 
-- Payment for completed and approved work.
-- Settlement of agreed expenses.
-- Return or handling of confidential information.
-- Transfer of deliverables where required by the agreement.
-- Removal of access to relevant systems.
-- Continuing confidentiality obligations.
+Termination does not automatically transfer ownership of unpaid deliverables or eliminate outstanding contractual obligations.
 
-Termination does not automatically transfer ownership of unpaid deliverables or waive outstanding contractual obligations.
+## 14. Warranties, Liability, and Website Availability
 
-## 13. Warranties and Liability
+DevOnionX aims to perform agreed services with reasonable professional care and in accordance with the applicable project requirements.
 
-DevOnionX aims to provide professional development services in accordance with the agreed project requirements.
+### 14.1 Website Availability
 
-However, website services and software development involve technical limitations, external dependencies, and circumstances outside our reasonable control.
+We do not guarantee that our public website will always be available, uninterrupted, or free from errors.
 
-### 13.1 Service Quality
+We may modify, maintain, or temporarily suspend website features for operational, technical, or security reasons.
 
-We will perform agreed services with reasonable professional care and according to the applicable project agreement.
+### 14.2 External Dependencies
 
-Any specific warranty, correction period, or service commitment must be established in the relevant written agreement.
+Software projects may rely on hosting providers, APIs, libraries, infrastructure, and other third-party services.
 
-### 13.2 Website Availability
+We cannot guarantee the continued availability, pricing, compatibility, or performance of independently operated third-party services.
 
-We do not guarantee that our website will always be available, uninterrupted, error-free, or compatible with every device, browser, or third-party service.
+Our responsibilities for problems affecting a project will be determined by the applicable agreement and relevant law.
 
-We may temporarily modify, suspend, or discontinue website features for maintenance, security, technical, or operational reasons.
+### 14.3 Limitation of Liability
 
-### 13.3 Third-Party Dependencies
+To the extent permitted by applicable law, DevOnionX will not be liable for indirect, incidental, special, or consequential losses arising from the use of our website or services.
 
-Software projects may depend on third-party services, APIs, hosting providers, libraries, and infrastructure.
+Nothing in these Terms excludes or limits liability for fraud, intentional misconduct, or any liability that cannot lawfully be excluded or limited.
 
-We do not guarantee the continued availability, pricing, compatibility, or performance of services operated independently by third parties.
+Any project-specific liability limits, warranties, remedies, or indemnification arrangements must be established in the applicable written agreement.
 
-Where third-party issues affect a project, we will address our responsibilities according to the applicable agreement.
+These Terms do not remove responsibility for our contractual obligations or conduct where liability cannot legally be excluded.
 
-### 13.4 Limitation of Liability
+### 14.4 Client Responsibilities
 
-To the extent permitted by applicable law, DevOnionX will not be liable for indirect, incidental, special, or consequential losses arising from the use of our website or services, except where such liability cannot lawfully be excluded.
-
-Nothing in these Terms excludes or limits liability for fraud, intentional misconduct, or any liability that cannot be excluded or limited under applicable law.
-
-Any project-specific liability limits, warranties, remedies, or indemnification arrangements must be expressly established in the applicable written agreement.
-
-These Terms do not create a blanket exclusion of liability for our own contractual obligations or unlawful conduct.
-
-### 13.5 Client Responsibility
-
-Clients are responsible for ensuring that their intended use of project deliverables complies with applicable laws, regulations, third-party licenses, and relevant business requirements.
+Clients are responsible for ensuring that their use of delivered work complies with applicable laws, third-party licenses, and relevant business requirements.
 
 Clients should maintain appropriate backups, account security, access controls, and operational arrangements for systems under their control.
 
-## 14. Governing Law
+## 15. Governing Law and Disputes
 
-These Terms are governed by the applicable laws of Bangladesh.
+These Terms are governed by the applicable laws of Bangladesh, subject to any mandatory laws that apply to the relevant parties or transaction.
 
-Any dispute arising from the use of our website or services should initially be addressed through good-faith communication between the relevant parties.
+The parties should initially attempt to resolve disputes through good-faith communication.
 
 Where a project-specific agreement establishes a dispute resolution process, the parties should follow that process to the extent applicable.
 
-If a dispute cannot be resolved through appropriate communication or agreed dispute resolution procedures, it may be referred to the competent courts or other lawful dispute resolution mechanisms in Bangladesh, subject to applicable law.
+If a dispute cannot be resolved through appropriate communication or agreed procedures, it may be referred to the competent courts or other lawful dispute resolution mechanisms in Bangladesh, subject to applicable law.
 
-Nothing in these Terms limits any rights or remedies that cannot legally be waived or restricted.
+Nothing in these Terms restricts rights or remedies that cannot legally be waived or limited.
 
-## 15. Contact Information
+## 16. Contact Information
 
 If you have questions about these Terms, our services, or a project agreement, please contact us.
 
 **DevOnionX**
-Website: [https://www.devonionx.com](https://www.devonionx.com)
-Email: [devonionx@gmail.com](mailto:devonionx@gmail.com)
-Phone / WhatsApp: +8801566068310
-Business Location: Kobirpur, Savar, Dhaka, Bangladesh
-Authorized Representative: Al Mahmud, CEO
 
-For project-specific matters, please include the relevant project name or agreement reference when contacting us.
+- Website: [https://www.devonionx.com](https://www.devonionx.com)
+- Email: [devonionx@gmail.com](mailto:devonionx@gmail.com)
+- Phone / WhatsApp: +8801566068310
+- Business location: Kobirpur, Savar, Dhaka, Bangladesh
+- Authorized representative: Al Mahmud, Founder & CEO
 
-These Terms of Service should be read together with our [Privacy Policy](/privacy-policy) and any applicable project-specific proposal, Statement of Work, NDA, or written agreement.
+For project-specific inquiries, please include the relevant project name or agreement reference where applicable.
+
+These Terms should be read together with our [Privacy Policy](/privacy-policy) and any applicable project proposal, SOW, NDA, or written agreement.
 `;
 
 export default function TermsOfServicePage() {
   return (
     <LegalLayout
       title="Terms of Service"
+      description="The terms that apply when you visit DevOnionX or engage us for custom web development, SaaS and e-commerce platforms, UI/UX design, AI integration, deployment, and ongoing support."
       updated={LAST_UPDATED}
       content={CONTENT}
     />
