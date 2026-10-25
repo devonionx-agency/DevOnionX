@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
+import ConsentPopup from "@/components/legal/ConsentPopup";
 
 const geistSans = Geist({
   variable: "--font-geist",
@@ -19,12 +20,50 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.devonionx.com"),
+
   title: {
-    default: "DevOnionX",
+    default: "DevOnionX | Web Development & Software Solutions",
     template: "%s | DevOnionX",
   },
+
   description:
-    "We partner with startups and growing businesses to create world-class websites, SaaS platforms, and digital products that deliver real results.",
+    "DevOnionX builds modern websites, e-commerce platforms, SaaS products, and custom software solutions for businesses ready to grow.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "DevOnionX | Web Development & Software Solutions",
+    description:
+      "We build modern websites, e-commerce platforms, SaaS products, and custom software solutions for growing businesses.",
+    url: "https://www.devonionx.com",
+    siteName: "DevOnionX",
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "DevOnionX | Web Development & Software Solutions",
+    description:
+      "Modern websites, e-commerce platforms, SaaS products, and custom software solutions for growing businesses.",
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.devonionx.com/#organization",
+  name: "DevOnionX",
+  alternateName: "DevOnion",
+  url: "https://www.devonionx.com",
 };
 
 export default function RootLayout({ children }) {
@@ -35,7 +74,16 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <NextTopLoader color="#FF5101" showSpinner={false} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
         {children}
+          <ConsentPopup />
         <Toaster position="top-right" richColors closeButton />
       </body>
     </html>

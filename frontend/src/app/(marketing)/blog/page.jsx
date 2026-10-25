@@ -5,9 +5,20 @@ import LatestInsights from "@/components/sections/blog/LatestInsights";
 import { blogPageHeroData } from "@/helper/pageHero";
 
 export const metadata = {
-  title: "Insights — DevOnionX",
+  title: "Blog | Web Development & Technology Insights",
   description:
-    "Explore deep dives into AI, web engineering, design systems, and the real stories behind the products we ship.",
+    "Explore DevOnionX articles on web development, website performance, e-commerce, SaaS, and practical technology insights for growing businesses.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "DevOnionX Blog | Web Development Insights",
+    description:
+      "Read practical insights on web development, modern technologies, and building better digital products.",
+    url: "/blog",
+    siteName: "DevOnionX",
+    type: "website",
+  },
 };
 
 const Blog = () => {

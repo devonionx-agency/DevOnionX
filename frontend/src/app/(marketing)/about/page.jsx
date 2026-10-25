@@ -3,21 +3,40 @@ import PageHero from "@/components/common/PageHero";
 import { aboutPageHeroData } from "@/helper/pageHero";
 import AboutStory from "@/components/sections/about/AboutStory";
 import AboutMissionVision from "@/components/sections/about/AboutMissionVision";
+import AboutTeam from "@/components/sections/about/AboutTeam";
+import AboutValues from "@/components/sections/about/AboutValues";
+import AboutWhyChooseUs from "@/components/sections/about/AboutWhyChooseUs";
+import AboutIndustries from "@/components/sections/about/AboutIndustries";
+import FaqHome from "@/components/sections/FaqHome";
 
 export const metadata = {
-  title: "About Us — DevOnionX",
+  title: "About Us | Web Development Team — DevOnionX",
   description:
-    "We're a team of obsessive builders, strategic thinkers, and relentless problem-solvers united to build world-class digital products.",
+    "Meet DevOnionX, a web development and software engineering team building modern websites, e-commerce platforms, SaaS products, and custom software for growing businesses.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Us | DevOnionX",
+    description:
+      "Get to know DevOnionX, our team, values, and approach to building reliable web and software solutions for growing businesses.",
+    url: "/about",
+    siteName: "DevOnionX",
+    type: "website",
+  },
 };
 
 const About = () => {
   return (
     <>
       <PageHero {...aboutPageHeroData} />
-      <div id="about-story">
-        <AboutStory />
-      </div>
+      <AboutStory />
       <AboutMissionVision />
+      <AboutValues />
+      <AboutWhyChooseUs />
+      <AboutIndustries />
+      <AboutTeam />
+      <FaqHome />
     </>
   );
 };

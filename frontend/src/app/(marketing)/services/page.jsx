@@ -6,9 +6,20 @@ import TechnologyStack from "@/components/sections/services/TechnologyStack";
 import HowWeWork from "@/components/sections/services/HowWeWork";
 
 export const metadata = {
-  title: "Services — DevOnionX",
+  title: "Web Development Services",
   description:
-    "We help ambitious businesses turn ideas into powerful digital products built to solve real problems, deliver exceptional experiences, and grow with your business.",
+    "Explore DevOnionX services, including custom website development, e-commerce solutions, SaaS platforms, and tailored software for growing businesses.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Web Development Services | DevOnionX",
+    description:
+      "Discover custom websites, e-commerce platforms, SaaS products, and software solutions built around your business needs.",
+    url: "/services",
+    siteName: "DevOnionX",
+    type: "website",
+  },
 };
 
 const Services = () => {
