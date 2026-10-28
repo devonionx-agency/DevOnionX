@@ -14,6 +14,8 @@ import {
   SiPostman,
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
+import Container from "@/components/ui/Container";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const technologies = [
   { name: "React", icon: SiReact },
@@ -32,21 +34,18 @@ const technologies = [
 
 export default function TechStackHome() {
   return (
-    <section className="bg-[#F5F5F2] px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-      <div className="mx-auto max-w-[1440px]">
+    <section className="bg-[#F5F5F2] px-5 pt-20 sm:px-8 sm:pt-24 lg:px-12 lg:pt-28">
+      <Container size="hero">
         <div className="mx-auto mb-16 max-w-3xl text-center sm:mb-20">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-[#174B3A] sm:text-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#174B3A] sm:text-sm">
             Technology Stack
           </p>
-
-          <h2 className="mx-auto max-w-2xl text-4xl font-bold leading-[1.08] tracking-[-0.045em] text-[#171717] sm:text-5xl lg:text-[60px]">
-            Powered by Modern Technologies
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-[#666666] sm:text-lg sm:leading-8">
-            We leverage industry-leading technologies to build scalable, secure,
-            and high-performance digital products.
-          </p>
+          <SectionHeader
+            text="Modern Technologies We Work With"
+            colorWord="Work With"
+            description="We leverage industry-leading technologies to build scalable, secure,
+            and high-performance digital products."
+          />
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-6 lg:gap-10">
@@ -68,7 +67,7 @@ export default function TechStackHome() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
