@@ -20,7 +20,7 @@ const PIN_QUERY =
   "(min-width: 1024px) and (min-height: 640px) and (prefers-reduced-motion: no-preference)";
 
 const ProcessHome = () => {
-  const rootRef = useRef(null);
+   const rootRef = useRef(null);
   const stageRef = useRef(null);
 
   useGSAP(
@@ -150,7 +150,17 @@ const ProcessHome = () => {
         };
       });
 
-      return () => mm.revert();
+      // Font/layout settle hole ScrollTrigger er position abar calculate koro
+      const refresh = () => ScrollTrigger.refresh();
+      document.fonts?.ready.then(refresh);
+      window.addEventListener("load", refresh);
+      const t = setTimeout(refresh, 300);
+
+      return () => {
+        clearTimeout(t);
+        window.removeEventListener("load", refresh);
+        mm.revert();
+      };
     },
     { scope: rootRef },
   );
@@ -160,7 +170,7 @@ const ProcessHome = () => {
       ref={rootRef}
       id="process"
       aria-labelledby="process-heading"
-      className="group/process overflow-x-clip bg-[#F5F5F2] py-20 lg:py-28"
+      className="group/process relative isolate overflow-x-clip bg-[#F5F5F2] py-20 lg:py-28"
     >
       <Container size="hero">
         {/* Heading area */}
