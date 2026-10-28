@@ -1,15 +1,14 @@
 import dynamic from "next/dynamic";
 
-import TrustMetrics from "@/components/sections/TrustMetrics";
-import FaqHome from "@/components/sections/FaqHome";
-import HeroSectionThree from "@/components/sections/home/HeroSectionThree";
-import HeroSectionTwo from "@/components/sections/home/HeroSectionTwo";
+
+import HeroHome from "@/components/sections/home/HeroHome";
 import ProcessHome from "@/components/sections/home/ProcessHome";
-import WhatYouGet from "@/components/sections/home/WhatYouGet";
 import AboutSection from "@/components/sections/home/AboutSection";
 import WorkSection from "@/components/sections/home/WorkSection";
 import TrustHome from "@/components/sections/home/TrustHome";
 import ServicesHome from "@/components/sections/home/ServicesHome";
+import FaqHome from "@/components/sections/FaqHome";
+import TechStackHome from "@/components/sections/home/TechStackHome";
 
 const Testimonials = dynamic(
   () => import("@/components/sections/Testimonials"),
@@ -18,14 +17,11 @@ const Testimonials = dynamic(
 export default function Page() {
   return (
     <>
-      <HeroSectionThree />
-      {/* <HeroSectionTwo /> */}
-       
+      <HeroHome />
       <TrustHome />
-       {/* <TrustMetrics /> */}
-      {/* <ProblemsSection /> */}
       <AboutSection />
       <ServicesHome />
+      <TechStackHome/>
       <ProcessHome/>
       {/* <WhatYouGet /> */}
       <WorkSection/>
