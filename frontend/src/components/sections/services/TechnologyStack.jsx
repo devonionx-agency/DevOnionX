@@ -14,6 +14,7 @@ import {
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Container from "@/components/ui/Container";
 
 const techs = [
   { name: "React", icon: SiReact, color: "#61DAFB" },
@@ -33,7 +34,7 @@ const techs = [
 function TechnologyStack() {
   return (
     <section className="bg-[#f5f5f2] px-4 py-20 sm:px-6 lg:px-10">
-      <div className="mx-auto max-w-6xl">
+      <Container size="hero">
         {/* Header */}
         <div className="flex flex-col items-center text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/60 px-5 py-2 text-sm font-bold uppercase tracking-[0.25em] text-[#0f1b3d]">
@@ -68,7 +69,7 @@ function TechnologyStack() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
