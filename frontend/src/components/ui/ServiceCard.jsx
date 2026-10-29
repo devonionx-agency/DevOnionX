@@ -23,13 +23,13 @@ export default function ServiceCard({
   // Desktop: rounded top corners. Every card except the last gets extra bottom padding equal to the
   // overlap (3.5rem), because the next card slides over that strip. Mobile: plain rounded cards, no overlap.
   const shape = isLast
-    ? "md:rounded-b-[3.5rem]"
+    ? "md:rounded-b-[25px]"
     : "md:rounded-b-none md:pb-[5.5rem] lg:pb-[6.5rem]";
 
   return (
     <article
       data-service-row
-      className={`rounded-3xl border p-5 sm:p-6 md:rounded-t-[3.5rem] md:p-8 lg:p-10 ${shape} ${tone.row} ${tone.border}`}
+      className={`rounded-2xl border p-5 sm:p-6 md:rounded-t-[25px] md:p-8 lg:p-10 ${shape} ${tone.row} ${tone.border}`}
     >
       <div className="grid gap-5 md:grid-cols-[2.5rem_minmax(0,1fr)_minmax(0,1.05fr)] md:items-center md:gap-8 lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
         <span
