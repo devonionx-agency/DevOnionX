@@ -153,7 +153,7 @@ export default function HeroHome() {
         {/* Soft subtle gradient on the left to ensure crisp text contrast without darkening video */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#02090F]/55 via-[#02090F]/55 to-[#02090F]/10"
         />
       </div>
 
@@ -176,22 +176,26 @@ export default function HeroHome() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="hero-headline mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-extrabold tracking-[-0.03em] leading-[1.08] text-white">
+            <h1 className="hero-headline mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-extrabold tracking-[-0.02em] leading-[1.1] text-white">
               <span className="block overflow-hidden pb-1">
                 <span className="hero-headline-line block">
-                  Turn your business vision into a platform
+                  Engineering Digital Solutions That
                 </span>
               </span>
+
               <span className="block overflow-hidden mt-1 sm:mt-2 pb-2">
-                <span className="hero-headline-line block">that grows</span>
+                <span className="hero-headline-line block">
+                  Drive Business Growth
+                </span>
               </span>
             </h1>
 
             {/* Subtitle / Description */}
-            <p className="hero-subtitle mt-5 max-w-[560px] text-sm sm:text-base md:text-lg font-normal leading-relaxed text-slate-200/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-              Startup ar growing business-er jonno high-performance website, web
-              app, SaaS, ERP/CRM ar AI automation banai. Strategy meeting theke
-              launch ar support porjonto, ekta team, clear timeline
+            <p className="hero-subtitle mt-5 max-w-[660px] text-sm sm:text-base md:text-lg font-normal leading-relaxed text-slate-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              DevOnionX helps startups and growing businesses build
+              high-performance websites, SaaS platforms, business systems, and
+              AI-powered solutions. From strategy to launch and ongoing support,
+              we engineer technology that moves your business forward.
             </p>
           </div>
 
@@ -214,7 +218,7 @@ export default function HeroHome() {
                 textColor="#ffffff"
                 textHoverColor="#0a0a0a"
                 shadowHover="0 0 25px 4px rgba(255,81,1,0.45)"
-                className="!bg-[#FF5101] !rounded-[5px] font-semibold shadow-[0_8px_25px_rgba(255,81,1,0.35)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95 py-3.5 sm:py-4 px-7 sm:px-8"
+                className="!bg-[#FF5101] !rounded-[5px] font-semibold shadow-[0_8px_25px_rgba(255,81,1,0.35)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95 py-3.5 sm:py-5 px-7 sm:px-8"
                 rightIcon={<ArrowRight size={18} />}
               />
 
@@ -229,7 +233,7 @@ export default function HeroHome() {
                 textColor="#ffffff"
                 textHoverColor="#ffffff"
                 shadowHover="0 0 25px 4px rgba(255,81,1,0.35)"
-                className="!bg-black/50 backdrop-blur-md !rounded-[5px] font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-95 py-3.5 sm:py-4 px-7 sm:px-8"
+                className="!bg-black/50 backdrop-blur-md !rounded-[5px] font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-95 py-3.5 sm:py-5 px-7 sm:px-8"
                 rightIcon={<ArrowRight size={18} />}
               />
             </div>
