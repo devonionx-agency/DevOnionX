@@ -37,14 +37,11 @@ export default function TechStackHome() {
     <section className="bg-[#F5F5F2] px-5 pt-20 sm:px-8 sm:pt-24 lg:px-12 lg:pt-28">
       <Container size="hero">
         <div className="mx-auto mb-16 max-w-3xl text-center sm:mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#174B3A] sm:text-sm">
-            Technology Stack
-          </p>
           <SectionHeader
+            label="Technology Stack"
             text="Modern Technologies We Work With"
             colorWord="Work With"
-            description="We leverage industry-leading technologies to build scalable, secure,
-            and high-performance digital products."
+            description="We leverage industry-leading technologies to build scalable, secure, and high-performance digital products."
           />
         </div>
 

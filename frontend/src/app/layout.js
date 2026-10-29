@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import ConsentPopup from "@/components/legal/ConsentPopup";
+import ScrollToTop from "@/components/layouts/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist",
@@ -74,7 +75,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         <NextTopLoader color="#FF5101" showSpinner={false} />
-
+          <ScrollToTop />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { companyLinks, serviceLinks, socialLinks } from "@/helper/footer";
 import { TbMessageCircleCode } from "react-icons/tb";
@@ -31,12 +31,12 @@ function FooterHeading({ children }) {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#03070C] text-white">
+    <footer className="relative overflow-hidden bg-[#0B1220] text-white">
       <Container size="hero">
         <div className="relative ">
           {/* CTA SECTION */}
           <section className="py-5">
-            <div className="relative overflow-hidden rounded-[24px] sm:rounded-[40px] border border-[#FF5101]/30 p-5 sm:p-8">
+            <div className="relative overflow-hidden rounded-3xl sm:rounded-[40px] border border-[#FF5101]/30 p-5 sm:p-8">
               <div className="relative z-10 grid gap-8 grid-cols-1 lg:grid-cols-2 lg:items-center">
                 <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-[#FF5101]/10 blur-[140px]" />
 
@@ -60,7 +60,7 @@ export default function Footer() {
 
                 {/* Right Side Card */}
                 <div className="w-full max-w-[480px] mx-auto lg:mx-0 relative z-10">
-                  <div className="rounded-[32px] border border-white/10 bg-white/3 p-4 lg:p-8">
+                  <div className="rounded-4xl border border-white/10 bg-white/3 p-4 lg:p-8">
                     <div className="flex items-center gap-4">
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF5101]/20 bg-[#FF5101]/10">
                         <TbMessageCircleCode className="h-6 w-6 text-[#FF5101]" />
