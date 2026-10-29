@@ -84,7 +84,7 @@ export default function ServiceCard({
           </Link>
         </div>
 
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-black/5 bg-white/40">
+        <div className="relative aspect-16/10 w-full overflow-hidden rounded-2xl border border-black/5 bg-white/40">
           <Image
             data-reveal="image"
             src={image.src}
