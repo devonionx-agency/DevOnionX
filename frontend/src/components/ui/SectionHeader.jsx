@@ -62,9 +62,6 @@ export default function SectionHeader({
       let mm;
       let cancelled = false;
 
-      // ✅ Wait for fonts to load before splitting text.
-      // Splitting before fonts load causes line-breaks to shift later,
-      // which is the #1 reason animations feel jumpy/unsmooth.
       document.fonts.ready.then(() => {
         if (cancelled) return;
 
@@ -123,7 +120,7 @@ export default function SectionHeader({
                 once: true,
               },
               defaults: {
-                ease: "power4.out", // smoother than expo.out, less "snap"
+                ease: "power3.out",
                 force3D: true,
               },
             });
@@ -137,8 +134,8 @@ export default function SectionHeader({
               headingSplit.lines,
               {
                 yPercent: 0,
-                duration: isMobile ? 1 : 1.2,
-                stagger: 0.12,
+                duration: isMobile ? 0.5 : 0.6,
+                stagger: 0.10,
               },
               "-=0.4",
             );
@@ -196,7 +193,7 @@ export default function SectionHeader({
       {/* Section Heading */}
       <h2
         ref={headingRef}
-        className="relative z-10 text-4xl font-bold capitalize tracking-[-0.025em] text-[#171923] sm:text-5xl md:text-6xl"
+        className="relative z-10 overflow-visible pb-[0.12em] text-4xl font-bold capitalize tracking-[-0.025em] text-[#171923] sm:text-5xl md:text-6xl"
       >
         {content}
       </h2>
