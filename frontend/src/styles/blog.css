@@ -1,0 +1,803 @@
+/* =========================================
+   BLOG COLOR SYSTEM — DevOnionX
+   Isolated Light Editorial Theme
+   =========================================
+   
+   This stylesheet defines the color palette
+   exclusively for the Blog Listing Page and
+   Blog Details Page. All rules are scoped
+   under .blog-page or .blog-details-page
+   wrapper classes and do NOT affect any other
+   page or global stylesheet.
+   ========================================= */
+
+/* ─── Blog Color Tokens ──────────────────── */
+
+.blog-page,
+.blog-details-page {
+  /* Backgrounds & surfaces */
+  --blog-bg: #F5F8FC;
+  --blog-surface: #FFFFFF;
+  --blog-surface-alt: #E7F0FA;
+  --blog-toc-active-bg: #FFF0E5;
+  --blog-code-bg: #EDF2F7;
+
+  /* Typography */
+  --blog-heading: #17365D;
+  --blog-text: #334155;
+  --blog-text-secondary: #64748B;
+  --blog-text-muted: #788395;
+
+  /* Brand & interaction */
+  --blog-brand: #F77118;
+  --blog-brand-hover: #DD5E0B;
+  --blog-link: #1D4F91;
+  --blog-border: #E2E8F0;
+}
+
+/* ─── BLOG LISTING PAGE ─────────────────── */
+
+.blog-page {
+  background-color: var(--blog-bg);
+  color: var(--blog-text);
+}
+
+/* Override SectionHeader inside blog listing sections */
+.blog-page .blog-listing-section h2 {
+  color: var(--blog-heading) !important;
+}
+
+.blog-page .blog-listing-section p[class*="para-"] {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-page .blog-listing-section p[class*="uppercase"] {
+  color: var(--blog-brand) !important;
+}
+
+/* ─── Featured Article Section ─────────── */
+
+.blog-page .blog-featured-section {
+  background-color: var(--blog-surface) !important;
+}
+
+.blog-page .blog-featured-section > div[class*="pointer-events-none"] {
+  background-image: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(247, 113, 24, 0.06),
+    transparent 65%
+  ) !important;
+}
+
+/* FeaturedArticleCard in blog listing */
+.blog-page .blog-featured-card {
+  background: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-page .blog-featured-card:hover {
+  border-color: rgba(247, 113, 24, 0.4) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-meta {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-title {
+  color: var(--blog-heading) !important;
+}
+
+.blog-page .blog-featured-card:hover .blog-card-title {
+  color: var(--blog-brand) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-excerpt {
+  color: var(--blog-text) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-tag {
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-text) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-tag:hover {
+  border-color: rgba(247, 113, 24, 0.4) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-divider {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-author-name {
+  color: var(--blog-heading) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-author-role {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-page .blog-featured-card .blog-card-meta-dot {
+  background-color: var(--blog-border) !important;
+}
+
+/* ─── Latest Insights / All Articles Section */
+
+.blog-page .blog-insights-section {
+  background-color: var(--blog-bg) !important;
+}
+
+.blog-page .blog-insights-section > div[class*="pointer-events-none"] {
+  display: none !important;
+}
+
+/* InsightCard in blog listing */
+.blog-page .blog-insight-card {
+  background: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-page .blog-insight-card:hover {
+  background: var(--blog-surface) !important;
+  border-color: rgba(247, 113, 24, 0.3) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-title {
+  color: var(--blog-heading) !important;
+}
+
+.blog-page .blog-insight-card:hover .blog-ic-title {
+  color: var(--blog-brand) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-excerpt {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-tag {
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-text-secondary) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-meta-border {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-author-name {
+  color: var(--blog-heading) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-author-date {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-read-link {
+  border-color: var(--blog-border) !important;
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-page .blog-insight-card .blog-ic-read-link:hover {
+  color: var(--blog-brand) !important;
+  border-color: rgba(247, 113, 24, 0.4) !important;
+}
+
+/* TopicPill overrides inside blog listing */
+.blog-page .blog-topic-pill-inactive {
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+  color: var(--blog-text) !important;
+}
+
+.blog-page .blog-topic-pill-inactive:hover {
+  border-color: rgba(247, 113, 24, 0.35) !important;
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-heading) !important;
+}
+
+/* Topic pill count badge */
+.blog-page .blog-topic-count-inactive {
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-text-secondary) !important;
+}
+
+/* Empty state inside blog listing */
+.blog-page .blog-insights-section .blog-empty-state-icon {
+  background-color: var(--blog-surface-alt) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-page .blog-insights-section .blog-empty-state-title {
+  color: var(--blog-heading) !important;
+}
+
+.blog-page .blog-insights-section .blog-empty-state-desc {
+  color: var(--blog-text-secondary) !important;
+}
+
+/* Results count */
+.blog-page .blog-results-count {
+  color: var(--blog-text-muted) !important;
+}
+
+/* Load more button area */
+.blog-page .blog-load-more-area {
+  /* Styling handled by DirectionalButton props in component */
+}
+
+/* Separators */
+.blog-page .blog-separator {
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--blog-border),
+    transparent
+  ) !important;
+}
+
+/* ─── BLOG DETAILS PAGE ─────────────────── */
+
+.blog-details-page {
+  background-color: var(--blog-bg) !important;
+  color: var(--blog-text) !important;
+}
+
+/* Selection color */
+.blog-details-page ::selection {
+  background: rgba(247, 113, 24, 0.2);
+  color: var(--blog-heading);
+}
+
+/* ─── BlogCoverHero ──────────────────────── */
+
+.blog-details-page .blog-hero-header {
+  color: var(--blog-text);
+}
+
+.blog-details-page .blog-breadcrumb {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-breadcrumb a {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-breadcrumb a:hover {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-breadcrumb .blog-breadcrumb-active {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-breadcrumb-separator {
+  color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-category-pill {
+  background-color: rgba(247, 113, 24, 0.08) !important;
+  border-color: rgba(247, 113, 24, 0.25) !important;
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-spec-id {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-article-title {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-article-subtitle {
+  color: var(--blog-text-secondary) !important;
+}
+
+/* Meta bar */
+.blog-details-page .blog-meta-bar {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-author-avatar {
+  border-color: var(--blog-border) !important;
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-author-name-hero {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-author-role-hero {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-meta-item {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-meta-icon {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-action-btn {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-action-btn:hover {
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-action-btn.blog-bookmarked {
+  color: var(--blog-brand) !important;
+}
+
+/* Cover image container */
+.blog-details-page .blog-cover-container {
+  border-color: var(--blog-border) !important;
+  background-color: var(--blog-surface) !important;
+}
+
+.blog-details-page .blog-cover-badge {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: var(--blog-border) !important;
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-cover-badge .blog-cover-dot {
+  background-color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-figcaption {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-figcaption-icon {
+  color: var(--blog-brand) !important;
+}
+
+/* Cover fallback placeholder */
+.blog-details-page .blog-cover-fallback {
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-text-muted) !important;
+}
+
+/* ─── ArticleContent ─────────────────────── */
+
+.blog-details-page .blog-article-body {
+  color: var(--blog-text) !important;
+}
+
+/* Drop-lead callout */
+.blog-details-page .blog-drop-lead {
+  background-color: var(--blog-surface-alt) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-drop-lead .blog-drop-lead-bar {
+  background-color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-drop-lead p {
+  color: var(--blog-heading) !important;
+}
+
+/* Section headings */
+.blog-details-page .blog-section-heading {
+  color: var(--blog-heading) !important;
+}
+
+/* Body paragraphs */
+.blog-details-page .blog-body-text {
+  color: var(--blog-text) !important;
+}
+
+/* Callout box */
+.blog-details-page .blog-callout {
+  background-color: var(--blog-surface-alt) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-callout-icon {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-callout-title {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-callout-text {
+  color: var(--blog-text) !important;
+}
+
+/* Code block */
+.blog-details-page .blog-code-block {
+  background-color: var(--blog-code-bg) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-code-header {
+  background-color: #DDE4ED !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-code-filename {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-code-dots span {
+  background-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-code-copy-btn {
+  color: var(--blog-text-secondary) !important;
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-code-copy-btn:hover {
+  color: var(--blog-heading) !important;
+  background-color: var(--blog-surface-alt) !important;
+}
+
+.blog-details-page .blog-code-pre {
+  color: var(--blog-text) !important;
+}
+
+.blog-details-page .blog-code-line-number {
+  color: var(--blog-text-muted) !important;
+}
+
+/* Technical table */
+.blog-details-page .blog-table-container {
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-table-head {
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-text-secondary) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-table-body {
+  color: var(--blog-text) !important;
+}
+
+.blog-details-page .blog-table-body tr {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-table-body tr:hover {
+  background-color: var(--blog-surface-alt) !important;
+}
+
+.blog-details-page .blog-table-strategy {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-table-highlight {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-table-muted {
+  color: var(--blog-text-secondary) !important;
+}
+
+/* Bullet points */
+.blog-details-page .blog-highlight-icon {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-highlight-text {
+  color: var(--blog-text) !important;
+}
+
+.blog-details-page .blog-highlight-title {
+  color: var(--blog-heading) !important;
+}
+
+/* Blockquote */
+.blog-details-page .blog-blockquote {
+  border-color: var(--blog-brand) !important;
+  background-color: var(--blog-surface-alt) !important;
+}
+
+.blog-details-page .blog-blockquote-text {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-blockquote-author {
+  color: var(--blog-brand) !important;
+}
+
+/* ─── TagsAndShare ───────────────────────── */
+
+.blog-details-page .blog-tags-section {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-tags-label {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-tag {
+  background-color: var(--blog-surface-alt) !important;
+  border-color: var(--blog-border) !important;
+  color: var(--blog-text) !important;
+}
+
+.blog-details-page .blog-tag:hover {
+  color: var(--blog-heading) !important;
+  border-color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-share-card {
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-share-label {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-share-btn {
+  background-color: var(--blog-surface-alt) !important;
+  border-color: var(--blog-border) !important;
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-share-btn:hover {
+  border-color: var(--blog-text-muted) !important;
+  color: var(--blog-heading) !important;
+}
+
+/* ─── AuthorBio ──────────────────────────── */
+
+.blog-details-page .blog-author-card {
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-author-avatar-bio {
+  border-color: var(--blog-border) !important;
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-author-name-bio {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-author-role-bio {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-author-social {
+  background-color: var(--blog-surface-alt) !important;
+  border-color: var(--blog-border) !important;
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-author-social:hover {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-author-bio-text {
+  color: var(--blog-text) !important;
+}
+
+/* ─── TableOfContents ────────────────────── */
+
+/* Mobile drawer */
+.blog-details-page .blog-toc-mobile {
+  border-color: var(--blog-border) !important;
+  background-color: var(--blog-surface) !important;
+}
+
+.blog-details-page .blog-toc-toggle-label {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-toc-toggle-icon {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-toc-mobile-nav {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-toc-link {
+  color: var(--blog-text-secondary) !important;
+  border-left: 2px solid transparent !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.blog-details-page .blog-toc-link:hover {
+  color: var(--blog-heading) !important;
+  background-color: var(--blog-surface-alt) !important;
+}
+
+.blog-details-page .blog-toc-link-active {
+  color: var(--blog-brand) !important;
+  background-color: var(--blog-toc-active-bg) !important;
+  border-left: 2px solid var(--blog-brand) !important;
+  font-weight: 600 !important;
+}
+
+/* Desktop sticky sidebar */
+.blog-details-page .blog-toc-desktop {
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+  box-shadow: 0 4px 20px -2px rgba(23, 54, 93, 0.05) !important;
+}
+
+.blog-details-page .blog-toc-header {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-toc-header-label {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-toc-header-icon {
+  color: var(--blog-text-muted) !important;
+}
+
+/* Specifications mini-card */
+.blog-details-page .blog-specs-divider {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-specs-label {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-specs-key {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-specs-value {
+  color: var(--blog-heading) !important;
+}
+
+/* Quick consultation module */
+.blog-details-page .blog-toc-cta {
+  background-color: var(--blog-surface-alt) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-toc-cta-icon {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-toc-cta-badge {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-toc-cta-title {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-toc-cta-desc {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-toc-cta-link {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-toc-cta-link:hover {
+  color: var(--blog-brand-hover) !important;
+}
+
+/* ─── RelatedArticles ────────────────────── */
+
+.blog-details-page .blog-related-section {
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-related-label {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-related-heading {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-related-view-all {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-related-view-all:hover {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-related-card {
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-related-card:hover,
+.blog-details-page .blog-related-card:hover {
+  border-color: var(--blog-brand-hover) !important;
+}
+
+.blog-details-page .blog-related-card-image {
+  background-color: var(--blog-surface-alt) !important;
+}
+
+.blog-details-page .blog-related-card-badge {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(247, 113, 24, 0.2) !important;
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-related-card-meta {
+  color: var(--blog-text-muted) !important;
+}
+
+.blog-details-page .blog-related-card-title {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-related-card:hover .blog-related-card-title {
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-related-card-link {
+  color: var(--blog-text-secondary) !important;
+}
+
+.blog-details-page .blog-related-card:hover .blog-related-card-link {
+  color: var(--blog-heading) !important;
+}
+
+/* ─── ProjectConsultationCTA ─────────────── */
+
+.blog-details-page .blog-cta-section {
+  background-color: var(--blog-surface) !important;
+  border-color: var(--blog-border) !important;
+}
+
+.blog-details-page .blog-cta-grid-texture {
+  opacity: 0.04 !important;
+}
+
+.blog-details-page .blog-cta-glow {
+  background-color: rgba(247, 113, 24, 0.06) !important;
+}
+
+.blog-details-page .blog-cta-badge {
+  background-color: rgba(247, 113, 24, 0.08) !important;
+  border-color: rgba(247, 113, 24, 0.25) !important;
+  color: var(--blog-brand) !important;
+}
+
+.blog-details-page .blog-cta-heading {
+  color: var(--blog-heading) !important;
+}
+
+.blog-details-page .blog-cta-subtitle {
+  color: var(--blog-text) !important;
+}
+
+.blog-details-page .blog-cta-primary {
+  background-color: var(--blog-brand) !important;
+  color: #FFFFFF !important;
+}
+
+.blog-details-page .blog-cta-primary:hover {
+  background-color: var(--blog-brand-hover) !important;
+}
+
+.blog-details-page .blog-cta-secondary {
+  border-color: var(--blog-border) !important;
+  background-color: var(--blog-surface-alt) !important;
+  color: var(--blog-text) !important;
+}
+
+.blog-details-page .blog-cta-secondary:hover {
+  background-color: var(--blog-bg) !important;
+  color: var(--blog-heading) !important;
+}

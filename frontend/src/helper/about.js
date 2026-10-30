@@ -9,6 +9,15 @@ import {
   Target,
   CheckCircle2,
   Eye,
+  Compass,
+  Rocket,
+  Award,
+  Handshake,
+  Users,
+  Sparkles,
+  Code2,
+  Workflow,
+  HeartHandshake,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────
@@ -58,11 +67,10 @@ export const WHO_WE_ARE_STEPS = [
   },
 ];
 
-/*
- * Kept for compatibility with existing sections.
- * Replace these with verified agency metrics if you
- * display them publicly.
- */
+/* ─────────────────────────────────────────────
+   Statistics
+───────────────────────────────────────────── */
+
 export const STATS = [
   {
     label: "Client retention",
@@ -83,15 +91,13 @@ export const STATS = [
 
 /* ─────────────────────────────────────────────
    Mission & Vision Icons
-   Used in AboutMission.jsx
 ───────────────────────────────────────────── */
 
 export const MissionIcon = CheckCircle2;
 export const VisionIcon = Eye;
 
 /* ─────────────────────────────────────────────
-   Value Icons
-   Used in AboutMission.jsx
+   Existing Value Icons
 ───────────────────────────────────────────── */
 
 export const FlameIcon = Flame;
@@ -100,149 +106,154 @@ export const ZapIcon = Zap;
 export const TargetIcon = Target;
 
 /* ─────────────────────────────────────────────
-   Mission Section Data
+   Values Section
+   Used in AboutValues.jsx
 ───────────────────────────────────────────── */
 
 export const VALUES = [
   {
-    icon: FlameIcon,
-    title: "Quality in Every Detail",
-    body: "We care about the details that make a real difference, from thoughtful interfaces to maintainable code and reliable functionality.",
+    number: "01",
+    title: "Innovation",
+    description:
+      "We embrace emerging technologies and creative thinking to build solutions that move businesses forward.",
+    icon: Lightbulb,
+    tag: "Think beyond",
+    featured: true,
   },
   {
-    icon: ShieldIcon,
-    title: "Honest Collaboration",
-    body: "We believe in clear communication, realistic expectations, and keeping you informed throughout the development process.",
+    number: "02",
+    title: "Excellence",
+    description:
+      "Every line of code, design decision, and interaction reflects our commitment to quality.",
+    icon: Award,
+    tag: "Raise the standard",
   },
   {
-    icon: ZapIcon,
-    title: "Progress With Purpose",
-    body: "We work efficiently without losing sight of quality, usability, or the long-term health of your product.",
+    number: "03",
+    title: "Integrity",
+    description:
+      "Honest communication, transparency, and accountability form the foundation of every partnership.",
+    icon: Handshake,
+    tag: "Earn trust",
   },
   {
-    icon: TargetIcon,
-    title: "Your Goals Come First",
-    body: "We align technical decisions with your users' needs and business objectives to create meaningful digital solutions.",
+    number: "04",
+    title: "Collaboration",
+    description:
+      "We work alongside our clients, share knowledge, and solve challenges together as one team.",
+    icon: Users,
+    tag: "Better together",
+  },
+  {
+    number: "05",
+    title: "Client Success",
+    description:
+      "Your growth is our measure of success. We build with real outcomes and long-term value in mind.",
+    icon: TrendingUp,
+    tag: "Your growth matters",
+  },
+  {
+    number: "06",
+    title: "Continuous Growth",
+    description:
+      "We keep learning, improving, and adapting to create solutions ready for what's next.",
+    icon: Sparkles,
+    tag: "Always evolving",
   },
 ];
 
-/* ─────────────────────────────────────────────
-   Team Section Data
-   Existing image paths and slugs preserved
-───────────────────────────────────────────── */
+
 
 export const TEAM = [
   {
+    number: "01",
     name: "Al Mahmud",
     role: "Frontend Engineer",
-    bio: "Builds responsive, maintainable interfaces with a focus on usability, performance, and clean frontend architecture.",
+    bio: "Turning complex ideas into clear, responsive interfaces with a strong focus on usability and performance.",
     image: "/images/about/mahmud.jpg",
     slug: "/team/al-mahmud",
     yearsOfExperience: 3,
     expertise: ["React", "Next.js", "Tailwind CSS"],
     socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
     ],
   },
   {
-    name: "Jihad M.",
+    number: "02",
+     name: "Jhulon K.",
     role: "Frontend Engineer",
-    bio: "Creates interactive, user-friendly web experiences with attention to visual detail, animation, and responsive design.",
-    image: "/images/about/jihad.png",
-    slug: "/team/jihad-mahmud",
-    yearsOfExperience: 2,
-    expertise: ["React", "GSAP", "Figma"],
-    socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-    ],
-  },
-  {
-    name: "Hamim A.",
-    role: "Backend Developer",
-    bio: "Develops dependable APIs and backend services with an emphasis on data handling, system reliability, and maintainability.",
-    image: "/images/about/hamim.jpg",
-    slug: "/team/hamim-ahmed",
-    yearsOfExperience: 3,
-    expertise: ["Node.js", "PostgreSQL", "DevOps"],
-    socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-    ],
-  },
-  {
-    name: "Nadil H.",
-    role: "Full-Stack Developer",
-    bio: "Connects frontend experiences with backend functionality to build cohesive, practical, and scalable web applications.",
-    image: "/images/about/nadil.jpg",
-    slug: "/team/nadil-hossain",
-    yearsOfExperience: 2,
-    expertise: ["React", "Node.js", "MongoDB"],
-    socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-    ],
-  },
-  {
-    name: "Jhulon K.",
-    role: "Frontend Engineer",
-    bio: "Focuses on responsive, polished interfaces that deliver smooth interactions and consistent experiences across devices.",
+    bio: "Creating polished, responsive interfaces where consistency, detail, and usability come first.",
     image: "/images/about/jhulon.jpg",
     slug: "/team/jhulon-kumar-roy",
     yearsOfExperience: 2,
     expertise: ["React", "TypeScript", "Tailwind CSS"],
     socials: [
-      {
-        id: 1,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 2,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
     ],
+    
+  },
+  {
+    number: "03",
+    name: "Hamim A.",
+    role: "Backend Developer",
+    bio: "Building the systems behind great products, from dependable APIs to structured application logic.",
+    image: "/images/about/hamim.jpg",
+    slug: "/team/hamim-ahmed",
+    yearsOfExperience: 3,
+    expertise: ["Node.js", "APIs", "Database Design"],
+    socials: [
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+    ],
+  },
+  {
+    number: "04",
+    name: "Nadil H.",
+    role: "Full-Stack Developer",
+    bio: "Connecting frontend and backend into cohesive applications designed around real user needs.",
+    image: "/images/about/nadil.jpg",
+    slug: "/team/nadil-hossain",
+    yearsOfExperience: 2,
+    expertise: ["React", "Node.js", "MongoDB"],
+    socials: [
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+    ],
+  },
+  {
+    number: "05",
+    name: "Jihad M.",
+    role: "Frontend Engineer",
+    bio: "Bringing digital experiences to life with purposeful interactions, refined visuals, and motion.",
+    image: "/images/about/jihad.png",
+    slug: "/team/jihad-mahmud",
+    yearsOfExperience: 2,
+    expertise: ["React", "GSAP", "UI Development"],
+    socials: [
+      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
+      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+    ],
+   
   },
 ];
 
+export const TEAM_CONTENT = {
+  label: "THE PEOPLE BEHIND THE PIXELS",
+  title: "Good work takes",
+  colorWord: "good people.",
+  description:
+    "A small, focused team bringing design thinking, engineering, and creative problem-solving together to build better digital experiences.",
+  featuredLabel: "MEET THE TEAM",
+  footerLabel: "ONE TEAM. MANY PERSPECTIVES.",
+  footerText: "We build better when we build together.",
+};
 
-
-
-import { Compass, Rocket } from "lucide-react";
+/* ─────────────────────────────────────────────
+   Mission & Vision Section
+   Used in AboutMissionVision.jsx
+───────────────────────────────────────────── */
 
 export const MISSION_VISION = [
   {
@@ -279,7 +290,151 @@ export const MISSION_VISION = [
   },
 ];
 
+/* ─────────────────────────────────────────────
+   Why Choose DevOnionX Section
+   Used in AboutWhyChooseUs.jsx
+───────────────────────────────────────────── */
+
+export const ABOUT_WHY_STATS = [
+  {
+    value: "15+",
+    label: "Projects Completed",
+    detail: "Ideas turned into real products",
+  },
+  {
+    value: "05",
+    label: "Creative Developers",
+    detail: "One team, shared vision",
+  },
+  {
+    value: "100%",
+    label: "Commitment",
+    detail: "Quality in every detail",
+  },
+];
+
+export const ABOUT_WHY_FEATURES = [
+  {
+    number: "01",
+    title: "Thoughtful Engineering",
+    description:
+      "We build responsive, maintainable digital experiences with attention to performance, usability, and clean code.",
+    tag: "Built with purpose",
+    icon: Code2,
+  },
+  {
+    number: "02",
+    title: "A Clear Process",
+    description:
+      "From the first discussion to the final delivery, we keep communication clear and every step focused on your goals.",
+    tag: "No guesswork",
+    icon: Workflow,
+  },
+  {
+    number: "03",
+    title: "A Team That Cares",
+    description:
+      "We value long-term relationships, thoughtful collaboration, and helping your product move forward after launch.",
+    tag: "Here for the journey",
+    icon: HeartHandshake,
+  },
+];
+
+export const ABOUT_WHY_HIGHLIGHT = {
+  eyebrow: "THE DEVONIONX DIFFERENCE",
+  title: "Small Team",
+  accent: "Meaningful Impact.",
+  description:
+    "We bring design thinking, modern development, and genuine collaboration together to turn ambitious ideas into useful digital products.",
+  closing: "Good work starts with understanding what matters to you.",
+};
 
 
-// Values
 
+import {
+  FiDollarSign,
+  FiHeart,
+  FiShoppingBag,
+  FiBookOpen,
+  FiSettings,
+  FiTruck,
+  FiBriefcase,
+  FiZap,
+  FiHome,
+  FiGlobe,
+} from "react-icons/fi";
+
+// Industries Section Data
+export const INDUSTRIES = [
+  {
+    title: "FinTech",
+    description: "Smarter digital experiences for modern finance.",
+    icon: FiDollarSign,
+    wide: true,
+  },
+  {
+    title: "Healthcare",
+    description: "Connected solutions built around people.",
+    icon: FiHeart,
+    wide: false,
+  },
+  {
+    title: "E-Commerce",
+    description: "Digital storefronts designed to convert.",
+    icon: FiShoppingBag,
+    wide: false,
+  },
+  {
+    title: "Education",
+    description: "Better ways to learn, teach, and grow.",
+    icon: FiBookOpen,
+    wide: false,
+  },
+  {
+    title: "Manufacturing",
+    description: "Streamlined systems for complex operations.",
+    icon: FiSettings,
+    wide: false,
+  },
+  {
+    title: "Logistics",
+    description: "Simplifying movement, tracking, and delivery.",
+    icon: FiTruck,
+    wide: false,
+  },
+  {
+    title: "Enterprise",
+    description: "Scalable software for growing organizations.",
+    icon: FiBriefcase,
+    wide: false,
+  },
+  {
+    title: "Startups",
+    description: "From ambitious ideas to launch-ready products.",
+    icon: FiZap,
+    wide: true,
+  },
+  {
+    title: "Real Estate",
+    description: "Modern digital tools for property businesses.",
+    icon: FiHome,
+    wide: false,
+  },
+  {
+    title: "Professional Services",
+    description: "Digital experiences that build trust.",
+    icon: FiGlobe,
+    wide: false,
+  },
+];
+
+export const INDUSTRIES_CONTENT = {
+  label: "INDUSTRIES WE SERVE",
+  title: "Different Industries. One Thoughtful Approach.",
+  colorWord: "One Thoughtful Approach.",
+  description:
+    "We build digital solutions around the unique challenges, goals, and opportunities of every business.",
+  closing:
+    "Different challenges. Tailored solutions. A shared commitment to meaningful results.",
+  footerLabel: "Built around your business",
+};

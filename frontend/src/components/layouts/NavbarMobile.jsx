@@ -14,6 +14,21 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
     setIsOpen(false);
   }, [pathname, setIsOpen]);
 
+  const handleHomeClick = (e) => {
+    if (pathname === "/") {
+      e.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant",
+      });
+
+      setIsOpen(false);
+      setOpenMenu(null);
+    }
+  };
+
   const toggleMenu = (label) => {
     setOpenMenu((prev) => (prev === label ? null : label));
   };
@@ -21,7 +36,7 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
   return (
     <div className="sticky top-0 z-50 -mx-4 -mt-4 flex h-16 items-center justify-between bg-white px-3 shadow-sm sm:px-6 lg:hidden">
       {/* Logo */}
-      <Link href="/" aria-label="DevonionX Home">
+      <Link href="/" onClick={handleHomeClick} aria-label="DevonionX Home">
         <Image
           src="/images/logo/navlogo.png"
           alt="DevonionX"
@@ -153,6 +168,9 @@ export default function NavbarMobile({ navLinks, isOpen, setIsOpen }) {
                   ) : (
                     <Link
                       href={item.href}
+                      onClick={
+                        item.label === "Home" ? handleHomeClick : undefined
+                      }
                       className="flex items-center justify-between border-b border-[#E5E5E0] py-5 text-2xl font-semibold text-[#171923] transition-colors duration-200 hover:text-[#FF5101]"
                     >
                       {item.label}

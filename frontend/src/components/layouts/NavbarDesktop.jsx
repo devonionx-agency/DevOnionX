@@ -2,13 +2,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { RiArrowDownSLine, RiArrowRightLine } from "react-icons/ri";
 
 export default function NavbarDesktop({ navLinks }) {
+  const pathname = usePathname();
+
+  const handleHomeClick = (e) => {
+    if (pathname === "/") {
+      e.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant",
+      });
+    }
+  };
   return (
     <div className="hidden lg:flex h-20 items-center justify-between rounded-3xl border border-white/70 bg-white px-9 shadow-[0_18px_50px_rgba(23,25,35,0.10)]">
       {/* Logo */}
-      <Link href="/" aria-label="DevonionX Home" className="shrink-0">
+      <Link
+        href="/"
+        onClick={handleHomeClick}
+        aria-label="DevonionX Home"
+        className="shrink-0"
+      >
         <Image
           src="/images/logo/navlogo.png"
           alt="DevonionX"
@@ -24,7 +43,8 @@ export default function NavbarDesktop({ navLinks }) {
           <li key={href} className="relative group">
             <Link
               href={href}
-              className="flex items-center gap-1 rounded-lg px-4 py-3 text-[17px] font-medium text-[#62646F] transition-colors duration-200 hover:text-[#FF5101]"
+              onClick={label === "Home" ? handleHomeClick : undefined}
+              className="relative flex items-center gap-1 rounded-lg px-4 py-3 text-[17px] font-medium text-[#62646F] transition-colors duration-200 hover:text-[#FF5101] after:absolute after:bottom-1 after:left-4 after:right-4 after:h-[2px] after:origin-left after:scale-x-0 after:bg-[#FF5101] after:transition-transform after:duration-300 hover:after:scale-x-100"
             >
               {label}
 

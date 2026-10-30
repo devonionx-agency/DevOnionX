@@ -1,9 +1,62 @@
-import React from 'react'
+import { notFound } from "next/navigation";
+import { getBlogBySlug, getRelatedBlogs } from "@/helper/blogDetailsData";
+import { BlogDetailsLayout } from "@/components/blog/blog-details";
 
-const BlogDetails = () => {
-  return (
-    <div>BlogDetails</div>
-  )
+/**
+ * Generate dynamic SEO metadata for each blog article
+ */
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = getBlogBySlug(slug);
+
+  if (!post) {
+    return {
+      title: "Blog Article | DevOnionX",
+      description: "Engineering and design insights by DevOnionX.",
+      alternates: {
+        canonical: `/blog/${slug}`,
+      },
+    };
+  }
+
+  const description = post.subtitle || post.excerpt;
+
+  return {
+    title: `${post.title} | DevOnionX Insights`,
+    description,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      title: `${post.title} | DevOnionX Blog`,
+      description,
+      url: `/blog/${slug}`,
+      siteName: "DevOnionX",
+      type: "article",
+      publishedTime: post.date,
+      authors: [typeof post.author === "string" ? post.author : post.author?.name],
+      tags: post.tags,
+    },
+  };
 }
 
-export default BlogDetails
+/**
+ * Dynamic Blog Details Page: /blog/[slug]
+ */
+export default async function BlogDetailsPage({ params }) {
+  const { slug } = await params;
+  const post = getBlogBySlug(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const relatedPosts = getRelatedBlogs(slug, post.category, 3);
+
+  return (
+    <BlogDetailsLayout
+      post={post}
+      relatedPosts={relatedPosts}
+    />
+  );
+}
