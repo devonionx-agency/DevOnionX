@@ -37,12 +37,12 @@ export default async function ServiceDetails({ params }) {
   return (
     <>
       <ServiceDetailsHero slug={slug} />
-      <BusinessChallenge />
-      <WhatWeDeliver />
-      <OurApproachTechnology />
-      <RelevantWork />
-      <ServiceProcess />
-      <ServiceFAQs />
+      <BusinessChallenge slug={slug} />
+      <WhatWeDeliver slug={slug} />
+      <OurApproachTechnology slug={slug} />
+      <RelevantWork slug={slug} />
+      <ServiceProcess slug={slug} />
+      <ServiceFAQs slug={slug} />
     </>
   );
 }
