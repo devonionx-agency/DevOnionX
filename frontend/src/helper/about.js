@@ -20,6 +20,13 @@ import {
   HeartHandshake,
 } from "lucide-react";
 
+import {
+  FiUser,
+  FiUsers,
+  FiGitBranch,
+  FiClock,
+} from "react-icons/fi";
+
 /* ─────────────────────────────────────────────
    Who We Are / Story Section
    Used in AboutStory.jsx
@@ -163,92 +170,201 @@ export const VALUES = [
 ];
 
 
+// ============================================
+// TEAM FEATURES
+// ============================================
+
+export const TEAM_FEATURES = [
+  {
+    id: 1,
+    title: "Professional Developers",
+    description:
+      "We have professional software developers with expertise in 100+ technologies.",
+    icon: FiUser,
+    color: "#F9D5EA",
+    iconColor: "#B94D8B",
+  },
+  {
+    id: 2,
+    title: "Dedicated Account Specialists",
+    description:
+      "Tailored solutions for every key account.",
+    icon: FiUsers,
+    color: "#D5EAFE",
+    iconColor: "#438BC7",
+  },
+  {
+    id: 3,
+    title: "Flexible Strategy",
+    description:
+      "Innovative and flexible strategy suitable for any changing requirements.",
+    icon: FiGitBranch,
+    color: "#D8FBE9",
+    iconColor: "#39A879",
+  },
+  {
+    id: 4,
+    title: "On-time Delivery",
+    description:
+      "Delivering ahead of schedule, every time.",
+    icon: FiClock,
+    color: "#E8DCFF",
+    iconColor: "#8965CA",
+  },
+];
+
+
+// ============================================
+// TEAM SECTION CONTENT
+// ============================================
+
+export const TEAM_CONTENT = {
+  label: "MEET OUR TEAM",
+  title: "The People Behind",
+  colorWord: "DevOnionX.",
+  description:
+    "A passionate team of developers, designers and problem-solvers, working together to turn your ideas into powerful digital products.",
+};
+
+
+// ============================================
+// TEAM MEMBERS
+// ============================================
 
 export const TEAM = [
   {
     number: "01",
-    name: "Al Mahmud",
-    role: "Frontend Engineer",
-    bio: "Turning complex ideas into clear, responsive interfaces with a strong focus on usability and performance.",
-    image: "/images/about/mahmud.jpg",
+    name: "Al Mahamud",
+    role: "CEO & Co-Founder",
+    image: "/images/about/mahmud01.png",
     slug: "/team/al-mahmud",
-    yearsOfExperience: 3,
-    expertise: ["React", "Next.js", "Tailwind CSS"],
+    cardColor: "#D3E8FF",
     socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+      {
+        id: 1,
+        platform: "GitHub",
+        url: "https://github.com/username",
+      },
+      {
+        id: 2,
+        platform: "LinkedIn",
+        url: "https://linkedin.com/in/username",
+      },
+      {
+        id: 3,
+        platform: "Email",
+        url: "mailto:devonionx@gmail.com",
+      },
     ],
   },
+
   {
     number: "02",
-     name: "Jhulon K.",
-    role: "Frontend Engineer",
-    bio: "Creating polished, responsive interfaces where consistency, detail, and usability come first.",
-    image: "/images/about/jhulon.jpg",
+    name: "Jhulon Kumar Ray",
+    role: "CTO & Co-Founder",
+    image: "/images/about/jhulon01.png",
     slug: "/team/jhulon-kumar-roy",
-    yearsOfExperience: 2,
-    expertise: ["React", "TypeScript", "Tailwind CSS"],
+    cardColor: "#E4D9FF",
     socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+      {
+        id: 1,
+        platform: "GitHub",
+        url: "https://github.com/username",
+      },
+      {
+        id: 2,
+        platform: "LinkedIn",
+        url: "https://linkedin.com/in/username",
+      },
+      {
+        id: 3,
+        platform: "X",
+        url: "https://x.com/username",
+      },
     ],
-    
   },
+
   {
     number: "03",
-    name: "Hamim A.",
-    role: "Backend Developer",
-    bio: "Building the systems behind great products, from dependable APIs to structured application logic.",
-    image: "/images/about/hamim.jpg",
+    name: "Hamim Siddik",
+    role: "HR & Co-Founder",
+    image: "/images/about/hamim01.png",
     slug: "/team/hamim-ahmed",
-    yearsOfExperience: 3,
-    expertise: ["Node.js", "APIs", "Database Design"],
+    cardColor: "#D7F6E7",
     socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+      {
+        id: 1,
+        platform: "GitHub",
+        url: "https://github.com/username",
+      },
+      {
+        id: 2,
+        platform: "LinkedIn",
+        url: "https://linkedin.com/in/username",
+      },
+      {
+        id: 3,
+        platform: "X",
+        url: "https://x.com/username",
+      },
     ],
   },
+
   {
     number: "04",
-    name: "Nadil H.",
-    role: "Full-Stack Developer",
-    bio: "Connecting frontend and backend into cohesive applications designed around real user needs.",
-    image: "/images/about/nadil.jpg",
+    name: "Nadil Hossain",
+    role: "COO & Co-Founder",
+    image: "/images/about/nadil01.png",
     slug: "/team/nadil-hossain",
-    yearsOfExperience: 2,
-    expertise: ["React", "Node.js", "MongoDB"],
+    cardColor: "#FFE8D3",
     socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+      {
+        id: 1,
+        platform: "Behance",
+        url: "https://behance.net/username",
+      },
+      {
+        id: 2,
+        platform: "LinkedIn",
+        url: "https://linkedin.com/in/username",
+      },
+      {
+        id: 3,
+        platform: "Dribbble",
+        url: "https://dribbble.com/username",
+      },
     ],
   },
+
   {
     number: "05",
-    name: "Jihad M.",
-    role: "Frontend Engineer",
-    bio: "Bringing digital experiences to life with purposeful interactions, refined visuals, and motion.",
-    image: "/images/about/jihad.png",
+    name: "Jihad Mia",
+    role: "Co-Founder",
+    image: "/images/about/jihad01.png",
     slug: "/team/jihad-mahmud",
-    yearsOfExperience: 2,
-    expertise: ["React", "GSAP", "UI Development"],
+    cardColor: "#F9D9EC",
     socials: [
-      { id: 1, platform: "LinkedIn", url: "https://linkedin.com/in/username" },
-      { id: 2, platform: "GitHub", url: "https://github.com/username" },
+      {
+        id: 1,
+        platform: "GitHub",
+        url: "https://github.com/username",
+      },
+      {
+        id: 2,
+        platform: "LinkedIn",
+        url: "https://linkedin.com/in/username",
+      },
+      {
+        id: 3,
+        platform: "X",
+        url: "https://x.com/username",
+      },
     ],
-   
   },
 ];
 
-export const TEAM_CONTENT = {
-  label: "THE PEOPLE BEHIND THE PIXELS",
-  title: "Good work takes",
-  colorWord: "good people.",
-  description:
-    "A small, focused team bringing design thinking, engineering, and creative problem-solving together to build better digital experiences.",
-  featuredLabel: "MEET THE TEAM",
-  footerLabel: "ONE TEAM. MANY PERSPECTIVES.",
-  footerText: "We build better when we build together.",
-};
+
+
 
 /* ─────────────────────────────────────────────
    Mission & Vision Section
