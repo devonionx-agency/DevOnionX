@@ -1,47 +1,101 @@
-import { FiLayers, FiMessageSquare, FiTarget, FiUsers } from "react-icons/fi";
+// helper/home/trustgrowth.js
+// Image path gula pore tumi nijer image diye replace korba.
+// type: "image" | "stat"
 
-// Trust & Growth section er sob data ekhane.
-// "3+" ar "5" tumi je number dile oitai boshano hoyeche, bodlate hole shudhu ekhane bodlaio.
-export const trustIntro = {
-  eyebrow: "TRUST & GROWTH",
-  title: "Built Around Your Business.",
-  description:
-    "Before we write any code, we learn how your business runs, who your users are, and what the product needs to do. Then we build around that.",
-};
-
-// badge: card er uporer daan dike choto label.
-// Prothom duita te real number, baki duita te kono fake metric nai.
 export const trustCards = [
+  // Column 1
   {
-    id: "projects",
-    icon: FiLayers,
-    badge: "3+",
-    title: "Projects delivered",
-    description:
-      "Websites and web applications built from real project requirements. Each one started with a clear scope, so everyone knew what was being built.",
+    id: "col-1",
+    duration: 38, // seconds (choto hole druto)
+    delay: 0,
+    items: [
+      {
+        type: "image",
+        src: "/images/trustGrowth/software-developer-working1.webp",
+        alt: "Team member working on laptop",
+        height: "h-[250px]",
+      },
+      {
+        type: "stat",
+        value: "2+ Years",
+        label: "Average Developer Experience",
+        bg: "bg-[#c4b0ff]",
+        height: "h-[172px]",
+      },
+      {
+        type: "image",
+        src: "/images/trustGrowth/developer-professional-portrait2.webp",
+        alt: "Developer smiling at work",
+        height: "h-[250px]",
+      },
+    ],
   },
+  // Column 2
   {
-    id: "team",
-    icon: FiUsers,
-    badge: "5 members",
-    title: "One team, design to code",
-    description:
-      "Designers and developers work together from the start. Designers know what is practical to build, and developers see the thinking behind the design.",
+    id: "col-2",
+    duration: 46,
+    delay: 0,
+    items: [
+      {
+        type: "stat",
+        value: "3+",
+        label: "Clients",
+        bg: "bg-[#fdf6a3]",
+        height: "h-[130px]",
+      },
+      {
+        type: "image",
+        src: "/images/trustGrowth/software-project-management3.webp",
+        alt: "Project manager in office",
+        height: "h-[256px]",
+      },
+      {
+        type: "stat",
+        value: "2k+",
+        label: "Users Powered",
+        bg: "bg-[#f9c6e0]",
+        height: "h-[172px]",
+      },
+      {
+        type: "image",
+        src: "/images/trustGrowth/developer-pair-programming4.webp",
+        alt: "Team collaboration",
+        height: "h-[200px]",
+      },
+    ],
   },
+  // Column 3
   {
-    id: "conversion",
-    icon: FiTarget,
-    badge: "CRO",
-    title: "Conversion-focused design",
-    description:
-      "We look at the path a visitor takes, from the first page to the final click, and keep it short and clear. Calls to action go where people expect them, and extra steps get cut.",
+    id: "col-3",
+    duration: 42,
+    delay: 0,
+    items: [
+      {
+        type: "image",
+        src: "/images/trustGrowth/software-team-collaboration5.webp",
+        alt: "Developers collaborating at a desk",
+        height: "h-[256px]",
+      },
+      {
+        type: "stat",
+        value: "10+",
+        label: "Projects Delivered",
+        bg: "bg-[#f9c6d4]",
+        height: "h-[172px]",
+      },
+      {
+        type: "image",
+        src: "/images/trustGrowth/software-engineering-workspace6.webp",
+        alt: "Office team",
+        height: "h-[250px]",
+      },
+    ],
   },
-  {
-    id: "communication",
-    icon: FiMessageSquare,
-    badge: "How we work",
-    title: "Clear communication",
-    description:
-      "You get regular progress updates, a clear idea of what comes next, and an early heads-up when something changes or goes wrong.",
-  },
+];
+
+// Nicher trust badge (Clutch, Google, Trustpilot, Shield) logo gula
+export const trustBadges = [
+  { src: "/images/trustGrowth/client2.png", alt: "Clutch" },
+  { src: "/images/trustGrowth/client2.png", alt: "Google" },
+  { src: "/images/trustGrowth/client3.png", alt: "Trustpilot" },
 ];

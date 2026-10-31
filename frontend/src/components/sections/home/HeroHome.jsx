@@ -1,8 +1,6 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import DirectionalButton from "@/components/common/Directionalbutton";
-import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Container from "@/components/ui/Container";
@@ -11,12 +9,11 @@ export default function HeroHome() {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
 
-  // Video performance, sound off (muted), and infinite loop handling
+  // Video autoplay, muted and loop
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Strict sound off (muted) & loop configuration
     video.muted = true;
     video.defaultMuted = true;
     video.loop = true;
@@ -25,17 +22,15 @@ export default function HeroHome() {
     const startPlay = () => {
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Fallback if browser policy delays autoplay
-        });
+        playPromise.catch(() => {});
       }
     };
 
     startPlay();
+
     video.addEventListener("loadeddata", startPlay);
     video.addEventListener("canplay", startPlay);
 
-    // Performance optimization: Pause video when scrolled out of view to save CPU/GPU/battery
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -58,7 +53,7 @@ export default function HeroHome() {
     };
   }, []);
 
-  // GSAP entrance animations with reduced motion support
+  // GSAP entrance animations
   useGSAP(
     () => {
       const prefersReducedMotion = window.matchMedia(
@@ -66,16 +61,11 @@ export default function HeroHome() {
       ).matches;
 
       if (prefersReducedMotion) {
-        gsap.set(
-          [
-            ".hero-badge",
-            ".hero-headline-line",
-            ".hero-subtitle",
-            ".hero-cta-wrap",
-            ".hero-hud-badge",
-          ],
-          { autoAlpha: 1, y: 0, yPercent: 0 },
-        );
+        gsap.set([".hero-badge", ".hero-headline-line", ".hero-subtitle"], {
+          autoAlpha: 1,
+          y: 0,
+          yPercent: 0,
+        });
         return;
       }
 
@@ -100,18 +90,6 @@ export default function HeroHome() {
           { autoAlpha: 0, y: 18 },
           { autoAlpha: 1, y: 0, duration: 0.7 },
           "-=0.4",
-        )
-        .fromTo(
-          ".hero-cta-wrap",
-          { autoAlpha: 0, y: 16, scale: 0.96 },
-          { autoAlpha: 1, y: 0, scale: 1, duration: 0.55 },
-          "-=0.3",
-        )
-        .fromTo(
-          ".hero-hud-badge",
-          { autoAlpha: 0, y: 24, scale: 0.92 },
-          { autoAlpha: 1, y: 0, scale: 1, duration: 0.7 },
-          "-=0.4",
         );
     },
     { scope: containerRef },
@@ -121,13 +99,10 @@ export default function HeroHome() {
     <section
       ref={containerRef}
       aria-label="Hero Banner"
-      className="relative isolate min-h-[100svh] w-full flex flex-col justify-end overflow-hidden bg-[#03070c] text-white pt-28 pb-10 sm:pb-12 lg:pb-16"
+      className="relative isolate flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-[#03070c] px-4 pt-28 pb-12 text-white sm:px-6 lg:px-8"
     >
-      {/* ============================================================
-          BACKGROUND LAYER: VIDEO (NO GRID, NO HEAVY BLACK COVERS)
-      ============================================================ */}
+      {/* Background Video */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none select-none">
-        {/* Crystal-clear background video */}
         <video
           ref={videoRef}
           src="/videos/home-hero-video.mp4"
@@ -139,131 +114,50 @@ export default function HeroHome() {
           aria-hidden="true"
           tabIndex={-1}
           className="absolute inset-0 h-full w-full object-cover object-center"
-        >
-          <source src="/videos/home-hero-video.mp4" type="video/mp4" />
-          <source src="/video/home-hero-video.mp4" type="video/mp4" />
-        </video>
-
-        {/* Base fallback background */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[#03070c] -z-20"
         />
 
-        {/* Soft subtle gradient on the left to ensure crisp text contrast without darkening video */}
+        {/* Fallback Background */}
+        <div className="absolute inset-0 -z-20 bg-[#03070c]" />
+
+        {/* Centered Dark Overlay */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#02090F]/55 via-[#02090F]/55 to-[#02090F]/10"
+          className="absolute inset-0 bg-gradient-to-b from-[#02090F]/45 via-[#02090F]/45 to-[#02090F]/65"
         />
       </div>
 
-      {/* ============================================================
-          MAIN CONTENT LAYER: POSITIONED AT THE BOTTOM OF HERO BANNER
-      ============================================================ */}
+      {/* Center Content */}
       <Container size="hero" className="relative z-10 w-full">
-        <div className="relative w-full">
-          {/* Main Typography Column */}
-          <div className="max-w-[720px]">
-            {/* Tag Badge */}
-            <div className="hero-badge inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/60 px-3.5 py-1.5 backdrop-blur-md transition-all duration-300 hover:border-[#FF5101]/60 hover:bg-black/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/10 pointer-events-none" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF5101] shadow-[0_0_8px_#FF5101]" />
-              </span>
-              <span className="text-[11px] sm:text-xs font-semibold tracking-[0.16em] uppercase text-slate-200 select-none">
-                Next-Gen Engineering Studio
-              </span>
-            </div>
+        <div className="flex w-full flex-col items-center text-center">
+          {/* Badge */}
+          <div className="hero-badge inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/60 px-4 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inset-0 rounded-full bg-[#FF5101]/50 animate-ping" />
+              <span className="relative h-2 w-2 rounded-full bg-[#FF5101] shadow-[0_0_8px_#FF5101]" />
+            </span>
 
-            {/* Main Headline */}
-            <h1 className="hero-headline mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-extrabold tracking-[-0.02em] leading-[1.1] text-white">
-              <span className="block overflow-hidden pb-1">
-                <span className="hero-headline-line block">
-                  Engineering Digital Solutions That
-                </span>
-              </span>
-
-              <span className="block overflow-hidden mt-1 sm:mt-2 pb-2">
-                <span className="hero-headline-line block">
-                  Drive Business Growth
-                </span>
-              </span>
-            </h1>
-
-            {/* Subtitle / Description */}
-            <p className="hero-subtitle mt-5 max-w-[660px] text-sm sm:text-base md:text-lg font-normal leading-relaxed text-slate-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-              DevOnionX helps startups and growing businesses build
-              high-performance websites, SaaS platforms, business systems, and
-              AI-powered solutions. From strategy to launch and ongoing support,
-              we engineer technology that moves your business forward.
-            </p>
+            <span className="text-[10px] font-semibold tracking-[0.16em] uppercase text-slate-200 sm:text-xs">
+              Next-Gen Engineering Studio
+            </span>
           </div>
 
-          {/* ============================================================
-              BOTTOM ITEMS ROW:
-              View Projects (Left) & Active Deployments (Right)
-              Always positioned together at the bottom of the main content
-          ============================================================ */}
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 w-full">
-            {/* View Projects CTA Button */}
-            <div className="hero-cta-wrap flex flex-wrap items-center gap-5">
-              {/* Primary: solid orange, hover e white fill */}
-              <DirectionalButton
-                href="/contact"
-                label="Start Your Project"
-                size="lg"
-                flairColor="#ffffff"
-                borderColor="#FF5101"
-                borderHoverColor="#ffffff"
-                textColor="#ffffff"
-                textHoverColor="#0a0a0a"
-                shadowHover="0 0 25px 4px rgba(255,81,1,0.45)"
-                className="!bg-[#FF5101] !rounded-[5px] font-semibold shadow-[0_8px_25px_rgba(255,81,1,0.35)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95 py-3.5 sm:py-5 px-7 sm:px-8"
-                rightIcon={<ArrowRight size={18} />}
-              />
+          {/* Main Heading */}
+          <h1 className="hero-headline mt-7 max-w-[1100px] text-4xl font-extrabold leading-[1.12] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[82px]">
+            <span className="hero-headline-line block">
+              Engineering Digital Solutions
+            </span>
 
-              {/* Secondary: transparent outline, hover e orange fill */}
-              <DirectionalButton
-                href="/work"
-                label="See Our Work"
-                size="lg"
-                flairColor="#FF5101"
-                borderColor="rgba(255,255,255,0.55)"
-                borderHoverColor="#FF5101"
-                textColor="#ffffff"
-                textHoverColor="#ffffff"
-                shadowHover="0 0 25px 4px rgba(255,81,1,0.35)"
-                className="!bg-black/50 backdrop-blur-md !rounded-[5px] font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-95 py-3.5 sm:py-5 px-7 sm:px-8"
-                rightIcon={<ArrowRight size={18} />}
-              />
-            </div>
+            <span className="hero-headline-line block">
+              That Drive <span className="text-[#FBCC22]">Business Growth</span>
+            </span>
+          </h1>
 
-            {/* Cyber HUD Badge: Active Deployments */}
-            <div className="hero-hud-badge group relative inline-flex items-center gap-3 rounded-xl border border-white/20 bg-black/70 px-4 py-2.5 sm:px-5 sm:py-3 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-[#FF5101]/50 hover:bg-black/85">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-px rounded-xl bg-gradient-to-r from-emerald-500/15 via-transparent to-[#FF5101]/15 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              />
-
-              <span className="font-mono text-slate-500 text-sm sm:text-base select-none">
-                [
-              </span>
-
-              <span className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_#10B981]" />
-              </span>
-
-              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium tracking-wide">
-                <span className="text-slate-300">Active Deployments:</span>
-                <span className="font-semibold text-white">10+</span>
-              </div>
-
-              <span className="font-mono text-slate-500 text-sm sm:text-base select-none">
-                ]
-              </span>
-            </div>
-          </div>
+          {/* Description */}
+          <p className="hero-subtitle mt-6 max-w-[760px] text-sm font-normal leading-relaxed text-slate-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:text-base md:text-lg">
+            DevOnionX helps startups and growing businesses build
+            high-performance websites, SaaS platforms, business systems, and
+            AI-powered solutions that move businesses forward
+          </p>
         </div>
       </Container>
     </section>

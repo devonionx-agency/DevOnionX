@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Container from "@/components/ui/Container";
 import ProcessCard from "@/components/ui/ProcessCard";
-import { processIntro, processSteps } from "@/helper/ourprocess";
+import { processSteps } from "@/helper/ourprocess";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
