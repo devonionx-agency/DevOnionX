@@ -171,7 +171,7 @@ export const VALUES = [
 
 
 // ============================================
-// TEAM FEATURES
+// Meet Our Team: TEAM FEATURES
 // ============================================
 
 export const TEAM_FEATURES = [
@@ -213,22 +213,8 @@ export const TEAM_FEATURES = [
   },
 ];
 
-
 // ============================================
-// TEAM SECTION CONTENT
-// ============================================
-
-export const TEAM_CONTENT = {
-  label: "MEET OUR TEAM",
-  title: "The People Behind",
-  colorWord: "DevOnionX.",
-  description:
-    "A passionate team of developers, designers and problem-solvers, working together to turn your ideas into powerful digital products.",
-};
-
-
-// ============================================
-// TEAM MEMBERS
+// Meet Our Team: TEAM MEMBERS
 // ============================================
 
 export const TEAM = [
@@ -237,139 +223,47 @@ export const TEAM = [
     name: "Al Mahamud",
     role: "CEO & Co-Founder",
     image: "/images/about/mahmud01.png",
-    slug: "/team/al-mahmud",
     cardColor: "#D3E8FF",
-    socials: [
-      {
-        id: 1,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-      {
-        id: 2,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 3,
-        platform: "Email",
-        url: "mailto:devonionx@gmail.com",
-      },
-    ],
   },
-
   {
     number: "02",
     name: "Jhulon Kumar Ray",
     role: "CTO & Co-Founder",
     image: "/images/about/jhulon01.png",
-    slug: "/team/jhulon-kumar-roy",
     cardColor: "#E4D9FF",
-    socials: [
-      {
-        id: 1,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-      {
-        id: 2,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 3,
-        platform: "X",
-        url: "https://x.com/username",
-      },
-    ],
   },
-
   {
     number: "03",
     name: "Hamim Siddik",
     role: "HR & Co-Founder",
     image: "/images/about/hamim01.png",
-    slug: "/team/hamim-ahmed",
     cardColor: "#D7F6E7",
-    socials: [
-      {
-        id: 1,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-      {
-        id: 2,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 3,
-        platform: "X",
-        url: "https://x.com/username",
-      },
-    ],
   },
-
   {
     number: "04",
     name: "Nadil Hossain",
     role: "COO & Co-Founder",
     image: "/images/about/nadil01.png",
-    slug: "/team/nadil-hossain",
     cardColor: "#FFE8D3",
-    socials: [
-      {
-        id: 1,
-        platform: "Behance",
-        url: "https://behance.net/username",
-      },
-      {
-        id: 2,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 3,
-        platform: "Dribbble",
-        url: "https://dribbble.com/username",
-      },
-    ],
   },
-
   {
     number: "05",
     name: "Jihad Mia",
     role: "Co-Founder",
     image: "/images/about/jihad01.png",
-    slug: "/team/jihad-mahmud",
     cardColor: "#F9D9EC",
-    socials: [
-      {
-        id: 1,
-        platform: "GitHub",
-        url: "https://github.com/username",
-      },
-      {
-        id: 2,
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/username",
-      },
-      {
-        id: 3,
-        platform: "X",
-        url: "https://x.com/username",
-      },
-    ],
   },
 ];
 
+// ----------------------------------------
+// Meet Our Team end
+// ----------------------------------------
 
 
-
-/* ─────────────────────────────────────────────
+/* ==========================================
    Mission & Vision Section
    Used in AboutMissionVision.jsx
-───────────────────────────────────────────── */
+   ==========================================*/
 
 export const MISSION_VISION = [
   {
