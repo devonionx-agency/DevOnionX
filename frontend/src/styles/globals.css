@@ -76,3 +76,76 @@ textarea {
         #ffffff 75%);
   }
 }
+/* ============================================= */
+/* Home page: TRUST & GROWTH Section */
+/* ============================================== */
+
+/* ===== Trust Home - vertical infinite slider (paste in global.css) ===== */
+
+.trust-slider {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  height: 580px;
+  overflow: hidden;
+  /* upore o nichey fade effect */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+.trust-col {
+  height: 100%;
+  overflow: hidden;
+}
+
+.trust-track {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  animation: trustScrollUp var(--trust-duration, 40s) linear infinite;
+  animation-delay: var(--trust-delay, 0s);
+}
+
+/* 2nd column (even) upore theke nichey jabe */
+.trust-col:nth-child(even) .trust-track {
+  animation-direction: reverse;
+}
+
+/* padding-bottom = gap, jate loop e jump na hoy */
+.trust-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+@keyframes trustScrollUp {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+/* hover korle pause */
+.trust-slider:hover .trust-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .trust-slider {
+    height: 460px;
+    gap: 10px;
+  }
+  .trust-group {
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-track {
+    animation: none;
+  }
+}
